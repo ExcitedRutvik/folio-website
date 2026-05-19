@@ -33,14 +33,19 @@ setInterval(updateClock, 30000);
   els.forEach(el => obs.observe(el));
 })();
 
-/* ── CITY ROTATOR ── */
+/* ── CITY ROTATOR (inline-grid, width-stable) ── */
 (function() {
   const target = document.getElementById('city-rotator');
   if (!target) return;
-  const cities = (target.dataset.cities || 'Luxembourg,London,New York,Amsterdam,Singapore,Dubai,Paris').split(',');
+  const cities = ['Luxembourg', 'London', 'New York', 'Amsterdam', 'Singapore', 'Dubai', 'Paris'];
   let i = 0;
+  const active = target.querySelector('.city-active');
+  if (!active) return;
   function tick() {
-    target.innerHTML = '<span class="city-item">' + cities[i] + '</span>';
+    active.textContent = cities[i];
+    active.classList.remove('city-active');
+    void active.offsetWidth; /* force reflow to re-trigger animation */
+    active.classList.add('city-active');
     i = (i + 1) % cities.length;
   }
   tick();
@@ -48,160 +53,58 @@ setInterval(updateClock, 30000);
 })();
 
 /* ═══════════════════════════════════════════════════════════
-   CODE TYPEWRITER — the hero terminal that "codes" the site
+   PORTFOLIO PROJECTOR — hero glass screen interactions
 ═══════════════════════════════════════════════════════════ */
 (function() {
-  const box = document.getElementById('codebox-body');
-  const fileLabel = document.getElementById('codebox-file');
-  if (!box) return;
+  const gridWrap     = document.querySelector('.hp-grid-wrap');
+  const snippetWrap  = document.querySelector('.hp-snippet-wrap');
+  const snippetStage = document.querySelector('.hp-snippet-stage');
+  const snippetUrl   = document.querySelector('.hp-snippet-url');
+  const backBtn      = document.querySelector('.hp-back');
+  if (!gridWrap) return;
 
-  /* Sequences: each is a file shown one after another */
-  const sequences = [
-    {
-      file: 'hero.html',
-      lines: [
-        ['<span class="tag">&lt;section</span> <span class="attr">class</span>=<span class="str">"hero"</span><span class="tag">&gt;</span>'],
-        ['  <span class="tag">&lt;h1&gt;</span>We build websites for'],
-        ['    ambitious brands in <span class="tag">&lt;span&gt;</span>'],
-        ['      <span class="str">"' + (window.__city || 'Luxembourg') + '"</span>'],
-        ['    <span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/h1&gt;</span>'],
-        ['  <span class="tag">&lt;p&gt;</span>From audit to launch <span class="com">// 7 days</span>'],
-        ['  <span class="tag">&lt;/p&gt;</span>'],
-        ['  <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"#audit"</span> <span class="attr">class</span>=<span class="str">"btn"</span><span class="tag">&gt;</span>'],
-        ['    Get free audit <span class="str">→</span>'],
-        ['  <span class="tag">&lt;/a&gt;</span>'],
-        ['<span class="tag">&lt;/section&gt;</span>']
-      ]
-    },
-    {
-      file: 'styles.css',
-      lines: [
-        ['<span class="fn">.hero</span> {'],
-        ['  <span class="prop">background</span>: <span class="val">#0A0A0B</span>;'],
-        ['  <span class="prop">color</span>: <span class="val">#F4F1E8</span>;'],
-        ['  <span class="prop">font-family</span>: <span class="str">"Fraunces"</span>;'],
-        ['  <span class="prop">padding</span>: <span class="num">128px</span> <span class="num">48px</span>;'],
-        ['}'],
-        [''],
-        ['<span class="fn">.accent</span> {'],
-        ['  <span class="prop">color</span>: <span class="val">#39D353</span>;'],
-        ['  <span class="prop">font-style</span>: <span class="val">italic</span>;'],
-        ['}']
-      ]
-    },
-    {
-      file: 'audit.js',
-      lines: [
-        ['<span class="kw">async function</span> <span class="fn">runAudit</span>(<span class="val">site</span>) {'],
-        ['  <span class="kw">const</span> result = <span class="kw">await</span> <span class="fn">scan</span>(site);'],
-        ['  <span class="kw">return</span> {'],
-        ['    <span class="prop">performance</span>: <span class="num">97</span>,'],
-        ['    <span class="prop">seo</span>:         <span class="num">94</span>,'],
-        ['    <span class="prop">mobile</span>:      <span class="num">96</span>,'],
-        ['    <span class="prop">accessibility</span>: <span class="num">100</span>,'],
-        ['    <span class="prop">verdict</span>: <span class="str">"ready to ship"</span>'],
-        ['  };'],
-        ['}'],
-        [''],
-        ['<span class="com">// Free for Luxembourg SMEs ✓</span>']
-      ]
-    }
-  ];
+  function showSnippet(card) {
+    var title    = card.dataset.title    || '';
+    var industry = card.dataset.industry || '';
+    var url      = card.dataset.url      || '';
+    var firstWord = title.split(' ')[0];
 
-  const speed     = 22;   /* ms per char */
-  const linePause = 90;
-  const filePause = 1100;
-  let seqIdx = 0;
+    snippetStage.innerHTML =
+      '<div class="snip">' +
+        '<div class="snip-nav">' +
+          '<span class="snip-logo">' + firstWord + '<em>·</em></span>' +
+          '<span class="snip-navlinks"><span>Work</span><span>About</span><span>Contact</span></span>' +
+        '</div>' +
+        '<div class="snip-hero">' +
+          '<span class="snip-eyebrow">' + industry + '</span>' +
+          '<h4>Shipped by<br><em>Folio Studio.</em></h4>' +
+          '<div class="snip-row">' +
+            '<span class="snip-cta">Visit live →</span>' +
+            '<span class="snip-meta">' + url + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="snip-photos">' +
+          '<div class="snip-photo p1"></div>' +
+          '<div class="snip-photo p2"></div>' +
+          '<div class="snip-photo p3"></div>' +
+        '</div>' +
+      '</div>';
 
-  function clearBox() {
-    box.innerHTML = '';
+    snippetUrl.innerHTML = url + ' · <span>shipped by Folio Studio</span>';
+    gridWrap.style.display    = 'none';
+    snippetWrap.style.display = 'flex';
   }
 
-  function appendCursor() {
-    const c = document.createElement('span');
-    c.className = 'cursor';
-    box.appendChild(c);
-    return c;
-  }
+  gridWrap.addEventListener('click', function(e) {
+    var card = e.target.closest('.hp-card');
+    if (card) showSnippet(card);
+  });
 
-  function removeCursor() {
-    const c = box.querySelector('.cursor');
-    if (c) c.remove();
-  }
-
-  async function typeLine(html, lineNum) {
-    /* Build the line element with line number */
-    const line = document.createElement('span');
-    line.className = 'code-line';
-    const ln = document.createElement('span');
-    ln.className = 'ln';
-    ln.textContent = lineNum;
-    line.appendChild(ln);
-    const content = document.createElement('span');
-    line.appendChild(content);
-    box.appendChild(line);
-    box.appendChild(document.createElement('br'));
-
-    /* Type out the actual content by parsing HTML into chunks */
-    /* Strategy: render briefly invisible, then reveal char by char */
-    const tmp = document.createElement('span');
-    tmp.innerHTML = html;
-    /* Walk text nodes & build a reveal queue */
-    const walker = document.createTreeWalker(tmp, NodeFilter.SHOW_TEXT, null);
-    const parts = [];
-    let node;
-    while ((node = walker.nextNode())) parts.push(node);
-
-    /* Mirror the structure into the content cell empty */
-    const mirror = tmp.cloneNode(true);
-    /* Empty out all text */
-    const mirrorWalker = document.createTreeWalker(mirror, NodeFilter.SHOW_TEXT, null);
-    const mirrorParts = [];
-    while ((node = mirrorWalker.nextNode())) {
-      mirrorParts.push({ node: node, full: node.nodeValue });
-      node.nodeValue = '';
-    }
-    while (mirror.firstChild) content.appendChild(mirror.firstChild);
-
-    /* Reveal character by character */
-    for (let i = 0; i < mirrorParts.length; i++) {
-      const { node: n, full } = mirrorParts[i];
-      for (let c = 0; c < full.length; c++) {
-        n.nodeValue += full[c];
-        await sleep(speed);
-      }
-    }
-  }
-
-  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
-
-  async function runSequence() {
-    while (true) {
-      const seq = sequences[seqIdx];
-      if (fileLabel) fileLabel.textContent = seq.file;
-      clearBox();
-      for (let i = 0; i < seq.lines.length; i++) {
-        await typeLine(seq.lines[i][0], String(i + 1).padStart(2, '0'));
-        await sleep(linePause);
-      }
-      appendCursor();
-      await sleep(filePause);
-      removeCursor();
-      seqIdx = (seqIdx + 1) % sequences.length;
-    }
-  }
-
-  /* Start when in view */
-  if ('IntersectionObserver' in window) {
-    const heroObs = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        runSequence();
-        heroObs.disconnect();
-      }
-    }, { threshold: 0.15 });
-    heroObs.observe(box);
-  } else {
-    runSequence();
+  if (backBtn) {
+    backBtn.addEventListener('click', function() {
+      snippetWrap.style.display = 'none';
+      gridWrap.style.display    = '';
+    });
   }
 })();
 

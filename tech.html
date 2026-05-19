@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technologies & Stack — Folio Luxembourg Web Agency</title>
+<meta name="description" content="Every framework, runtime, database, and platform Folio ships to production — picked for the project, never for the resume. Next.js, Astro, Postgres, Vercel and 40+ more tools.">
+<link rel="canonical" href="https://folio.lu/tech">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://folio.lu/tech">
+<meta property="og:title" content="Technologies & Stack — Folio Luxembourg">
+<meta property="og:description" content="40+ tools shipped to production. Next.js, Astro, Postgres, Vercel, Sanity and more.">
+<meta property="og:image" content="https://folio.lu/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Technologies & Stack — Folio">
+<meta name="twitter:description" content="40+ tools shipped to production. Picked for the project, never for the resume.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,30..100;1,9..144,300..800,30..100&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="tech.html" class="active">Tech</a>
+      <a href="industries.html">Industries</a>
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-clock" id="clock">LUX · 00:00</span>
+      <a href="contact.html" class="nav-cta">Free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="page-hero tech-hero">
+  <div class="tech-hero-glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="tech-hero-grid">
+      <div>
+        <div class="eyebrow">03 · Technologies</div>
+        <h1 style="font-size: clamp(48px, 7vw, 104px); letter-spacing: -0.04em; line-height: 0.98; margin-top: 18px;">
+          The stack we<br>build <em class="italic">everything on.</em>
+        </h1>
+        <p style="font-size: 18px; color: var(--fg-mute); max-width: 520px; margin-top: 28px; line-height: 1.65;">
+          Every framework, runtime, database, and platform we ship to production — picked for the project, never for the resume. We don't build native mobile apps; everything else on this page is fair game.
+        </p>
+        <div style="display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn-accent">Discuss your stack</a>
+          <a href="services.html" class="btn-ghost">See packages</a>
+        </div>
+        <div class="tech-meta">
+          <div>
+            <span class="tech-meta-num">40+</span>
+            <span>Tools shipped to production</span>
+          </div>
+          <div>
+            <span class="tech-meta-num">12</span>
+            <span>Languages we write daily</span>
+          </div>
+          <div>
+            <span class="tech-meta-num">0</span>
+            <span>Mobile-native projects (by design)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-hero-globe">
+        <!-- Holographic wireframe globe SVG -->
+        <div class="holo-globe">
+          <div class="holo-noise"></div>
+          <svg viewBox="-220 -220 440 440" class="holo-svg" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="holo-core" cx="50%" cy="50%" r="50%">
+                <stop offset="0%"  stop-color="rgba(57,211,83,0.18)" />
+                <stop offset="55%" stop-color="rgba(57,211,83,0.04)" />
+                <stop offset="100%" stop-color="rgba(57,211,83,0)" />
+              </radialGradient>
+              <linearGradient id="holo-meridian" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="rgba(57,211,83,0)" />
+                <stop offset="50%"  stop-color="rgba(57,211,83,0.55)" />
+                <stop offset="100%" stop-color="rgba(57,211,83,0)" />
+              </linearGradient>
+            </defs>
+            <!-- Glow core -->
+            <circle cx="0" cy="0" r="180" fill="url(#holo-core)" />
+            <!-- Latitudes -->
+            <ellipse cx="0" cy="-160" rx="96.95" ry="17.45" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
+            <ellipse cx="0" cy="-120" rx="133.42" ry="24.02" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
+            <ellipse cx="0" cy="-80" rx="156.2" ry="28.12" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
+            <ellipse cx="0" cy="-40" rx="172.77" ry="31.1" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
+            <ellipse cx="0" cy="0"   rx="180" ry="32.4" fill="none" stroke="var(--accent)" stroke-width="1.4" opacity="0.7" />
+            <ellipse cx="0" cy="40"  rx="172.77" ry="31.1" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
+            <ellipse cx="0" cy="80"  rx="156.2" ry="28.12" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
+            <ellipse cx="0" cy="120" rx="133.42" ry="24.02" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
+            <ellipse cx="0" cy="160" rx="96.95" ry="17.45" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
+            <!-- Longitudes — rotating group -->
+            <g class="holo-meridians">
+              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(0)" />
+              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(22.5)" />
+              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(45)" />
+              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(67.5)" />
+              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(90)" />
+              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(112.5)" />
+              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(135)" />
+              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(157.5)" />
+            </g>
+            <!-- Outer rings -->
+            <circle cx="0" cy="0" r="180" fill="none" stroke="rgba(244,241,232,0.18)" stroke-width="1" />
+            <circle cx="0" cy="0" r="194" fill="none" stroke="rgba(57,211,83,0.18)" stroke-width="0.6" stroke-dasharray="2 6" />
+            <!-- Data points -->
+            <circle cx="180" cy="0" r="2.4" fill="var(--accent)" opacity="0.85" />
+            <circle cx="155.88" cy="90" r="2.4" fill="var(--accent)" opacity="0.85" />
+            <circle cx="90" cy="155.88" r="2.4" fill="var(--accent)" opacity="0.85" />
+            <circle cx="0" cy="180" r="2.4" fill="var(--accent)" opacity="0.85" />
+            <circle cx="-90" cy="155.88" r="2.4" fill="var(--accent)" opacity="0.85" />
+            <circle cx="-155.88" cy="90" r="2.4" fill="var(--accent)" opacity="0.85" />
+          </svg>
+          <div class="holo-tags" aria-hidden="true">
+            <span class="holo-tag holo-tag-0">Next.js</span>
+            <span class="holo-tag holo-tag-1">Postgres</span>
+            <span class="holo-tag holo-tag-2">Vercel</span>
+            <span class="holo-tag holo-tag-3">Sanity</span>
+          </div>
+          <div class="holo-readout">
+            <div class="holo-readout-row"><span>NODE</span><span class="holo-dot"></span><span>0xA1·LU</span></div>
+            <div class="holo-readout-row"><span>UPLINK</span><span class="holo-dot"></span><span>STABLE</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FRONTEND ══ -->
+<section class="tech-block">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">01 · Frontend</div>
+      <h2 style="margin-top: 18px;">Frontend <em class="italic">& interfaces.</em></h2>
+      <p>Everything the user actually sees. We pick the lightest tool that does the job — Astro for static, Next.js for product, vanilla for editorial.</p>
+    </div>
+    <div class="tech-groups reveal">
+      <div class="tech-group-card">
+        <div class="tech-group-label">Frameworks</div>
+        <ul class="tech-items">
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">Next.js</span><span class="tech-item-body">Full-stack React. SSR / ISR. Our default for marketing + product surfaces.</span></li>
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">Astro</span><span class="tech-item-body">Static-first with islands of interactivity. Fastest LCP we ship.</span></li>
+          <li class="tech-item"><span class="tech-item-name">React</span><span class="tech-item-body">For component-rich SPAs and embedded widgets.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Vue 3 · Nuxt</span><span class="tech-item-body">When your team already lives in Vue.</span></li>
+          <li class="tech-item"><span class="tech-item-name">SvelteKit</span><span class="tech-item-body">Minimal bundle, smooth interactions.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Remix</span><span class="tech-item-body">Server-first React with proper form semantics.</span></li>
+          <li class="tech-item"><span class="tech-item-name">SolidJS</span><span class="tech-item-body">Fine-grained reactivity for performance-critical UIs.</span></li>
+        </ul>
+      </div>
+      <div class="tech-group-card">
+        <div class="tech-group-label">Type & tooling</div>
+        <ul class="tech-items">
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">TypeScript</span><span class="tech-item-body">Default on every project — strict mode.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Vite</span><span class="tech-item-body">Modern dev server + bundler.</span></li>
+          <li class="tech-item"><span class="tech-item-name">ESLint · Prettier</span><span class="tech-item-body">House style enforced in CI.</span></li>
+        </ul>
+      </div>
+      <div class="tech-group-card">
+        <div class="tech-group-label">Styling & UI</div>
+        <ul class="tech-items">
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">Tailwind CSS</span><span class="tech-item-body">Utility-first, ships zero unused CSS.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Vanilla CSS / Modules</span><span class="tech-item-body">For brand-led editorial work like this one.</span></li>
+          <li class="tech-item"><span class="tech-item-name">shadcn/ui</span><span class="tech-item-body">When we need composable, accessible primitives.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Radix · Headless UI</span><span class="tech-item-body">For complex menus, dialogs, comboboxes.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Framer Motion · GSAP</span><span class="tech-item-body">Production-grade motion design.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BACKEND ══ -->
+<section class="tech-block tech-block-alt">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">02 · Backend</div>
+      <h2 style="margin-top: 18px;">Backend <em class="italic">& APIs.</em></h2>
+      <p>Servers, APIs, edge runtimes, background jobs. We're language-agnostic — pick what suits your team, not ours.</p>
+    </div>
+    <div class="tech-groups reveal">
+      <div class="tech-group-card">
+        <div class="tech-group-label">Runtimes & frameworks</div>
+        <ul class="tech-items">
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">Node.js · Hono</span><span class="tech-item-body">Edge-ready, runs anywhere. Default for new APIs.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Node.js · Fastify</span><span class="tech-item-body">When you need raw HTTP throughput.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Node.js · NestJS</span><span class="tech-item-body">For larger, structured backends.</span></li>
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">Python · FastAPI</span><span class="tech-item-body">AI-adjacent workloads, typed pydantic models.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Python · Django</span><span class="tech-item-body">Admin-heavy, batteries-included.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Go · Gin / Echo</span><span class="tech-item-body">Low-latency services, single binary deploy.</span></li>
+          <li class="tech-item"><span class="tech-item-name">PHP · Laravel</span><span class="tech-item-body">For teams in the PHP ecosystem.</span></li>
+        </ul>
+      </div>
+      <div class="tech-group-card">
+        <div class="tech-group-label">APIs & layers</div>
+        <ul class="tech-items">
+          <li class="tech-item"><span class="tech-item-name">REST · OpenAPI</span><span class="tech-item-body">The default — typed via OpenAPI specs.</span></li>
+          <li class="tech-item"><span class="tech-item-name">GraphQL</span><span class="tech-item-body">When clients need flexible aggregation.</span></li>
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">tRPC</span><span class="tech-item-body">End-to-end type safety in TS monorepos.</span></li>
+          <li class="tech-item"><span class="tech-item-name">WebSockets · SSE</span><span class="tech-item-body">Realtime feeds, audit dashboards, live previews.</span></li>
+        </ul>
+      </div>
+      <div class="tech-group-card">
+        <div class="tech-group-label">Edge & jobs</div>
+        <ul class="tech-items">
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">Cloudflare Workers</span><span class="tech-item-body">Sub-50ms cold start, globally distributed.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Deno Deploy</span><span class="tech-item-body">Modern JS runtime at the edge.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Inngest · Trigger.dev</span><span class="tech-item-body">Background jobs, scheduled workflows.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DATA ══ -->
+<section class="tech-block">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">03 · Data layer</div>
+      <h2 style="margin-top: 18px;">Data <em class="italic">& identity.</em></h2>
+      <p>Databases, CMS, auth. The plumbing that keeps your product honest.</p>
+    </div>
+    <div class="tech-groups reveal">
+      <div class="tech-group-card">
+        <div class="tech-group-label">Databases</div>
+        <ul class="tech-items">
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">PostgreSQL</span><span class="tech-item-body">Our default RDBMS — Supabase, Neon, RDS.</span></li>
+          <li class="tech-item"><span class="tech-item-name">MySQL · PlanetScale</span><span class="tech-item-body">For teams already on MySQL.</span></li>
+          <li class="tech-item"><span class="tech-item-name">SQLite · Turso</span><span class="tech-item-body">Edge SQLite, surprisingly capable in production.</span></li>
+          <li class="tech-item"><span class="tech-item-name">MongoDB</span><span class="tech-item-body">Document store when the data really is documents.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Redis · Upstash</span><span class="tech-item-body">Cache, queues, rate limiting.</span></li>
+        </ul>
+      </div>
+      <div class="tech-group-card">
+        <div class="tech-group-label">Headless CMS</div>
+        <ul class="tech-items">
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">Sanity</span><span class="tech-item-body">Our most-shipped CMS. Real-time, structured.</span></li>
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">Payload</span><span class="tech-item-body">Self-hosted, TypeScript-native, code-first.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Contentful</span><span class="tech-item-body">For larger orgs already invested.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Strapi · Directus</span><span class="tech-item-body">Open source, self-hosted alternatives.</span></li>
+        </ul>
+      </div>
+      <div class="tech-group-card">
+        <div class="tech-group-label">Auth & identity</div>
+        <ul class="tech-items">
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">Clerk</span><span class="tech-item-body">Drop-in auth + user management for SaaS.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Auth.js</span><span class="tech-item-body">Self-hosted, framework-agnostic.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Supabase Auth</span><span class="tech-item-body">When you're already in Supabase.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INFRA ══ -->
+<section class="tech-block tech-block-alt">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">04 · Infra</div>
+      <h2 style="margin-top: 18px;">Infra <em class="italic">& integrations.</em></h2>
+      <p>Where it runs, how it ships, what it talks to. Edge-first by default.</p>
+    </div>
+    <div class="tech-groups reveal">
+      <div class="tech-group-card">
+        <div class="tech-group-label">Hosting</div>
+        <ul class="tech-items">
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">Vercel</span><span class="tech-item-body">Default for Next.js. Preview deploys on every PR.</span></li>
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">Netlify</span><span class="tech-item-body">For static-heavy Astro builds.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Cloudflare Pages</span><span class="tech-item-body">Edge-first, ultra-fast TTFB.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Railway · Fly.io · Render</span><span class="tech-item-body">For container workloads.</span></li>
+          <li class="tech-item"><span class="tech-item-name">AWS</span><span class="tech-item-body">Lambda, S3, RDS, CloudFront when you need the full toolbox.</span></li>
+        </ul>
+      </div>
+      <div class="tech-group-card">
+        <div class="tech-group-label">Integrations</div>
+        <ul class="tech-items">
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">Stripe</span><span class="tech-item-body">Payments. Every flavour — Checkout, Connect, Billing.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Resend · Loops · Postmark</span><span class="tech-item-body">Transactional + marketing email.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Twilio</span><span class="tech-item-body">SMS, voice, WhatsApp.</span></li>
+          <li class="tech-item tech-item-accent"><span class="tech-item-name">Anthropic · OpenAI</span><span class="tech-item-body">Agent workflows, AI features, chat surfaces.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Algolia · Meilisearch</span><span class="tech-item-body">Hosted search that just works.</span></li>
+        </ul>
+      </div>
+      <div class="tech-group-card">
+        <div class="tech-group-label">Observability</div>
+        <ul class="tech-items">
+          <li class="tech-item"><span class="tech-item-name">Sentry</span><span class="tech-item-body">Error tracking on every project.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Vercel Analytics · Plausible</span><span class="tech-item-body">Privacy-first analytics.</span></li>
+          <li class="tech-item"><span class="tech-item-name">Axiom · Logtail · Datadog</span><span class="tech-item-body">For deeper log + APM needs.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section" style="border-top: 1px solid var(--border);">
+  <div class="container container-narrow">
+    <div class="eyebrow reveal" style="justify-content: center;">Got something specific in mind?</div>
+    <h2 class="cta-headline reveal">Tell us the stack,<br><em class="italic">we'll fit in.</em></h2>
+    <p class="cta-sub reveal">Send us your repo, your hosting set-up, or just a screenshot of your current site. The audit covers the stack you have, not the one we wish you had.</p>
+    <div class="hero-actions reveal" style="justify-content: center;">
+      <a href="contact.html" class="btn btn-accent">Discuss your stack</a>
+      <a href="services.html" class="btn-ghost">See packages</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+        <p class="footer-tagline">Websites for ambitious brands. From Luxembourg, for the world.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-list">
+          <li><a href="services/quick-refresh.html">Quick Refresh</a></li>
+          <li><a href="services/full-rebuild.html">Full Rebuild</a></li>
+          <li><a href="services/growth.html">Growth Partner</a></li>
+          <li><a href="contact.html">Free Audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Capabilities</div>
+        <ul class="footer-list">
+          <li><a href="tech.html">Technologies</a></li>
+          <li><a href="industries.html">Industries</a></li>
+          <li><a href="work.html">Selected work</a></li>
+          <li><a href="blog/index.html">Journal</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Studio</div>
+        <ul class="footer-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="sample-audit.html">Sample audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@folio.lu">hello@folio.lu</a></li>
+          <li>+352 27 86 12 34</li>
+          <li>Luxembourg-City</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Folio · Luxembourg web agency</span>
+      <span id="footer-clock">LUX · 00:00</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script>
+  var a = document.getElementById('clock');
+  var b = document.getElementById('footer-clock');
+  function syncClock() { if (a && b) b.textContent = a.textContent; }
+  syncClock();
+  setInterval(syncClock, 30000);
+</script>
+</body>
+</html>
