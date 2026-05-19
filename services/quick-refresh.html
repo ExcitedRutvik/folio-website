@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Refresh — Website Redesign from €990 · Folio Luxembourg</title>
+<meta name="description" content="Quick Refresh: modernise your existing website in 3–5 days. From €990. Mobile, speed, SEO basics, and a new homepage. Free audit first.">
+<link rel="canonical" href="https://folio.lu/services/quick-refresh">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://folio.lu/services/quick-refresh">
+<meta property="og:title" content="Quick Refresh — Website Redesign from €990 · Folio">
+<meta property="og:description" content="Modernise your existing site in 3–5 days. New homepage, mobile optimisation, speed fixes, SEO basics. From €990.">
+<meta property="og:image" content="https://folio.lu/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Quick Refresh from €990 — Folio Luxembourg">
+<meta name="twitter:description" content="3–5 day website modernisation. Mobile, speed, SEO basics. Fixed price.">
+<meta name="twitter:image" content="https://folio.lu/assets/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Quick Refresh",
+  "provider": {"@type": "LocalBusiness", "@id": "https://folio.lu/#business"},
+  "description": "Modernise your existing website in 3–5 days. Redesigned homepage, mobile optimisation, speed improvements, SSL, SEO basics, contact form.",
+  "offers": {"@type": "Offer", "price": "990", "priceCurrency": "EUR", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "990", "maxPrice": "1990", "priceCurrency": "EUR"}},
+  "url": "https://folio.lu/services/quick-refresh"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://folio.lu/"},
+    {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://folio.lu/services"},
+    {"@type": "ListItem", "position": 3, "name": "Quick Refresh", "item": "https://folio.lu/services/quick-refresh"}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,30..100;1,9..144,300..800,30..100&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.detail-hero { padding: clamp(36px, 5vw, 64px) 0 clamp(28px, 4vw, 48px); }
+.detail-hero-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 80px; align-items: end; }
+.detail-hero h1 {
+  font-size: clamp(56px, 9vw, 130px);
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+  margin-bottom: 28px;
+}
+.detail-hero h1 .italic { color: var(--accent); }
+.detail-hero p {
+  font-size: 18px;
+  color: var(--fg-mute);
+  line-height: 1.65;
+  max-width: 540px;
+  margin-bottom: 36px;
+}
+.detail-meta { border-left: 1px solid var(--border); padding-left: 32px; padding-bottom: 20px; }
+.detail-meta-row { padding: 14px 0; border-top: 1px solid var(--border); }
+.detail-meta-row:first-child { border-top: none; }
+.detail-meta-label { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--fg-dim); margin-bottom: 6px; }
+.detail-meta-val { font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: -0.02em; }
+.detail-meta-val .italic { color: var(--accent); }
+
+/* Deliverables grid */
+.deliverables-section { padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); }
+.deliv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+.deliv-cell { background: var(--bg); padding: 36px 32px; }
+.deliv-cell:hover { background: var(--bg-2); }
+.deliv-num { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 14px; }
+.deliv-title { font-family: var(--serif); font-size: 22px; font-weight: 400; letter-spacing: -0.015em; margin-bottom: 10px; }
+.deliv-title .italic { color: var(--accent); }
+.deliv-desc { font-size: 14px; color: var(--fg-mute); line-height: 1.65; }
+
+/* Timeline */
+.timeline-section { padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); background: var(--bg-2); }
+.timeline-rail { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--bg); overflow: hidden; }
+.timeline-day { padding: 36px 28px; border-right: 1px solid var(--border); position: relative; }
+.timeline-day:last-child { border-right: none; }
+.timeline-day-num { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 12px; }
+.timeline-day-title { font-family: var(--serif); font-size: 22px; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.2; }
+.timeline-day-title .italic { color: var(--accent); }
+.timeline-day-body { font-size: 13px; color: var(--fg-mute); line-height: 1.6; }
+
+/* Ideal client */
+.ideal-section { padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); }
+.ideal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.ideal-col { border: 1px solid var(--border); border-radius: var(--r-lg); padding: 36px 32px; background: var(--bg-2); }
+.ideal-col h3 { font-family: var(--serif); font-size: 24px; font-weight: 400; margin-bottom: 20px; letter-spacing: -0.015em; }
+.ideal-col h3.yes::before { content: '✓'; color: var(--accent); margin-right: 12px; font-weight: 400; }
+.ideal-col h3.no::before { content: '×'; color: var(--red); margin-right: 12px; font-weight: 400; }
+.ideal-list li { padding: 12px 0; border-top: 1px solid var(--border); font-size: 14px; color: var(--fg); line-height: 1.5; }
+.ideal-list li:first-child { border-top: none; }
+
+@media (max-width: 960px) {
+  .detail-hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .detail-meta { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 32px; }
+  .deliv-grid { grid-template-columns: 1fr; }
+  .timeline-rail { grid-template-columns: 1fr; }
+  .timeline-day { border-right: none; border-bottom: 1px solid var(--border); }
+  .timeline-day:last-child { border-bottom: none; }
+  .ideal-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../services.html" class="active">Services</a>
+      <a href="../work.html">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../blog/index.html">Blog</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-clock" id="clock">LUX · 00:00</span>
+      <a href="../contact.html" class="nav-cta">Free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="detail-hero">
+  <div class="container">
+    <div class="eyebrow">01 / Quick Refresh</div>
+    <div class="detail-hero-grid">
+      <div>
+        <h1>A <em class="italic">refresh,</em><br>not a rebuild.</h1>
+        <p>For sites that mostly work but feel tired. We modernise your homepage, sort the speed problems, fix the SEO basics, and ship it in five days or less. Same domain, same content, brand-new first impression.</p>
+        <div class="hero-actions">
+          <a href="../contact.html" class="btn btn-accent">Book this package</a>
+          <a href="../sample-audit.html" class="btn-ghost">See a sample audit</a>
+        </div>
+      </div>
+      <div class="detail-meta">
+        <div class="detail-meta-row">
+          <div class="detail-meta-label">Starting at</div>
+          <div class="detail-meta-val">€<em class="italic">990</em></div>
+        </div>
+        <div class="detail-meta-row">
+          <div class="detail-meta-label">Up to</div>
+          <div class="detail-meta-val">€<em class="italic">1,990</em></div>
+        </div>
+        <div class="detail-meta-row">
+          <div class="detail-meta-label">Timeline</div>
+          <div class="detail-meta-val">3–5 days</div>
+        </div>
+        <div class="detail-meta-row">
+          <div class="detail-meta-label">Revisions</div>
+          <div class="detail-meta-val">1 round</div>
+        </div>
+        <div class="detail-meta-row">
+          <div class="detail-meta-label">Post-launch</div>
+          <div class="detail-meta-val">2 weeks free</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="deliverables-section">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">02 · What's included</div>
+      <h2>Six things we'll <em class="italic">fix</em> for you.</h2>
+    </div>
+
+    <div class="deliv-grid">
+      <div class="deliv-cell reveal">
+        <div class="deliv-num">01 / Homepage</div>
+        <h3 class="deliv-title">A new <em class="italic">homepage.</em></h3>
+        <p class="deliv-desc">Modern layout, clear hierarchy, prominent contact info, and a hero that actually says what your business does. Built around your existing brand or a light refresh of it.</p>
+      </div>
+      <div class="deliv-cell reveal reveal-d1">
+        <div class="deliv-num">02 / Mobile</div>
+        <h3 class="deliv-title">Mobile <em class="italic">optimisation.</em></h3>
+        <p class="deliv-desc">Responsive across every screen size. Tap targets sized correctly. Forms that work on a phone. Fixes the 60%+ of your traffic that's currently bouncing on mobile.</p>
+      </div>
+      <div class="deliv-cell reveal">
+        <div class="deliv-num">03 / Speed</div>
+        <h3 class="deliv-title">Speed <em class="italic">improvements.</em></h3>
+        <p class="deliv-desc">Image compression, lazy loading, caching headers, minified CSS/JS. Target: PageSpeed score above 80, LCP under 2.5 seconds. Faster sites rank higher and convert better.</p>
+      </div>
+      <div class="deliv-cell reveal reveal-d1">
+        <div class="deliv-num">04 / SSL & security</div>
+        <h3 class="deliv-title">SSL <em class="italic">certificate.</em></h3>
+        <p class="deliv-desc">Free Let's Encrypt SSL set up properly. Removes the "Not secure" warning, recovers the SEO penalty Google applies to HTTP sites, and reassures every visitor.</p>
+      </div>
+      <div class="deliv-cell reveal">
+        <div class="deliv-num">05 / SEO basics</div>
+        <h3 class="deliv-title">SEO <em class="italic">basics.</em></h3>
+        <p class="deliv-desc">Title tags, meta descriptions and H1 structure rewritten across your existing pages. Local schema for Luxembourg-based businesses. Submitted to Google Search Console.</p>
+      </div>
+      <div class="deliv-cell reveal reveal-d1">
+        <div class="deliv-num">06 / Contact form</div>
+        <h3 class="deliv-title">A contact <em class="italic">form</em> that works.</h3>
+        <p class="deliv-desc">Spam-protected, sends to your email reliably, and confirms to the visitor that their message went through. With your phone number and email visible everywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">03 · Timeline</div>
+      <h2>Five days,<br><em class="italic">end to end.</em></h2>
+    </div>
+
+    <div class="timeline-rail reveal">
+      <div class="timeline-day">
+        <div class="timeline-day-num">Day 0</div>
+        <div class="timeline-day-title">Free <em class="italic">audit.</em></div>
+        <div class="timeline-day-body">We review your existing site, identify what to keep, and confirm scope. No charge.</div>
+      </div>
+      <div class="timeline-day">
+        <div class="timeline-day-num">Day 1</div>
+        <div class="timeline-day-title">Kickoff <em class="italic">call.</em></div>
+        <div class="timeline-day-body">30-minute call to align on goals, gather assets, and lock the brief. We start that same day.</div>
+      </div>
+      <div class="timeline-day">
+        <div class="timeline-day-num">Day 2–3</div>
+        <div class="timeline-day-title">Design + <em class="italic">build.</em></div>
+        <div class="timeline-day-body">New homepage designed and built. Mobile-optimised. Speed work in parallel.</div>
+      </div>
+      <div class="timeline-day">
+        <div class="timeline-day-num">Day 4</div>
+        <div class="timeline-day-title">Your <em class="italic">review.</em></div>
+        <div class="timeline-day-body">You see the staging URL, leave feedback, we apply revisions. One round, structured.</div>
+      </div>
+      <div class="timeline-day">
+        <div class="timeline-day-num">Day 5</div>
+        <div class="timeline-day-title">Go <em class="italic">live.</em></div>
+        <div class="timeline-day-body">SSL, SEO meta, GA. Site goes live. Two weeks of free support starts today.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IS THIS RIGHT FOR YOU -->
+<section class="ideal-section">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">04 · Is this right for you?</div>
+      <h2>Quick Refresh <em class="italic">isn't</em> for everyone.</h2>
+      <p>It's the right call if your existing site has good bones — content, structure, brand — but feels old. It's the wrong call if you're starting from zero or want a fundamentally different site.</p>
+    </div>
+    <div class="ideal-grid">
+      <div class="ideal-col reveal">
+        <h3 class="yes">A good fit if</h3>
+        <ul class="ideal-list">
+          <li>Your site is 3–7 years old and looks like it</li>
+          <li>You're happy with your existing content and structure</li>
+          <li>You want it fast and don't need a complete redesign</li>
+          <li>You have a tight budget but still need to look credible</li>
+          <li>You're keeping the same domain and CMS</li>
+          <li>Most of your problems are speed, mobile, or SEO</li>
+        </ul>
+      </div>
+      <div class="ideal-col reveal reveal-d1">
+        <h3 class="no">Not a fit if</h3>
+        <ul class="ideal-list">
+          <li>You want to rebrand or change visual identity</li>
+          <li>You need more than 3 pages designed</li>
+          <li>You're moving from an old platform to a new one</li>
+          <li>You want a CMS to edit pages yourself</li>
+          <li>You need ongoing SEO or marketing support</li>
+          <li>You want a complete content rewrite</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top: 48px; text-align: center;" class="reveal">
+      <p style="font-size: 15px; color: var(--fg-mute); margin-bottom: 20px;">If Quick Refresh isn't right, <a href="full-rebuild.html" style="color: var(--accent); text-decoration: underline; text-underline-offset: 4px;">Full Rebuild</a> probably is.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container container-narrow">
+    <h2 class="cta-headline reveal">Start with the<br><em class="italic">free audit.</em></h2>
+    <p class="cta-sub reveal">We'll review your existing site, send the audit within 24 hours, and confirm whether Quick Refresh actually makes sense for you. Honest call.</p>
+    <div class="hero-actions reveal">
+      <a href="../contact.html" class="btn btn-accent">Request free audit</a>
+      <a href="../services.html" class="btn-ghost">Compare packages</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+        <p class="footer-tagline">Websites for ambitious brands. From Luxembourg, for the world.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-list">
+          <li><a href="quick-refresh.html">Quick Refresh</a></li>
+          <li><a href="full-rebuild.html">Full Rebuild</a></li>
+          <li><a href="growth.html">Growth Partner</a></li>
+          <li><a href="../contact.html">Free Audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Studio</div>
+        <ul class="footer-list">
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../work.html">Work</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../sample-audit.html">Sample audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@folio.lu">hello@folio.lu</a></li>
+          <li>+352 27 86 12 34</li>
+          <li>Luxembourg-City</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Folio · Luxembourg web agency</span>
+      <span>Quick Refresh · from €990</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
+</body>
+</html>

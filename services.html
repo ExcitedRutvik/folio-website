@@ -1,0 +1,674 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Design Services & Pricing — Folio Luxembourg</title>
+<meta name="description" content="Three ways to work with Folio: Quick Refresh from €990, Full Rebuild from €2,500, or Growth Partner from €4,500. Transparent pricing, fixed timelines.">
+<link rel="canonical" href="https://folio.lu/services">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://folio.lu/services">
+<meta property="og:title" content="Web Design Services & Pricing — Folio Luxembourg">
+<meta property="og:description" content="Quick Refresh from €990, Full Rebuild from €2,500, Growth Partner from €4,500. Fixed pricing, 7-day delivery.">
+<meta property="og:image" content="https://folio.lu/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Web Design Services & Pricing — Folio">
+<meta name="twitter:description" content="Quick Refresh from €990, Full Rebuild from €2,500, Growth Partner from €4,500.">
+<meta name="twitter:image" content="https://folio.lu/assets/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://folio.lu/"},
+    {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://folio.lu/services"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can you really deliver a website in 7 days?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. We audit first, design in Figma before writing code, and use a proven stack (Astro/Next.js, Vercel/Netlify) we have deployed dozens of times. Two structured review rounds keep scope tight."}
+    },
+    {
+      "@type": "Question",
+      "name": "What if I don't like the first draft?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Every package includes structured revision rounds — Quick Refresh gets one, Full Rebuild and Growth Partner get two. Changes at the Figma stage are fast and cheap."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with clients outside Luxembourg?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes — we work fully remote with clients in London, Amsterdam, New York, Paris, Singapore and Dubai."}
+    },
+    {
+      "@type": "Question",
+      "name": "Will my site rank on Google?",
+      "acceptedAnswer": {"@type": "Answer", "text": "We build a strong SEO foundation: correct title tags, schema markup, sitemap, fast load times, and mobile-first structure. Most clients see meaningful ranking movement within 6–8 weeks of launch."}
+    },
+    {
+      "@type": "Question",
+      "name": "What about ongoing changes after launch?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Full Rebuild and Growth Partner include 30 days of post-launch support. Growth Partner adds ongoing monthly SEO and competitor analysis. We are also available on a retained maintenance basis."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you charge upfront?",
+      "acceptedAnswer": {"@type": "Answer", "text": "50% on project kick-off, 50% on launch day. One fixed price in writing before we start — zero scope creep, zero surprise invoices."}
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,30..100;1,9..144,300..800,30..100&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.page-hero {
+  padding: clamp(36px, 5vw, 64px) 0 clamp(24px, 3vw, 40px);
+}
+.page-hero h1 {
+  font-size: clamp(56px, 8vw, 120px);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  max-width: 1100px;
+}
+.page-hero h1 .italic { color: var(--accent); }
+.page-hero-sub {
+  font-size: 18px;
+  color: var(--fg-mute);
+  max-width: 600px;
+  margin-top: 32px;
+  line-height: 1.65;
+}
+
+/* Comparison table */
+.pricing-section {
+  padding-bottom: clamp(80px, 10vw, 140px);
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+/* Compare table */
+.compare-wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--bg-2);
+}
+.compare-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  border-top: 1px solid var(--border);
+}
+.compare-row:first-child { border-top: none; }
+.compare-cell {
+  padding: 18px 24px;
+  font-size: 14px;
+  color: var(--fg);
+  border-left: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.compare-cell:first-child {
+  border-left: none;
+  color: var(--fg-mute);
+  font-weight: 500;
+}
+.compare-row.header .compare-cell {
+  background: var(--bg-3);
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--fg);
+  padding: 22px 24px;
+}
+.compare-row.header .compare-cell.featured {
+  color: var(--accent);
+  font-style: italic;
+  font-variation-settings: 'SOFT' 100, 'opsz' 144;
+}
+.compare-yes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.compare-no {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: rgba(244,241,232,0.04);
+  color: var(--fg-dim);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* Service deep section */
+.svc-deep {
+  padding: clamp(48px, 6vw, 80px) 0;
+  border-top: 1px solid var(--border);
+}
+.svc-deep:nth-child(even) { background: var(--bg-2); }
+.svc-deep-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: start;
+}
+.svc-deep-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.svc-deep h2 {
+  font-size: clamp(40px, 5vw, 72px);
+  letter-spacing: -0.035em;
+  line-height: 1;
+  margin-bottom: 28px;
+}
+.svc-deep h2 .italic { color: var(--accent); }
+.svc-deep-price {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.svc-deep-price .sub {
+  font-size: 16px;
+  color: var(--fg-mute);
+}
+.svc-deep-time {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--fg-dim);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.svc-deep p {
+  font-size: 16px;
+  color: var(--fg-mute);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+.svc-deep .btn { margin-top: 12px; }
+
+.svc-deliverables {
+  border-top: 1px solid var(--border);
+  padding-top: 32px;
+}
+.svc-deliverables h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-bottom: 22px;
+  font-weight: 500;
+}
+.deliver-list li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  align-items: start;
+}
+.deliver-list li:first-child { border-top: none; }
+.deliver-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 1px;
+  padding-top: 4px;
+}
+.deliver-body h5 {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.deliver-body p {
+  font-size: 13px;
+  color: var(--fg-mute);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* FAQ */
+.faq-section {
+  padding: clamp(48px, 6vw, 80px) 0;
+  border-top: 1px solid var(--border);
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: clamp(40px, 6vw, 80px);
+}
+.faq-item {
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+}
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-q {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+.faq-toggle {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-mid);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-mute);
+  font-size: 18px;
+  transition: all 0.25s var(--ease);
+  flex-shrink: 0;
+}
+.faq-item[open] .faq-toggle {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+  transform: rotate(45deg);
+}
+.faq-a {
+  margin-top: 20px;
+  font-size: 15px;
+  color: var(--fg-mute);
+  line-height: 1.7;
+  max-width: 680px;
+}
+
+@media (max-width: 960px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+  .svc-deep-grid { grid-template-columns: 1fr; }
+  .faq-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 720px) {
+  .compare-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .compare-row {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    min-width: 600px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- â•â• NAV â•â• -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog/index.html">Blog</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-clock" id="clock">LUX · 00:00</span>
+      <a href="contact.html" class="nav-cta">Free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- â•â• PAGE HERO â•â• -->
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Services & pricing</div>
+    <h1>Three ways<br>to work <em class="italic">together.</em></h1>
+    <p class="page-hero-sub">Transparent pricing, fixed timelines, no surprise invoices. Pick the package that matches what you need — or start with the free audit and decide after.</p>
+  </div>
+</section>
+
+<!-- â•â• PRICING CARDS â•â• -->
+<section class="pricing-section">
+  <div class="container">
+    <div class="pricing-grid">
+
+      <div class="price-card reveal">
+        <div class="price-tier">01 / Quick Refresh</div>
+        <h3 class="price-name">A <em class="italic">refresh,</em><br>not a rebuild.</h3>
+        <p style="font-size: 14px; color: var(--fg-mute); margin-top: 16px; line-height: 1.65;">For sites that mostly work but feel tired. We modernise the homepage, fix the speed problems and sort the SEO basics.</p>
+        <div class="price-amount">€990<span class="sub"> – €1,990</span></div>
+        <div class="price-timeline">Ready in 3–5 days · 1 round of revisions</div>
+        <ul class="price-list">
+          <li>Redesigned homepage</li>
+          <li>Mobile optimisation</li>
+          <li>Speed improvements</li>
+          <li>SSL certificate</li>
+          <li>Basic SEO fixes</li>
+          <li>Contact form</li>
+        </ul>
+        <a href="services/quick-refresh.html" class="btn">Explore Quick Refresh</a>
+      </div>
+
+      <div class="price-card featured reveal reveal-d1">
+        <div class="price-tier">02 / Full Rebuild</div>
+        <h3 class="price-name">A <em class="italic">complete</em><br>new website.</h3>
+        <p style="font-size: 14px; color: var(--fg-mute); margin-top: 16px; line-height: 1.65;">Most chosen. Modern design, SEO foundation, mobile-first build, easy CMS to edit yourself. Built to win clients.</p>
+        <div class="price-amount">€2,500<span class="sub"> – €4,500</span></div>
+        <div class="price-timeline">Delivered in 7–10 days · 2 rounds of revisions</div>
+        <ul class="price-list">
+          <li>Complete new website</li>
+          <li>SEO foundation, every page</li>
+          <li>Easy CMS — edit yourself</li>
+          <li>Mobile-first design</li>
+          <li>Google Analytics setup</li>
+          <li>1 month free support</li>
+        </ul>
+        <a href="services/full-rebuild.html" class="btn btn-accent">Explore Full Rebuild</a>
+      </div>
+
+      <div class="price-card reveal reveal-d2">
+        <div class="price-tier">03 / Growth Partner</div>
+        <h3 class="price-name">A <em class="italic">partner,</em><br>not a project.</h3>
+        <p style="font-size: 14px; color: var(--fg-mute); margin-top: 16px; line-height: 1.65;">Everything in Full Rebuild plus an ongoing SEO campaign and quarterly competitor analysis. For brands playing the long game.</p>
+        <div class="price-amount">€4,500<span class="sub"> – €8,000</span></div>
+        <div class="price-timeline">Full digital transformation · 3 months</div>
+        <ul class="price-list">
+          <li>Everything in Full Rebuild</li>
+          <li>Ongoing SEO campaign</li>
+          <li>Google My Business setup</li>
+          <li>Monthly performance report</li>
+          <li>3 months free support</li>
+          <li>Quarterly competitor analysis</li>
+        </ul>
+        <a href="services/growth.html" class="btn">Explore Growth Partner</a>
+      </div>
+
+    </div>
+
+    <!-- â•â• COMPARISON TABLE â•â• -->
+    <div class="sect-head reveal">
+      <div class="eyebrow">Compare packages</div>
+      <h2>What's <em class="italic">included.</em></h2>
+    </div>
+
+    <div class="compare-wrap reveal">
+      <div class="compare-row header">
+        <div class="compare-cell">Feature</div>
+        <div class="compare-cell">Quick Refresh</div>
+        <div class="compare-cell featured">Full Rebuild</div>
+        <div class="compare-cell">Growth Partner</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Number of pages</div>
+        <div class="compare-cell">Up to 3</div>
+        <div class="compare-cell">Up to 8</div>
+        <div class="compare-cell">Up to 12</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Mobile-first design</div>
+        <div class="compare-cell"><span class="compare-yes">✓</span></div>
+        <div class="compare-cell"><span class="compare-yes">✓</span></div>
+        <div class="compare-cell"><span class="compare-yes">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">SSL & hosting setup</div>
+        <div class="compare-cell"><span class="compare-yes">✓</span></div>
+        <div class="compare-cell"><span class="compare-yes">✓</span></div>
+        <div class="compare-cell"><span class="compare-yes">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">SEO foundation (all pages)</div>
+        <div class="compare-cell">Basic</div>
+        <div class="compare-cell"><span class="compare-yes">✓</span></div>
+        <div class="compare-cell"><span class="compare-yes">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">CMS (edit yourself)</div>
+        <div class="compare-cell"><span class="compare-no">—</span></div>
+        <div class="compare-cell"><span class="compare-yes">✓</span></div>
+        <div class="compare-cell"><span class="compare-yes">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Google Analytics + tracking</div>
+        <div class="compare-cell"><span class="compare-no">—</span></div>
+        <div class="compare-cell"><span class="compare-yes">✓</span></div>
+        <div class="compare-cell"><span class="compare-yes">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Ongoing SEO campaign</div>
+        <div class="compare-cell"><span class="compare-no">—</span></div>
+        <div class="compare-cell"><span class="compare-no">—</span></div>
+        <div class="compare-cell"><span class="compare-yes">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Monthly performance report</div>
+        <div class="compare-cell"><span class="compare-no">—</span></div>
+        <div class="compare-cell"><span class="compare-no">—</span></div>
+        <div class="compare-cell"><span class="compare-yes">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Competitor analysis</div>
+        <div class="compare-cell"><span class="compare-no">—</span></div>
+        <div class="compare-cell"><span class="compare-no">—</span></div>
+        <div class="compare-cell"><span class="compare-yes">✓</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Free post-launch support</div>
+        <div class="compare-cell">2 weeks</div>
+        <div class="compare-cell">1 month</div>
+        <div class="compare-cell">3 months</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Delivery time</div>
+        <div class="compare-cell">3–5 days</div>
+        <div class="compare-cell">7–10 days</div>
+        <div class="compare-cell">2–3 weeks</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- â•â• ADD-ON: FREE AUDIT â•â• -->
+<section class="svc-deep">
+  <div class="container">
+    <div class="svc-deep-grid reveal">
+      <div>
+        <div class="svc-deep-tag">04 / Always free</div>
+        <h2>The <em class="italic">free audit.</em></h2>
+        <div class="svc-deep-price">€0</div>
+        <div class="svc-deep-time">24h turnaround · No obligation</div>
+        <p>Before any of our paid packages — and even if you never become a client — we'll audit your existing site across 12 metrics and send you a personalised PDF report. Performance, SEO, mobile, security, design. The same report we'd give you if you paid for it.</p>
+        <a href="contact.html" class="btn btn-accent">Request your free audit</a>
+      </div>
+      <div class="svc-deliverables">
+        <h4>What's in the audit</h4>
+        <ul class="deliver-list">
+          <li>
+            <span class="deliver-num">01</span>
+            <div class="deliver-body">
+              <h5>Performance & Core Web Vitals</h5>
+              <p>Mobile and desktop PageSpeed scores, Largest Contentful Paint, Cumulative Layout Shift, Total Blocking Time.</p>
+            </div>
+          </li>
+          <li>
+            <span class="deliver-num">02</span>
+            <div class="deliver-body">
+              <h5>SEO foundation</h5>
+              <p>Title tags, meta descriptions, H1 structure, structured data, sitemap & robots.txt, internal linking.</p>
+            </div>
+          </li>
+          <li>
+            <span class="deliver-num">03</span>
+            <div class="deliver-body">
+              <h5>Mobile experience</h5>
+              <p>Responsive layout, tap targets, viewport configuration, mobile speed score, touch usability.</p>
+            </div>
+          </li>
+          <li>
+            <span class="deliver-num">04</span>
+            <div class="deliver-body">
+              <h5>Security & trust signals</h5>
+              <p>SSL/HTTPS, contact info visibility, social proof, business credentials, GDPR compliance basics.</p>
+            </div>
+          </li>
+          <li>
+            <span class="deliver-num">05</span>
+            <div class="deliver-body">
+              <h5>Plain-English recommendations</h5>
+              <p>The top 4 things to fix first, why each matters, and an estimated impact on your enquiries.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- â•â• FAQ â•â• -->
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="reveal">
+        <div class="eyebrow">Frequently asked</div>
+        <h2 style="font-size: clamp(36px, 4.5vw, 64px); letter-spacing: -0.03em; line-height: 1.05;">Questions, <em class="italic">answered.</em></h2>
+        <p style="font-size: 15px; color: var(--fg-mute); margin-top: 20px; line-height: 1.65; max-width: 320px;">Still on the fence? These are the things most people ask before getting started.</p>
+      </div>
+
+      <div>
+        <details class="faq-item reveal" open>
+          <summary>
+            <span class="faq-q">Can you really deliver a full website in seven days?</span>
+            <span class="faq-toggle">+</span>
+          </summary>
+          <p class="faq-a">Yes — for sites up to 8 pages. We hit this timeline by working from a tight brief, sending one structured draft by day 3, and keeping revisions to two rounds. We've done this 32 times this year. The pace works because we don't reinvent the wheel: we use proven design patterns, our own component library, and modern tooling.</p>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>
+            <span class="faq-q">What happens if I don't like the first draft?</span>
+            <span class="faq-toggle">+</span>
+          </summary>
+          <p class="faq-a">You get two revision rounds with every package. If the direction is genuinely off after the first round, we'll restart that section at no cost — we'd rather rebuild it than ship something you don't love. That said, this has happened twice in two years.</p>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>
+            <span class="faq-q">Do you work with clients outside Luxembourg?</span>
+            <span class="faq-toggle">+</span>
+          </summary>
+          <p class="faq-a">Yes. We work with SMEs in London, Amsterdam, New York, Paris, Singapore and Dubai. Everything is remote-first — we run discovery calls over video and ship just as fast for international clients as we do locally.</p>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>
+            <span class="faq-q">Will my site still rank well on Google?</span>
+            <span class="faq-toggle">+</span>
+          </summary>
+          <p class="faq-a">Better than before, in almost every case. The Full Rebuild includes a complete SEO foundation: keyword research, proper title tags and meta descriptions on every page, structured data, fast load times, mobile-first build. Most of our clients see ranking improvements within 4–6 weeks of launch.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>
+            <span class="faq-q">What if I need ongoing changes after launch?</span>
+            <span class="faq-toggle">+</span>
+          </summary>
+          <p class="faq-a">Every package includes free post-launch support (2 weeks to 3 months depending on tier). After that, we offer hourly support at €90/hour or monthly retainers from €500. The CMS lets you edit text and images yourself without needing us.</p>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>
+            <span class="faq-q">Do you charge upfront?</span>
+            <span class="faq-toggle">+</span>
+          </summary>
+          <p class="faq-a">50% to start, 50% on launch. For Growth Partner packages, we split it monthly across the engagement. No hidden fees, no surprise invoices.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- â•â• CTA â•â• -->
+<section class="cta-section" style="border-top: 1px solid var(--border);">
+  <div class="container container-narrow">
+    <div class="eyebrow reveal" style="justify-content: center;">Not sure which package?</div>
+    <h2 class="cta-headline reveal">Start with the<br><em class="italic">free audit.</em></h2>
+    <p class="cta-sub reveal">We'll review your current site and recommend the package that fits — only if one of them genuinely makes sense for you. Honest answers, no upsell.</p>
+    <div class="hero-actions reveal">
+      <a href="contact.html" class="btn btn-accent">Book your audit call</a>
+      <a href="sample-audit.html" class="btn-ghost">See a sample audit</a>
+    </div>
+  </div>
+</section>
+
+<!-- â•â• FOOTER â•â• -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+        <p class="footer-tagline">Websites for ambitious brands. From Luxembourg, for the world.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-list">
+          <li><a href="services/quick-refresh.html">Quick Refresh</a></li>
+          <li><a href="services/full-rebuild.html">Full Rebuild</a></li>
+          <li><a href="services/growth.html">Growth Partner</a></li>
+          <li><a href="contact.html">Free Audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Studio</div>
+        <ul class="footer-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="sample-audit.html">Sample audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@folio.lu">hello@folio.lu</a></li>
+          <li>+352 27 86 12 34</li>
+          <li>Luxembourg-City</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Folio · Luxembourg web agency</span>
+      <span>All prices in EUR, VAT excluded</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

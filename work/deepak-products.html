@@ -1,0 +1,523 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deepak Products — B2B Industrial Website Case Study · Folio Luxembourg</title>
+<meta name="description" content="How Folio built a modern B2B web presence for a 35-year Indian manufacturer with 650+ products, ISO 9001:2015 certification, and 700+ clients in 10+ countries.">
+<link rel="canonical" href="https://folio.lu/work/deepak-products">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://folio.lu/work/deepak-products">
+<meta property="og:title" content="Deepak Products — B2B Industrial Website Case Study · Folio">
+<meta property="og:description" content="Modern B2B web presence for a 35-year sheet metal and brass manufacturer. 18+ product pages, ISO trust design, WhatsApp-integrated lead capture.">
+<meta property="og:image" content="https://folio.lu/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Deepak Products Case Study — Folio Luxembourg">
+<meta name="twitter:description" content="B2B industrial website for a 35-year manufacturer. 650+ products, 10+ export countries, ISO credibility design.">
+<meta name="twitter:image" content="https://folio.lu/assets/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://folio.lu/"},
+    {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://folio.lu/work"},
+    {"@type": "ListItem", "position": 3, "name": "Deepak Products", "item": "https://folio.lu/work/deepak-products"}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,30..100;1,9..144,300..800,30..100&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+/* â”€â”€ Case study layout â”€â”€ */
+.cs-hero { padding: clamp(36px, 5vw, 64px) 0 clamp(28px, 4vw, 48px); }
+.cs-hero-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 80px; align-items: end; }
+.cs-hero h1 {
+  font-size: clamp(52px, 8vw, 120px);
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+  margin-bottom: 28px;
+}
+.cs-hero h1 .italic { color: var(--accent); }
+.cs-hero p {
+  font-size: 18px;
+  color: var(--fg-mute);
+  line-height: 1.65;
+  max-width: 540px;
+  margin-bottom: 36px;
+}
+.detail-meta { border-left: 1px solid var(--border); padding-left: 32px; padding-bottom: 20px; }
+.detail-meta-row { padding: 14px 0; border-top: 1px solid var(--border); }
+.detail-meta-row:first-child { border-top: none; }
+.detail-meta-label { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--fg-dim); margin-bottom: 6px; }
+.detail-meta-val { font-family: var(--serif); font-size: 22px; font-weight: 400; letter-spacing: -0.02em; }
+.detail-meta-val .italic { color: var(--accent); }
+.detail-meta-val.small { font-size: 16px; line-height: 1.5; }
+
+/* â”€â”€ Mock site preview â”€â”€ */
+.cs-mock-section { padding: clamp(40px, 5vw, 64px) 0; border-top: 1px solid var(--border); background: var(--bg-2); }
+.cs-mock-wrap { border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--border); }
+.cs-mock-bar { display: flex; align-items: center; gap: 8px; padding: 12px 20px; background: #111; border-bottom: 1px solid var(--border); }
+.cs-mock-dot { width: 10px; height: 10px; border-radius: 50%; }
+.cs-mock-dot.red { background: #FF5F57; }
+.cs-mock-dot.yellow { background: #FFBD2E; }
+.cs-mock-dot.green { background: #28C840; }
+.cs-mock-url { font-family: var(--mono); font-size: 11px; color: var(--fg-dim); margin-left: 8px; }
+.cs-mock-screen { background: linear-gradient(135deg, #1A2030 0%, #0E1420 100%); padding: clamp(40px, 5vw, 72px); min-height: 320px; display: flex; align-items: center; }
+.cs-mock-inner { max-width: 520px; }
+.cs-mock-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #39D353; margin-bottom: 20px; }
+.cs-mock-title { font-family: var(--serif); font-size: clamp(32px, 4vw, 54px); font-weight: 400; letter-spacing: -0.03em; color: #E8EAF0; line-height: 1.1; margin-bottom: 20px; }
+.cs-mock-title em { color: #39D353; font-style: italic; }
+.cs-mock-sub { font-size: 14px; color: #8891A5; line-height: 1.65; margin-bottom: 28px; }
+.cs-mock-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.cs-mock-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #8891A5; padding: 5px 10px; border-radius: 4px; }
+.cs-mock-tag.accent { border-color: rgba(57,211,83,0.3); color: #39D353; background: rgba(57,211,83,0.06); }
+
+/* â”€â”€ Challenge / approach â”€â”€ */
+.cs-section { padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); }
+.cs-two-col { display: grid; grid-template-columns: 0.55fr 1.45fr; gap: 80px; align-items: start; }
+.cs-two-col-label { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--fg-dim); margin-bottom: 16px; }
+.cs-two-col-num { font-family: var(--serif); font-size: clamp(80px, 12vw, 160px); font-weight: 300; letter-spacing: -0.05em; line-height: 1; color: var(--border); }
+.cs-body { font-size: 17px; color: var(--fg-mute); line-height: 1.75; max-width: 660px; }
+.cs-body p + p { margin-top: 20px; }
+.cs-body strong { color: var(--fg); font-weight: 500; }
+
+/* â”€â”€ What we built grid â”€â”€ */
+.built-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; margin-top: 56px; }
+.built-cell { background: var(--bg); padding: 32px 28px; }
+.built-cell:hover { background: var(--bg-2); }
+.built-num { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 14px; }
+.built-title { font-family: var(--serif); font-size: 20px; font-weight: 400; letter-spacing: -0.015em; margin-bottom: 10px; }
+.built-title .italic { color: var(--accent); }
+.built-desc { font-size: 13px; color: var(--fg-mute); line-height: 1.65; }
+
+/* â”€â”€ Timeline (Day 0 → Day 7) â”€â”€ */
+.timeline-rail { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--bg); overflow: hidden; margin-top: 56px; }
+.timeline-day { padding: 32px 24px; border-right: 1px solid var(--border); }
+.timeline-day:last-child { border-right: none; }
+.timeline-day-num { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 12px; }
+.timeline-day-title { font-family: var(--serif); font-size: 20px; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.2; }
+.timeline-day-title .italic { color: var(--accent); }
+.timeline-day-body { font-size: 13px; color: var(--fg-mute); line-height: 1.6; }
+
+/* â”€â”€ Design decisions â”€â”€ */
+.decision-list { margin-top: 48px; }
+.decision-item { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; padding: 36px 0; border-top: 1px solid var(--border); align-items: start; }
+.decision-item:last-child { border-bottom: 1px solid var(--border); }
+.decision-label { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--fg-dim); padding-top: 4px; }
+.decision-body { font-size: 15px; color: var(--fg-mute); line-height: 1.7; }
+.decision-body strong { color: var(--fg); font-weight: 500; }
+
+/* â”€â”€ Tech stack â”€â”€ */
+.cs-tech-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; margin-top: 48px; }
+.cs-tech-cell { background: var(--bg-2); padding: 28px 24px; }
+.cs-tech-cell-label { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--fg-dim); margin-bottom: 12px; }
+.cs-tech-cell ul { list-style: none; }
+.cs-tech-cell li { font-size: 13px; color: var(--fg); padding: 4px 0; }
+.cs-tech-cell li::before { content: '→ '; color: var(--accent); font-family: var(--mono); font-size: 11px; }
+
+/* â”€â”€ Results â”€â”€ */
+.results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; margin-top: 48px; }
+.result-cell { background: var(--bg); padding: 40px 32px; }
+.result-stat { font-family: var(--serif); font-size: clamp(40px, 6vw, 72px); font-weight: 300; letter-spacing: -0.04em; color: var(--accent); line-height: 1; margin-bottom: 12px; }
+.result-label { font-size: 14px; color: var(--fg-mute); line-height: 1.5; }
+
+/* â”€â”€ Live site link â”€â”€ */
+.live-site-link { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 13px; color: var(--accent); text-decoration: none; border: 1px solid rgba(57,211,83,0.3); padding: 12px 20px; border-radius: 6px; transition: background 0.15s; margin-top: 32px; }
+.live-site-link:hover { background: rgba(57,211,83,0.06); }
+.live-site-link svg { flex-shrink: 0; }
+
+/* â”€â”€ CTA section â”€â”€ */
+.cta-section { padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); background: var(--bg-2); text-align: center; }
+.cta-headline { font-family: var(--serif); font-size: clamp(40px, 6vw, 80px); font-weight: 400; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 20px; }
+.cta-headline .italic { color: var(--accent); }
+.cta-sub { font-size: 17px; color: var(--fg-mute); max-width: 520px; margin: 0 auto 40px; line-height: 1.65; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+@media (max-width: 960px) {
+  .cs-hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .detail-meta { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 32px; }
+  .cs-two-col { grid-template-columns: 1fr; gap: 24px; }
+  .cs-two-col-num { display: none; }
+  .built-grid { grid-template-columns: repeat(2, 1fr); }
+  .timeline-rail { grid-template-columns: repeat(2, 1fr); }
+  .timeline-day:nth-child(2) { border-right: none; }
+  .timeline-day:nth-child(1), .timeline-day:nth-child(2) { border-bottom: 1px solid var(--border); }
+  .decision-item { grid-template-columns: 1fr; gap: 12px; }
+  .cs-tech-grid { grid-template-columns: repeat(2, 1fr); }
+  .results-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .built-grid { grid-template-columns: 1fr; }
+  .timeline-rail { grid-template-columns: 1fr; }
+  .timeline-day { border-right: none; border-bottom: 1px solid var(--border); }
+  .timeline-day:last-child { border-bottom: none; }
+  .cs-tech-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../services.html">Services</a>
+      <a href="../work.html" class="active">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../blog/index.html">Blog</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-clock" id="clock">LUX · 00:00</span>
+      <a href="../contact.html" class="nav-cta">Free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="cs-hero">
+  <div class="container">
+    <div class="eyebrow">Case Study · Manufacturing · B2B</div>
+    <div class="cs-hero-grid">
+      <div>
+        <h1>B2B credibility for a <em class="italic">35-year</em> manufacturer.</h1>
+        <p>Deepak Products needed a modern web presence that matched their standing as an ISO-certified, internationally-exporting manufacturer. We built a multi-level product architecture and trust-first design that speaks to global industrial buyers.</p>
+        <div class="hero-actions" style="justify-content: flex-start;">
+          <a href="https://lustrous-cuchufli-0fd203.netlify.app/" target="_blank" rel="noopener" class="btn btn-accent">View live site ↗</a>
+          <a href="../contact.html" class="btn-ghost">Get a similar site</a>
+        </div>
+      </div>
+      <div class="detail-meta">
+        <div class="detail-meta-row">
+          <div class="detail-meta-label">Client</div>
+          <div class="detail-meta-val">Deepak <em class="italic">Products</em></div>
+        </div>
+        <div class="detail-meta-row">
+          <div class="detail-meta-label">Industry</div>
+          <div class="detail-meta-val small">Sheet Metal &amp;<br>Brass Manufacturing</div>
+        </div>
+        <div class="detail-meta-row">
+          <div class="detail-meta-label">Founded</div>
+          <div class="detail-meta-val"><em class="italic">1985</em> · Jamnagar</div>
+        </div>
+        <div class="detail-meta-row">
+          <div class="detail-meta-label">Delivery</div>
+          <div class="detail-meta-val">7 days</div>
+        </div>
+        <div class="detail-meta-row">
+          <div class="detail-meta-label">Package</div>
+          <div class="detail-meta-val small">Full Rebuild +<br>Product Catalog</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOCK SITE PREVIEW -->
+<section class="cs-mock-section">
+  <div class="container">
+    <div class="cs-mock-wrap reveal">
+      <div class="cs-mock-bar">
+        <span class="cs-mock-dot red"></span>
+        <span class="cs-mock-dot yellow"></span>
+        <span class="cs-mock-dot green"></span>
+        <span class="cs-mock-url">lustrous-cuchufli-0fd203.netlify.app</span>
+      </div>
+      <div class="cs-mock-screen">
+        <div class="cs-mock-inner">
+          <div class="cs-mock-kicker">ISO 9001:2015 Certified · Est. 1985 · D&amp;B D-U-N-S Registered</div>
+          <h2 class="cs-mock-title">Precision Sheet Metal &amp;<br><em>Brass Components</em></h2>
+          <p class="cs-mock-sub">Supplying 700+ clients across 10+ countries. From Jamnagar, India — the brass capital of the world — to your production line.</p>
+          <div class="cs-mock-tags">
+            <span class="cs-mock-tag accent">650+ Products</span>
+            <span class="cs-mock-tag accent">10+ Countries</span>
+            <span class="cs-mock-tag accent">40+ Years</span>
+            <span class="cs-mock-tag">Sheet Metal Parts</span>
+            <span class="cs-mock-tag">Modular Sockets</span>
+            <span class="cs-mock-tag">Brass Components</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHALLENGE -->
+<section class="cs-section">
+  <div class="container">
+    <div class="cs-two-col">
+      <div>
+        <div class="cs-two-col-label">01 / Challenge</div>
+        <div class="cs-two-col-num reveal">01</div>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom: 24px;">The problem</div>
+        <h2 class="reveal" style="font-size: clamp(32px, 4vw, 52px); font-weight: 400; letter-spacing: -0.03em; margin-bottom: 32px; line-height: 1.1;">A world-class manufacturer with a website that said otherwise.</h2>
+        <div class="cs-body">
+          <p>Deepak Products has been manufacturing precision sheet metal and brass components since 1985. With ISO 9001:2015 certification, D&amp;B D-U-N-S registration, and over 700 clients across 10 countries, they are by every measure a serious, export-grade supplier.</p>
+          <p>Their web presence did not reflect this. International buyers — engineers, procurement managers, OEMs — were landing on a site that undermined the credibility built over four decades. <strong>In industrial B2B, your website is often the only sales collateral a buyer sees before deciding whether to request a quote.</strong></p>
+          <p>The second challenge was structural: Deepak Products manufactures 650+ products across three distinct categories — Sheet Metal Parts, Modular Sockets, and Brass &amp; Other Products — each with multiple subcategories. The navigation architecture needed to surface this depth without overwhelming a buyer looking for one specific component.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE BUILT -->
+<section class="cs-section" style="background: var(--bg-2);">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">02 / Solution</div>
+      <h2>Six things we <em class="italic">built.</em></h2>
+    </div>
+
+    <div class="built-grid">
+      <div class="built-cell reveal">
+        <div class="built-num">01 / Architecture</div>
+        <h3 class="built-title">Multi-level product <em class="italic">navigation.</em></h3>
+        <p class="built-desc">Three top-level product categories (Sheet Metal, Modular Sockets, Other Products) with nested subcategory menus. Each category has its own section page — 18+ pages total — so buyers can browse by product type without friction.</p>
+      </div>
+      <div class="built-cell reveal reveal-d1">
+        <div class="built-num">02 / Trust design</div>
+        <h3 class="built-title">ISO credibility <em class="italic">layer.</em></h3>
+        <p class="built-desc">ISO 9001:2015 certification and D&amp;B D-U-N-S registration are featured above the fold. Client count (700+), export reach (10+ countries), and 40-year history are quantified — not buried in an About page.</p>
+      </div>
+      <div class="built-cell reveal reveal-d2">
+        <div class="built-num">03 / Conversion</div>
+        <h3 class="built-title">WhatsApp-first <em class="italic">lead capture.</em></h3>
+        <p class="built-desc">For B2B buyers in India and the Middle East, WhatsApp is the primary business communication channel. We integrated a persistent WhatsApp CTA throughout — a direct line to the sales team, zero friction.</p>
+      </div>
+      <div class="built-cell reveal">
+        <div class="built-num">04 / Narrative</div>
+        <h3 class="built-title">Scroll-driven <em class="italic">homepage.</em></h3>
+        <p class="built-desc">Eight sections, each advancing a B2B sales narrative: who we are → what we make → industries we serve → how we manufacture → our certifications → key clients → where we export → how to reach us.</p>
+      </div>
+      <div class="built-cell reveal reveal-d1">
+        <div class="built-num">05 / Industries</div>
+        <h3 class="built-title">7 vertical <em class="italic">sectors.</em></h3>
+        <p class="built-desc">Automotive, Electrical, Electronics, Hardware, Construction, HVAC, and Plumbing — each industry is named and called out, so buyers self-identify and understand Deepak Products supplies their sector.</p>
+      </div>
+      <div class="built-cell reveal reveal-d2">
+        <div class="built-num">06 / Performance</div>
+        <h3 class="built-title">Edge-deployed, <em class="italic">globally fast.</em></h3>
+        <p class="built-desc">Deployed on Netlify's global CDN — fast everywhere from Jamnagar to Germany. Static HTML, zero JavaScript frameworks, optimised images. The site loads in under 2 seconds on a mobile connection in India.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="cs-section">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">03 / Process</div>
+      <h2>Day zero to <em class="italic">live.</em></h2>
+    </div>
+
+    <div class="timeline-rail">
+      <div class="timeline-day reveal">
+        <div class="timeline-day-num">Day 0–1</div>
+        <h3 class="timeline-day-title"><em class="italic">Discovery</em> &amp; audit</h3>
+        <p class="timeline-day-body">Full review of existing site, product catalog structure, export markets, certifications. Brand direction set: corporate credibility, not startup minimalism.</p>
+      </div>
+      <div class="timeline-day reveal reveal-d1">
+        <div class="timeline-day-num">Day 2–3</div>
+        <h3 class="timeline-day-title"><em class="italic">Architecture</em> &amp; design</h3>
+        <p class="timeline-day-body">Information architecture mapped for 650+ products. Navigation hierarchy designed. Visual language established: clean corporate palette with international B2B appeal.</p>
+      </div>
+      <div class="timeline-day reveal reveal-d2">
+        <div class="timeline-day-num">Day 4–6</div>
+        <h3 class="timeline-day-title"><em class="italic">Build</em> &amp; content</h3>
+        <p class="timeline-day-body">18+ pages built. All product sections, the homepage narrative, industry verticals, certifications, and the production process flow. Content copy written throughout.</p>
+      </div>
+      <div class="timeline-day reveal reveal-d3">
+        <div class="timeline-day-num">Day 7</div>
+        <h3 class="timeline-day-title">Live on <em class="italic">Netlify.</em></h3>
+        <p class="timeline-day-body">Deployed to Netlify CDN. WhatsApp integration tested. Mobile verified on 5 device sizes. Google indexing submitted. Handover complete.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN DECISIONS -->
+<section class="cs-section" style="background: var(--bg-2);">
+  <div class="container">
+    <div class="cs-two-col">
+      <div>
+        <div class="cs-two-col-label">04 / Design</div>
+        <div class="cs-two-col-num reveal">04</div>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom: 24px;">Design decisions</div>
+        <h2 class="reveal" style="font-size: clamp(28px, 3.5vw, 44px); font-weight: 400; letter-spacing: -0.03em; margin-bottom: 8px; line-height: 1.1;">Every choice made<br>for <em class="italic">industrial buyers.</em></h2>
+
+        <div class="decision-list">
+          <div class="decision-item">
+            <div class="decision-label">Corporate palette,<br>not startup aesthetic</div>
+            <div class="decision-body">Dark editorial design works for Folio's own brand — but not for a 40-year manufacturer whose buyers are procurement managers at OEMs. We chose a <strong>clean, light-on-dark-navy palette</strong> that signals authority and international professionalism. The buyer seeing this site must immediately feel they are dealing with a serious supplier.</div>
+          </div>
+          <div class="decision-item">
+            <div class="decision-label">Credentials<br>above the fold</div>
+            <div class="decision-body">ISO 9001:2015 and D&amp;B D-U-N-S are not decorations — they are procurement requirements for many corporate buyers. <strong>Placing certifications in the first viewport</strong> prevents the question "are they certified?" from ever forming. It says: qualified supplier, vetted, proceed.</div>
+          </div>
+          <div class="decision-item">
+            <div class="decision-label">WhatsApp over<br>contact forms</div>
+            <div class="decision-body">In B2B markets across India, the Middle East, and Southeast Asia, <strong>WhatsApp is the default business communication tool</strong>, not email. A WhatsApp button gets a same-day response; a contact form gets a 48-hour wait. We integrated WhatsApp as the primary CTA because it matches how the buyer already works.</div>
+          </div>
+          <div class="decision-item">
+            <div class="decision-label">Numbers,<br>not vague claims</div>
+            <div class="decision-body">"Experience" and "quality" are meaningless on a B2B site. <strong>40 years, 700+ clients, 10+ countries, 650+ products</strong> — these are claims a procurement team can assess. Every metric on the site is specific, verifiable, and chosen because it answers a question buyers actually ask during vendor evaluation.</div>
+          </div>
+          <div class="decision-item">
+            <div class="decision-label">Static HTML,<br>zero CMS lock-in</div>
+            <div class="decision-body">A WordPress site for a 650+ product catalog is a maintenance liability. <strong>Pure HTML/CSS with no server-side dependencies</strong> means near-zero downtime, no plugin updates, no security surface, and a site that loads from a Netlify CDN edge node closest to the visitor — whether they're in Jamnagar or Germany.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="cs-section">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">05 / Technology</div>
+      <h2>What we <em class="italic">built with.</em></h2>
+    </div>
+
+    <div class="cs-tech-grid">
+      <div class="cs-tech-cell">
+        <div class="cs-tech-cell-label">Frontend</div>
+        <ul>
+          <li>Static HTML5</li>
+          <li>CSS3 (Custom props)</li>
+          <li>Vanilla JavaScript</li>
+          <li>No frameworks</li>
+        </ul>
+      </div>
+      <div class="cs-tech-cell">
+        <div class="cs-tech-cell-label">Infrastructure</div>
+        <ul>
+          <li>Netlify CDN</li>
+          <li>Global edge deploy</li>
+          <li>HTTPS / SSL</li>
+          <li>Instant rollback</li>
+        </ul>
+      </div>
+      <div class="cs-tech-cell">
+        <div class="cs-tech-cell-label">Integrations</div>
+        <ul>
+          <li>WhatsApp Business API</li>
+          <li>Google Maps embed</li>
+          <li>Google Search Console</li>
+          <li>Multi-level nav JS</li>
+        </ul>
+      </div>
+      <div class="cs-tech-cell">
+        <div class="cs-tech-cell-label">Performance targets</div>
+        <ul>
+          <li>LCP &lt; 2.5s</li>
+          <li>Mobile-first responsive</li>
+          <li>5 breakpoints tested</li>
+          <li>Optimised images</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="cs-section" style="background: var(--bg-2);">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">06 / Result</div>
+      <h2>A web presence that earns <em class="italic">trust.</em></h2>
+    </div>
+
+    <div class="results-grid">
+      <div class="result-cell reveal">
+        <div class="result-stat">18+</div>
+        <div class="result-label">Product pages across three categories and multiple subcategories — the full catalog surfaced, navigable, and indexed by Google.</div>
+      </div>
+      <div class="result-cell reveal reveal-d1">
+        <div class="result-stat">10+</div>
+        <div class="result-label">Export markets served — the site is built for an international audience, not just the domestic Indian market.</div>
+      </div>
+      <div class="result-cell reveal reveal-d2">
+        <div class="result-stat">7</div>
+        <div class="result-label">Industry verticals prominently featured — buyers self-identify and confirm Deepak Products supplies their sector within seconds.</div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;" class="reveal">
+      <a href="https://lustrous-cuchufli-0fd203.netlify.app/" target="_blank" rel="noopener" class="live-site-link">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 13L13 1M13 1H5M13 1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        View live site — lustrous-cuchufli-0fd203.netlify.app
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container container-narrow">
+    <h2 class="cta-headline reveal">Need a site that<br>works as hard as<br>you <em class="italic">do?</em></h2>
+    <p class="cta-sub reveal">We start with a free audit of your current site — no charge, no obligation. You'll know exactly what's holding you back within 24 hours.</p>
+    <div class="hero-actions reveal">
+      <a href="../contact.html" class="btn btn-accent">Get your free audit</a>
+      <a href="../work.html" class="btn-ghost">See all work</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+        <p class="footer-tagline">Websites for ambitious brands. From Luxembourg, for the world.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-list">
+          <li><a href="../services/quick-refresh.html">Quick Refresh</a></li>
+          <li><a href="../services/full-rebuild.html">Full Rebuild</a></li>
+          <li><a href="../services/growth.html">Growth Partner</a></li>
+          <li><a href="../contact.html">Free Audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Studio</div>
+        <ul class="footer-list">
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../work.html">Work</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../sample-audit.html">Sample audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@folio.lu">hello@folio.lu</a></li>
+          <li>+352 27 86 12 34</li>
+          <li>Luxembourg-City</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Folio · Luxembourg web agency</span>
+      <span>Case Study · Deepak Products</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
+</body>
+</html>

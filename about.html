@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Folio — Luxembourg Web Agency, 7-Day Rebuilds</title>
+<meta name="description" content="Folio is a small, opinionated web agency in Luxembourg. We rebuild websites in 7 days for ambitious SMEs across Europe and beyond.">
+<link rel="canonical" href="https://folio.lu/about">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://folio.lu/about">
+<meta property="og:title" content="About Folio — Luxembourg Web Agency, 7-Day Rebuilds">
+<meta property="og:description" content="Folio is a small, opinionated web agency in Luxembourg. We rebuild websites in 7 days for ambitious SMEs across Europe and beyond.">
+<meta property="og:image" content="https://folio.lu/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Folio — Luxembourg Web Agency">
+<meta name="twitter:description" content="Founded 2024. 3 full-timers. Fixed pricing, 7-day delivery, audit-first process.">
+<meta name="twitter:image" content="https://folio.lu/assets/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://folio.lu/"},
+    {"@type": "ListItem", "position": 2, "name": "About", "item": "https://folio.lu/about"}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,30..100;1,9..144,300..800,30..100&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.page-hero { padding: clamp(36px, 5vw, 64px) 0 clamp(28px, 4vw, 48px); }
+.page-hero h1 {
+  font-size: clamp(56px, 9vw, 140px);
+  letter-spacing: -0.04em;
+  line-height: 0.96;
+  max-width: 1200px;
+}
+.page-hero h1 .italic { color: var(--accent); }
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 96px);
+  margin-top: clamp(48px, 6vw, 80px);
+  padding-top: clamp(48px, 6vw, 80px);
+  border-top: 1px solid var(--border);
+}
+.intro-grid p {
+  font-size: 18px;
+  color: var(--fg-mute);
+  line-height: 1.75;
+}
+.intro-grid p:first-child { color: var(--fg); font-size: 20px; }
+.intro-grid p .italic { color: var(--accent); }
+
+/* Manifesto */
+.manifesto-section { padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); }
+.manifesto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+.manifesto-item { background: var(--bg); padding: 48px 40px; display: flex; flex-direction: column; gap: 14px; }
+.manifesto-item:hover { background: var(--bg-2); }
+.manifesto-num { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; color: var(--accent); }
+.manifesto-title { font-family: var(--serif); font-size: 28px; font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; }
+.manifesto-title .italic { color: var(--accent); }
+.manifesto-body { font-size: 14px; color: var(--fg-mute); line-height: 1.7; }
+
+/* Story */
+.story-section { padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); background: var(--bg-2); }
+.story-grid { display: grid; grid-template-columns: 0.5fr 1.5fr; gap: 80px; }
+.story-side { position: sticky; top: 100px; align-self: start; }
+.story-side .eyebrow { display: block; margin-bottom: 12px; }
+.story-side h2 { font-size: clamp(36px, 4.5vw, 64px); letter-spacing: -0.03em; line-height: 1.05; }
+.story-side h2 .italic { color: var(--accent); }
+.story-content { display: flex; flex-direction: column; gap: 24px; }
+.story-content p { font-size: 16px; color: var(--fg-mute); line-height: 1.75; }
+.story-content p:first-child { color: var(--fg); font-size: 18px; }
+.story-content .pullquote {
+  border-left: 2px solid var(--accent);
+  padding: 16px 0 16px 28px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+  color: var(--fg);
+  font-variation-settings: 'SOFT' 100, 'opsz' 144;
+  margin: 12px 0;
+}
+
+/* Team */
+.team-section { padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); }
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.team-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+.team-photo {
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(135deg, var(--bg-3) 0%, var(--bg-4) 100%);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.team-photo::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    45deg, transparent, transparent 24px,
+    rgba(244,241,232,0.025) 24px, rgba(244,241,232,0.025) 25px
+  );
+}
+.team-initials {
+  font-family: var(--serif);
+  font-size: 88px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--fg);
+  font-variation-settings: 'SOFT' 100, 'opsz' 144;
+  letter-spacing: -0.04em;
+  position: relative; z-index: 1;
+}
+.team-body { padding: 28px 30px 32px; }
+.team-name { font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: -0.015em; margin-bottom: 4px; }
+.team-role { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+.team-bio { font-size: 14px; color: var(--fg-mute); line-height: 1.65; }
+
+/* Numbers strip */
+.about-stats { padding: clamp(40px, 5vw, 64px) 0; border-top: 1px solid var(--border); background: var(--bg-2); }
+
+@media (max-width: 960px) {
+  .intro-grid { grid-template-columns: 1fr; gap: 24px; padding-top: 32px; margin-top: 32px; }
+  .manifesto-grid { grid-template-columns: 1fr; }
+  .story-grid { grid-template-columns: 1fr; gap: 32px; }
+  .story-side { position: static; }
+  .team-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog/index.html">Blog</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-clock" id="clock">LUX · 00:00</span>
+      <a href="contact.html" class="nav-cta">Free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">About Folio</div>
+    <h1>A small, opinionated<br>web agency from <em class="italic">Luxembourg.</em></h1>
+
+    <div class="intro-grid">
+      <p>We build websites for ambitious SMEs — Luxembourg, London, Amsterdam, New York, Paris, Singapore, Dubai. <em class="italic">Most agencies overcomplicate it.</em> We don't.</p>
+      <p>Founded in 2024 with one rule: every site we ship should be faster, sharper, and more profitable than the one it replaces. No long discovery phases. No bloated retainers. No theatre — just sites that work, delivered when we said they'd be delivered.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto-section">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">How we work</div>
+      <h2>Six things we<br>do <em class="italic">differently.</em></h2>
+      <p>The principles behind how we run projects. They're why we can deliver in seven days while most agencies need seven weeks.</p>
+    </div>
+
+    <div class="manifesto-grid">
+      <div class="manifesto-item reveal">
+        <span class="manifesto-num">01 / Speed is the feature</span>
+        <h3 class="manifesto-title">Seven days, <em class="italic">always.</em></h3>
+        <p class="manifesto-body">Most agencies treat timelines as suggestions. We treat them as commitments. Quick Refresh ships in 5 days. Full Rebuild ships in 10. Growth Partner kicks off within 2 weeks. We hit those numbers because the alternative is unacceptable.</p>
+      </div>
+      <div class="manifesto-item reveal reveal-d1">
+        <span class="manifesto-num">02 / Pricing is fixed</span>
+        <h3 class="manifesto-title">No <em class="italic">surprise</em> invoices.</h3>
+        <p class="manifesto-body">Every package has a fixed price range, posted publicly on the services page. We confirm the exact number before any work starts. Scope changes get quoted in writing before they happen. You'll never get a bill you didn't expect.</p>
+      </div>
+      <div class="manifesto-item reveal">
+        <span class="manifesto-num">03 / Audit before action</span>
+        <h3 class="manifesto-title">The audit is <em class="italic">free.</em></h3>
+        <p class="manifesto-body">We won't quote you without seeing your site first. Every prospect gets a free 12-metric audit and a PDF report — even if they never become a client. It's the only honest way to recommend a package.</p>
+      </div>
+      <div class="manifesto-item reveal reveal-d1">
+        <span class="manifesto-num">04 / Design then code</span>
+        <h3 class="manifesto-title">Every screen, <em class="italic">designed.</em></h3>
+        <p class="manifesto-body">No "wireframe and iterate in code" nonsense. Every page is designed in Figma to pixel completion before we touch the codebase. You see and approve direction before we commit to building. Saves you days, saves us weeks.</p>
+      </div>
+      <div class="manifesto-item reveal">
+        <span class="manifesto-num">05 / Lean tech</span>
+        <h3 class="manifesto-title">Modern stack. <em class="italic">No bloat.</em></h3>
+        <p class="manifesto-body">Astro, Next.js, Sanity, Vercel, Cloudflare. We don't use WordPress unless you explicitly need it. Our sites typically score 95+ on PageSpeed out of the box — because they're built lean, not retrofitted lean.</p>
+      </div>
+      <div class="manifesto-item reveal reveal-d1">
+        <span class="manifesto-num">06 / Measure everything</span>
+        <h3 class="manifesto-title">Numbers, not <em class="italic">vibes.</em></h3>
+        <p class="manifesto-body">Every site we launch has analytics + conversion tracking from day one. We report on real numbers — traffic, rankings, enquiries — not "the site looks great." If a change doesn't improve a metric, we change it back.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-side reveal">
+        <div class="eyebrow">The story</div>
+        <h2>Why we<br><em class="italic">started.</em></h2>
+      </div>
+      <div class="story-content">
+        <p class="reveal">After a decade across product design and engineering — at agencies, in-house teams, and on freelance contracts — we kept seeing the same thing: small businesses being charged €15–30k for websites that should cost a third of that, delivered in a quarter of the time.</p>
+        <p class="reveal reveal-d1">The pattern was the same everywhere. Long discovery phases dressing up a basic brief. Bloated retainers padding the invoice. Endless revisions because nothing was actually designed before the build started. By the time the site launched, the client had spent six months and forgotten why they started.</p>
+        <p class="reveal reveal-d2 pullquote">Most agencies sell complexity. We sell the opposite: speed, predictability, and a finished site you can be proud of.</p>
+        <p class="reveal reveal-d3">Folio was started to do this properly. Three principles: fixed pricing, fixed timelines, design before code. No exceptions. We pick a small number of projects each month, deliver them on time, and move on. The clients we love are the ones who don't want to hand-hold an agency for a year — they want to launch, see results, and get back to running their business.</p>
+        <p class="reveal">Based in Luxembourg. Working with clients across Europe, the UK, the US, and Asia. Small team, sharp focus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">The team</div>
+      <h2>Small team,<br><em class="italic">deep bench.</em></h2>
+      <p>Three full-timers in Luxembourg, plus a trusted network of specialists we call on for specific projects (copy, photography, illustration, motion).</p>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-photo"><span class="team-initials">EM</span></div>
+        <div class="team-body">
+          <div class="team-name">Ã‰lise Marchant</div>
+          <div class="team-role">Founder · Design</div>
+          <p class="team-bio">Twelve years across product design and brand. Previously at a design studio in Paris and an in-house team in Amsterdam. Leads every Folio project from brief to launch.</p>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-d1">
+        <div class="team-photo"><span class="team-initials">TR</span></div>
+        <div class="team-body">
+          <div class="team-name">Thomas Roux</div>
+          <div class="team-role">Co-Founder · Engineering</div>
+          <p class="team-bio">Ten years building modern web apps with Next.js, Astro and headless CMS. Obsessed with Core Web Vitals. Speaks French, English, Luxembourgish.</p>
+        </div>
+      </div>
+      <div class="team-card reveal reveal-d2">
+        <div class="team-photo"><span class="team-initials">SA</span></div>
+        <div class="team-body">
+          <div class="team-name">Sofia Almeida</div>
+          <div class="team-role">SEO & Growth</div>
+          <p class="team-bio">Former in-house SEO lead for a Luxembourg SaaS. Handles all Growth Partner accounts — keyword research, content strategy, technical SEO, monthly reporting.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="about-stats">
+  <div class="container">
+    <div class="grid-4">
+      <div class="reveal">
+        <div class="stat-num"><span data-count="2024">0</span></div>
+        <div class="stat-label">Founded<br>in Luxembourg</div>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="stat-num"><span data-count="3">0</span></div>
+        <div class="stat-label">Full-time<br>team members</div>
+      </div>
+      <div class="reveal reveal-d2">
+        <div class="stat-num"><span data-count="32">0</span><span class="accent-color">+</span></div>
+        <div class="stat-label">Websites shipped<br>in the past year</div>
+      </div>
+      <div class="reveal reveal-d3">
+        <div class="stat-num"><span data-count="7">0</span></div>
+        <div class="stat-label">Cities we<br>currently serve</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container container-narrow">
+    <h2 class="cta-headline reveal">Let's <em class="italic">work</em><br>together.</h2>
+    <p class="cta-sub reveal">Start with the free audit. We'll review your existing site, send a PDF report within 24 hours, and tell you honestly whether we're the right fit.</p>
+    <div class="hero-actions reveal">
+      <a href="contact.html" class="btn btn-accent">Get your free audit</a>
+      <a href="work.html" class="btn-ghost">See our work</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+        <p class="footer-tagline">Websites for ambitious brands. From Luxembourg, for the world.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-list">
+          <li><a href="services/quick-refresh.html">Quick Refresh</a></li>
+          <li><a href="services/full-rebuild.html">Full Rebuild</a></li>
+          <li><a href="services/growth.html">Growth Partner</a></li>
+          <li><a href="contact.html">Free Audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Studio</div>
+        <ul class="footer-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="sample-audit.html">Sample audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@folio.lu">hello@folio.lu</a></li>
+          <li>+352 27 86 12 34</li>
+          <li>Luxembourg-City</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Folio · Luxembourg web agency</span>
+      <span>Founded 2024 · 3-person team</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

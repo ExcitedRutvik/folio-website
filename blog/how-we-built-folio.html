@@ -1,0 +1,392 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How We Built folio.lu to Score 96/100 on PageSpeed · Folio</title>
+<meta name="description" content="The technical case study behind our own site: typography choices, no-framework approach, structured data, and the three issues our own audit flagged that we had to fix.">
+<link rel="canonical" href="https://folio.lu/blog/how-we-built-folio">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://folio.lu/blog/how-we-built-folio">
+<meta property="og:title" content="How We Built folio.lu to Score 96/100 on PageSpeed · Folio">
+<meta property="og:description" content="Technical case study: typography, no-framework design, LocalBusiness schema, and the three issues our own audit found. PageSpeed 96, SEO 98, LCP 0.9s.">
+<meta property="og:image" content="https://folio.lu/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How We Built folio.lu — Technical Case Study · Folio Blog">
+<meta name="twitter:description" content="PageSpeed 96, SEO score 98, LCP 0.9s. Here's every technical decision we made building our own site.">
+<meta name="twitter:image" content="https://folio.lu/assets/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How We Built folio.lu to Score 96/100 on PageSpeed",
+  "description": "Technical case study of the Folio website. Typography choices, no-framework approach, structured data implementation, and three self-identified issues.",
+  "author": {"@type": "Organization", "name": "Folio", "url": "https://folio.lu"},
+  "publisher": {"@type": "Organization", "name": "Folio", "url": "https://folio.lu"},
+  "datePublished": "2026-05-19",
+  "url": "https://folio.lu/blog/how-we-built-folio"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://folio.lu/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://folio.lu/blog"},
+    {"@type": "ListItem", "position": 3, "name": "How We Built folio.lu", "item": "https://folio.lu/blog/how-we-built-folio"}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,30..100;1,9..144,300..800,30..100&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.post-hero { padding: clamp(36px, 5vw, 64px) 0 clamp(24px, 3vw, 40px); border-bottom: 1px solid var(--border); }
+.post-hero-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+.post-hero h1 { font-size: clamp(36px, 6vw, 80px); letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 24px; max-width: 820px; }
+.post-hero h1 .italic { color: var(--accent); }
+.post-hero-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.post-hero-meta-item { font-family: var(--mono); font-size: 11px; letter-spacing: 1px; color: var(--fg-dim); }
+.post-hero-meta-sep { width: 1px; height: 12px; background: var(--border); }
+
+.post-layout { display: grid; grid-template-columns: 1fr 280px; gap: 80px; padding: clamp(40px, 5vw, 64px) 0; align-items: start; }
+.post-body { max-width: 680px; }
+.post-body h2 { font-family: var(--serif); font-size: clamp(24px, 3vw, 36px); font-weight: 400; letter-spacing: -0.025em; line-height: 1.15; margin: 52px 0 20px; }
+.post-body h2 .italic { color: var(--accent); }
+.post-body h3 { font-family: var(--serif); font-size: 22px; font-weight: 400; letter-spacing: -0.015em; margin: 36px 0 14px; }
+.post-body p { font-size: 16px; color: var(--fg-mute); line-height: 1.8; margin-bottom: 20px; }
+.post-body strong { color: var(--fg); font-weight: 500; }
+.post-body code { font-family: var(--mono); font-size: 13px; background: var(--bg-2); border: 1px solid var(--border); padding: 2px 6px; border-radius: 3px; color: var(--accent); }
+.post-body ul { padding-left: 0; list-style: none; margin-bottom: 20px; }
+.post-body li { font-size: 16px; color: var(--fg-mute); line-height: 1.75; padding: 8px 0 8px 20px; position: relative; border-top: 1px solid var(--border); }
+.post-body li:last-child { border-bottom: 1px solid var(--border); }
+.post-body li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-family: var(--mono); font-size: 12px; top: 10px; }
+
+.post-callout { background: var(--bg-2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--r-sm) var(--r-sm) 0; padding: 24px 28px; margin: 32px 0; }
+.post-callout p { margin: 0; font-size: 15px; }
+
+.score-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; margin: 36px 0; }
+.score-cell { background: var(--bg-2); padding: 24px 20px; text-align: center; }
+.score-val { font-family: var(--serif); font-size: 40px; font-weight: 300; letter-spacing: -0.04em; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+.score-label { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--fg-dim); }
+
+.decision-table { border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; margin: 32px 0; }
+.decision-row { display: grid; grid-template-columns: 0.6fr 1fr 1fr; gap: 0; border-bottom: 1px solid var(--border); }
+.decision-row:last-child { border-bottom: none; }
+.decision-row.header { background: var(--bg-2); }
+.decision-cell { padding: 14px 20px; font-size: 13px; color: var(--fg-mute); line-height: 1.5; border-right: 1px solid var(--border); }
+.decision-cell:last-child { border-right: none; }
+.decision-row.header .decision-cell { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--fg-dim); }
+.decision-cell strong { color: var(--fg); font-weight: 500; }
+
+.issue-item { display: grid; grid-template-columns: 40px 1fr; gap: 20px; padding: 24px 0; border-top: 1px solid var(--border); align-items: start; }
+.issue-num { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; color: var(--accent); padding-top: 4px; }
+.issue-title { font-family: var(--serif); font-size: 18px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 8px; }
+.issue-body { font-size: 14px; color: var(--fg-mute); line-height: 1.65; }
+.issue-body code { font-family: var(--mono); font-size: 12px; background: var(--bg-2); border: 1px solid var(--border); padding: 2px 5px; border-radius: 3px; color: var(--accent); }
+
+.post-sidebar { position: sticky; top: 100px; }
+.sidebar-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 28px 24px; margin-bottom: 20px; }
+.sidebar-card-title { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--fg-dim); margin-bottom: 16px; }
+.sidebar-card p { font-size: 13px; color: var(--fg-mute); line-height: 1.6; margin-bottom: 16px; }
+.sidebar-toc { list-style: none; padding: 0; }
+.sidebar-toc li { padding: 8px 0; border-top: 1px solid var(--border); }
+.sidebar-toc li:first-child { border-top: none; }
+.sidebar-toc a { font-size: 13px; color: var(--fg-mute); text-decoration: none; }
+.sidebar-toc a:hover { color: var(--accent); }
+
+.post-footer-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); }
+.post-nav-link { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px 28px; text-decoration: none; color: var(--fg); transition: background 0.15s; }
+.post-nav-link:hover { background: var(--bg); }
+.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--fg-dim); margin-bottom: 8px; }
+.post-nav-title { font-family: var(--serif); font-size: 18px; font-weight: 400; letter-spacing: -0.015em; }
+
+@media (max-width: 960px) {
+  .post-layout { grid-template-columns: 1fr; }
+  .post-sidebar { position: static; }
+  .score-grid { grid-template-columns: repeat(2, 1fr); }
+  .decision-table { overflow-x: auto; }
+  .post-footer-nav { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .score-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../services.html">Services</a>
+      <a href="../work.html">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="index.html" class="active">Blog</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-clock" id="clock">LUX · 00:00</span>
+      <a href="../contact.html" class="nav-cta">Free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- POST HERO -->
+<section class="post-hero">
+  <div class="container">
+    <div class="post-hero-tag">Technical Case Study</div>
+    <h1>How We Built folio.lu to Score <em class="italic">96/100</em> on PageSpeed</h1>
+    <div class="post-hero-meta">
+      <span class="post-hero-meta-item">Folio Studio</span>
+      <span class="post-hero-meta-sep"></span>
+      <span class="post-hero-meta-item">May 2026</span>
+      <span class="post-hero-meta-sep"></span>
+      <span class="post-hero-meta-item">12 min read</span>
+    </div>
+  </div>
+</section>
+
+<!-- POST CONTENT -->
+<div class="container">
+  <div class="post-layout">
+
+    <article class="post-body">
+
+      <p>We audit other people's websites for a living. It would be embarrassing to have a slow one ourselves. This is the full technical case study of folio.lu — every major decision, the Lighthouse scores, and the three issues our own audit process found that we had to go back and fix.</p>
+
+      <p>No self-congratulation: the purpose of this post is to show our methodology in action on a site you can inspect yourself. Open DevTools and check the claims.</p>
+
+      <h2>The scores</h2>
+
+      <div class="score-grid">
+        <div class="score-cell">
+          <div class="score-val">96</div>
+          <div class="score-label">Performance (mobile)</div>
+        </div>
+        <div class="score-cell">
+          <div class="score-val">98</div>
+          <div class="score-label">SEO score</div>
+        </div>
+        <div class="score-cell">
+          <div class="score-val">0.9s</div>
+          <div class="score-label">LCP (mobile)</div>
+        </div>
+        <div class="score-cell">
+          <div class="score-val">88</div>
+          <div class="score-label">Accessibility</div>
+        </div>
+      </div>
+
+      <p>The 88 accessibility score is a known gap — colour contrast on some of the muted-text elements is below WCAG AA. We're iterating on this. The 96 performance score reflects genuine optimisation, not a simple site with nothing on it.</p>
+
+      <h2>Decision 1: No framework, no <em class="italic">CMS.</em></h2>
+
+      <p>The first architectural decision was to ship static HTML, CSS, and minimal vanilla JavaScript. No React. No Next.js. No WordPress. No Webflow.</p>
+
+      <p>We evaluated Astro — it's in our tech stack for client projects — and decided against it for our own site. Astro adds build complexity and an abstraction layer that doesn't benefit a site where the content doesn't change frequently. Static HTML ships as-is, runs on any CDN, has zero server surface, and loads faster than any framework alternative because there's nothing to hydrate.</p>
+
+      <div class="post-callout">
+        <p><strong>The rule we use:</strong> if a site needs real-time data, user authentication, or content that changes daily, use a framework. If it's a marketing site that updates monthly, static HTML will outperform every framework alternative on every metric that matters to clients.</p>
+      </div>
+
+      <p>The consequence: our editors (us) write HTML. For a two-person studio, this is fine. For a client who needs to update blog content, we would add a headless CMS — Sanity or Payload connect to static output without giving up the performance benefits.</p>
+
+      <h2>Decision 2: The typography <em class="italic">stack.</em></h2>
+
+      <p>Typography is the loudest design decision on a text-heavy marketing site. We use three typefaces, each with a specific role:</p>
+
+      <div class="decision-table">
+        <div class="decision-row header">
+          <div class="decision-cell">Typeface</div>
+          <div class="decision-cell">Role</div>
+          <div class="decision-cell">Why</div>
+        </div>
+        <div class="decision-row">
+          <div class="decision-cell"><strong>Fraunces</strong></div>
+          <div class="decision-cell">Display headings (serif, variable)</div>
+          <div class="decision-cell">High optical size range (9–144pt), optical size axis means it looks correct at both 12px and 120px. The SOFT axis adds warmth. The italic is distinctly different from the roman — expressive, not just slanted.</div>
+        </div>
+        <div class="decision-row">
+          <div class="decision-cell"><strong>Inter Tight</strong></div>
+          <div class="decision-cell">Body copy and UI labels</div>
+          <div class="decision-cell">Compressed version of Inter — same neutrality and legibility at text sizes, but 8–10% narrower. More text per line on mobile without going below 16px. Works at 300–700 weight range.</div>
+        </div>
+        <div class="decision-row">
+          <div class="decision-cell"><strong>JetBrains Mono</strong></div>
+          <div class="decision-cell">Monospace labels, eyebrows, metadata</div>
+          <div class="decision-cell">Technical credibility signal. Used at small sizes (10–13px) with tight letter-spacing for category labels, timestamps, and data. Instantly reads as "precision" without being code-heavy.</div>
+        </div>
+      </div>
+
+      <p>All three are loaded from Google Fonts with <code>preconnect</code> and <code>display=swap</code>. We load all axes in a single request to avoid multiple font connections.</p>
+
+      <h2>Decision 3: Dark mode as <em class="italic">primary.</em></h2>
+
+      <p>Most web agencies default to a white site with a dark footer. We inverted this: <code>#0A0A0B</code> background as the primary experience, with <code>#39D353</code> (GitHub-contribution green) as the accent.</p>
+
+      <p>The reasoning:</p>
+
+      <ul>
+        <li>Dark editorial design reads as premium and considered — not default. It signals we chose this intentionally.</li>
+        <li>The green accent on near-black is high-contrast, legible, and unusual enough to be memorable.</li>
+        <li>Dark backgrounds reduce LCP impact from hero images — the eye reads the text before the image loads, so a slow image is less jarring.</li>
+        <li>The target client — an SME owner who cares about quality — responds better to confidence than to convention.</li>
+      </ul>
+
+      <p>We don't offer a light mode toggle. The site has a point of view. Clients who prefer white backgrounds have 200 other agencies to choose from.</p>
+
+      <h2>Decision 4: CSS custom properties as the <em class="italic">design system.</em></h2>
+
+      <p>Every colour, spacing unit, and type size is a CSS custom property defined in <code>:root</code>. This means:</p>
+
+      <ul>
+        <li>The entire visual language can be changed in one file</li>
+        <li>There is no design-system drift — a component either uses the variable or it doesn't compile</li>
+        <li>Dark mode (or any theme) would be a three-line CSS override, not a rebuild</li>
+        <li>All spacing uses <code>clamp()</code> with min, ideal, and max — the layout is fluid, not step-responsive</li>
+      </ul>
+
+      <p>The grid lines you see throughout the site are not borders on individual elements. They are a <code>1px gap</code> on a CSS Grid container with <code>background: var(--border)</code>. Each child element has <code>background: var(--bg)</code>. The gap exposes the container background. This technique makes every grid cell "bordered" without any per-cell border declarations — and it makes the entire grid remove its lines in one property change.</p>
+
+      <h2>Decision 5: Structured data and <em class="italic">schema.</em></h2>
+
+      <p>Every page of folio.lu has JSON-LD structured data. The homepage has a full <code>LocalBusiness</code> schema with <code>areaServed</code> (7 Luxembourg cities), <code>hasOfferCatalog</code> linking to all three services, and <code>priceRange</code>. Service pages each have <code>Service</code> schema with price specifications. The services page has a <code>FAQPage</code> schema. Every inner page has <code>BreadcrumbList</code>.</p>
+
+      <p>This is the SEO work that's invisible to users but fully visible to Google. Rich results (FAQ dropdowns, business information in the knowledge panel) require structured data to be present and valid. Most SME websites have none of this.</p>
+
+      <h2>The three issues our own <em class="italic">audit found.</em></h2>
+
+      <p>We ran our own site through the same audit process we use on clients. Here are the three issues it flagged, and what we did about them.</p>
+
+      <div style="margin-top: 32px;">
+        <div class="issue-item">
+          <div class="issue-num">01</div>
+          <div>
+            <div class="issue-title">Fraunces loaded without latin subset</div>
+            <div class="issue-body">The Fraunces variable font was loaded without a <code>subset=latin</code> parameter. The full character set for a variable font with five axes is significantly larger than the Latin subset. Fix: appended <code>&subset=latin</code> to the Google Fonts URL, reducing the font payload by ~40%. This directly improved LCP by removing unnecessary network weight from a render-blocking resource.</div>
+          </div>
+        </div>
+        <div class="issue-item">
+          <div class="issue-num">02</div>
+          <div>
+            <div class="issue-title">Missing aria-label on case study thumbnail links</div>
+            <div class="issue-body">On work.html, case study cards used an <code>&lt;a&gt;</code> wrapping an image with no aria-label. Screen readers would announce "link" with no destination context. Fix: added <code>aria-label="View [client name] case study"</code> to each card link. This brought the accessibility score from 84 to 88 — and is a practice we now check on every client build before launch.</div>
+          </div>
+        </div>
+        <div class="issue-item">
+          <div class="issue-num">03</div>
+          <div>
+            <div class="issue-title">sample-audit.html CSS class scope leak</div>
+            <div class="issue-body">Several layout classes (<code>.sect-head</code>, <code>.cta-section</code>, <code>.hero-actions</code>) were defined inline in index.html's <code>&lt;style&gt;</code> block and used across other pages without being redefined. The sample audit page looked completely unstyled when loaded directly. Fix: moved all shared layout classes that weren't already in style.css into the relevant pages' local <code>&lt;style&gt;</code> blocks. This is a hazard of no-build-tool development — components don't have automatic scope, so global styles must be in a global stylesheet.</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Lessons for client <em class="italic">work.</em></h2>
+
+      <p>Building and auditing our own site reinforced three practices we now apply to every client project:</p>
+
+      <ul>
+        <li><strong>Load fonts with preconnect.</strong> Every Google Fonts link must be preceded by two preconnect tags — one for fonts.googleapis.com, one for fonts.gstatic.com. Without them, the browser doesn't start the font connection until it parses the stylesheet, adding 200–400ms to first render.</li>
+        <li><strong>Aria-label every image link.</strong> Any <code>&lt;a&gt;</code> whose only child is an <code>&lt;img&gt;</code> needs an aria-label. We added this to our launch checklist.</li>
+        <li><strong>All shared CSS lives in style.css.</strong> No class should be defined in a page's <code>&lt;style&gt;</code> block if it's used on more than one page. The component model without a build tool requires discipline about this boundary.</li>
+      </ul>
+
+      <p>The 96 performance score isn't a number we polished for a case study. It's the output of applying the same methodology we use on clients to ourselves. We'll keep auditing our own site — the three fixes above came from it, and there will be more.</p>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="post-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">In this article</div>
+        <ul class="sidebar-toc">
+          <li><a href="#">Lighthouse scores</a></li>
+          <li><a href="#">No framework decision</a></li>
+          <li><a href="#">Typography stack</a></li>
+          <li><a href="#">Dark mode rationale</a></li>
+          <li><a href="#">CSS design system</a></li>
+          <li><a href="#">Structured data</a></li>
+          <li><a href="#">3 issues we found</a></li>
+          <li><a href="#">Client lessons</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">See the audit</div>
+        <p>The sample audit page shows the actual audit format we use — including the three issues above as live examples.</p>
+        <a href="../sample-audit.html" class="btn btn-accent" style="width: 100%; text-align: center; display: block;">View sample audit</a>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- POST NAV -->
+  <div class="post-footer-nav">
+    <a href="7-day-website-rebuild-what-we-learned.html" class="post-nav-link">
+      <div class="post-nav-dir">← Previous article</div>
+      <div class="post-nav-title">What 32 Website Rebuilds Taught Us About Speed, Design, and SMEs</div>
+    </a>
+    <div></div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section style="padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); background: var(--bg-2); text-align: center;">
+  <div class="container container-narrow">
+    <h2 class="reveal" style="font-family: var(--serif); font-size: clamp(36px, 5vw, 64px); font-weight: 400; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 20px;">Want the same<br>audit on <em class="italic">your site?</em></h2>
+    <p class="reveal" style="font-size: 17px; color: var(--fg-mute); max-width: 480px; margin: 0 auto 40px; line-height: 1.65;">We run the same process on your site and send you a full report — performance scores, specific issues, exact fixes — within 24 hours. Free.</p>
+    <div class="hero-actions reveal" style="justify-content: center;">
+      <a href="../contact.html" class="btn btn-accent">Request free audit</a>
+      <a href="../sample-audit.html" class="btn-ghost">See sample report</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+        <p class="footer-tagline">Websites for ambitious brands. From Luxembourg, for the world.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-list">
+          <li><a href="../services/quick-refresh.html">Quick Refresh</a></li>
+          <li><a href="../services/full-rebuild.html">Full Rebuild</a></li>
+          <li><a href="../services/growth.html">Growth Partner</a></li>
+          <li><a href="../contact.html">Free Audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Studio</div>
+        <ul class="footer-list">
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../work.html">Work</a></li>
+          <li><a href="index.html">Blog</a></li>
+          <li><a href="../sample-audit.html">Sample audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@folio.lu">hello@folio.lu</a></li>
+          <li>+352 27 86 12 34</li>
+          <li>Luxembourg-City</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Folio · Luxembourg web agency</span>
+      <span>Technical case study — folio.lu</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,471 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Website Audit — Request Yours · Folio Luxembourg</title>
+<meta name="description" content="Request your free 12-metric website audit. Personalised PDF report within 24 hours. No call required, no obligation.">
+<link rel="canonical" href="https://folio.lu/contact">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://folio.lu/contact">
+<meta property="og:title" content="Free Website Audit — Request Yours · Folio Luxembourg">
+<meta property="og:description" content="12-metric scan of your website. Personalised PDF report within 24 hours. Free, no call required, no obligation.">
+<meta property="og:image" content="https://folio.lu/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Website Audit — Folio Luxembourg">
+<meta name="twitter:description" content="12-metric scan, personalised PDF, 24h delivery. Always free.">
+<meta name="twitter:image" content="https://folio.lu/assets/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://folio.lu/"},
+    {"@type": "ListItem", "position": 2, "name": "Free Audit", "item": "https://folio.lu/contact"}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,30..100;1,9..144,300..800,30..100&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.contact-hero { padding: clamp(36px, 5vw, 64px) 0 clamp(24px, 3vw, 40px); }
+.contact-hero h1 {
+  font-size: clamp(56px, 8vw, 130px);
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+  max-width: 1100px;
+  margin-bottom: 32px;
+}
+.contact-hero h1 .italic { color: var(--accent); }
+.contact-hero p {
+  font-size: 18px;
+  color: var(--fg-mute);
+  max-width: 620px;
+  line-height: 1.65;
+}
+
+/* Main form layout */
+.form-section { padding: clamp(32px, 4vw, 56px) 0 clamp(48px, 6vw, 80px); border-top: 1px solid var(--border); }
+.form-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+
+/* The form itself */
+.audit-form { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--r-lg); padding: clamp(32px, 4vw, 56px); }
+.form-step-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.audit-form h2 {
+  font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 32px;
+}
+.audit-form h2 .italic { color: var(--accent); }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.form-field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.form-field-full { grid-column: 1 / -1; }
+.form-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+.form-input,
+.form-select,
+.form-textarea {
+  background: var(--bg);
+  border: 1px solid var(--border-mid);
+  border-radius: 8px;
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 15px;
+  width: 100%;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.form-input,
+.form-select { padding: 12px 14px; }
+.form-textarea { padding: 16px; }
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.12);
+}
+.form-input:invalid:not(:placeholder-shown),
+.form-select:invalid:not(:placeholder-shown) {
+  border-color: var(--red);
+}
+.form-input:disabled,
+.form-select:disabled,
+.form-textarea:disabled {
+  background: var(--bg-2);
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.form-textarea { min-height: 120px; resize: vertical; font-family: var(--sans); }
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F4F1E8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+/* Checkbox grid */
+.check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+.check-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-mid);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.check-item:hover { border-color: var(--accent); }
+.check-item input { accent-color: var(--accent); width: 16px; height: 16px; }
+.check-item input:checked + span { color: var(--accent); }
+.check-item span { font-size: 13px; color: var(--fg); transition: color 0.2s; }
+
+.form-submit {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.form-note { font-size: 12px; color: var(--fg-dim); max-width: 320px; line-height: 1.5; }
+.form-note .accent-color { font-weight: 500; }
+
+/* Side panel */
+.contact-side { position: sticky; top: 100px; align-self: start; display: flex; flex-direction: column; gap: 32px; }
+.contact-tile { padding: 32px 28px; border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--bg-2); }
+.contact-tile .label { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 14px; }
+.contact-tile h3 { font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 10px; }
+.contact-tile h3 .italic { color: var(--accent); }
+.contact-tile p { font-size: 14px; color: var(--fg-mute); line-height: 1.65; margin-bottom: 16px; }
+.contact-tile a.line { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-top: 1px solid var(--border); font-size: 14px; color: var(--fg); transition: color 0.2s; }
+.contact-tile a.line:first-of-type { border-top: none; padding-top: 0; }
+.contact-tile a.line:hover { color: var(--accent); }
+.contact-tile a.line .icon { font-family: var(--mono); font-size: 10px; color: var(--accent); width: 24px; }
+
+/* Promise list */
+.promise-list { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+.promise-list li {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--fg-mute);
+  line-height: 1.5;
+}
+.promise-list li::before {
+  content: '';
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  margin-top: 4px;
+  position: relative;
+}
+.promise-list li {
+  position: relative;
+}
+
+/* What happens next */
+.next-section { padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); background: var(--bg-2); }
+.next-rail { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--border); background: var(--bg); border-radius: var(--r-lg); overflow: hidden; }
+.next-step { padding: 36px 28px; border-right: 1px solid var(--border); }
+.next-step:last-child { border-right: none; }
+.next-step-time { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 16px; }
+.next-step-title { font-family: var(--serif); font-size: 22px; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.2; }
+.next-step-title .italic { color: var(--accent); }
+.next-step-body { font-size: 13px; color: var(--fg-mute); line-height: 1.6; }
+
+@media (max-width: 960px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .contact-side { position: static; }
+  .form-row { grid-template-columns: 1fr; }
+  .check-grid { grid-template-columns: 1fr; }
+  .next-rail { grid-template-columns: 1fr; }
+  .next-step { border-right: none; border-bottom: 1px solid var(--border); }
+  .next-step:last-child { border-bottom: none; }
+  .form-submit { flex-direction: column-reverse; align-items: stretch; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="blog/index.html">Blog</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-clock" id="clock">LUX · 00:00</span>
+      <a href="contact.html" class="nav-cta">Free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="contact-hero">
+  <div class="container">
+    <div class="eyebrow">Free audit · No obligation</div>
+    <h1>Tell us about your<br><em class="italic">website.</em></h1>
+    <p>Drop your domain and a few details. We'll audit your existing site across 12 metrics — speed, SEO, mobile, design, security — and email you a personalised PDF report within 24 hours. No call required.</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section">
+  <div class="container">
+    <div class="form-grid">
+
+      <!-- THE FORM -->
+      <form class="audit-form" onsubmit="event.preventDefault(); document.getElementById('form-sent').style.display='block'; this.style.display='none';">
+        <div class="form-step-label">Step 1 of 1 · About 90 seconds</div>
+        <h2>Request your<br><em class="italic">free audit.</em></h2>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label">First name</label>
+            <input class="form-input" type="text" name="firstname" placeholder="Ã‰lise" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Last name</label>
+            <input class="form-input" type="text" name="lastname" placeholder="Marchant" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label">Work email</label>
+            <input class="form-input" type="email" name="email" placeholder="elise@yourcompany.lu" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Company name</label>
+            <input class="form-input" type="text" name="company" placeholder="Marchant Architects" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label">Website URL (to audit)</label>
+            <input class="form-input" type="url" name="website" placeholder="https://yourcompany.lu" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Industry</label>
+            <select class="form-select" name="industry" required>
+              <option value="">Select sector</option>
+              <option>Architecture & Interior</option>
+              <option>Accounting & Fiduciary</option>
+              <option>Hospitality / Restaurant</option>
+              <option>Real Estate</option>
+              <option>Manufacturing</option>
+              <option>Marketing & Events</option>
+              <option>Professional Services</option>
+              <option>Retail / E-commerce</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label">City</label>
+            <input class="form-input" type="text" name="city" placeholder="Luxembourg-City" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Budget range</label>
+            <select class="form-select" name="budget">
+              <option value="">Select range</option>
+              <option>Just curious — exploring</option>
+              <option>Under €2,000</option>
+              <option>€2,000 – €5,000</option>
+              <option>€5,000 – €10,000</option>
+              <option>€10,000 +</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field form-field-full">
+          <label class="form-label">What are you most interested in?</label>
+          <div class="check-grid">
+            <label class="check-item">
+              <input type="checkbox" name="interest" value="quick-refresh">
+              <span>Quick Refresh — from €990</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="interest" value="full-rebuild">
+              <span>Full Rebuild — from €2,500</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="interest" value="growth">
+              <span>Growth Partner — from €4,500</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="interest" value="audit-only">
+              <span>Just the free audit, please</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-field form-field-full" style="margin-top: 16px;">
+          <label class="form-label">Anything you'd like us to look at specifically? (optional)</label>
+          <textarea class="form-textarea" name="notes" placeholder="e.g. 'Mobile speed is a disaster' / 'We're losing rankings to a competitor' / 'Just need a sense of where we stand'"></textarea>
+        </div>
+
+        <div class="form-submit">
+          <p class="form-note"><span class="accent-color">→</span> Audit delivered within <strong style="color: var(--fg);">24 hours</strong> via email. No call required. We may follow up with one short email if we have questions.</p>
+          <button type="submit" class="btn btn-accent">Send free audit request</button>
+        </div>
+      </form>
+
+      <!-- Confirmation (hidden by default) -->
+      <div id="form-sent" style="display: none; background: var(--bg-2); border: 1px solid var(--accent-mid); border-radius: var(--r-lg); padding: clamp(32px, 4vw, 56px);">
+        <div class="form-step-label">Request received</div>
+        <h2>Thanks — we'll be in touch<br><em class="italic">within 24h.</em></h2>
+        <p style="font-size: 15px; color: var(--fg-mute); margin-top: 24px; line-height: 1.65;">Your free audit is in the queue. We'll review your site, build the personalised PDF report, and email it to the address you provided within 24 hours.</p>
+        <p style="font-size: 15px; color: var(--fg-mute); margin-top: 16px; line-height: 1.65;">No call required. If you'd rather book a 20-minute discovery call now, the calendar is below.</p>
+        <a href="#" class="btn btn-accent" style="margin-top: 24px;">Book a 20-min call</a>
+      </div>
+
+      <!-- SIDE PANEL -->
+      <aside class="contact-side">
+        <div class="contact-tile reveal">
+          <div class="label">Or skip the form</div>
+          <h3>Email us <em class="italic">directly.</em></h3>
+          <p>Faster route if you'd rather just send a quick note. Real human reads every email, replies within one working day.</p>
+          <a href="mailto:hello@folio.lu" class="line"><span class="icon">→</span>hello@folio.lu</a>
+          <a href="tel:+352278612 34" class="line"><span class="icon">→</span>+352 27 86 12 34</a>
+          <a href="https://wa.me/352278612 34" class="line"><span class="icon">→</span>WhatsApp · same number</a>
+        </div>
+
+        <div class="contact-tile reveal reveal-d1">
+          <div class="label">What we promise</div>
+          <h3>The fine <em class="italic">print.</em></h3>
+          <ul class="promise-list" style="margin-top: 4px;">
+            <li>Real audit, not a generic checklist</li>
+            <li>Personalised PDF report in 24 hours</li>
+            <li>No sales call required</li>
+            <li>No automated chase emails</li>
+            <li>We'll tell you honestly if we can't help</li>
+            <li>Your data isn't sold or shared</li>
+          </ul>
+        </div>
+
+        <div class="contact-tile reveal reveal-d2">
+          <div class="label">In Luxembourg</div>
+          <h3>Come by the <em class="italic">studio.</em></h3>
+          <p>If you're nearby, we're always happy to meet in person. Coffee on us. Bring your laptop and we'll walk through the audit live.</p>
+          <a href="#" class="line"><span class="icon">→</span>Luxembourg-City</a>
+          <a href="#" class="line"><span class="icon">→</span>By appointment only</a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHAT HAPPENS NEXT -->
+<section class="next-section">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">What happens next</div>
+      <h2>Four steps,<br>no <em class="italic">pressure.</em></h2>
+    </div>
+
+    <div class="next-rail reveal">
+      <div class="next-step">
+        <div class="next-step-time">Now</div>
+        <div class="next-step-title">You <em class="italic">send.</em></div>
+        <div class="next-step-body">Submit the form. You'll get an instant email confirming we received it. Takes 90 seconds.</div>
+      </div>
+      <div class="next-step">
+        <div class="next-step-time">+24 hours</div>
+        <div class="next-step-title">We <em class="italic">audit.</em></div>
+        <div class="next-step-body">12-metric scan of your site. Personalised PDF report emailed to you. No call required.</div>
+      </div>
+      <div class="next-step">
+        <div class="next-step-time">When you're ready</div>
+        <div class="next-step-title">We <em class="italic">talk.</em></div>
+        <div class="next-step-body">Optional 20-minute call to walk through the audit live and answer questions. Only if you want it.</div>
+      </div>
+      <div class="next-step">
+        <div class="next-step-time">If we're a fit</div>
+        <div class="next-step-title">We <em class="italic">build.</em></div>
+        <div class="next-step-body">Fixed quote, fixed timeline. New site live in 5–14 days depending on package. No hand-holding required.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+        <p class="footer-tagline">Websites for ambitious brands. From Luxembourg, for the world.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-list">
+          <li><a href="services/quick-refresh.html">Quick Refresh</a></li>
+          <li><a href="services/full-rebuild.html">Full Rebuild</a></li>
+          <li><a href="services/growth.html">Growth Partner</a></li>
+          <li><a href="contact.html">Free Audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Studio</div>
+        <ul class="footer-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="sample-audit.html">Sample audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@folio.lu">hello@folio.lu</a></li>
+          <li>+352 27 86 12 34</li>
+          <li>Luxembourg-City</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Folio · Luxembourg web agency</span>
+      <span>Reply within 1 working day</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

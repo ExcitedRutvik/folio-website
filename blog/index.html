@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Web Design & SEO Insights for Luxembourg SMEs · Folio</title>
+<meta name="description" content="Practical guides on Core Web Vitals, website performance, and what actually works for Luxembourg SMEs — from the team at Folio.">
+<link rel="canonical" href="https://folio.lu/blog">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://folio.lu/blog">
+<meta property="og:title" content="Blog — Web Design & SEO for Luxembourg SMEs · Folio">
+<meta property="og:description" content="Practical web performance and design guides for Luxembourg businesses. No fluff — what actually moves the needle.">
+<meta property="og:image" content="https://folio.lu/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Folio Blog — Web insights for Luxembourg SMEs">
+<meta name="twitter:description" content="Core Web Vitals, site rebuilds, SEO — practical guides from Luxembourg's web agency.">
+<meta name="twitter:image" content="https://folio.lu/assets/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://folio.lu/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://folio.lu/blog"}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,30..100;1,9..144,300..800,30..100&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.blog-hero { padding: clamp(36px, 5vw, 64px) 0 clamp(24px, 3vw, 40px); }
+.blog-hero h1 { font-size: clamp(52px, 8vw, 110px); letter-spacing: -0.04em; line-height: 0.98; margin-bottom: 24px; }
+.blog-hero h1 .italic { color: var(--accent); }
+.blog-hero-sub { font-size: 18px; color: var(--fg-mute); max-width: 540px; line-height: 1.65; }
+
+.blog-grid-section { padding: clamp(40px, 5vw, 64px) 0; border-top: 1px solid var(--border); }
+.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+.blog-card { background: var(--bg); padding: 40px 36px; display: flex; flex-direction: column; gap: 0; text-decoration: none; color: var(--fg); transition: background 0.15s; }
+.blog-card:hover { background: var(--bg-2); }
+.blog-card-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.blog-card-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); }
+.blog-card-date { font-family: var(--mono); font-size: 10px; letter-spacing: 1px; color: var(--fg-dim); }
+.blog-card-sep { width: 1px; height: 10px; background: var(--border); }
+.blog-card h2 { font-family: var(--serif); font-size: clamp(20px, 2.5vw, 26px); font-weight: 400; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 16px; }
+.blog-card h2 .italic { color: var(--accent); }
+.blog-card-excerpt { font-size: 14px; color: var(--fg-mute); line-height: 1.65; flex: 1; margin-bottom: 28px; }
+.blog-card-cta { font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); }
+
+.blog-featured { background: var(--bg-2); }
+
+@media (max-width: 960px) { .blog-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../services.html">Services</a>
+      <a href="../work.html">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="index.html" class="active">Blog</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-clock" id="clock">LUX · 00:00</span>
+      <a href="../contact.html" class="nav-cta">Free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="container">
+    <div class="eyebrow">From the studio</div>
+    <h1>What we've <em class="italic">learned</em><br>building websites.</h1>
+    <p class="blog-hero-sub">No trend roundups. No generic SEO checklists. Just what we've found actually works — from 32 site audits and rebuilds for Luxembourg SMEs.</p>
+  </div>
+</section>
+
+<!-- POSTS -->
+<section class="blog-grid-section">
+  <div class="container">
+    <div class="blog-grid">
+      <a href="core-web-vitals-luxembourg-smes.html" class="blog-card blog-featured reveal">
+        <div class="blog-card-meta">
+          <span class="blog-card-tag">Performance</span>
+          <span class="blog-card-sep"></span>
+          <span class="blog-card-date">May 2026</span>
+        </div>
+        <h2>Core Web Vitals for Luxembourg SMEs: What Actually <em class="italic">Matters</em> in 2025</h2>
+        <p class="blog-card-excerpt">LCP, CLS, and FID explained for business owners — not developers. Plus the five issues we see on almost every Luxembourg site we audit, and how to fix them.</p>
+        <span class="blog-card-cta">Read article →</span>
+      </a>
+      <a href="7-day-website-rebuild-what-we-learned.html" class="blog-card reveal reveal-d1">
+        <div class="blog-card-meta">
+          <span class="blog-card-tag">Retrospective</span>
+          <span class="blog-card-sep"></span>
+          <span class="blog-card-date">May 2026</span>
+        </div>
+        <h2>What 32 Website Rebuilds Taught Us About Speed, Design, and <em class="italic">SMEs</em></h2>
+        <p class="blog-card-excerpt">Data from 32 audits and rebuilds: the most common issues, what clients actually care about, and why the 7-day model works better than you'd expect.</p>
+        <span class="blog-card-cta">Read article →</span>
+      </a>
+      <a href="how-we-built-folio.html" class="blog-card reveal reveal-d2">
+        <div class="blog-card-meta">
+          <span class="blog-card-tag">Case Study</span>
+          <span class="blog-card-sep"></span>
+          <span class="blog-card-date">May 2026</span>
+        </div>
+        <h2>How We Built folio.lu to Score <em class="italic">96/100</em> on PageSpeed</h2>
+        <p class="blog-card-excerpt">The technical decisions behind our own site — typography, no-framework approach, schema markup, and three issues our own audit found that we had to fix.</p>
+        <span class="blog-card-cta">Read article →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); background: var(--bg-2); text-align: center;">
+  <div class="container container-narrow">
+    <h2 class="reveal" style="font-family: var(--serif); font-size: clamp(36px, 5vw, 64px); font-weight: 400; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 20px;">See what's wrong with<br>your site — for <em class="italic">free.</em></h2>
+    <p class="reveal" style="font-size: 17px; color: var(--fg-mute); max-width: 480px; margin: 0 auto 40px; line-height: 1.65;">We audit your site, send a full report within 24 hours, and tell you honestly what's worth fixing — and what isn't.</p>
+    <div class="hero-actions reveal" style="justify-content: center;">
+      <a href="../contact.html" class="btn btn-accent">Request free audit</a>
+      <a href="../work.html" class="btn-ghost">See our work</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+        <p class="footer-tagline">Websites for ambitious brands. From Luxembourg, for the world.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-list">
+          <li><a href="../services/quick-refresh.html">Quick Refresh</a></li>
+          <li><a href="../services/full-rebuild.html">Full Rebuild</a></li>
+          <li><a href="../services/growth.html">Growth Partner</a></li>
+          <li><a href="../contact.html">Free Audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Studio</div>
+        <ul class="footer-list">
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../work.html">Work</a></li>
+          <li><a href="index.html">Blog</a></li>
+          <li><a href="../sample-audit.html">Sample audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@folio.lu">hello@folio.lu</a></li>
+          <li>+352 27 86 12 34</li>
+          <li>Luxembourg-City</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Folio · Luxembourg web agency</span>
+      <span>Web insights for Luxembourg SMEs</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
+</body>
+</html>

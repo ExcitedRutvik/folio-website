@@ -1,0 +1,678 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample Website Audit Report — See What We Deliver · Folio</title>
+<meta name="description" content="See exactly what a Folio website audit looks like. Real audit run on our own site — what we found, what we'd fix, why it matters.">
+<link rel="canonical" href="https://folio.lu/sample-audit">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://folio.lu/sample-audit">
+<meta property="og:title" content="Sample Website Audit Report — See What We Deliver · Folio">
+<meta property="og:description" content="Real audit of folio.lu: 96/100 score, 12 metrics checked, 3 issues found. This is what every client gets.">
+<meta property="og:image" content="https://folio.lu/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sample Audit Report — Folio Luxembourg">
+<meta name="twitter:description" content="96/100 score. Real audit of our own site. See what every client receives.">
+<meta name="twitter:image" content="https://folio.lu/assets/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://folio.lu/"},
+    {"@type": "ListItem", "position": 2, "name": "Sample Audit", "item": "https://folio.lu/sample-audit"}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,30..100;1,9..144,300..800,30..100&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.audit-hero { padding: clamp(36px, 5vw, 64px) 0 clamp(24px, 3vw, 40px); }
+.audit-hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 64px;
+  align-items: end;
+}
+.audit-hero h1 { font-size: clamp(48px, 7vw, 100px); letter-spacing: -0.04em; line-height: 0.98; margin-bottom: 24px; }
+.audit-hero h1 .italic { color: var(--accent); }
+.audit-hero p { font-size: 17px; color: var(--fg-mute); max-width: 560px; line-height: 1.65; }
+
+.audit-meta-card {
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--bg-2);
+  padding: 28px 32px;
+}
+.audit-meta-card h4 {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.audit-meta-row { padding: 10px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.audit-meta-row:first-of-type { border-top: none; padding-top: 0; }
+.audit-meta-row .k { font-family: var(--mono); font-size: 11px; color: var(--fg-dim); letter-spacing: 0.5px; }
+.audit-meta-row .v { font-family: var(--sans); font-size: 14px; color: var(--fg); font-weight: 500; }
+.audit-meta-row .v.green { color: var(--accent); }
+
+/* Score banner */
+.score-banner {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: clamp(40px, 5vw, 64px) 0;
+  background: var(--bg-2);
+}
+.score-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Big SVG gauge */
+.gauge-wrap {
+  position: relative;
+  width: 280px; height: 280px;
+}
+.gauge-wrap svg { transform: rotate(-210deg); }
+.gauge-bg-arc { fill: none; stroke: rgba(244,241,232,0.06); stroke-width: 7; stroke-linecap: round; }
+.gauge-fill-arc { fill: none; stroke: var(--accent); stroke-width: 7; stroke-linecap: round; filter: drop-shadow(0 0 12px rgba(57,211,83,0.5)); }
+.gauge-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.gauge-number {
+  font-family: var(--serif);
+  font-size: 84px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--fg);
+  letter-spacing: -0.04em;
+}
+.gauge-number .sub { color: var(--fg-mute); font-size: 28px; }
+.gauge-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.score-text h2 { font-size: clamp(32px, 4vw, 56px); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 20px; }
+.score-text h2 .italic { color: var(--accent); }
+.score-text p { font-size: 16px; color: var(--fg-mute); line-height: 1.7; max-width: 560px; }
+
+/* Metric grid */
+.metrics-section { padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); }
+.metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+.metric-block {
+  background: var(--bg);
+  padding: 36px 32px;
+}
+.metric-block .icon-row {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 24px;
+}
+.metric-block .badge {
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.metric-block .badge.good { background: var(--accent-dim); color: var(--accent); }
+.metric-block .badge.mid  { background: rgba(245,158,11,0.15); color: var(--amber); }
+.metric-block .badge.bad  { background: rgba(239,68,68,0.15); color: var(--red); }
+
+.metric-val {
+  font-family: var(--serif);
+  font-size: 56px;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.metric-val.green { color: var(--accent); }
+.metric-val.amber { color: var(--amber); }
+.metric-val.red   { color: var(--red); }
+.metric-name {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-bottom: 16px;
+}
+.metric-bar { height: 3px; background: rgba(244,241,232,0.06); border-radius: 99px; overflow: hidden; margin-bottom: 14px; }
+.metric-bar-fill { height: 100%; background: var(--accent); border-radius: 99px; }
+.metric-bar-fill.amber { background: var(--amber); }
+.metric-bar-fill.red   { background: var(--red); }
+.metric-note {
+  font-size: 12px;
+  color: var(--fg-mute);
+  line-height: 1.55;
+}
+
+/* Issues section */
+.issues-section { padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); background: var(--bg-2); }
+.issues-list { display: flex; flex-direction: column; gap: 12px; }
+.issue-card {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  align-items: stretch;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--bg);
+  transition: border-color 0.25s, background 0.25s;
+}
+.issue-card:hover { border-color: var(--border-mid); }
+.issue-icon-col {
+  display: flex; align-items: flex-start; justify-content: center; padding: 24px 0;
+  border-right: 1px solid var(--border);
+  font-size: 18px;
+}
+.issue-card.critical .issue-icon-col { background: rgba(239,68,68,0.08); color: var(--red); }
+.issue-card.warning  .issue-icon-col { background: rgba(245,158,11,0.08); color: var(--amber); }
+.issue-card.info     .issue-icon-col { background: rgba(57,211,83,0.08); color: var(--accent); }
+.issue-body-col { padding: 22px 28px; }
+.issue-sev {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.issue-card.critical .issue-sev { color: var(--red); }
+.issue-card.warning  .issue-sev { color: var(--amber); }
+.issue-card.info     .issue-sev { color: var(--accent); }
+.issue-title { font-family: var(--serif); font-size: 20px; font-weight: 400; letter-spacing: -0.015em; margin-bottom: 6px; line-height: 1.25; }
+.issue-desc { font-size: 14px; color: var(--fg-mute); line-height: 1.6; }
+.issue-fix-col {
+  display: flex; align-items: center;
+  padding: 22px 28px;
+  border-left: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+  .audit-hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .score-grid { grid-template-columns: 1fr; gap: 40px; text-align: left; }
+  .gauge-wrap { margin: 0 auto; }
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .issue-card { grid-template-columns: 48px 1fr; }
+  .issue-fix-col { display: none; }
+}
+@media (max-width: 540px) {
+  .metrics-grid { grid-template-columns: 1fr; }
+  .gauge-wrap { width: 220px; height: 220px; }
+  .gauge-wrap svg { width: 220px; height: 220px; }
+  .gauge-number { font-size: 64px; }
+}
+
+/* Recommendations */
+.recs-section { padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); }
+.recs-list { display: flex; flex-direction: column; gap: 18px; }
+.rec-card {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--bg-2);
+}
+.rec-num-col {
+  background: var(--bg-3);
+  padding: 32px 0;
+  text-align: center;
+  border-right: 1px solid var(--border);
+  font-family: var(--serif);
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+  font-style: italic;
+  line-height: 1;
+  font-variation-settings: 'SOFT' 100, 'opsz' 144;
+}
+.rec-body-col { padding: 28px 32px; }
+.rec-tag-row { display: flex; gap: 8px; margin-bottom: 12px; }
+.rec-tag {
+  font-family: var(--mono);
+  font-size: 9px; letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.rec-tag.cat { background: var(--accent-dim); color: var(--accent); }
+.rec-tag.eff { background: rgba(244,241,232,0.06); color: var(--fg-mute); }
+.rec-title { font-family: var(--serif); font-size: 22px; font-weight: 400; letter-spacing: -0.015em; margin-bottom: 8px; }
+.rec-body { font-size: 14px; color: var(--fg-mute); line-height: 1.65; }
+
+@media (max-width: 640px) {
+  .rec-card { grid-template-columns: 1fr; }
+  .rec-num-col { border-right: none; border-bottom: 1px solid var(--border); padding: 20px 0; font-size: 32px; }
+}
+
+/* Missing shared classes — defined locally so this page is self-contained */
+.sect-head {
+  max-width: 820px;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+.sect-head h2 {
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.sect-head h2 .italic { color: var(--accent); }
+.sect-head p {
+  font-size: 16px;
+  color: var(--fg-mute);
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+/* CTA section */
+.cta-section {
+  padding: clamp(48px, 6vw, 80px) 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.cta-headline {
+  font-family: var(--serif);
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+.cta-headline .italic { color: var(--accent); }
+.cta-sub {
+  font-size: 17px;
+  color: var(--fg-mute);
+  line-height: 1.65;
+  max-width: 560px;
+  margin: 0 auto 40px;
+}
+.hero-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Issue card icon column — responsive width */
+.issue-card {
+  grid-template-columns: clamp(40px, 8vw, 56px) 1fr auto;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog/index.html">Blog</a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-clock" id="clock">LUX · 00:00</span>
+      <a href="contact.html" class="nav-cta">Free audit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="audit-hero">
+  <div class="container">
+    <div class="eyebrow">Sample audit · folio.lu</div>
+    <div class="audit-hero-grid">
+      <div>
+        <h1>The audit we ran on<br><em class="italic">our own site.</em></h1>
+        <p>We held ourselves to the same standard we hold every prospect. Here's the full audit of folio.lu — what we scored, what we'd still fix, and what every client gets in their own PDF report.</p>
+      </div>
+      <div class="audit-meta-card">
+        <h4>Audit metadata</h4>
+        <div class="audit-meta-row"><span class="k">Target</span><span class="v">folio.lu</span></div>
+        <div class="audit-meta-row"><span class="k">Sector</span><span class="v">Web agency</span></div>
+        <div class="audit-meta-row"><span class="k">City</span><span class="v">Luxembourg-City</span></div>
+        <div class="audit-meta-row"><span class="k">Audit date</span><span class="v">18 May 2026</span></div>
+        <div class="audit-meta-row"><span class="k">Scan duration</span><span class="v">42 seconds</span></div>
+        <div class="audit-meta-row"><span class="k">Overall score</span><span class="v green">96 / 100</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIG SCORE -->
+<section class="score-banner">
+  <div class="container">
+    <div class="score-grid reveal">
+      <div class="gauge-wrap" style="margin: 0 auto;">
+        <svg width="280" height="280" viewBox="0 0 100 100">
+          <!-- 240° arc, background -->
+          <circle class="gauge-bg-arc" cx="50" cy="50" r="40"
+            stroke-dasharray="169 252" stroke-dashoffset="-21"/>
+          <!-- 96% fill of 169 â‰ˆ 162.2 -->
+          <circle class="gauge-fill-arc" cx="50" cy="50" r="40"
+            stroke-dasharray="162 252" stroke-dashoffset="-21"/>
+        </svg>
+        <div class="gauge-center">
+          <div class="gauge-number">96<span class="sub">/100</span></div>
+          <div class="gauge-label">Overall score</div>
+        </div>
+      </div>
+      <div class="score-text">
+        <div class="eyebrow">The verdict</div>
+        <h2>A strong foundation,<br>with room to <em class="italic">tighten.</em></h2>
+        <p>folio.lu scores in the top 5% of websites we audit. Performance, SEO and mobile experience are all excellent. The site does have three minor improvements worth shipping — none critical — which we've detailed below. This is the same level of detail every client gets in their personalised report.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRIC GRID -->
+<section class="metrics-section">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">02 · Core metrics</div>
+      <h2>Twelve checks,<br><em class="italic">four highlights.</em></h2>
+      <p>The four numbers we lead every audit with. The other eight live in the detailed PDF — page-by-page breakdowns of titles, descriptions, headings, schema, redirects and accessibility.</p>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-block reveal">
+        <div class="icon-row">
+          <span class="metric-name">Mobile speed</span>
+          <span class="badge good">Excellent</span>
+        </div>
+        <div class="metric-val green">96</div>
+        <div class="metric-bar"><div class="metric-bar-fill" style="width: 96%"></div></div>
+        <p class="metric-note">PageSpeed mobile score. Anything above 90 is excellent. Most Luxembourg SME sites score between 25 and 50.</p>
+      </div>
+
+      <div class="metric-block reveal reveal-d1">
+        <div class="icon-row">
+          <span class="metric-name">SEO score</span>
+          <span class="badge good">Excellent</span>
+        </div>
+        <div class="metric-val green">98</div>
+        <div class="metric-bar"><div class="metric-bar-fill" style="width: 98%"></div></div>
+        <p class="metric-note">SEO foundation: title tags, meta descriptions, H1 structure, structured data, sitemap. Strong across all pages.</p>
+      </div>
+
+      <div class="metric-block reveal reveal-d2">
+        <div class="icon-row">
+          <span class="metric-name">LCP (Load time)</span>
+          <span class="badge good">Excellent</span>
+        </div>
+        <div class="metric-val green">0.9s</div>
+        <div class="metric-bar"><div class="metric-bar-fill" style="width: 95%"></div></div>
+        <p class="metric-note">Largest Contentful Paint. Under 2.5s is "Good" per Core Web Vitals. We're nearly 3× faster than the benchmark.</p>
+      </div>
+
+      <div class="metric-block reveal reveal-d3">
+        <div class="icon-row">
+          <span class="metric-name">Accessibility</span>
+          <span class="badge mid">Strong</span>
+        </div>
+        <div class="metric-val amber">88</div>
+        <div class="metric-bar"><div class="metric-bar-fill amber" style="width: 88%"></div></div>
+        <p class="metric-note">Strong but not perfect. Two image alt text gaps and one contrast issue on muted text. Easy fix in the next sprint.</p>
+      </div>
+
+      <div class="metric-block reveal">
+        <div class="icon-row">
+          <span class="metric-name">SSL & security</span>
+          <span class="badge good">Pass</span>
+        </div>
+        <div class="metric-val green">A+</div>
+        <div class="metric-bar"><div class="metric-bar-fill" style="width: 100%"></div></div>
+        <p class="metric-note">HTTPS enforced, HSTS preload, modern TLS, CSP headers configured. SSL Labs rating: A+.</p>
+      </div>
+
+      <div class="metric-block reveal reveal-d1">
+        <div class="icon-row">
+          <span class="metric-name">CLS (Layout shift)</span>
+          <span class="badge good">Excellent</span>
+        </div>
+        <div class="metric-val green">0.02</div>
+        <div class="metric-bar"><div class="metric-bar-fill" style="width: 97%"></div></div>
+        <p class="metric-note">Cumulative Layout Shift. Under 0.1 is "Good". Effectively zero shift across page load.</p>
+      </div>
+
+      <div class="metric-block reveal reveal-d2">
+        <div class="icon-row">
+          <span class="metric-name">Mobile-friendly</span>
+          <span class="badge good">Pass</span>
+        </div>
+        <div class="metric-val green">Yes</div>
+        <div class="metric-bar"><div class="metric-bar-fill" style="width: 100%"></div></div>
+        <p class="metric-note">Responsive across every screen size. Tap targets sized correctly. No horizontal scroll on mobile.</p>
+      </div>
+
+      <div class="metric-block reveal reveal-d3">
+        <div class="icon-row">
+          <span class="metric-name">Schema markup</span>
+          <span class="badge mid">Partial</span>
+        </div>
+        <div class="metric-val amber">2/4</div>
+        <div class="metric-bar"><div class="metric-bar-fill amber" style="width: 50%"></div></div>
+        <p class="metric-note">Organization + LocalBusiness schemas in place. Missing: Service schema on package pages, FAQPage on services.html.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ISSUES FOUND -->
+<section class="issues-section">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">03 · Issues detected</div>
+      <h2>What we'd <em class="italic">fix.</em></h2>
+      <p>Three minor items, all in the "polish" bucket. Nothing critical, nothing user-facing — but worth shipping in the next sprint to push the score above 98.</p>
+    </div>
+
+    <div class="issues-list">
+      <div class="issue-card warning reveal">
+        <div class="issue-icon-col">!</div>
+        <div class="issue-body-col">
+          <div class="issue-sev">Warning · Accessibility</div>
+          <h3 class="issue-title">Two image alt attributes missing on case study thumbs</h3>
+          <p class="issue-desc">The mock case study tiles on work.html use background images without alt text. Screen readers can't announce the project context. Low traffic impact, but worth fixing for compliance.</p>
+        </div>
+        <div class="issue-fix-col">Effort · 15 min</div>
+      </div>
+
+      <div class="issue-card warning reveal reveal-d1">
+        <div class="issue-icon-col">!</div>
+        <div class="issue-body-col">
+          <div class="issue-sev">Warning · SEO</div>
+          <h3 class="issue-title">Service pages missing Service + FAQPage schema</h3>
+          <p class="issue-desc">The three service detail pages (Quick Refresh, Full Rebuild, Growth) and the FAQ on services.html would benefit from structured data. Helps Google show rich results — pricing snippets, FAQ accordions — directly in search.</p>
+        </div>
+        <div class="issue-fix-col">Effort · 1 hour</div>
+      </div>
+
+      <div class="issue-card info reveal reveal-d2">
+        <div class="issue-icon-col">·</div>
+        <div class="issue-body-col">
+          <div class="issue-sev">Info · Performance</div>
+          <h3 class="issue-title">Fraunces variable font weight could be subsetted further</h3>
+          <p class="issue-desc">We load the full Fraunces variable font (~140 KB). We only use weights 300, 400 and italic — subsetting to those alone would save ~80 KB on first load. Marginal but free win.</p>
+        </div>
+        <div class="issue-fix-col">Effort · 30 min</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDATIONS -->
+<section class="recs-section">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">04 · Recommendations</div>
+      <h2>Three things to <em class="italic">ship.</em></h2>
+      <p>For our own site, these are the next-sprint priorities. For a typical client audit, this section contains the top 4–6 highest-impact fixes ranked by effort vs. value.</p>
+    </div>
+
+    <div class="recs-list">
+      <div class="rec-card reveal">
+        <div class="rec-num-col">01</div>
+        <div class="rec-body-col">
+          <div class="rec-tag-row">
+            <span class="rec-tag cat">SEO</span>
+            <span class="rec-tag eff">High value · 1 hour</span>
+          </div>
+          <h3 class="rec-title">Add Service + FAQPage structured data.</h3>
+          <p class="rec-body">Implement JSON-LD Service schema on each of the three service pages, and FAQPage schema on the services.html FAQ section. Should unlock rich result eligibility within 2–3 weeks of Google re-crawl.</p>
+        </div>
+      </div>
+
+      <div class="rec-card reveal reveal-d1">
+        <div class="rec-num-col">02</div>
+        <div class="rec-body-col">
+          <div class="rec-tag-row">
+            <span class="rec-tag cat">Accessibility</span>
+            <span class="rec-tag eff">Medium value · 15 min</span>
+          </div>
+          <h3 class="rec-title">Add ARIA labels to decorative case thumbs.</h3>
+          <p class="rec-body">Wrap the mock case study tiles in aria-label or add visually hidden description text. Restores screen reader parity and lifts accessibility score from 88 to 95+.</p>
+        </div>
+      </div>
+
+      <div class="rec-card reveal reveal-d2">
+        <div class="rec-num-col">03</div>
+        <div class="rec-body-col">
+          <div class="rec-tag-row">
+            <span class="rec-tag cat">Performance</span>
+            <span class="rec-tag eff">Low value · 30 min</span>
+          </div>
+          <h3 class="rec-title">Subset Fraunces to weights actually used.</h3>
+          <p class="rec-body">Use Google Fonts subsetting query parameter or self-host with subset of weights 300, 400, 500 + italic-300. Saves ~80 KB on the initial bundle. LCP probably already excellent — this is a marginal first-load improvement.</p>
+        </div>
+      </div>
+
+      <div class="rec-card reveal reveal-d3">
+        <div class="rec-num-col">04</div>
+        <div class="rec-body-col">
+          <div class="rec-tag-row">
+            <span class="rec-tag cat">Content</span>
+            <span class="rec-tag eff">Strategic · Ongoing</span>
+          </div>
+          <h3 class="rec-title">Start a journal section to drive long-tail SEO.</h3>
+          <p class="rec-body">Folio scores well on brand keywords but has no presence on long-tail searches like "how to audit a website" or "luxembourg seo agency". A monthly editorial post would compound over 6–12 months. Worth adding to the roadmap.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section style="padding: clamp(48px, 6vw, 80px) 0; border-top: 1px solid var(--border); background: var(--bg-2);">
+  <div class="container">
+    <div class="sect-head reveal">
+      <div class="eyebrow">05 · What every client gets</div>
+      <h2>Your audit will<br><em class="italic">look just like this.</em></h2>
+      <p>Same structure, same depth — your domain, your scores, your priorities. Delivered as a personalised PDF report within 24 hours of you submitting the form.</p>
+    </div>
+
+    <div class="grid-4">
+      <div class="reveal">
+        <div class="stat-num"><span data-count="12">0</span></div>
+        <div class="stat-label">Metrics checked<br>across every audit</div>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="stat-num"><span data-count="24">0</span><span class="accent-color">h</span></div>
+        <div class="stat-label">Delivery turnaround<br>after submission</div>
+      </div>
+      <div class="reveal reveal-d2">
+        <div class="stat-num"><span class="accent-color">€</span><span data-count="0">0</span></div>
+        <div class="stat-label">Cost — always<br>free, always</div>
+      </div>
+      <div class="reveal reveal-d3">
+        <div class="stat-num"><span data-count="0">0</span></div>
+        <div class="stat-label">Sales calls required<br>to receive it</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container container-narrow">
+    <h2 class="cta-headline reveal">Want one for<br><em class="italic">your site?</em></h2>
+    <p class="cta-sub reveal">Drop your domain and a few details. Same depth, same turnaround, same honesty. We'll tell you what's actually wrong — and what to fix first.</p>
+    <div class="hero-actions reveal">
+      <a href="contact.html" class="btn btn-accent">Request your free audit</a>
+      <a href="services.html" class="btn-ghost">Compare packages</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Folio<span class="italic-mark">·</span></a>
+        <p class="footer-tagline">Websites for ambitious brands. From Luxembourg, for the world.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-list">
+          <li><a href="services/quick-refresh.html">Quick Refresh</a></li>
+          <li><a href="services/full-rebuild.html">Full Rebuild</a></li>
+          <li><a href="services/growth.html">Growth Partner</a></li>
+          <li><a href="contact.html">Free Audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Studio</div>
+        <ul class="footer-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="sample-audit.html">Sample audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-list">
+          <li><a href="mailto:hello@folio.lu">hello@folio.lu</a></li>
+          <li>+352 27 86 12 34</li>
+          <li>Luxembourg-City</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Folio · Luxembourg web agency</span>
+      <span>Sample audit · folio.lu · 96 / 100</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
