@@ -62,11 +62,16 @@
 .hero {
   padding: clamp(32px, 4vw, 56px) 0 clamp(24px, 3vw, 40px);
   position: relative;
+  /* Gradient shifts from pure black on the left to a dim lit slate on the right
+     so the glass backdrop-filter has visibly different content to show through */
+  background:
+    radial-gradient(ellipse 72% 120% at 88% 52%, #1c2e22 0%, #111a14 38%, transparent 64%),
+    linear-gradient(to right, #0A0A0B 20%, #0c1410 55%, #111a15 100%);
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(40px, 5vw, 80px);
+  grid-template-columns: 1fr 1.08fr;
+  gap: clamp(32px, 4.5vw, 72px);
 }
 .hero-headline {
   font-family: var(--serif);
@@ -475,111 +480,170 @@
       </div>
 
       <div class="hero-right">
-        <div class="hp" aria-label="Portfolio of websites we've built">
-          <div class="hp-atmos" aria-hidden="true"></div>
-          <div class="hp-screen">
+        <div class="gd" aria-label="Portfolio of websites we have built">
+          <div class="gd-atmos" aria-hidden="true"></div>
 
-            <!-- GRID VIEW -->
-            <div class="hp-screen-body hp-grid-wrap">
-              <div class="hp-grid">
-                <button type="button" class="hp-card hp-poster-deepak" data-url="deepakproducts.com" data-title="Deepak Products" data-industry="E-commerce" aria-label="Open Deepak Products portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">E-commerce</span><span class="hp-card-title">Deepak Products</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-arch" data-url="marchant.lu" data-title="Marchant Studio" data-industry="Architecture" aria-label="Open Marchant Studio portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Architecture</span><span class="hp-card-title">Marchant Studio</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-fid" data-url="boreal-fid.lu" data-title="Boréal Fiduciaire" data-industry="Finance" aria-label="Open Boréal Fiduciaire portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Finance</span><span class="hp-card-title">Boréal Fiduciaire</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-rest" data-url="maison643.lu" data-title="Maison 643" data-industry="Hospitality" aria-label="Open Maison 643 portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Hospitality</span><span class="hp-card-title">Maison 643</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-saas" data-url="loopback.io" data-title="Loopback" data-industry="SaaS" aria-label="Open Loopback portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">SaaS</span><span class="hp-card-title">Loopback</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-gallery" data-url="etain.lu" data-title="Galerie Étain" data-industry="Cultural" aria-label="Open Galerie Étain portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Cultural</span><span class="hp-card-title">Galerie Étain</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-clinic" data-url="helix-clinic.lu" data-title="Helix Clinic" data-industry="Healthcare" aria-label="Open Helix Clinic portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Healthcare</span><span class="hp-card-title">Helix Clinic</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-realty" data-url="findel-realty.lu" data-title="Findel Realty" data-industry="Real estate" aria-label="Open Findel Realty portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Real estate</span><span class="hp-card-title">Findel Realty</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-school" data-url="atelier-edu.lu" data-title="École Atelier" data-industry="Education" aria-label="Open École Atelier portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Education</span><span class="hp-card-title">École Atelier</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-oil" data-url="verdaoils.com" data-title="Verda Oils" data-industry="E-commerce" aria-label="Open Verda Oils portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">E-commerce</span><span class="hp-card-title">Verda Oils</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-law" data-url="hartmann-law.lu" data-title="Hartmann & Co." data-industry="Legal" aria-label="Open Hartmann & Co. portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Legal</span><span class="hp-card-title">Hartmann & Co.</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-bakery" data-url="painbeurre.lu" data-title="Pain & Beurre" data-industry="Hospitality" aria-label="Open Pain & Beurre portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Hospitality</span><span class="hp-card-title">Pain & Beurre</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-photo" data-url="annalange.studio" data-title="Anna Lange" data-industry="Portfolio" aria-label="Open Anna Lange portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Portfolio</span><span class="hp-card-title">Anna Lange</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-wine" data-url="lentz.wine" data-title="Domaine Lentz" data-industry="Hospitality" aria-label="Open Domaine Lentz portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Hospitality</span><span class="hp-card-title">Domaine Lentz</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-agency" data-url="northcap.lu" data-title="Northcap" data-industry="Finance" aria-label="Open Northcap portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Finance</span><span class="hp-card-title">Northcap</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-devtool" data-url="routerly.dev" data-title="Routerly" data-industry="Dev tools" aria-label="Open Routerly portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Dev tools</span><span class="hp-card-title">Routerly</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-museum" data-url="riverlight.lu" data-title="Musée Riverlight" data-industry="Cultural" aria-label="Open Musée Riverlight portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Cultural</span><span class="hp-card-title">Musée Riverlight</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-fitness" data-url="atrium-fit.lu" data-title="Atrium Fitness" data-industry="Wellness" aria-label="Open Atrium Fitness portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Wellness</span><span class="hp-card-title">Atrium Fitness</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-rec" data-url="cassia.fm" data-title="Cassia Records" data-industry="Music" aria-label="Open Cassia Records portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Music</span><span class="hp-card-title">Cassia Records</span></span>
-                </button>
-                <button type="button" class="hp-card hp-poster-studio" data-url="studiobrume.com" data-title="Studio Brume" data-industry="Creative" aria-label="Open Studio Brume portfolio snippet">
-                  <span class="hp-card-overlay" aria-hidden="true"></span><span class="hp-card-mark" aria-hidden="true">F·</span>
-                  <span class="hp-card-meta"><span class="hp-card-industry">Creative</span><span class="hp-card-title">Studio Brume</span></span>
-                </button>
-              </div>
-            </div>
+          <div class="gd-screen">
+            <!-- Light effect layers -->
+            <div class="gd-streak gd-streak-a" aria-hidden="true"></div>
+            <div class="gd-streak gd-streak-b" aria-hidden="true"></div>
+            <div class="gd-shimmer" aria-hidden="true"></div>
 
-            <!-- SNIPPET VIEW (hidden initially) -->
-            <div class="hp-screen-body hp-snippet-wrap" style="display:none;">
-              <button class="hp-back" type="button" aria-label="Back to portfolio grid">
-                <span class="hp-back-arrow">←</span> All projects
+            <!-- Portfolio mosaic grid -->
+            <div class="gd-mosaic">
+
+              <!-- C1 · Deepak Products / landscape (cols 1–2, row 1) -->
+              <button type="button" class="gd-card gd-c1 gd-deepak"
+                data-url="deepakproducts.com" data-href="https://lustrous-cuchufli-0fd203.netlify.app/" data-title="Deepak Products" data-industry="Manufacturing"
+                aria-label="Deepak Products — Industrial Manufacturing">
+                <div class="gd-card-ui">
+                  <div class="gd-card-topbar">
+                    <span class="gd-dot"></span><span class="gd-dot"></span><span class="gd-dot"></span>
+                  </div>
+                  <div class="gd-card-hl">Sheet Metal<em>Experts.</em></div>
+                </div>
+                <div class="gd-card-foot">
+                  <span class="gd-card-ind">Manufacturing</span>
+                  <span class="gd-card-nm">Deepak Products</span>
+                </div>
+                <span class="gd-fmark" aria-hidden="true">F·</span>
               </button>
-              <div class="hp-snippet-stage"></div>
-              <div class="hp-snippet-url"></div>
+
+              <!-- C2 · Architecture / square (col 3, row 1) -->
+              <button type="button" class="gd-card gd-c2 gd-arch"
+                data-url="marchant.lu" data-title="Marchant Studio" data-industry="Architecture"
+                aria-label="Marchant Studio — Architecture">
+                <div class="gd-card-ui">
+                  <div class="gd-card-topbar">
+                    <span class="gd-dot"></span><span class="gd-dot"></span><span class="gd-dot"></span>
+                  </div>
+                  <div class="gd-card-hl">Studio<em>Form.</em></div>
+                </div>
+                <div class="gd-card-foot">
+                  <span class="gd-card-ind">Architecture</span>
+                  <span class="gd-card-nm">Marchant Studio</span>
+                </div>
+                <span class="gd-fmark" aria-hidden="true">F·</span>
+              </button>
+
+              <!-- C3 · Restaurant / portrait (col 4, row 1) -->
+              <button type="button" class="gd-card gd-c3 gd-resto"
+                data-url="maison643.lu" data-title="Maison 643" data-industry="Hospitality"
+                aria-label="Maison 643 — Restaurant">
+                <div class="gd-card-ui">
+                  <div class="gd-card-topbar">
+                    <span class="gd-dot"></span><span class="gd-dot"></span><span class="gd-dot"></span>
+                  </div>
+                  <div class="gd-card-hl">Maison<em>643.</em></div>
+                </div>
+                <div class="gd-card-foot">
+                  <span class="gd-card-ind">Hospitality</span>
+                  <span class="gd-card-nm">Maison 643</span>
+                </div>
+                <span class="gd-fmark" aria-hidden="true">F·</span>
+              </button>
+
+              <!-- C4 · SaaS / portrait (col 1, row 2) -->
+              <button type="button" class="gd-card gd-c4 gd-saas"
+                data-url="loopback.io" data-title="Loopback" data-industry="SaaS"
+                aria-label="Loopback — SaaS">
+                <div class="gd-card-ui">
+                  <div class="gd-card-topbar">
+                    <span class="gd-dot"></span><span class="gd-dot"></span><span class="gd-dot"></span>
+                  </div>
+                  <div class="gd-card-hl">Loop<em>back.</em></div>
+                </div>
+                <div class="gd-card-foot">
+                  <span class="gd-card-ind">SaaS</span>
+                  <span class="gd-card-nm">Loopback</span>
+                </div>
+                <span class="gd-fmark" aria-hidden="true">F·</span>
+              </button>
+
+              <!-- C5 · Interior / landscape (cols 2–3, row 2) -->
+              <button type="button" class="gd-card gd-c5 gd-interior"
+                data-url="studiodeco.lu" data-title="Studio Deco" data-industry="Interior"
+                aria-label="Studio Deco — Interior Design">
+                <div class="gd-card-ui">
+                  <div class="gd-card-topbar">
+                    <span class="gd-dot"></span><span class="gd-dot"></span><span class="gd-dot"></span>
+                  </div>
+                  <div class="gd-card-hl">Interior<em>Spaces.</em></div>
+                </div>
+                <div class="gd-card-foot">
+                  <span class="gd-card-ind">Interior</span>
+                  <span class="gd-card-nm">Studio Deco</span>
+                </div>
+                <span class="gd-fmark" aria-hidden="true">F·</span>
+              </button>
+
+              <!-- C6 · Tech Startup / portrait (col 4, row 2) -->
+              <button type="button" class="gd-card gd-c6 gd-tech"
+                data-url="helix-labs.io" data-title="Helix Labs" data-industry="Tech"
+                aria-label="Helix Labs — Technology">
+                <div class="gd-card-ui">
+                  <div class="gd-card-topbar">
+                    <span class="gd-dot"></span><span class="gd-dot"></span><span class="gd-dot"></span>
+                  </div>
+                  <div class="gd-card-hl">Helix<em>Labs.</em></div>
+                </div>
+                <div class="gd-card-foot">
+                  <span class="gd-card-ind">Tech</span>
+                  <span class="gd-card-nm">Helix Labs</span>
+                </div>
+                <span class="gd-fmark" aria-hidden="true">F·</span>
+              </button>
+
+              <!-- C7 · E-commerce / landscape (cols 1–2, row 3) -->
+              <button type="button" class="gd-card gd-c7 gd-ecom"
+                data-url="verdaoils.com" data-title="Verda Oils" data-industry="E-commerce"
+                aria-label="Verda Oils — E-commerce">
+                <div class="gd-card-ui">
+                  <div class="gd-card-topbar">
+                    <span class="gd-dot"></span><span class="gd-dot"></span><span class="gd-dot"></span>
+                  </div>
+                  <div class="gd-card-hl">Verda<em>Oils.</em></div>
+                </div>
+                <div class="gd-card-foot">
+                  <span class="gd-card-ind">E-commerce</span>
+                  <span class="gd-card-nm">Verda Oils</span>
+                </div>
+                <span class="gd-fmark" aria-hidden="true">F·</span>
+              </button>
+
+              <!-- C8 · Creative Agency / square (col 3, row 3) -->
+              <button type="button" class="gd-card gd-c8 gd-agency"
+                data-url="northcap.lu" data-title="Northcap" data-industry="Finance"
+                aria-label="Northcap — Finance">
+                <div class="gd-card-ui">
+                  <div class="gd-card-topbar">
+                    <span class="gd-dot"></span><span class="gd-dot"></span><span class="gd-dot"></span>
+                  </div>
+                  <div class="gd-card-hl">North<em>cap.</em></div>
+                </div>
+                <div class="gd-card-foot">
+                  <span class="gd-card-ind">Finance</span>
+                  <span class="gd-card-nm">Northcap</span>
+                </div>
+                <span class="gd-fmark" aria-hidden="true">F·</span>
+              </button>
+
+              <!-- Logo block — links to contact page -->
+              <a href="contact.html" class="gd-logo-block" aria-label="Folio studio — get in touch">
+                <span class="gd-logo-text">Folio<i>·</i></span>
+              </a>
+
+            </div><!-- /.gd-mosaic -->
+
+            <!-- Snippet view — shown when a card is clicked -->
+            <div class="gd-snippet-wrap">
+              <button class="gd-back" type="button" aria-label="Back to portfolio grid">← All projects</button>
+              <div class="gd-snippet-stage"></div>
+              <div class="gd-snippet-url"></div>
             </div>
 
-            <!-- Folio watermark -->
-            <div class="hp-watermark">
-              <span class="hp-watermark-mark">Folio<i>·</i></span>
-            </div>
-          </div>
-        </div>
+          </div><!-- /.gd-screen -->
+        </div><!-- /.gd -->
       </div>
     </div>
   </div>

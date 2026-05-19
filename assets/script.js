@@ -53,57 +53,82 @@ setInterval(updateClock, 30000);
 })();
 
 /* ═══════════════════════════════════════════════════════════
-   PORTFOLIO PROJECTOR — hero glass screen interactions
+   GLASS DISPLAY — hero screen card interactions
 ═══════════════════════════════════════════════════════════ */
 (function() {
-  const gridWrap     = document.querySelector('.hp-grid-wrap');
-  const snippetWrap  = document.querySelector('.hp-snippet-wrap');
-  const snippetStage = document.querySelector('.hp-snippet-stage');
-  const snippetUrl   = document.querySelector('.hp-snippet-url');
-  const backBtn      = document.querySelector('.hp-back');
-  if (!gridWrap) return;
+  var mosaic       = document.querySelector('.gd-mosaic');
+  var snippetWrap  = document.querySelector('.gd-snippet-wrap');
+  var snippetStage = document.querySelector('.gd-snippet-stage');
+  var snippetUrl   = document.querySelector('.gd-snippet-url');
+  var backBtn      = document.querySelector('.gd-back');
+  if (!mosaic) return;
 
   function showSnippet(card) {
     var title    = card.dataset.title    || '';
     var industry = card.dataset.industry || '';
     var url      = card.dataset.url      || '';
-    var firstWord = title.split(' ')[0];
+    var href     = card.dataset.href     || ('https://' + url);
 
-    snippetStage.innerHTML =
-      '<div class="snip">' +
-        '<div class="snip-nav">' +
-          '<span class="snip-logo">' + firstWord + '<em>·</em></span>' +
-          '<span class="snip-navlinks"><span>Work</span><span>About</span><span>Contact</span></span>' +
-        '</div>' +
-        '<div class="snip-hero">' +
-          '<span class="snip-eyebrow">' + industry + '</span>' +
-          '<h4>Shipped by<br><em>Folio Studio.</em></h4>' +
-          '<div class="snip-row">' +
-            '<span class="snip-cta">Visit live →</span>' +
-            '<span class="snip-meta">' + url + '</span>' +
+    if (title === 'Deepak Products') {
+      snippetStage.innerHTML =
+        '<div class="snip snip-deepak">' +
+          '<div class="snip-nav">' +
+            '<span class="snip-logo">Deepak<em>·</em></span>' +
+            '<span class="snip-navlinks"><span>Products</span><span>About</span><span>Contact</span></span>' +
           '</div>' +
-        '</div>' +
-        '<div class="snip-photos">' +
-          '<div class="snip-photo p1"></div>' +
-          '<div class="snip-photo p2"></div>' +
-          '<div class="snip-photo p3"></div>' +
-        '</div>' +
-      '</div>';
+          '<div class="snip-hero">' +
+            '<span class="snip-eyebrow">Industrial Manufacturing</span>' +
+            '<h4>Sheet Metal<br><em>Experts.</em></h4>' +
+            '<p class="snip-sub">Precision engineering since 1988 — perforated &amp; woven wire mesh, gratings, and expanded metals for global industry.</p>' +
+            '<div class="snip-row">' +
+              '<a class="snip-cta" href="' + href + '" target="_blank" rel="noopener noreferrer">Visit site →</a>' +
+            '</div>' +
+          '</div>' +
+          '<div class="dp-stats">' +
+            '<div class="dp-stat"><span class="dp-v">35+</span><span class="dp-l">Years</span></div>' +
+            '<div class="dp-stat"><span class="dp-v">650+</span><span class="dp-l">Products</span></div>' +
+            '<div class="dp-stat"><span class="dp-v">700+</span><span class="dp-l">Clients</span></div>' +
+            '<div class="dp-stat"><span class="dp-v">10+</span><span class="dp-l">Countries</span></div>' +
+          '</div>' +
+        '</div>';
+    } else {
+      var firstWord = title.split(' ')[0];
+      snippetStage.innerHTML =
+        '<div class="snip">' +
+          '<div class="snip-nav">' +
+            '<span class="snip-logo">' + firstWord + '<em>·</em></span>' +
+            '<span class="snip-navlinks"><span>Work</span><span>About</span><span>Contact</span></span>' +
+          '</div>' +
+          '<div class="snip-hero">' +
+            '<span class="snip-eyebrow">' + industry + '</span>' +
+            '<h4>Shipped by<br><em>Folio Studio.</em></h4>' +
+            '<div class="snip-row">' +
+              '<a class="snip-cta" href="' + href + '" target="_blank" rel="noopener noreferrer">Visit site →</a>' +
+              '<span class="snip-meta">' + url + '</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="snip-photos">' +
+            '<div class="snip-photo p1"></div>' +
+            '<div class="snip-photo p2"></div>' +
+            '<div class="snip-photo p3"></div>' +
+          '</div>' +
+        '</div>';
+    }
 
     snippetUrl.innerHTML = url + ' · <span>shipped by Folio Studio</span>';
-    gridWrap.style.display    = 'none';
-    snippetWrap.style.display = 'flex';
+    mosaic.style.display       = 'none';
+    snippetWrap.style.display  = 'flex';
   }
 
-  gridWrap.addEventListener('click', function(e) {
-    var card = e.target.closest('.hp-card');
+  mosaic.addEventListener('click', function(e) {
+    var card = e.target.closest('.gd-card');
     if (card) showSnippet(card);
   });
 
   if (backBtn) {
     backBtn.addEventListener('click', function() {
       snippetWrap.style.display = 'none';
-      gridWrap.style.display    = '';
+      mosaic.style.display      = '';
     });
   }
 })();
