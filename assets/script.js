@@ -33,6 +33,82 @@ setInterval(updateClock, 30000);
   els.forEach(el => obs.observe(el));
 })();
 
+/* ── TERMINAL BOOT SEQUENCE ── */
+(function() {
+  var terminal = document.querySelector('.gd-terminal');
+  var mosaic   = document.querySelector('.gd-mosaic');
+  if (!terminal || !mosaic) return;
+  var body = terminal.querySelector('.gd-term-body');
+  var lines = [
+    '$ folio build --prod',
+    '  ✓ Compiling assets...',
+    '  ✓ Optimising images (32 files)',
+    '  ✓ Generating schema markup',
+    '  ✓ PageSpeed score: 96/100',
+    '  ✓ Deploy to edge network',
+    '$ site live → folio.lu ✓',
+  ];
+  var lineIdx = 0, charIdx = 0, el = null;
+  function typeChar() {
+    if (lineIdx >= lines.length) {
+      setTimeout(function() {
+        terminal.style.transition = 'opacity 0.5s';
+        terminal.style.opacity = '0';
+        setTimeout(function() {
+          terminal.style.display = 'none';
+          mosaic.style.display = '';
+          mosaic.style.transition = 'opacity 0.4s';
+          mosaic.style.opacity = '1';
+        }, 500);
+      }, 380);
+      return;
+    }
+    if (charIdx === 0) {
+      el = document.createElement('div');
+      body.appendChild(el);
+    }
+    var line = lines[lineIdx];
+    el.textContent = line.slice(0, charIdx + 1);
+    charIdx++;
+    if (charIdx < line.length) {
+      setTimeout(typeChar, 45);
+    } else {
+      lineIdx++; charIdx = 0;
+      setTimeout(typeChar, 120);
+    }
+  }
+  typeChar();
+})();
+
+/* ── CURSOR TILT on .gd-screen ── */
+(function() {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var hero   = document.querySelector('.hero');
+  var screen = document.querySelector('.gd-screen');
+  if (!hero || !screen) return;
+  hero.addEventListener('mousemove', function(e) {
+    var r  = hero.getBoundingClientRect();
+    var cx = r.left + r.width  / 2;
+    var cy = r.top  + r.height / 2;
+    var rx =  (e.clientY - cy) / r.height * 8;
+    var ry = -(e.clientX - cx) / r.width  * 8;
+    screen.style.transform = 'perspective(1200px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+  });
+  hero.addEventListener('mouseleave', function() {
+    screen.style.transform = '';
+  });
+})();
+
+/* ── BRAIN HOLOGRAM HOVER ── */
+(function() {
+  var groups = document.querySelectorAll('.brain-branch-group');
+  groups.forEach(function(g) {
+    g.style.cursor = 'pointer';
+    g.addEventListener('mouseenter', function() { g.classList.add('active'); });
+    g.addEventListener('mouseleave', function() { g.classList.remove('active'); });
+  });
+})();
+
 /* ── CITY ROTATOR (inline-grid, width-stable) ── */
 (function() {
   const target = document.getElementById('city-rotator');

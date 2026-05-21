@@ -32,6 +32,7 @@
       <a href="industries.html">Industries</a>
       <a href="work.html">Work</a>
       <a href="about.html">About</a>
+      <a href="blog/index.html">Journal</a>
       <a href="contact.html">Contact</a>
     </div>
     <div class="nav-right">
@@ -75,66 +76,95 @@
       </div>
 
       <div class="tech-hero-globe">
-        <!-- Holographic wireframe globe SVG -->
-        <div class="holo-globe">
-          <div class="holo-noise"></div>
-          <svg viewBox="-220 -220 440 440" class="holo-svg" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="holo-core" cx="50%" cy="50%" r="50%">
-                <stop offset="0%"  stop-color="rgba(57,211,83,0.18)" />
-                <stop offset="55%" stop-color="rgba(57,211,83,0.04)" />
-                <stop offset="100%" stop-color="rgba(57,211,83,0)" />
-              </radialGradient>
-              <linearGradient id="holo-meridian" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%"   stop-color="rgba(57,211,83,0)" />
-                <stop offset="50%"  stop-color="rgba(57,211,83,0.55)" />
-                <stop offset="100%" stop-color="rgba(57,211,83,0)" />
-              </linearGradient>
-            </defs>
-            <!-- Glow core -->
-            <circle cx="0" cy="0" r="180" fill="url(#holo-core)" />
-            <!-- Latitudes -->
-            <ellipse cx="0" cy="-160" rx="96.95" ry="17.45" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
-            <ellipse cx="0" cy="-120" rx="133.42" ry="24.02" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
-            <ellipse cx="0" cy="-80" rx="156.2" ry="28.12" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
-            <ellipse cx="0" cy="-40" rx="172.77" ry="31.1" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
-            <ellipse cx="0" cy="0"   rx="180" ry="32.4" fill="none" stroke="var(--accent)" stroke-width="1.4" opacity="0.7" />
-            <ellipse cx="0" cy="40"  rx="172.77" ry="31.1" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
-            <ellipse cx="0" cy="80"  rx="156.2" ry="28.12" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
-            <ellipse cx="0" cy="120" rx="133.42" ry="24.02" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
-            <ellipse cx="0" cy="160" rx="96.95" ry="17.45" fill="none" stroke="rgba(244,241,232,0.10)" stroke-width="0.8" />
-            <!-- Longitudes — rotating group -->
-            <g class="holo-meridians">
-              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(0)" />
-              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(22.5)" />
-              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(45)" />
-              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(67.5)" />
-              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(90)" />
-              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(112.5)" />
-              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(135)" />
-              <ellipse cx="0" cy="0" rx="81" ry="180" fill="none" stroke="url(#holo-meridian)" stroke-width="0.9" transform="rotate(157.5)" />
+        <div class="brain-map" aria-label="Technology mind-map">
+          <svg class="brain-svg" viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Centre node -->
+            <circle cx="260" cy="210" r="28" fill="rgba(57,211,83,0.12)" stroke="rgba(57,211,83,0.6)" stroke-width="1.5"/>
+            <text x="260" y="207" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(57,211,83,0.9)" letter-spacing="1">FOLIO</text>
+            <text x="260" y="219" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7" fill="rgba(57,211,83,0.5)" letter-spacing="0.5">STACK</text>
+
+            <!-- Branch: Frontend (top-left) -->
+            <g class="brain-branch-group" data-branch="frontend">
+              <line class="brain-branch-line" x1="260" y1="210" x2="120" y2="100"/>
+              <circle cx="120" cy="100" r="18" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.4)" stroke-width="1"/>
+              <text x="120" y="97" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(57,211,83,0.8)">Front</text>
+              <text x="120" y="107" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(57,211,83,0.8)">end</text>
+              <line class="brain-leaf-line" x1="120" y1="82" x2="80" y2="48"/>
+              <rect x="44" y="33" width="72" height="18" rx="9" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.25)" stroke-width="0.8"/>
+              <text x="80" y="45" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(244,241,232,0.7)">Next.js</text>
+              <line class="brain-leaf-line" x1="102" y1="90" x2="52" y2="78"/>
+              <rect x="16" y="68" width="72" height="18" rx="9" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.25)" stroke-width="0.8"/>
+              <text x="52" y="80" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(244,241,232,0.7)">Astro</text>
+              <line class="brain-leaf-line" x1="104" y1="108" x2="56" y2="118"/>
+              <rect x="16" y="107" width="80" height="18" rx="9" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.25)" stroke-width="0.8"/>
+              <text x="56" y="119" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(244,241,232,0.7)">TypeScript</text>
             </g>
-            <!-- Outer rings -->
-            <circle cx="0" cy="0" r="180" fill="none" stroke="rgba(244,241,232,0.18)" stroke-width="1" />
-            <circle cx="0" cy="0" r="194" fill="none" stroke="rgba(57,211,83,0.18)" stroke-width="0.6" stroke-dasharray="2 6" />
-            <!-- Data points -->
-            <circle cx="180" cy="0" r="2.4" fill="var(--accent)" opacity="0.85" />
-            <circle cx="155.88" cy="90" r="2.4" fill="var(--accent)" opacity="0.85" />
-            <circle cx="90" cy="155.88" r="2.4" fill="var(--accent)" opacity="0.85" />
-            <circle cx="0" cy="180" r="2.4" fill="var(--accent)" opacity="0.85" />
-            <circle cx="-90" cy="155.88" r="2.4" fill="var(--accent)" opacity="0.85" />
-            <circle cx="-155.88" cy="90" r="2.4" fill="var(--accent)" opacity="0.85" />
+
+            <!-- Branch: Performance (top-right) -->
+            <g class="brain-branch-group" data-branch="performance">
+              <line class="brain-branch-line" x1="260" y1="210" x2="390" y2="100"/>
+              <circle cx="390" cy="100" r="18" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.4)" stroke-width="1"/>
+              <text x="390" y="97" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(57,211,83,0.8)">Perf</text>
+              <text x="390" y="107" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(57,211,83,0.8)">ormance</text>
+              <line class="brain-leaf-line" x1="390" y1="82" x2="370" y2="48"/>
+              <rect x="330" y="33" width="80" height="18" rx="9" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.25)" stroke-width="0.8"/>
+              <text x="370" y="45" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(244,241,232,0.7)">Cloudflare</text>
+              <line class="brain-leaf-line" x1="407" y1="90" x2="445" y2="68"/>
+              <rect x="409" y="57" width="88" height="18" rx="9" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.25)" stroke-width="0.8"/>
+              <text x="453" y="69" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(244,241,232,0.7)">PageSpeed</text>
+              <line class="brain-leaf-line" x1="407" y1="108" x2="452" y2="118"/>
+              <rect x="412" y="107" width="76" height="18" rx="9" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.25)" stroke-width="0.8"/>
+              <text x="450" y="119" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(244,241,232,0.7)">Vercel CDN</text>
+            </g>
+
+            <!-- Branch: Analytics (right) -->
+            <g class="brain-branch-group" data-branch="analytics">
+              <line class="brain-branch-line" x1="260" y1="210" x2="420" y2="210"/>
+              <circle cx="420" cy="210" r="18" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.4)" stroke-width="1"/>
+              <text x="420" y="207" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(57,211,83,0.8)">Analy</text>
+              <text x="420" y="217" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(57,211,83,0.8)">tics</text>
+              <line class="brain-leaf-line" x1="438" y1="200" x2="470" y2="178"/>
+              <rect x="435" y="165" width="72" height="18" rx="9" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.25)" stroke-width="0.8"/>
+              <text x="471" y="177" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(244,241,232,0.7)">GA4</text>
+              <line class="brain-leaf-line" x1="438" y1="220" x2="470" y2="242"/>
+              <rect x="430" y="231" width="82" height="18" rx="9" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.25)" stroke-width="0.8"/>
+              <text x="471" y="243" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(244,241,232,0.7)">Plausible</text>
+            </g>
+
+            <!-- Branch: Design (bottom) -->
+            <g class="brain-branch-group" data-branch="design">
+              <line class="brain-branch-line" x1="260" y1="210" x2="260" y2="360"/>
+              <circle cx="260" cy="360" r="18" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.4)" stroke-width="1"/>
+              <text x="260" y="357" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(57,211,83,0.8)">De</text>
+              <text x="260" y="367" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(57,211,83,0.8)">sign</text>
+              <line class="brain-leaf-line" x1="243" y1="370" x2="200" y2="393"/>
+              <rect x="152" y="382" width="96" height="18" rx="9" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.25)" stroke-width="0.8"/>
+              <text x="200" y="394" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(244,241,232,0.7)">Figma</text>
+              <line class="brain-leaf-line" x1="277" y1="370" x2="318" y2="393"/>
+              <rect x="274" y="382" width="88" height="18" rx="9" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.25)" stroke-width="0.8"/>
+              <text x="318" y="394" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(244,241,232,0.7)">Framer</text>
+            </g>
+
+            <!-- Branch: Backend (left) -->
+            <g class="brain-branch-group" data-branch="backend">
+              <line class="brain-branch-line" x1="260" y1="210" x2="100" y2="310"/>
+              <circle cx="100" cy="310" r="18" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.4)" stroke-width="1"/>
+              <text x="100" y="307" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(57,211,83,0.8)">Back</text>
+              <text x="100" y="317" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(57,211,83,0.8)">end</text>
+              <line class="brain-leaf-line" x1="82" y1="300" x2="44" y2="278"/>
+              <rect x="8" y="267" width="72" height="18" rx="9" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.25)" stroke-width="0.8"/>
+              <text x="44" y="279" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(244,241,232,0.7)">Sanity</text>
+              <line class="brain-leaf-line" x1="82" y1="320" x2="44" y2="340"/>
+              <rect x="8" y="329" width="72" height="18" rx="9" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.25)" stroke-width="0.8"/>
+              <text x="44" y="341" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(244,241,232,0.7)">Postgres</text>
+              <line class="brain-leaf-line" x1="100" y1="328" x2="100" y2="364"/>
+              <rect x="60" y="354" width="80" height="18" rx="9" fill="rgba(57,211,83,0.08)" stroke="rgba(57,211,83,0.25)" stroke-width="0.8"/>
+              <text x="100" y="366" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(244,241,232,0.7)">Resend</text>
+            </g>
+
+            <!-- Pulse ring -->
+            <circle class="brain-ripple" cx="260" cy="210" r="28" fill="none" stroke="rgba(57,211,83,0.35)" stroke-width="1"/>
           </svg>
-          <div class="holo-tags" aria-hidden="true">
-            <span class="holo-tag holo-tag-0">Next.js</span>
-            <span class="holo-tag holo-tag-1">Postgres</span>
-            <span class="holo-tag holo-tag-2">Vercel</span>
-            <span class="holo-tag holo-tag-3">Sanity</span>
-          </div>
-          <div class="holo-readout">
-            <div class="holo-readout-row"><span>NODE</span><span class="holo-dot"></span><span>0xA1·LU</span></div>
-            <div class="holo-readout-row"><span>UPLINK</span><span class="holo-dot"></span><span>STABLE</span></div>
-          </div>
         </div>
       </div>
     </div>
