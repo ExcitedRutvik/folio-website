@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHead from '../components/SectionHead.astro';
+
+const jsonld = {
+  "@context": "https://schema.org", "@type": "OfferCatalog", "name": "Trayaam Web Design Services",
+  "itemListElement": [
+    {"@type": "Offer", "name": "Quick Refresh", "price": "990", "priceCurrency": "EUR", "url": "https://trayaam.com/services/quick-refresh"},
+    {"@type": "Offer", "name": "Full Rebuild", "price": "2500", "priceCurrency": "EUR", "url": "https://trayaam.com/services/full-rebuild"},
+    {"@type": "Offer", "name": "Growth Partner", "price": "4500", "priceCurrency": "EUR", "url": "https://trayaam.com/services/growth"}
+  ]
+};
+
+const rows = [
+  ['Timeline', '3–5 days', '7 days', '7 days + ongoing'],
+  ['Pages', 'Homepage + key page', 'Full site', 'Full site'],
+  ['Design', 'Refit existing', 'Bespoke, mobile-first', 'Bespoke, mobile-first'],
+  ['SEO foundation', 'Basics', 'Complete', 'Complete + campaign'],
+  ['Editable CMS', '—', '✓', '✓'],
+  ['Post-launch support', '7 days', '30 days', 'Ongoing'],
+  ['Monthly reporting', '—', '—', '✓'],
+  ['Competitor analysis', '—', '—', 'Quarterly'],
+];
+const tiers = [
+  { name: 'Quick Refresh', price: '€990', href: '/services/quick-refresh' },
+  { name: 'Full Rebuild', price: '€2,500', href: '/services/full-rebuild', feat: true },
+  { name: 'Growth Partner', price: '€4,500', href: '/services/growth' },
+];
+---
+<Layout title="Web Design Services & Pricing — Trayaam Luxembourg" description="Three ways to work with Trayaam: Quick Refresh (€990), Full Rebuild (€2,500) or Growth Partner (€4,500). Fixed pricing, 7-day delivery, free audit first." active="services" path="/services" jsonld={jsonld}>
+<style>
+  .ptable { width: 100%; border-collapse: collapse; margin-top: 3rem; }
+  .ptable th, .ptable td { text-align: left; padding: 1.1rem 1.2rem; border-bottom: 1px solid var(--border); font-size: 0.92rem; vertical-align: top; }
+  .ptable thead th { border-bottom: 1px solid var(--border-med); }
+  .ptable thead .tier { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; }
+  .ptable thead .tier.feat { color: var(--accent); }
+  .ptable thead .price { display: block; font-family: var(--mono); font-size: 0.78rem; color: var(--fg-lo); margin-top: 0.3rem; }
+  .ptable td:first-child, .ptable th:first-child { color: var(--fg-lo); font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.04em; text-transform: uppercase; width: 24%; }
+  .ptable .feat-col { background: linear-gradient(180deg, rgba(var(--accent-rgb),0.06), transparent); }
+  .ptable .cta-row td { padding-top: 1.6rem; }
+  @media (max-width: 767px) { .ptable, .ptable thead, .ptable tbody, .ptable tr, .ptable th, .ptable td { display: block; } .ptable td:first-child { border: 0; padding-bottom: 0; } }
+</style>
+
+<PageHero eyebrow="Services">
+  <h1 slot="title" class="t-h1 reveal">Three ways to work<br>with <em class="italic">Trayaam.</em></h1>
+  <p class="t-body-lg reveal reveal-d1">Whether you need a quick refresh, a complete rebuild, or a long-term growth partner — every engagement starts with a free audit and a fixed price in writing.</p>
+</PageHero>
+
+<section class="section section--major section--line">
+  <div class="container">
+    <SectionHead eyebrow="Compare">
+      <h2 slot="title" class="t-h2">Pick the <em class="italic">altitude.</em></h2>
+      <p class="t-body">All three are built on the same fast, editable stack. The difference is scope and how long we stay alongside you.</p>
+    </SectionHead>
+    <div style="overflow-x:auto;">
+    <table class="ptable reveal">
+      <thead>
+        <tr>
+          <th></th>
+          {tiers.map((t) => (<th class={t.feat ? 'feat-col' : ''}><span class={`tier ${t.feat ? 'feat' : ''}`}>{t.name}{t.feat ? ' ★' : ''}</span><span class="price">{t.price}</span></th>))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((r) => (
+          <tr><td>{r[0]}</td><td>{r[1]}</td><td class="feat-col">{r[2]}</td><td>{r[3]}</td></tr>
+        ))}
+        <tr class="cta-row"><td></td>{tiers.map((t) => (<td class={t.feat ? 'feat-col' : ''}><a href={t.href} class={`btn ${t.feat ? 'btn--accent' : ''}`} style="padding:0.6em 1.2em;font-size:0.82rem;">View →</a></td>))}</tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<section class="section section--major section--line section--surface">
+  <div class="container container--narrow" style="text-align:center;">
+    <SectionHead eyebrow="Not sure which?" align="center">
+      <h2 slot="title" class="t-h2">Start with a <em class="italic">free audit.</em></h2>
+      <p class="t-body">A 12-metric scan of your current site, delivered as a PDF within 24 hours. We'll recommend the right package — or tell you that you don't need us yet.</p>
+    </SectionHead>
+    <div style="margin-top:2.5rem;"><a href="/contact" class="btn btn--accent">Book your free audit <span class="arr">→</span></a></div>
+  </div>
+</section>
+</Layout>

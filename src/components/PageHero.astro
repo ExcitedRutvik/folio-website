@@ -1,0 +1,22 @@
+---
+interface Props { eyebrow?: string; }
+const { eyebrow } = Astro.props;
+---
+<section class="page-hero">
+  <div class="page-hero__bg"></div>
+  <div class="container">
+    {eyebrow && <span class="eyebrow reveal">{eyebrow}</span>}
+    <slot name="title" />
+    <div class="page-hero__body"><slot /></div>
+  </div>
+</section>
+
+<style>
+  .page-hero { position: relative; padding-block: calc(72px + clamp(56px, 9vw, 120px)) clamp(48px, 7vw, 96px); overflow: hidden; }
+  .page-hero__bg { position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 70% 80% at 80% 0%, rgba(var(--accent-rgb),0.08), transparent 60%); }
+  .page-hero .eyebrow { margin-bottom: 1.5rem; }
+  .page-hero :global(h1) { max-width: 16ch; }
+  .page-hero__body { margin-top: 2rem; max-width: 60ch; }
+  .page-hero__body :global(p) { color: var(--fg-med); }
+</style>

@@ -1,0 +1,38 @@
+---
+import Layout from './Layout.astro';
+import PageHero from '../components/PageHero.astro';
+const { title, description, path, date, readtime, category } = Astro.props;
+const jsonld = {
+  "@context": "https://schema.org", "@type": "Article", "headline": title, "description": description,
+  "datePublished": date, "author": { "@type": "Organization", "name": "Trayaam" },
+  "publisher": { "@type": "Organization", "name": "Trayaam" }, "mainEntityOfPage": "https://trayaam.com" + path
+};
+---
+<Layout title={`${title} · Trayaam Journal`} description={description} active="blog" path={path} jsonld={jsonld}>
+<style>
+  .article { max-width: 720px; margin-inline: auto; }
+  .article :global(h2) { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem,2.6vw,2.1rem); letter-spacing: -0.02em; margin: 3rem 0 1.2rem; }
+  .article :global(h3) { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; margin: 2.2rem 0 1rem; }
+  .article :global(p) { color: var(--fg-med); line-height: 1.85; margin-bottom: 1.4rem; font-size: clamp(1rem,0.5vw+0.9rem,1.15rem); }
+  .article :global(ul) { margin: 0 0 1.4rem 1.2rem; }
+  .article :global(li) { color: var(--fg-med); line-height: 1.8; margin-bottom: 0.6rem; list-style: disc; }
+  .article :global(a) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .article :global(strong) { color: var(--fg); }
+  .post-meta { display: flex; gap: 1rem; font-family: var(--mono); font-size: 0.72rem; color: var(--fg-lo); letter-spacing: 0.04em; }
+</style>
+<PageHero eyebrow={category}>
+  <h1 slot="title" class="t-h1 reveal">{title}</h1>
+  <div class="post-meta reveal reveal-d1" style="margin-top:1.5rem;"><span>{date}</span><span>·</span><span>{readtime}</span></div>
+</PageHero>
+<section class="section section--major section--line">
+  <div class="container">
+    <article class="article reveal"><slot /></article>
+  </div>
+</section>
+<section class="section section--major section--line section--surface">
+  <div class="container container--narrow" style="text-align:center;">
+    <h2 class="t-h2 reveal">Want this for <em class="italic">your site?</em></h2>
+    <div style="margin-top:2rem;" class="reveal"><a href="/contact" class="btn btn--accent">Get a free audit <span class="arr">→</span></a></div>
+  </div>
+</section>
+</Layout>

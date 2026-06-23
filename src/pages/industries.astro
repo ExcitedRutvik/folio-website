@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHead from '../components/SectionHead.astro';
+const inds = [
+  ['Architecture & studios','Portfolio-led sites with case-study templates editable in the CMS. Big imagery without the slow load.'],
+  ['Hospitality','Menus, online reservations and local SEO so you\'re found and booked from a phone.'],
+  ['Professional services','Fiduciaries, law, accounting — clear, trustworthy sites with secure hosting and structured service pages.'],
+  ['Manufacturing & B2B','Product catalogues and enquiry flows that turn global search traffic into qualified leads.'],
+  ['Retail & e-commerce','Fast storefronts with clean product pages and conversion-first checkout.'],
+  ['Tech & SaaS','Editorial product sites that explain complex value simply and rank for it.'],
+];
+---
+<Layout title="Industries We Build For — Trayaam Luxembourg" description="Trayaam builds websites for architecture, hospitality, professional services, manufacturing, retail and SaaS — tailored to how each industry wins clients." active="industries" path="/industries">
+<PageHero eyebrow="Industries">
+  <h1 slot="title" class="t-h1 reveal">Built for how<br>your industry <em class="italic">wins.</em></h1>
+  <p class="t-body-lg reveal reveal-d1">We've rebuilt sites across very different sectors — and each one converts differently. Here's how we tailor the work.</p>
+</PageHero>
+<section class="section section--major section--line">
+  <div class="container">
+    <div class="grid grid-3">
+      {inds.map(([t,d]) => (<div class="card reveal"><h2 class="t-h3" style="margin-bottom:0.9rem;">{t}</h2><p class="t-body">{d}</p></div>))}
+    </div>
+  </div>
+</section>
+<section class="section section--major section--line section--surface">
+  <div class="container container--narrow" style="text-align:center;">
+    <SectionHead eyebrow="Don't see yours?" align="center"><h2 slot="title" class="t-h2">We adapt to <em class="italic">your</em> market.</h2></SectionHead>
+    <div style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Get your free audit <span class="arr">→</span></a></div>
+  </div>
+</section>
+</Layout>

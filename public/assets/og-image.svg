@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0A0A0B"/>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <defs>
+    <radialGradient id="g" cx="78%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1c1708"/><stop offset="60%" stop-color="#0A0A0B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(840,150) scale(7)" fill="none" stroke="#C9A86A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M24 41 C 19 27 19 17 24 8 C 29 17 29 27 24 41 Z" opacity="0.95"/>
+    <path d="M24 41 C 15 30 10 23 9.5 14 C 17 17 21 27 24 41 Z" opacity="0.7"/>
+    <path d="M24 41 C 33 30 38 23 38.5 14 C 31 17 27 27 24 41 Z" opacity="0.7"/>
+  </g>
+  <text x="90" y="300" font-family="Georgia,serif" font-size="92" fill="#F4F1E8" font-weight="300" letter-spacing="-3">Trayaam<tspan fill="#C9A86A">·</tspan></text>
+  <text x="96" y="370" font-family="monospace" font-size="26" fill="#C9A86A" letter-spacing="6">CREATIVITY · TECHNOLOGY · EMPOWERMENT</text>
+  <text x="96" y="430" font-family="Georgia,serif" font-size="34" fill="rgba(244,241,232,0.6)" font-style="italic">Websites for ambitious brands, built in 7 days.</text>
+</svg>

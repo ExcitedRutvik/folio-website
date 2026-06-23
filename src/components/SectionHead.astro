@@ -1,0 +1,16 @@
+---
+// Enforces the eyebrow → heading → body rhythm on every page.
+interface Props { eyebrow?: string; align?: 'left' | 'center'; class?: string; }
+const { eyebrow, align = 'left', class: cls = '' } = Astro.props;
+---
+<div class={`section-head ${align === 'center' ? 'section-head--center' : ''} reveal ${cls}`}>
+  {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+  <slot name="title" />
+  <slot />
+</div>
+
+<style>
+  .section-head--center { margin-inline: auto; text-align: center; }
+  .section-head--center .eyebrow { justify-content: center; }
+  .section-head--center p { margin-inline: auto; }
+</style>

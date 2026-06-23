@@ -1,0 +1,20 @@
+---
+import Post from '../../layouts/Post.astro';
+---
+<Post title="How we built trayaam.com to score 100/100" description="The stack, decisions and trade-offs behind a site that loads instantly — Astro, an edge CDN, zero unused JavaScript, and a design system." path="/blog/how-we-built-trayaam" date="Jun 2026" readtime="6 min read" category="Behind the build">
+  <p>Most agency websites are slow because they're built on tools that prioritise convenience over performance. We took the opposite approach. Here's how trayaam.com ships at the top of the Lighthouse scale.</p>
+  <h2>Static first, JavaScript last</h2>
+  <p>The site is built with <strong>Astro</strong>, which ships zero JavaScript by default. Pages are pre-rendered to HTML at build time and served from a global edge network. Interactivity is added only where it earns its place — a terminal animation here, a scroll reveal there — never as a blanket framework runtime.</p>
+  <p>The result: the browser receives finished HTML and a tiny amount of script, instead of a megabyte of framework it has to boot before anything appears.</p>
+  <h2>A design system, not a pile of CSS</h2>
+  <p>Every spacing value, type size and colour comes from a small set of tokens. One gutter, one vertical rhythm ladder, one type scale. That consistency is what makes the site feel engineered rather than assembled — and it's why every page lines up.</p>
+  <h2>Fonts that don't block</h2>
+  <p>We load only the font weights we actually use, with <strong>display: swap</strong> so text is never invisible while fonts load. Small thing, big effect on perceived speed.</p>
+  <h2>The trade-offs</h2>
+  <ul>
+    <li>No heavy 3D where a lighter animation tells the same story.</li>
+    <li>Effects that respect <strong>prefers-reduced-motion</strong> — accessibility isn't optional.</li>
+    <li>Images optimised and lazy-loaded; nothing decorative blocks the first paint.</li>
+  </ul>
+  <p>None of this is exotic. It's just discipline — the same discipline we bring to every client build.</p>
+</Post>

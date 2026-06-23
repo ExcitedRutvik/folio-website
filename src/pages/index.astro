@@ -1,0 +1,444 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHead from '../components/SectionHead.astro';
+
+const faqs = [
+  ['How is a 7-day website rebuild possible?', 'We audit first so there is no guessing phase, run design and development concurrently on a proven stack, and use two structured review rounds instead of open-ended feedback.'],
+  ['What if I don\'t like the first draft?', 'Every package includes structured revisions and we share a Figma design before writing code, so changes are fast and cheap. We have never needed a third round.'],
+  ['Do you work with clients outside Luxembourg?', 'Yes — fully remote with clients in London, Amsterdam, New York, Paris, Singapore and Dubai. Audit and call happen over video, everything else is async.'],
+  ['Will my website rank on Google?', 'No one can guarantee rankings, but we guarantee the best possible starting position: correct tags, schema, sitemap, fast load and mobile-first structure. Most clients see movement in 6–8 weeks.'],
+  ['Do you charge upfront?', '50% on kick-off, 50% on launch — one fixed price in writing before we start. The free audit is genuinely free, with no card required.'],
+];
+
+const jsonld = {
+  "@context": "https://schema.org",
+  "@graph": [
+  {
+  "@type": "LocalBusiness",
+  "@id": "https://trayaam.com/#business",
+  "name": "Trayaam",
+  "description": "Luxembourg web agency specialising in 7-day website rebuilds for ambitious SMEs. Creativity, technology, empowerment. Fixed pricing, free audit, no surprise invoices.",
+  "url": "https://trayaam.com",
+  "email": "hello@trayaam.com",
+  "telephone": "+352278612 34",
+  "priceRange": "€€",
+  "slogan": "Creativity · Technology · Empowerment",
+  "address": { "@type": "PostalAddress", "addressLocality": "Luxembourg City", "addressCountry": "LU" },
+  "areaServed": ["Luxembourg City","London","Amsterdam","New York","Paris","Singapore","Dubai"].map((c) => ({ "@type": "City", name: c })),
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog", "name": "Web Design & SEO Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Quick Refresh"}, "price": "990", "priceCurrency": "EUR"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Full Rebuild"}, "price": "2500", "priceCurrency": "EUR"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Growth Partner"}, "price": "4500", "priceCurrency": "EUR"}
+    ]
+  }
+  },
+  {
+    "@type": "FAQPage",
+    "@id": "https://trayaam.com/#faq",
+    "mainEntity": faqs.map(([q, a]) => ({ "@type": "Question", "name": q, "acceptedAnswer": { "@type": "Answer", "text": a } }))
+  }
+  ]
+};
+
+const pillars = [
+  { k: 'Pillar 01', t: 'Creativity', d: 'Editorial, distinctive design that makes your brand impossible to confuse with anyone else. Ideas first.' },
+  { k: 'Pillar 02', t: 'Technology', d: 'A fast, secure, modern stack — Astro, Next.js, edge hosting. Execution measured in milliseconds.' },
+  { k: 'Pillar 03', t: 'Empowerment', d: 'We hand you the keys: an editable site, clear reporting, and the confidence to grow on your terms.' },
+];
+const work = [
+  { ind: 'Architecture · Luxembourg', t: 'Architect studio', d: 'Invisible on Google to page one for "architecte Luxembourg" in six weeks.', stats: [['+68%','Enquiries'],['6d','Delivered'],['P.1','Ranked']] },
+  { ind: 'Hospitality · Esch', t: 'Restaurant 643', d: 'No mobile, broken form → online reservations and local SEO.', stats: [['+52%','Bookings'],['5d','Delivered'],['100%','Mobile']] },
+  { ind: 'Accounting · Luxembourg', t: 'Fiduciary firm', d: 'No SSL, 18/100 → secure, clear service pages, SME-targeted SEO.', stats: [['+44%','Clients'],['7d','Delivered'],['SSL','Secured']] },
+];
+---
+<Layout title="Trayaam — Web Agency for Ambitious Brands" description="Trayaam is a Luxembourg web agency. Editorial websites rebuilt in 7 days for ambitious SMEs — creativity, technology, empowerment. Free audit, no obligation." active="home" path="/" jsonld={jsonld}>
+
+<style>
+  /* Hero */
+  .hero { position: relative; min-height: 92vh; display: flex; align-items: center; padding-top: 72px; overflow: hidden; }
+  .hero__bg { position: absolute; inset: 0; background:
+      radial-gradient(ellipse 60% 90% at 82% 48%, rgba(201,168,106,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 90% 70% at 10% 100%, rgba(201,168,106,0.04) 0%, transparent 55%); pointer-events: none; }
+  .hero__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 4vw; align-items: center; width: 100%; }
+  .hero__title { margin: 1.6rem 0 2rem; }
+  .hero__line { display: block; overflow: hidden; }
+  .hero__line > span { display: block; transform: translateY(105%); animation: heroRise 1s var(--ease) forwards; }
+  .hero__line:nth-child(2) > span { animation-delay: 0.09s; }
+  .hero__line:nth-child(3) > span { animation-delay: 0.18s; }
+  @keyframes heroRise { to { transform: none; } }
+  .hero__sub { max-width: 46ch; margin-bottom: 2.4rem; }
+  .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .hero__trust { display: flex; gap: 2.2rem; margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+  .hero__trust b { font-family: var(--serif); font-weight: 400; color: var(--accent); margin-right: 0.4em; }
+  .hero__trust span { font-size: 0.86rem; color: var(--fg-med); }
+
+  /* city rotator */
+  .city { display: inline-grid; vertical-align: bottom; }
+  .city > span { grid-area: 1 / 1; }
+  .city__spacer { visibility: hidden; }
+  .city__active { color: var(--accent); animation: cityIn 0.5s var(--ease); }
+  @keyframes cityIn { from { opacity: 0; transform: translateY(0.18em); } to { opacity: 1; transform: none; } }
+
+  /* terminal / glass display */
+  .hero__art { perspective: 1400px; }
+  .glass { position: relative; border-radius: 14px; background: var(--term-bg); border: 1px solid var(--border-med);
+    box-shadow: var(--term-shadow); overflow: hidden; transform: rotateY(-7deg) rotateX(3deg); transition: transform 0.5s var(--ease); min-height: 380px; }
+  .hero__art:hover .glass { transform: rotateY(-3deg) rotateX(1.5deg); }
+  .glass::after { content: ''; position: absolute; inset: 0; background: linear-gradient(120deg, rgba(255,255,255,0.06), transparent 40%); pointer-events: none; }
+  .term__bar { display: flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1rem; background: var(--term-bar); border-bottom: 1px solid var(--border); }
+  .term__dot { width: 11px; height: 11px; border-radius: 50%; background: rgba(255,255,255,0.18); }
+  .term__dot:nth-child(1) { background: #ff5f57; } .term__dot:nth-child(2) { background: #febc2e; } .term__dot:nth-child(3) { background: #28c840; }
+  .term__title { margin-left: 0.6rem; font-family: var(--mono); font-size: 0.7rem; color: var(--fg-lo); }
+  .term__body { padding: 1.4rem 1.4rem 1.8rem; font-family: var(--mono); font-size: 0.78rem; line-height: 1.9; color: var(--term-fg); min-height: 300px; }
+  .term__body .ok { color: var(--accent); }
+  .term__body .cmd { color: var(--term-fg); }
+  .term__cursor { display: inline-block; width: 8px; height: 1.05em; background: var(--accent); vertical-align: -2px; animation: blink 1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  /* deployed preview revealed after boot */
+  .preview { position: absolute; inset: 0; background: var(--bg-1); display: flex; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity 0.6s var(--ease); }
+  .preview.show { opacity: 1; pointer-events: auto; }
+  .preview__bar { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); }
+  .preview__url { flex: 1; font-family: var(--mono); font-size: 0.68rem; color: var(--fg-lo); background: var(--bg-3); border-radius: 100px; padding: 0.35rem 0.9rem; }
+  .preview__stage { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 1.1rem; padding: 2rem; }
+  .preview__h { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 300; line-height: 1; }
+  .preview__score { display: flex; gap: 1.4rem; }
+  .pscore { text-align: center; }
+  .pscore__v { font-family: var(--serif); font-size: 1.9rem; color: var(--accent); line-height: 1; }
+  .pscore__l { font-size: 0.6rem; color: var(--fg-lo); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.35rem; }
+  @media (max-width: 900px) { .hero__grid { grid-template-columns: 1fr; gap: 2rem; } .hero__art { order: 2; } .glass { transform: none; min-height: 320px; } }
+
+  /* Pillars bento */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+  .pillar { background: var(--bg-1); padding: clamp(2rem,3vw,3rem); display: flex; flex-direction: column; gap: 0.9rem; transition: background 0.4s var(--ease); }
+  .pillar:hover { background: var(--bg-2); }
+  .pillar__k { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+  @media (max-width: 767px) { .pillars { grid-template-columns: 1fr; } }
+
+  /* Services bento */
+  .svc { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .svc__card { display: flex; flex-direction: column; justify-content: space-between; gap: 2.5rem; min-height: 260px; }
+  .svc__card--feat { grid-row: span 2; background: linear-gradient(160deg, rgba(201,168,106,0.08), var(--bg-1) 55%); border-color: var(--accent-mid); }
+  .svc__top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+  .svc__price { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); white-space: nowrap; }
+  .svc__link { color: var(--fg); font-size: 0.88rem; display: inline-flex; gap: 0.5em; }
+  @media (max-width: 767px) { .svc { grid-template-columns: 1fr; } .svc__card--feat { grid-row: auto; } }
+
+  /* Work */
+  .work { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .work__ind { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-lo); }
+  .work__stats { display: flex; gap: 1.4rem; margin-top: 1.6rem; padding-top: 1.4rem; border-top: 1px solid var(--border); }
+  .work__sv { font-family: var(--serif); font-size: 1.5rem; color: var(--accent); line-height: 1; }
+  .work__sl { font-size: 0.7rem; color: var(--fg-lo); margin-top: 0.3rem; }
+  @media (max-width: 900px) { .work { grid-template-columns: 1fr; } }
+
+  /* Process */
+  .proc { display: grid; gap: 0; }
+  .proc__row { display: grid; grid-template-columns: 0.5fr 0.3fr 1.2fr; gap: 2rem; padding: 2.4rem 0; border-top: 1px solid var(--border); align-items: start; }
+  .proc__row:last-child { border-bottom: 1px solid var(--border); }
+  .proc__day { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--accent); padding-top: 0.5rem; }
+  @media (max-width: 767px) { .proc__row { grid-template-columns: 1fr; gap: 0.6rem; } }
+
+  /* Guarantees */
+  .guar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+  .guar__c { background: var(--bg-1); padding: clamp(1.6rem,2.4vw,2.4rem); display: flex; flex-direction: column; gap: 0.8rem; }
+  .guar__ic { width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--accent-mid); background: var(--accent-dim); color: var(--accent); display: grid; place-items: center; font-family: var(--serif); }
+  @media (max-width: 900px) { .guar { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 767px) { .guar { grid-template-columns: 1fr; } }
+
+  /* Testimonials */
+  .tw { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .tw__stars { color: var(--accent); letter-spacing: 2px; margin-bottom: 1.2rem; }
+  .tw__meta { margin-top: 1.6rem; font-size: 0.84rem; color: var(--fg-lo); }
+  .tw__meta b { color: var(--fg); display: block; font-weight: 500; }
+  @media (max-width: 900px) { .tw { grid-template-columns: 1fr; } }
+
+  /* FAQ */
+  .faq__grid { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: clamp(2rem,5vw,5rem); align-items: start; }
+  .faq__side { position: sticky; top: 110px; }
+  details.q { border-top: 1px solid var(--border); }
+  details.q:last-child { border-bottom: 1px solid var(--border); }
+  details.q summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 1.5rem; align-items: center; padding: 1.5rem 0; }
+  details.q summary::-webkit-details-marker { display: none; }
+  details.q .qt { font-family: var(--serif); font-size: 1.15rem; }
+  details.q .qtog { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border-med); display: grid; place-items: center; transition: all 0.3s var(--ease); flex-shrink: 0; }
+  details.q[open] .qtog { background: var(--accent); color: var(--ink); transform: rotate(45deg); }
+  details.q .qa { padding-bottom: 1.5rem; color: var(--fg-med); max-width: 60ch; line-height: 1.7; }
+  @media (max-width: 767px) { .faq__grid { grid-template-columns: 1fr; } .faq__side { position: static; } }
+
+  /* CTA */
+  .cta { text-align: center; position: relative; overflow: hidden; }
+  .cta__glow { position: absolute; top: 50%; left: 50%; width: 760px; height: 760px; border-radius: 50%; transform: translate(-50%,-50%);
+    background: radial-gradient(circle, rgba(201,168,106,0.08), transparent 64%); pointer-events: none; }
+</style>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="container hero__grid">
+    <div class="hero__left">
+      <span class="eyebrow">Creativity · Technology · Empowerment</span>
+      <h1 class="t-h1 hero__title">
+        Websites for<br>ambitious brands<br>in <span class="city" id="city"><span class="city__spacer">Luxembourg</span><span class="city__active">Luxembourg</span></span>
+      </h1>
+      <p class="t-body-lg hero__sub">Editorial design, fixed pricing, and a live site in seven days. We audit first, charge second, and tell you honestly if we're not the right fit.</p>
+      <div class="hero__actions">
+        <a href="/contact" class="btn btn--accent">Get your free audit <span class="arr">→</span></a>
+        <a href="/work" class="btn btn--ghost">See our work <span class="arr">→</span></a>
+      </div>
+      <div class="hero__trust">
+        <span><b>32+</b>Audits delivered</span>
+        <span><b>7d</b>Avg. delivery</span>
+        <span><b>+40%</b>More enquiries</span>
+      </div>
+    </div>
+    <div class="hero__art reveal reveal-d1">
+      <div class="glass">
+        <div class="term__bar"><span class="term__dot"></span><span class="term__dot"></span><span class="term__dot"></span><span class="term__title">trayaam — zsh</span></div>
+        <div class="term__body" id="term"></div>
+        <div class="preview" id="preview">
+          <div class="preview__bar"><span class="term__dot"></span><span class="term__dot"></span><span class="term__dot"></span><span class="preview__url">https://trayaam.com</span></div>
+          <div class="preview__stage">
+            <span class="eyebrow">Live · deployed to edge</span>
+            <div class="preview__h">Your site,<br><em class="italic">shipped.</em></div>
+            <div class="preview__score">
+              <div class="pscore"><div class="pscore__v">100</div><div class="pscore__l">Performance</div></div>
+              <div class="pscore"><div class="pscore__v">100</div><div class="pscore__l">SEO</div></div>
+              <div class="pscore"><div class="pscore__v">100</div><div class="pscore__l">Best practices</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    /* City rotator */
+    (function () {
+      var el = document.getElementById('city'); if (!el) return;
+      var active = el.querySelector('.city__active'), spacer = el.querySelector('.city__spacer');
+      var cities = ['Luxembourg','London','New York','Amsterdam','Singapore','Dubai','Paris'], i = 0;
+      function tick() {
+        active.textContent = cities[i]; spacer.textContent = cities[i];
+        active.classList.remove('city__active'); void active.offsetWidth; active.classList.add('city__active');
+        i = (i + 1) % cities.length;
+      }
+      tick(); setInterval(tick, 2200);
+    })();
+
+    /* Terminal boot → preview reveal */
+    (function () {
+      var term = document.getElementById('term'), preview = document.getElementById('preview');
+      if (!term) return;
+      var lines = [
+        { t: '$ trayaam build --prod', c: 'cmd' },
+        { t: '  ✓ Compiling editorial design system', c: 'ok' },
+        { t: '  ✓ Optimising images · 32 files', c: 'ok' },
+        { t: '  ✓ Generating schema + sitemap', c: 'ok' },
+        { t: '  ✓ Lighthouse · 100 / 100 / 100', c: 'ok' },
+        { t: '  ✓ Deploying to edge network', c: 'ok' },
+        { t: '$ site live → trayaam.com', c: 'cmd' }
+      ];
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        term.innerHTML = lines.map(function (l) { return '<div class="' + l.c + '">' + l.t + '</div>'; }).join('');
+        if (preview) preview.classList.add('show'); return;
+      }
+      var li = 0, ci = 0, cur = null;
+      function type() {
+        if (li >= lines.length) { setTimeout(function () { if (preview) preview.classList.add('show'); }, 450); return; }
+        if (ci === 0) { cur = document.createElement('div'); cur.className = lines[li].c; term.appendChild(cur); }
+        var s = lines[li].t; cur.textContent = s.slice(0, ci + 1); ci++;
+        if (ci < s.length) setTimeout(type, 26); else { li++; ci = 0; setTimeout(type, 130); }
+      }
+      var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { io.disconnect(); type(); } }, { threshold: 0.3 });
+      io.observe(term);
+    })();
+  </script>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    {Array.from({ length: 2 }).map(() => (
+      <>
+        <span class="marquee__item">Web redesign<span class="dot">·</span></span>
+        <span class="marquee__item">SEO audit<span class="dot">·</span></span>
+        <span class="marquee__item">Core Web Vitals<span class="dot">·</span></span>
+        <span class="marquee__item">Conversion design<span class="dot">·</span></span>
+        <span class="marquee__item">7-day launch<span class="dot">·</span></span>
+        <span class="marquee__item">Mobile-first<span class="dot">·</span></span>
+      </>
+    ))}
+  </div>
+</div>
+
+<!-- PILLARS -->
+<section class="section section--major">
+  <div class="container">
+    <SectionHead eyebrow="01 · What Trayaam means">
+      <h2 slot="title" class="t-h2">Three forces,<br><em class="italic">one outcome.</em></h2>
+      <p class="t-body">Trayaam is built on three pillars — the lotus at the heart of our mark. Each only matters because of the other two.</p>
+    </SectionHead>
+    <div class="pillars" style="margin-top: 3.5rem;">
+      {pillars.map((p, i) => (
+        <div class={`pillar reveal reveal-d${i+1}`}>
+          <span class="pillar__k">{p.k}</span>
+          <h3 class="t-h3">{p.t}</h3>
+          <p class="t-body">{p.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section--compact section--line">
+  <div class="container grid grid-4">
+    <div class="reveal"><div class="stat__num"><span data-count="32">0</span><span class="accent">+</span></div><div class="stat__label">Luxembourg websites audited</div></div>
+    <div class="reveal reveal-d1"><div class="stat__num"><span data-count="7">0</span><span class="accent">d</span></div><div class="stat__label">Average delivery, audit to launch</div></div>
+    <div class="reveal reveal-d2"><div class="stat__num"><span class="accent">+</span><span data-count="40">0</span><span class="accent">%</span></div><div class="stat__label">Average increase in enquiries</div></div>
+    <div class="reveal reveal-d3"><div class="stat__num">€<span data-count="0">0</span></div><div class="stat__label">Cost of your website audit</div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section--major section--line">
+  <div class="container">
+    <SectionHead eyebrow="02 · What we do">
+      <h2 slot="title" class="t-h2">Built for businesses that<br>refuse <em class="italic">to look outdated.</em></h2>
+      <p class="t-body">Three ways to work with us — a quick refresh, a full rebuild, or a long-term growth partner who treats your website like a sales engine.</p>
+    </SectionHead>
+    <div class="svc" style="margin-top: 3.5rem;">
+      <a href="/services/full-rebuild" class="card svc__card svc__card--feat reveal">
+        <div class="svc__top"><span class="eyebrow">Most chosen</span><span class="svc__price">from €2,500</span></div>
+        <div><h3 class="t-h3">Full <em class="italic">Rebuild.</em></h3><p class="t-body" style="margin-top:1rem;">A complete new website — SEO foundation, mobile-first design, editable CMS and a month of free support.</p></div>
+        <span class="svc__link">See package <span class="arr">→</span></span>
+      </a>
+      <a href="/services/quick-refresh" class="card svc__card reveal reveal-d1">
+        <div class="svc__top"><h3 class="t-h4">Quick <em class="italic">Refresh.</em></h3><span class="svc__price">from €990</span></div>
+        <p class="t-body">Sites that work but feel tired. Redesigned homepage, faster load, SEO basics — shipped in 3–5 days.</p>
+        <span class="svc__link">See package <span class="arr">→</span></span>
+      </a>
+      <a href="/services/growth" class="card svc__card reveal reveal-d2">
+        <div class="svc__top"><h3 class="t-h4">Growth <em class="italic">Partner.</em></h3><span class="svc__price">from €4,500</span></div>
+        <p class="t-body">Full rebuild plus ongoing SEO, monthly reporting and quarterly competitor analysis.</p>
+        <span class="svc__link">See package <span class="arr">→</span></span>
+      </a>
+    </div>
+    <div style="margin-top:1.2rem;"><a href="/contact" class="card svc__card reveal" style="flex-direction:row;align-items:center;justify-content:space-between;min-height:auto;">
+      <div><h3 class="t-h4" style="display:inline;">Free <em class="italic">Audit.</em></h3> <span class="t-body" style="display:inline;">— a 12-metric scan of your site, delivered as a PDF in 24 hours.</span></div>
+      <span class="svc__link" style="white-space:nowrap;">Book · €0 <span class="arr">→</span></span>
+    </a></div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section section--major section--line section--surface">
+  <div class="container">
+    <SectionHead eyebrow="03 · Selected work">
+      <h2 slot="title" class="t-h2">Recent <em class="italic">rebuilds.</em></h2>
+      <p class="t-body">A snapshot of what we shipped for Luxembourg businesses this year. Full case studies on the <a href="/work" class="accent" style="text-decoration:underline;text-underline-offset:4px;">work page</a>.</p>
+    </SectionHead>
+    <div class="work" style="margin-top:3.5rem;">
+      {work.map((w, i) => (
+        <a href="/work" class={`card reveal reveal-d${i+1}`}>
+          <div class="work__ind">{w.ind}</div>
+          <h3 class="t-h4" style="margin:0.8rem 0 0.6rem;">{w.t}</h3>
+          <p class="t-body" style="font-size:0.92rem;">{w.d}</p>
+          <div class="work__stats">{w.stats.map(([v,l]) => (<div><div class="work__sv">{v}</div><div class="work__sl">{l}</div></div>))}</div>
+        </a>
+      ))}
+    </div>
+    <div style="margin-top:3rem;text-align:center;"><a href="/work" class="btn">See full portfolio <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section--major section--line">
+  <div class="container">
+    <SectionHead eyebrow="04 · Process">
+      <h2 slot="title" class="t-h2">From audit to live site,<br><em class="italic">in a week.</em></h2>
+      <p class="t-body">No long discovery phases. No endless revisions. We move quickly because we've done this dozens of times.</p>
+    </SectionHead>
+    <div class="proc" style="margin-top:3rem;">
+      {[['Day 0','Free audit.','We scan your site across 12 metrics. A personalised PDF within 24 hours — no call required, no obligation.'],
+        ['Day 1','Discovery call.','20 minutes to walk the audit live, understand your goals and recommend the right package. You decide when to start.'],
+        ['Day 2–6','We build.','You see a draft within 3 days, approve, we refine. Two structured review rounds — no scope creep.'],
+        ['Day 7','You go live.','New site live, fast and ranked. We hand over the keys and stay available for 30 days.']
+      ].map(([d,t,b]) => (
+        <div class="proc__row reveal"><div class="proc__day">{d}</div><h3 class="t-h3">{t}</h3><p class="t-body">{b}</p></div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEES -->
+<section class="section section--major section--line">
+  <div class="container">
+    <SectionHead eyebrow="05 · Why Trayaam">
+      <h2 slot="title" class="t-h2">The promises we put<br><em class="italic">in writing.</em></h2>
+      <p class="t-body">Most agencies hedge. We don't. Here's exactly what you can hold us to — every project.</p>
+    </SectionHead>
+    <div class="guar" style="margin-top:3.5rem;">
+      {[['€','Fixed price','One number, agreed in writing before we start. No scope creep, no surprise invoices.'],
+        ['7','7-day delivery','Audit to live site in a week, or we keep working at no extra cost until it\'s right.'],
+        ['✓','You own everything','Code, content, CMS, domain, analytics — handed over in full. No lock-in.'],
+        ['↺','Honest fit','If we\'re not right for you, the audit will say so. We\'d rather tell you than sell you.']
+      ].map(([ic,t,d]) => (
+        <div class="guar__c reveal"><span class="guar__ic">{ic}</span><h3 class="t-h4">{t}</h3><p class="t-body" style="font-size:0.9rem;">{d}</p></div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section--major section--line section--surface">
+  <div class="container">
+    <SectionHead eyebrow="06 · In their words">
+      <h2 slot="title" class="t-h2">What clients say after<br><em class="italic">they go live.</em></h2>
+    </SectionHead>
+    <div class="tw" style="margin-top:3.5rem;">
+      {[['"Trayaam\'s free audit showed exactly what was wrong — then had our new site live in six days. More enquiries in the first month than the entire quarter before."','Managing Director','Architecture Studio · Luxembourg'],
+        ['"Our old site didn\'t work on phones — where most of our bookings come from. They rebuilt it with reservations in five days. Bookings up by half."','Owner','Restaurant · Esch-sur-Alzette'],
+        ['"No jargon, no pressure, one clear price. They told us upfront what they\'d fix and delivered exactly that."','Partner','Fiduciary Firm · Luxembourg']
+      ].map(([q,n,m]) => (
+        <div class="card reveal"><div class="tw__stars">★★★★★</div><p class="t-h4" style="font-weight:400;">{q}</p><div class="tw__meta"><b>{n}</b>{m}</div></div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section--major section--line">
+  <div class="container faq__grid">
+    <div class="faq__side">
+      <SectionHead eyebrow="07 · Questions">
+        <h2 slot="title" class="t-h2">Before you<br><em class="italic">start.</em></h2>
+        <p class="t-body">Honest answers. If yours isn't here, email <a href="mailto:hello@trayaam.com" class="accent">hello@trayaam.com</a> — real replies within a working day.</p>
+      </SectionHead>
+      <a href="/contact" class="btn" style="margin-top:2rem;">Ask us directly <span class="arr">→</span></a>
+    </div>
+    <div class="reveal">
+      {faqs.map(([q,a]) => (
+        <details class="q"><summary><span class="qt">{q}</span><span class="qtog">+</span></summary><p class="qa">{a}</p></details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section--major section--line cta">
+  <div class="cta__glow"></div>
+  <div class="container container--narrow">
+    <span class="eyebrow reveal" style="justify-content:center;">Free audit · 24h turnaround · No obligation</span>
+    <h2 class="t-h1 reveal" style="margin:1.5rem 0;">Ready to see what your<br>site is <em class="italic">missing?</em></h2>
+    <p class="t-body-lg reveal" style="max-width:52ch;margin:0 auto 2.5rem;">A free 12-metric audit, delivered as a personalised PDF within 24 hours. Just clarity on what to fix and why it matters.</p>
+    <div class="hero__actions reveal" style="justify-content:center;">
+      <a href="/contact" class="btn btn--accent">Book your free audit <span class="arr">→</span></a>
+      <a href="/services" class="btn btn--ghost">View packages <span class="arr">→</span></a>
+    </div>
+    <p class="t-mono reveal" style="margin-top:2rem;color:var(--fg-lo);">Next project slots: <span class="accent">June 2026</span> · 2 remaining</p>
+  </div>
+</section>
+</Layout>

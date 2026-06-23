@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHead from '../components/SectionHead.astro';
+const metrics = [
+  ['Performance', 34, 'Largest Contentful Paint at 6.8s. Unoptimised images and render-blocking scripts.'],
+  ['SEO', 52, 'Missing meta descriptions, no schema markup, no sitemap submitted.'],
+  ['Mobile', 41, 'Tap targets too small, content overflows on phones — 68% of your traffic.'],
+  ['Security', 60, 'Valid SSL, but outdated dependencies and no security headers.'],
+  ['Accessibility', 47, 'Low colour contrast and missing image alt text.'],
+  ['Design & trust', 38, 'Dated visual style undermines an otherwise strong reputation.'],
+];
+const scoreColor = (n) => n < 50 ? '#EF4444' : n < 75 ? '#F59E0B' : 'var(--accent)';
+---
+<Layout title="Sample Website Audit Report — Trayaam" description="See exactly what a Trayaam free audit looks like: a 12-metric scan across performance, SEO, mobile, security, accessibility and design — with clear next steps." active="" path="/sample-audit">
+<style>
+  .metrics { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; margin-top: 3rem; }
+  .metric { background: var(--bg-1); padding: clamp(1.4rem,2.4vw,2rem); display: grid; grid-template-columns: 0.3fr 0.15fr 1fr; gap: 1.5rem; align-items: center; }
+  .metric__name { font-family: var(--serif); font-size: 1.2rem; }
+  .metric__score { font-family: var(--mono); font-size: 1.6rem; font-weight: 500; }
+  .metric__bar { height: 6px; border-radius: 100px; background: var(--bg-3); overflow: hidden; max-width: 100%; }
+  .metric__fill { height: 100%; border-radius: 100px; }
+  .metric__note { color: var(--fg-med); font-size: 0.88rem; line-height: 1.6; }
+  @media (max-width: 767px) { .metric { grid-template-columns: 1fr; gap: 0.6rem; } }
+</style>
+<PageHero eyebrow="Sample report">
+  <h1 slot="title" class="t-h1 reveal">What your free<br>audit <em class="italic">looks like.</em></h1>
+  <p class="t-body-lg reveal reveal-d1">A real-world example. Yours arrives as a personalised PDF within 24 hours — clear scores, plain-English findings, and exactly what to fix first.</p>
+</PageHero>
+<section class="section section--major section--line">
+  <div class="container">
+    <SectionHead eyebrow="Overall · 45 / 100">
+      <h2 slot="title" class="t-h2">A site that's <em class="italic">costing</em> enquiries.</h2>
+      <p class="t-body">Twelve metrics, scored honestly. Here are six of them from a recent audit of a Luxembourg SME.</p>
+    </SectionHead>
+    <div class="metrics">
+      {metrics.map(([name, score, note]) => (
+        <div class="metric reveal">
+          <div class="metric__name">{name}</div>
+          <div class="metric__score" style={`color:${scoreColor(score)}`}>{score}</div>
+          <div>
+            <div class="metric__bar"><div class="metric__fill" style={`width:${score}%;background:${scoreColor(score)}`}></div></div>
+            <p class="metric__note" style="margin-top:0.7rem;">{note}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<section class="section section--major section--line section--surface">
+  <div class="container container--narrow" style="text-align:center;">
+    <SectionHead eyebrow="No obligation" align="center"><h2 slot="title" class="t-h2">Get <em class="italic">your</em> numbers.</h2></SectionHead>
+    <div style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Request your free audit <span class="arr">→</span></a></div>
+  </div>
+</section>
+</Layout>

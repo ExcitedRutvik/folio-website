@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHead from '../components/SectionHead.astro';
+const values = [
+  ['Creativity','Distinctive, editorial design. We make brands impossible to confuse with anyone else.'],
+  ['Technology','A fast, secure, modern stack. Execution measured in milliseconds, owned by you.'],
+  ['Empowerment','We hand over the keys and the clarity to grow — no lock-in, no dependence.'],
+];
+---
+<Layout title="About Trayaam — Luxembourg Web Agency" description="Trayaam is a Luxembourg web agency built on three pillars — creativity, technology, empowerment. We rebuild websites in 7 days, honestly and at a fixed price." active="about" path="/about">
+<PageHero eyebrow="About">
+  <h1 slot="title" class="t-h1 reveal">A studio built on<br><em class="italic">three pillars.</em></h1>
+  <p class="t-body-lg reveal reveal-d1">Trayaam means three. Creativity, technology and empowerment — the lotus at the heart of our mark, and the way we work. We rebuild websites quickly, honestly, and at a price agreed in writing before we start.</p>
+</PageHero>
+<section class="section section--major section--line">
+  <div class="container">
+    <SectionHead eyebrow="What we believe"><h2 slot="title" class="t-h2">Three forces,<br><em class="italic">one outcome.</em></h2></SectionHead>
+    <div class="grid grid-3" style="margin-top:3rem;">
+      {values.map(([t,d], i) => (<div class={`card reveal reveal-d${i}`}><div class="eyebrow" style="margin-bottom:1rem;">Pillar 0{i+1}</div><h3 class="t-h3" style="margin-bottom:0.8rem;">{t}</h3><p class="t-body">{d}</p></div>))}
+    </div>
+  </div>
+</section>
+<section class="section section--major section--line section--surface">
+  <div class="container">
+    <div class="grid grid-2" style="gap:clamp(2rem,5vw,5rem);align-items:center;">
+      <div class="reveal">
+        <SectionHead eyebrow="How we work"><h2 slot="title" class="t-h3">Honest by <em class="italic">default.</em></h2></SectionHead>
+        <p class="t-body" style="margin-top:1.5rem;">We audit before we sell. We quote one fixed price. We ship in a week, hand over everything, and tell you plainly if we're not the right fit. No retainers you can't leave, no surprise invoices, no jargon.</p>
+      </div>
+      <div class="grid grid-2 reveal reveal-d1">
+        <div class="card"><div class="stat__num"><span data-count="32">0</span><span class="accent">+</span></div><div class="stat__label">Websites audited</div></div>
+        <div class="card"><div class="stat__num"><span data-count="7">0</span><span class="accent">d</span></div><div class="stat__label">Average delivery</div></div>
+        <div class="card"><div class="stat__num">7</div><div class="stat__label">Cities served</div></div>
+        <div class="card"><div class="stat__num">€0</div><div class="stat__label">Cost to start</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--major section--line">
+  <div class="container container--narrow" style="text-align:center;">
+    <SectionHead eyebrow="Let's talk" align="center"><h2 slot="title" class="t-h2">Start with a<br><em class="italic">free audit.</em></h2></SectionHead>
+    <div style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Get yours <span class="arr">→</span></a></div>
+  </div>
+</section>
+</Layout>

@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+const jsonld = { "@context":"https://schema.org","@type":"ContactPage","name":"Contact Trayaam","url":"https://trayaam.com/contact" };
+---
+<Layout title="Free Website Audit — Request Yours · Trayaam" description="Request a free 12-metric website audit from Trayaam — performance, SEO, mobile, security and design, delivered as a PDF within 24 hours. No call required." active="contact" path="/contact" jsonld={jsonld}>
+<style>
+  .contact { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem,5vw,5rem); align-items: start; }
+  .form { display: flex; flex-direction: column; gap: 1.2rem; }
+  .field label { display: block; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-lo); margin-bottom: 0.5rem; }
+  .field input, .field textarea { width: 100%; background: var(--bg-2); border: 1px solid var(--border-med); border-radius: var(--r); color: var(--fg); padding: 0.85rem 1rem; font: inherit; font-size: 0.95rem; transition: border-color 0.25s; }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+  .contact__side { border-left: 1px solid var(--border); padding-left: clamp(1.5rem,3vw,3rem); }
+  .contact__line { display: flex; gap: 0.7rem; align-items: baseline; padding: 0.7rem 0; border-bottom: 1px solid var(--border-sub); color: var(--fg-med); }
+  .sent { display: none; padding: 2rem; border: 1px solid var(--accent-mid); border-radius: var(--r-lg); background: var(--accent-dim); }
+  @media (max-width: 767px) { .contact { grid-template-columns: 1fr; } .contact__side { border-left: 0; padding-left: 0; border-top: 1px solid var(--border); padding-top: 2rem; } }
+</style>
+<PageHero eyebrow="Free audit · 24h turnaround">
+  <h1 slot="title" class="t-h1 reveal">Let's see what your<br>site is <em class="italic">missing.</em></h1>
+  <p class="t-body-lg reveal reveal-d1">Tell us your website and we'll send a free 12-metric audit within 24 hours — performance, SEO, mobile, security and design. No call required, no obligation.</p>
+</PageHero>
+<section class="section section--major section--line">
+  <div class="container contact">
+    <div class="reveal">
+      <form class="form" id="auditForm" onsubmit="event.preventDefault(); document.getElementById('auditForm').style.display='none'; document.getElementById('sent').style.display='block';">
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+        <div class="field"><label for="website">Website</label><input id="website" name="website" type="url" placeholder="https://yourcompany.lu" required></div>
+        <div class="field"><label for="msg">Anything we should know? (optional)</label><textarea id="msg" name="msg" rows="3"></textarea></div>
+        <button type="submit" class="btn btn--accent" style="align-self:flex-start;">Request my free audit <span class="arr">→</span></button>
+      </form>
+      <div class="sent" id="sent"><p class="t-h4" style="font-weight:400;">Thank you — your audit is on its way.</p><p class="t-body" style="margin-top:0.8rem;">We'll email your personalised report within 24 hours. (Demo form — wire to your inbox/Resend before launch.)</p></div>
+    </div>
+    <div class="contact__side reveal reveal-d1">
+      <div class="eyebrow" style="margin-bottom:1.2rem;">Or reach us directly</div>
+      <a class="contact__line" href="mailto:hello@trayaam.com"><span class="accent">→</span> hello@trayaam.com</a>
+      <a class="contact__line" href="tel:+35227861234"><span class="accent">→</span> +352 27 86 12 34</a>
+      <a class="contact__line" href="https://wa.me/35227861234" target="_blank" rel="noopener noreferrer"><span class="accent">→</span> WhatsApp · same number</a>
+      <div class="contact__line"><span class="accent">→</span> Luxembourg-City</div>
+      <p class="t-small" style="margin-top:1.5rem;">Real human replies within one working day.</p>
+    </div>
+  </div>
+</section>
+</Layout>

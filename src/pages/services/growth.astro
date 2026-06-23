@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHead from '../../components/SectionHead.astro';
+const jsonld = { "@context":"https://schema.org","@type":"Service","name":"Growth Partner","provider":{"@type":"Organization","name":"Trayaam"},"offers":{"@type":"Offer","price":"4500","priceCurrency":"EUR"},"description":"Full website rebuild plus an ongoing SEO campaign, monthly reporting and quarterly competitor analysis for ambitious Luxembourg brands." };
+const includes = ['Everything in Full Rebuild','Ongoing monthly SEO campaign','Monthly performance & rankings report','Quarterly competitor analysis','Continuous content & conversion improvements','Priority support, retained'];
+---
+<Layout title="Growth Partner — SEO + Website from €4,500 · Trayaam" description="Growth Partner from Trayaam: a full rebuild plus ongoing SEO, monthly reporting and quarterly competitor analysis, from €4,500. For brands playing the long game." active="services" path="/services/growth" jsonld={jsonld}>
+<PageHero eyebrow="Service · from €4,500">
+  <h1 slot="title" class="t-h1 reveal">Growth <em class="italic">Partner.</em></h1>
+  <p class="t-body-lg reveal reveal-d1">A full rebuild plus an ongoing SEO campaign, monthly performance reporting and quarterly competitor analysis. For brands that treat their website as a sales engine.</p>
+  <div class="reveal reveal-d2" style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Book a free audit <span class="arr">→</span></a></div>
+</PageHero>
+<section class="section section--major section--line">
+  <div class="container">
+    <SectionHead eyebrow="What's included"><h2 slot="title" class="t-h2">Build, then <em class="italic">compound.</em></h2></SectionHead>
+    <div class="grid grid-2" style="margin-top:3rem;">{includes.map((i) => (<div class="card reveal"><p class="t-h4" style="font-weight:400;">{i}</p></div>))}</div>
+  </div>
+</section>
+<section class="section section--major section--line section--surface">
+  <div class="container container--narrow" style="text-align:center;">
+    <SectionHead eyebrow="Play the long game" align="center"><h2 slot="title" class="t-h2">Let's grow it <em class="italic">together.</em></h2></SectionHead>
+    <div style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Get your free audit <span class="arr">→</span></a></div>
+  </div>
+</section>
+</Layout>

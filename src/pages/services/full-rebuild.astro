@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHead from '../../components/SectionHead.astro';
+const jsonld = { "@context":"https://schema.org","@type":"Service","name":"Full Rebuild","provider":{"@type":"Organization","name":"Trayaam"},"offers":{"@type":"Offer","price":"2500","priceCurrency":"EUR"},"description":"A complete new website for Luxembourg SMEs in 7 days — bespoke design, SEO foundation, editable CMS and 30 days support." };
+const includes = ['Bespoke, mobile-first design in Figma','Complete SEO foundation — schema, sitemap, structure','Editable CMS so you can update content yourself','Lightning-fast modern stack (Astro / Next.js)','Two structured revision rounds','30 days of free post-launch support'];
+const steps = [['Day 0','Free audit & scope'],['Day 1','Discovery call + Figma direction'],['Day 2–6','Design & build, draft in 3 days'],['Day 7','Go live, keys handed over']];
+---
+<Layout title="Full Website Rebuild from €2,500 — 7 Days · Trayaam" description="Full Rebuild from Trayaam: a complete new website in 7 days — bespoke design, SEO foundation, editable CMS and 30 days support, from €2,500. Our most chosen package." active="services" path="/services/full-rebuild" jsonld={jsonld}>
+<PageHero eyebrow="Service · from €2,500 · Most chosen">
+  <h1 slot="title" class="t-h1 reveal">Full <em class="italic">Rebuild.</em></h1>
+  <p class="t-body-lg reveal reveal-d1">A complete new website — SEO foundation, mobile-first bespoke design, an editable CMS, and a month of free support. Audit to launch in seven days.</p>
+  <div class="reveal reveal-d2" style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Book a free audit <span class="arr">→</span></a></div>
+</PageHero>
+<section class="section section--major section--line">
+  <div class="container">
+    <SectionHead eyebrow="What's included"><h2 slot="title" class="t-h2">Everything, <em class="italic">rebuilt.</em></h2></SectionHead>
+    <div class="grid grid-2" style="margin-top:3rem;">{includes.map((i) => (<div class="card reveal"><p class="t-h4" style="font-weight:400;">{i}</p></div>))}</div>
+  </div>
+</section>
+<section class="section section--major section--line section--surface">
+  <div class="container">
+    <SectionHead eyebrow="The week"><h2 slot="title" class="t-h2">Seven days, <em class="italic">start to live.</em></h2></SectionHead>
+    <div class="grid grid-4" style="margin-top:3rem;">{steps.map(([d,t]) => (<div class="card reveal"><div class="eyebrow" style="margin-bottom:0.8rem;">{d}</div><p class="t-h4" style="font-weight:400;">{t}</p></div>))}</div>
+    <div style="margin-top:3rem;"><a href="/contact" class="btn btn--accent">Start with a free audit <span class="arr">→</span></a></div>
+  </div>
+</section>
+</Layout>

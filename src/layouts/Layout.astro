@@ -1,0 +1,144 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const {
+  title = 'Trayaam — Web Agency for Ambitious Brands',
+  description = 'Trayaam is a Luxembourg-based web agency. We rebuild websites in 7 days for ambitious SMEs — creativity, technology, empowerment. Free audit, no obligation.',
+  active = '',
+  path = '',
+  ogImage = '/assets/og-image.svg',
+  jsonld = null,
+} = Astro.props;
+
+const site = 'https://trayaam.com';
+const canonical = site + (path || Astro.url.pathname);
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script is:inline>
+    /* Apply saved theme before paint (no flash). Default dark. */
+    (function () {
+      try {
+        var t = localStorage.getItem('trayaam-theme');
+        if (!t) t = 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#0A0A0B" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={site + ogImage} />
+  <meta property="og:locale" content="en_LU" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={site + ogImage} />
+
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Trayaam" />
+  <meta name="geo.region" content="LU" />
+  <meta name="geo.placename" content="Luxembourg City" />
+
+  {/* Global Organization + WebSite graph — knowledge-panel & generative-engine signals */}
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": site + "/#org",
+        "name": "Trayaam",
+        "url": site,
+        "logo": site + "/favicon.svg",
+        "image": site + ogImage,
+        "email": "hello@trayaam.com",
+        "slogan": "Creativity · Technology · Empowerment",
+        "description": "Luxembourg web agency rebuilding websites for ambitious SMEs in 7 days — fixed pricing, free audit.",
+        "areaServed": ["Luxembourg","London","Amsterdam","New York","Paris","Singapore","Dubai"],
+        "contactPoint": { "@type": "ContactPoint", "email": "hello@trayaam.com", "contactType": "sales", "areaServed": "Worldwide", "availableLanguage": ["en","fr","de"] }
+      },
+      { "@type": "WebSite", "@id": site + "/#website", "url": site, "name": "Trayaam", "publisher": { "@id": site + "/#org" } }
+    ]
+  })} />
+  {jsonld && <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300..600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300..600&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HPS5405NN8"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HPS5405NN8');
+  </script>
+
+  <slot name="head" />
+</head>
+<body>
+  <Nav active={active} />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+
+  <script is:inline>
+    /* Lux clock + footer mirror */
+    (function () {
+      function tick() {
+        var el = document.getElementById('clock');
+        var t = new Date().toLocaleTimeString('en-GB', { timeZone: 'Europe/Luxembourg', hour: '2-digit', minute: '2-digit' });
+        if (el) el.textContent = 'LUX · ' + t;
+        var f = document.getElementById('footer-clock');
+        if (f) f.textContent = 'LUX · ' + t;
+      }
+      tick(); setInterval(tick, 30000);
+    })();
+
+    /* Scroll reveal */
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+      }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(function (el) { obs.observe(el); });
+    })();
+
+    /* Count-up [data-count] */
+    (function () {
+      var els = document.querySelectorAll('[data-count]');
+      if (!els.length) return;
+      if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.textContent = el.dataset.count; }); return; }
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var el = e.target, target = parseFloat(el.dataset.count), start = performance.now(), dur = 1400;
+          (function frame(now) {
+            var p = Math.min((now - start) / dur, 1), eased = 1 - Math.pow(1 - p, 3), v = target * eased;
+            el.textContent = target >= 100 ? Math.round(v) : v.toFixed(1).replace(/\.0$/, '');
+            if (p < 1) requestAnimationFrame(frame); else el.textContent = el.dataset.count;
+          })(start);
+          obs.unobserve(el);
+        });
+      }, { threshold: 0.4 });
+      els.forEach(function (el) { obs.observe(el); });
+    })();
+  </script>
+</body>
+</html>

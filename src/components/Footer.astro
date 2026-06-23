@@ -1,0 +1,52 @@
+---
+import Logo from './Logo.astro';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a href="/" class="nav__logo" aria-label="Trayaam — home"><Logo size={34} withWordmark /></a>
+        <p class="footer__tagline">Creativity · Technology · Empowerment. Websites for ambitious brands — from Luxembourg, for the world.</p>
+      </div>
+      <div>
+        <div class="footer__col-title">Services</div>
+        <ul class="footer__list">
+          <li><a href="/services/quick-refresh">Quick Refresh</a></li>
+          <li><a href="/services/full-rebuild">Full Rebuild</a></li>
+          <li><a href="/services/growth">Growth Partner</a></li>
+          <li><a href="/contact">Free Audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Capabilities</div>
+        <ul class="footer__list">
+          <li><a href="/tech">Technologies</a></li>
+          <li><a href="/industries">Industries</a></li>
+          <li><a href="/work">Selected work</a></li>
+          <li><a href="/blog">Journal</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Studio</div>
+        <ul class="footer__list">
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/sample-audit">Sample audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <ul class="footer__list">
+          <li><a href="mailto:hello@trayaam.com">hello@trayaam.com</a></li>
+          <li>+352 27 86 12 34</li>
+          <li>Luxembourg-City</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© {year} Trayaam · Creativity · Technology · Empowerment</span>
+      <span id="footer-clock">LUX · 00:00</span>
+    </div>
+  </div>
+</footer>

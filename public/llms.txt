@@ -1,0 +1,27 @@
+# Trayaam
+
+> Trayaam is a Luxembourg-based web agency that rebuilds websites for ambitious SMEs in 7 days. Built on three pillars — Creativity, Technology, Empowerment. Fixed pricing, a free audit first, no surprise invoices.
+
+## Summary
+- **What we do:** Editorial website design, redesigns and rebuilds, SEO, and ongoing growth for small and medium businesses.
+- **Where:** Based in Luxembourg City; work remotely with clients in London, Amsterdam, New York, Paris, Singapore and Dubai.
+- **How fast:** Audit to live site in 7 days (3–5 days for a Quick Refresh).
+- **How we price:** One fixed price agreed in writing before starting. 50% on kick-off, 50% on launch. The audit is free.
+- **Stack:** Astro, Next.js, Sanity/Payload CMS, Vercel/Netlify, Cloudflare, GA4. No WordPress or page builders.
+- **Contact:** hello@trayaam.com · +352 27 86 12 34
+
+## Services
+- **Quick Refresh — from €990:** Redesigned homepage, faster load, SEO basics, in 3–5 days. https://trayaam.com/services/quick-refresh
+- **Full Rebuild — from €2,500 (most chosen):** Complete new website, bespoke design, SEO foundation, editable CMS, 30 days support, in 7 days. https://trayaam.com/services/full-rebuild
+- **Growth Partner — from €4,500:** Full rebuild plus ongoing SEO, monthly reporting and quarterly competitor analysis. https://trayaam.com/services/growth
+- **Free Audit — €0:** A 12-metric scan (performance, SEO, mobile, security, design) delivered as a PDF within 24 hours. https://trayaam.com/contact
+
+## Key pages
+- Home: https://trayaam.com/
+- Services & pricing: https://trayaam.com/services
+- Work / case studies: https://trayaam.com/work
+- Technology: https://trayaam.com/tech
+- Industries: https://trayaam.com/industries
+- About: https://trayaam.com/about
+- Journal: https://trayaam.com/blog
+- Contact / free audit: https://trayaam.com/contact

@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHead from '../components/SectionHead.astro';
+
+const groups = [
+  { n: '01', label: 'Design', items: ['Figma'], copy: 'Every build starts in Figma. You approve the design before we write a line of code.' },
+  { n: '02', label: 'Frontend', items: ['Astro', 'Next.js'], copy: 'The lightest tool that does the job — Astro for editorial, Next.js for product.' },
+  { n: '03', label: 'CMS', items: ['Sanity', 'Payload'], copy: 'Structured, editable content so you update the site yourself — no developer needed.' },
+  { n: '04', label: 'Hosting', items: ['Vercel', 'Netlify'], copy: 'Deployed to a global edge network. Fast everywhere, secure by default.' },
+  { n: '05', label: 'CDN & Email', items: ['Cloudflare', 'Resend'], copy: 'Edge caching and reliable transactional email, wired in from day one.' },
+  { n: '06', label: 'Analytics & SEO', items: ['GA4', 'Search Console', 'Ahrefs'], copy: 'Measurement and search visibility built in — so growth is observable, not guessed.' },
+];
+---
+<Layout title="Technologies & Stack — Trayaam Luxembourg" description="The modern stack behind every Trayaam 7-day build: Astro, Next.js, Sanity, Vercel, Cloudflare, GA4. No WordPress, no page builders, no bloat." active="tech" path="/tech">
+<style>
+  .pillars-viz { display: flex; align-items: flex-end; justify-content: center; gap: clamp(10px, 2vw, 22px); height: 220px; margin-top: 1rem; }
+  .pillars-viz span { width: clamp(28px, 5vw, 54px); background: linear-gradient(180deg, var(--accent), rgba(var(--accent-rgb),0.15)); border-radius: 8px 8px 0 0; transform-origin: bottom; }
+  .pillars-viz span:nth-child(1) { height: 55%; } .pillars-viz span:nth-child(2) { height: 100%; } .pillars-viz span:nth-child(3) { height: 72%; }
+  .pillars-viz span { transform: scaleY(0); animation: grow 0.9s var(--ease) forwards; }
+  .pillars-viz span:nth-child(1) { animation-delay: 0.1s; } .pillars-viz span:nth-child(2) { animation-delay: 0.25s; } .pillars-viz span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes grow { to { transform: scaleY(1); } }
+  @media (prefers-reduced-motion: reduce) { .pillars-viz span { transform: none; animation: none; } }
+  .stack { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; margin-top: 3rem; }
+  .layer { background: var(--bg-1); padding: clamp(1.6rem,2.6vw,2.4rem); display: grid; grid-template-columns: 0.3fr 0.7fr 1fr; gap: 2rem; align-items: center; transition: background 0.35s var(--ease); }
+  .layer:hover { background: var(--bg-2); }
+  .layer__n { font-family: var(--mono); font-size: 0.74rem; color: var(--accent); }
+  .layer__label { font-family: var(--serif); font-size: clamp(1.3rem,2.2vw,1.9rem); font-weight: 400; }
+  .layer__right { display: flex; flex-direction: column; gap: 0.9rem; }
+  .pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .pill { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-mid); border-radius: 100px; padding: 0.3rem 0.9rem; }
+  @media (max-width: 767px) { .layer { grid-template-columns: 1fr; gap: 0.8rem; } }
+</style>
+<PageHero eyebrow="Technology">
+  <h1 slot="title" class="t-h1 reveal">The stack behind<br>every <em class="italic">7-day build.</em></h1>
+  <p class="t-body-lg reveal reveal-d1">No WordPress, no page builders, no bloat. We build on battle-tested modern tools that load fast, scale well, and hand you full control from day one.</p>
+  <div class="pillars-viz reveal reveal-d2" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </div>
+</PageHero>
+<section class="section section--major section--line">
+  <div class="container">
+    <SectionHead eyebrow="The layers"><h2 slot="title" class="t-h2">Six layers, <em class="italic">one fast site.</em></h2></SectionHead>
+    <div class="stack">
+      {groups.map((g) => (
+        <div class="layer reveal">
+          <div class="layer__n">{g.n}</div>
+          <div class="layer__label">{g.label}</div>
+          <div class="layer__right">
+            <div class="pills">{g.items.map((i) => (<span class="pill">{i}</span>))}</div>
+            <p class="t-body" style="font-size:0.9rem;">{g.copy}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<section class="section section--major section--line section--surface">
+  <div class="container container--narrow" style="text-align:center;">
+    <SectionHead eyebrow="Built right" align="center"><h2 slot="title" class="t-h2">Fast by <em class="italic">construction.</em></h2><p class="t-body">Performance isn't a plugin we add at the end — it's the consequence of the stack. Most builds ship at 95–100 on Lighthouse.</p></SectionHead>
+    <div style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Get your free audit <span class="arr">→</span></a></div>
+  </div>
+</section>
+</Layout>

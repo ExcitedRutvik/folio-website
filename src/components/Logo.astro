@@ -1,0 +1,32 @@
+---
+// Trayaam monogram: an 8-point lotus bloom enclosing three pillars that rise into a "T".
+// Inherits color via currentColor. Props: size (px), withWordmark (bool), wordmarkClass.
+interface Props { size?: number; withWordmark?: boolean; class?: string; }
+const { size = 34, withWordmark = false, class: cls = '' } = Astro.props;
+---
+<span class={`logo ${cls}`} style={`--logo-size:${size}px`}>
+  <svg class="logo__mark" viewBox="0 0 48 48" width={size} height={size} fill="none" aria-hidden="true">
+    <!-- lotus petals: center + two inner + two outer, mirrored -->
+    <g class="logo__petals" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M24 41 C 19 27 19 17 24 8 C 29 17 29 27 24 41 Z" opacity="0.95"/>
+      <path d="M24 41 C 15 30 10 23 9.5 14 C 17 17 21 27 24 41 Z" opacity="0.7"/>
+      <path d="M24 41 C 33 30 38 23 38.5 14 C 31 17 27 27 24 41 Z" opacity="0.7"/>
+      <path d="M24 41 C 13 35 6 31 3 23 C 11 23 19 31 24 41 Z" opacity="0.45"/>
+      <path d="M24 41 C 35 35 42 31 45 23 C 37 23 29 31 24 41 Z" opacity="0.45"/>
+    </g>
+    <!-- three pillars rising from the base, reading as a T stem -->
+    <g class="logo__pillars" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="20" y1="38" x2="20" y2="25"/>
+      <line x1="24" y1="39" x2="24" y2="20"/>
+      <line x1="28" y1="38" x2="28" y2="25"/>
+    </g>
+  </svg>
+  {withWordmark && <span class="logo__word">Trayaam<i class="mark">·</i></span>}
+</span>
+
+<style>
+  .logo { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent); }
+  .logo__mark { width: var(--logo-size); height: var(--logo-size); flex-shrink: 0; }
+  .logo__word { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; letter-spacing: -0.03em; color: var(--fg); }
+  .logo__word .mark { color: var(--accent); font-style: normal; }
+</style>

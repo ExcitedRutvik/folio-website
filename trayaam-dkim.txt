@@ -1,0 +1,3 @@
+secureserver1._domainkey.trayaam.com.	1	IN	CNAME	s1.dkim.trayaam_com.6a2.onsecureserver.net.
+secureserver2._domainkey.trayaam.com.	1	IN	CNAME	s2.dkim.trayaam_com.6a2.onsecureserver.net.
+trayaam.com.	1	IN	TXT	"T4865731"
