@@ -9,6 +9,7 @@ const groups = [
   { n: '04', label: 'Hosting', items: ['Vercel', 'Netlify'], copy: 'Deployed to a global edge network. Fast everywhere, secure by default.' },
   { n: '05', label: 'CDN & Email', items: ['Cloudflare', 'Resend'], copy: 'Edge caching and reliable transactional email, wired in from day one.' },
   { n: '06', label: 'Analytics & SEO', items: ['GA4', 'Search Console', 'Ahrefs'], copy: 'Measurement and search visibility built in — so growth is observable, not guessed.' },
+  { n: '07', label: 'AI & Automation', items: ['LLM APIs', 'Workers', 'n8n'], copy: 'We build with AI and ship custom automations — content and SEO pipelines, lead routing, support bots and back-office workflows wired straight into your stack.' },
 ];
 ---
 <Layout title="Perception Technology — The Trayaam Stack" description="Perception Technology: the living tech stack behind every Trayaam 7-day build — Astro, Next.js, Sanity, Vercel, Cloudflare, GA4. Fast by construction, owned by you." active="tech" path="/tech">
@@ -39,7 +40,8 @@ const groups = [
       <span class="eyebrow reveal">Perception Technology</span>
       <h1 class="t-h1 reveal" style="margin:1.5rem 0;">The stack that<br>your visitors <em class="italic">feel.</em></h1>
       <p class="t-body-lg reveal reveal-d1">Perception Technology is how we think about the stack: every tool earns its place by changing what a visitor perceives — speed, clarity, trust. No WordPress, no page builders, no bloat. Just battle-tested modern tools that load fast, scale well, and hand you full control from day one.</p>
-      <div class="reveal reveal-d2" style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Get your free audit <span class="arr">→</span></a></div>
+      <p class="t-body reveal reveal-d2" style="margin-top:1.2rem;">And we build with <strong style="color:var(--fg);">AI woven through the stack</strong> — accelerating design and code, and powering the <a href="/contact" class="accent" style="text-decoration:underline;text-underline-offset:3px;">custom AI automations</a> we deploy for clients: content and SEO pipelines, lead routing, and back-office workflows that run themselves.</p>
+      <div class="reveal reveal-d3" style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Get your free audit <span class="arr">→</span></a></div>
     </div>
     <div class="netmap reveal reveal-d1" aria-hidden="true">
       <canvas id="netmap"></canvas>
@@ -50,7 +52,7 @@ const groups = [
 
 <section class="section section--major section--line">
   <div class="container">
-    <SectionHead eyebrow="The layers"><h2 slot="title" class="t-h2">Six layers, <em class="italic">one fast site.</em></h2></SectionHead>
+    <SectionHead eyebrow="The layers"><h2 slot="title" class="t-h2">Seven layers, <em class="italic">one fast site.</em></h2></SectionHead>
     <div class="stack">
       {groups.map((g) => (
         <div class="layer reveal">
@@ -82,73 +84,100 @@ const groups = [
     var DPR = Math.min(window.devicePixelRatio || 1, 2);
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    var labels = ['Figma','Astro','Next.js','Sanity','Vercel','Cloudflare','Resend','GA4','Ahrefs','Edge'];
-    // edges by index — a loosely connected perceptual graph
-    var edges = [[0,1],[0,2],[1,4],[2,4],[1,3],[2,3],[4,5],[5,6],[4,9],[5,9],[7,8],[7,9],[3,7],[1,7],[8,2],[6,9]];
+    var labels = ['Figma','Astro','Next.js','Sanity','Vercel','Cloudflare','GA4','Ahrefs','AI','Automation','Edge'];
+    // edges by index — a loosely connected perceptual graph (AI + Automation woven in)
+    var edges = [[0,1],[0,2],[1,4],[2,4],[1,3],[2,3],[4,5],[5,10],[4,10],[5,6],[6,7],[3,8],[8,1],[8,2],[8,9],[9,5],[9,3],[7,6],[8,7]];
+    var adj = {};
+    edges.forEach(function (e) { (adj[e[0]] = adj[e[0]] || []).push(e[1]); (adj[e[1]] = adj[e[1]] || []).push(e[0]); });
     var nodes = [];
 
     function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
-    var W, H, accent, fg, line;
+    var W, H, accentRGB, fgRGB;
 
     function resize() {
       W = wrap.clientWidth; H = wrap.clientHeight;
       canvas.width = W * DPR; canvas.height = H * DPR;
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-      accent = css('--accent') || '#C9A86A';
-      fg = css('--fg') || '#F4F1E8';
-      line = 'rgba(' + (css('--accent-rgb') || '201,168,106') + ',0.22)';
+      accentRGB = css('--accent-rgb') || '201,168,106';
+      fgRGB = (css('--fg') || '#F4F1E8').indexOf('#') === 0 ? '244,241,232' : '244,241,232';
     }
 
     function init() {
       resize();
+      var R = Math.min(W, H);
       nodes = labels.map(function (l, i) {
-        var a = (i / labels.length) * Math.PI * 2;
-        var r = Math.min(W, H) * (0.18 + 0.16 * (i % 3));
-        return { l: l, x: W/2 + Math.cos(a)*r, y: H/2 + Math.sin(a)*r,
-          hx: W/2 + Math.cos(a)*r, hy: H/2 + Math.sin(a)*r, vx: 0, vy: 0, r: 5 + (i % 3) };
+        // two concentric rings for a balanced, deliberate layout
+        var ring = i % 2, a = (i / labels.length) * Math.PI * 2 + ring * 0.5;
+        var r = R * (ring ? 0.34 : 0.2);
+        var hx = W/2 + Math.cos(a)*r, hy = H/2 + Math.sin(a)*r;
+        return { l: l, x: hx, y: hy, hx: hx, hy: hy, vx: 0, vy: 0,
+          base: 4.5 + (l === 'AI' ? 2.5 : (i % 3)), glow: 0, ph: i * 0.7 };
       });
     }
 
-    var mouse = { x: -999, y: -999, on: false };
+    var mouse = { x: -999, y: -999, on: false }, hover = -1;
     canvas.addEventListener('pointermove', function (e) {
       var b = canvas.getBoundingClientRect();
       mouse.x = e.clientX - b.left; mouse.y = e.clientY - b.top; mouse.on = true;
     });
     canvas.addEventListener('pointerleave', function () { mouse.on = false; mouse.x = -999; mouse.y = -999; });
 
+    function near(i) { return hover === i || (adj[hover] && adj[hover].indexOf(i) !== -1); }
+
     var t = 0;
     function frame() {
-      t += 0.008;
+      t += 0.0066;
       ctx.clearRect(0, 0, W, H);
-      // springs: drift around home + react to cursor
+
+      // find hovered node
+      hover = -1; var hd = 36;
+      if (mouse.on) nodes.forEach(function (n, i) { var d = Math.hypot(n.x-mouse.x, n.y-mouse.y); if (d < hd) { hd = d; hover = i; } });
+
+      // springs: gentle drift around home + soft cursor repulsion
       nodes.forEach(function (n, i) {
-        var driftX = Math.cos(t + i) * 6, driftY = Math.sin(t * 1.2 + i) * 6;
+        var driftX = Math.cos(t + n.ph) * 7, driftY = Math.sin(t * 1.15 + n.ph) * 7;
         var tx = n.hx + driftX, ty = n.hy + driftY;
         if (mouse.on) {
-          var dx = n.x - mouse.x, dy = n.y - mouse.y, d = Math.hypot(dx, dy);
-          if (d < 120) { var f = (120 - d) / 120 * 0.6; tx += dx / (d||1) * f * 30; ty += dy / (d||1) * f * 30; }
+          var dx = n.x - mouse.x, dy = n.y - mouse.y, d = Math.hypot(dx, dy) || 1;
+          if (d < 130) { var f = (130 - d) / 130; tx += dx / d * f * 26; ty += dy / d * f * 26; }
         }
-        n.vx += (tx - n.x) * 0.02; n.vy += (ty - n.y) * 0.02;
-        n.vx *= 0.86; n.vy *= 0.86;
+        n.vx += (tx - n.x) * 0.014; n.vy += (ty - n.y) * 0.014;
+        n.vx *= 0.9; n.vy *= 0.9;
         n.x += n.vx; n.y += n.vy;
+        var want = near(i) ? 1 : 0; n.glow += (want - n.glow) * 0.12;
       });
-      // edges
+
+      // edges — curved, opacity by activity, animated dash on active links
       edges.forEach(function (e) {
         var a = nodes[e[0]], b = nodes[e[1]]; if (!a || !b) return;
-        var near = mouse.on && (Math.hypot(a.x-mouse.x,a.y-mouse.y) < 90 || Math.hypot(b.x-mouse.x,b.y-mouse.y) < 90);
-        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
-        ctx.strokeStyle = near ? accent : line; ctx.lineWidth = near ? 1.4 : 0.8; ctx.stroke();
+        var active = hover !== -1 && (e[0] === hover || e[1] === hover);
+        var mx = (a.x + b.x) / 2 + (a.y - b.y) * 0.08, my = (a.y + b.y) / 2 + (b.x - a.x) * 0.08;
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.quadraticCurveTo(mx, my, b.x, b.y);
+        ctx.strokeStyle = 'rgba(' + accentRGB + ',' + (active ? 0.55 : 0.14) + ')';
+        ctx.lineWidth = active ? 1.5 : 0.8;
+        if (active) { ctx.setLineDash([4, 5]); ctx.lineDashOffset = -t * 60; } else { ctx.setLineDash([]); }
+        ctx.stroke(); ctx.setLineDash([]);
       });
-      // nodes
-      nodes.forEach(function (n) {
-        var hot = mouse.on && Math.hypot(n.x-mouse.x, n.y-mouse.y) < 60;
-        ctx.beginPath(); ctx.arc(n.x, n.y, n.r + (hot ? 2 : 0), 0, Math.PI*2);
-        ctx.fillStyle = accent; ctx.globalAlpha = hot ? 1 : 0.85; ctx.fill(); ctx.globalAlpha = 1;
-        if (hot) {
-          ctx.font = '600 11px JetBrains Mono, monospace'; ctx.fillStyle = fg; ctx.textAlign = 'center';
-          ctx.fillText(n.l, n.x, n.y - n.r - 8);
-        }
+
+      // nodes — soft halo, core dot, persistent label
+      nodes.forEach(function (n, i) {
+        var g = n.glow, r = n.base + g * 2 + (n.l === 'AI' ? Math.sin(t * 3) * 0.6 : 0);
+        // halo
+        var halo = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * (4 + g * 4));
+        halo.addColorStop(0, 'rgba(' + accentRGB + ',' + (0.18 + g * 0.4) + ')');
+        halo.addColorStop(1, 'rgba(' + accentRGB + ',0)');
+        ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(n.x, n.y, r * (4 + g * 4), 0, Math.PI*2); ctx.fill();
+        // core
+        ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(' + accentRGB + ',' + (0.85 + g * 0.15) + ')'; ctx.fill();
+        if (n.l === 'AI') { ctx.lineWidth = 1.2; ctx.strokeStyle = 'rgba(' + accentRGB + ',0.9)'; ctx.beginPath(); ctx.arc(n.x, n.y, r + 3 + g * 2, 0, Math.PI*2); ctx.stroke(); }
+        // label (persistent, brighter on activity)
+        ctx.font = (g > 0.5 ? '600 ' : '500 ') + '10px JetBrains Mono, monospace';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = 'rgba(' + fgRGB + ',' + (0.32 + g * 0.6) + ')';
+        ctx.fillText(n.l, n.x, n.y - r - 7);
       });
+
       if (!reduce) requestAnimationFrame(frame);
     }
 

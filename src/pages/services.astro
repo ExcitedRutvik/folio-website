@@ -44,7 +44,7 @@ const tiers = [
 
 <PageHero eyebrow="Services">
   <h1 slot="title" class="t-h1 reveal">Three ways to work<br>with <em class="italic">Trayaam</em></h1>
-  <p class="t-body-lg reveal reveal-d1">Whether you need a quick refresh, a complete rebuild, or a long-term growth partner — every engagement starts with a free audit and a fixed price in writing.</p>
+  <p class="t-body-lg reveal reveal-d1">Whether you need a quick refresh, a complete rebuild, a long-term growth partner, or custom AI automation — every engagement starts with a free audit and a fixed price in writing.</p>
 </PageHero>
 
 <section class="section section--major section--line">
@@ -69,6 +69,26 @@ const tiers = [
       </tbody>
     </table>
     </div>
+  </div>
+</section>
+
+<section class="section section--major section--line">
+  <div class="container">
+    <SectionHead eyebrow="Beyond the website">
+      <h2 slot="title" class="t-h2">Custom <em class="italic">AI Automation.</em></h2>
+      <p class="t-body">We don't just build the site — we build the systems behind it. Using modern AI and LLM tooling, we ship bespoke automations that take repetitive work off your plate and turn your website into an engine that runs while you sleep.</p>
+    </SectionHead>
+    <div class="grid grid-2" style="margin-top:3rem;">
+      {[
+        ['Content &amp; SEO pipelines','AI-assisted drafting, optimisation and publishing workflows that keep your site fresh and ranking — with a human in the loop.'],
+        ['Lead capture &amp; routing','Enquiries qualified, enriched and routed to the right place automatically, so nothing slips and you reply faster.'],
+        ['Support &amp; FAQ assistants','On-brand AI assistants trained on your content to answer customers instantly and deflect routine questions.'],
+        ['Back-office automation','Quotes, onboarding, reporting and data entry wired together across your tools — fewer manual steps, fewer errors.'],
+      ].map(([t,d]) => (
+        <div class="card reveal"><h3 class="t-h4" style="margin-bottom:0.7rem;" set:html={t}></h3><p class="t-body" style="font-size:0.92rem;" set:html={d}></p></div>
+      ))}
+    </div>
+    <div style="margin-top:2.5rem;"><a href="/contact" class="btn btn--accent">Scope an automation <span class="arr">→</span></a></div>
   </div>
 </section>
 

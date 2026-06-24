@@ -21,12 +21,11 @@ const { size = 34, withWordmark = false, class: cls = '' } = Astro.props;
       <line x1="28" y1="38" x2="28" y2="25"/>
     </g>
   </svg>
-  {withWordmark && <span class="logo__word">Trayaam<i class="mark">·</i></span>}
+  {withWordmark && <span class="logo__word">Trayaam</span>}
 </span>
 
 <style>
   .logo { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent); }
   .logo__mark { width: var(--logo-size); height: var(--logo-size); flex-shrink: 0; }
   .logo__word { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; letter-spacing: -0.03em; color: var(--fg); }
-  .logo__word .mark { color: var(--accent); font-style: normal; }
 </style>

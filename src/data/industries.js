@@ -88,7 +88,7 @@ export const industries = [
     title: 'Tech & SaaS',
     keywords: ['SaaS website design', 'product marketing site', 'developer-focused web design', 'SaaS SEO and AEO'],
     card: 'Editorial product sites that explain complex value simply and rank for it.',
-    intro: 'For tech and SaaS, the site has to make something complex feel obvious. We build editorial product sites that explain your value simply, convert trials, and rank — and that AI answer engines can summarise correctly when someone asks what you do.',
+    intro: 'For tech and SaaS, the site has to make something complex feel obvious. We build editorial product sites that explain your value simply, convert trials, and rank — and that AI answer engines can summarise correctly when someone asks what you do. We can also wire in custom AI automations: onboarding flows, in-app content and lead qualification.',
     helps: [
       ['Clarity over jargon', 'Editorial copy and structure that turn a complex product into an obvious value proposition for the right buyer.'],
       ['Built for AEO & GEO', 'Question-led content and clean structure so answer engines and generative search cite you accurately.'],

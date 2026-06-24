@@ -176,10 +176,12 @@ body {
 .card:hover { border-color: var(--accent-mid); background: var(--bg-2); }
 .hairline { height: 1px; background: var(--border); border: 0; }
 
-/* ── MARQUEE — sleek low-profile band ── */
+/* ── MARQUEE — sleek low-profile band, seamless infinite loop ── */
 .marquee { overflow: hidden; white-space: nowrap; border-block: 1px solid var(--border); padding-block: 0.5rem; }
-.marquee__track { display: inline-flex; gap: 2rem; animation: marquee 34s linear infinite; will-change: transform; }
+.marquee__track { display: flex; width: max-content; animation: marquee 34s linear infinite; will-change: transform; }
 .marquee:hover .marquee__track { animation-play-state: paused; }
+/* two identical groups; the trailing padding supplies the seam gap so -50% lands clean */
+.marquee__group { display: flex; flex-shrink: 0; gap: 2rem; padding-right: 2rem; }
 .marquee__item { font-family: var(--serif); font-size: clamp(0.85rem, 1.3vw, 1.1rem); color: var(--fg-faint); font-style: italic; }
 .marquee__item .dot { color: var(--accent); font-style: normal; margin-left: 0.4em; }
 @keyframes marquee { to { transform: translateX(-50%); } }
