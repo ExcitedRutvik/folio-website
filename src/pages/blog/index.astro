@@ -1,35 +1,52 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
-const posts = [
-  { href: '/blog/how-we-built-trayaam', cat: 'Behind the build', t: 'How we built trayaam.com to score 100/100', d: 'The stack, the decisions and the trade-offs behind a site that loads instantly.', date: 'Jun 2026', read: '6 min' },
-  { href: '/blog/7-day-website-rebuild-what-we-learned', cat: 'Process', t: 'What 32 website rebuilds taught us about speed', d: 'Why a 7-day timeline produces better sites than a 7-week one — and how we do it.', date: 'May 2026', read: '5 min' },
-  { href: '/blog/core-web-vitals-luxembourg-smes', cat: 'SEO', t: 'Core Web Vitals for Ambitious SMEs', d: 'What the metrics actually mean for your rankings, and how to pass them.', date: 'Apr 2026', read: '7 min' },
+import { posts as dataPosts, clusters } from '../../data/blog.js';
+
+// Hand-written posts (own files) folded into the clusters for one unified index.
+const legacy = [
+  { slug: 'how-we-built-trayaam', cluster: 'seo', category: 'Behind the build', title: 'How we built trayaam.com to score 100/100', description: 'The stack, decisions and trade-offs behind a site that loads instantly.', date: 'Jun 2026', readtime: '6 min read' },
+  { slug: '7-day-website-rebuild-what-we-learned', cluster: 'web', category: 'Process', title: 'What 32 website rebuilds taught us about speed', description: 'Why a 7-day timeline produces better sites than a 7-week one — and how we do it.', date: 'May 2026', readtime: '5 min read' },
+  { slug: 'core-web-vitals-luxembourg-smes', cluster: 'seo', category: 'SEO', title: 'Core Web Vitals for Ambitious SMEs', description: 'What the metrics actually mean for your rankings, and how to pass them.', date: 'Apr 2026', readtime: '7 min read' },
 ];
+
+const all = [...legacy, ...dataPosts];
+const order = ['web', 'seo', 'ai'];
+const grouped = order.map((key) => ({ key, label: clusters[key], items: all.filter((p) => p.cluster === key) }));
 ---
-<Layout title="Journal — Web Design & SEO Insights · Trayaam" description="The Trayaam Journal — practical notes on web design, performance, SEO and running a modern web agency, written for ambitious SMEs." active="blog" path="/blog">
+<Layout title="Journal — Web Design, SEO & AI Insights · Trayaam" description="The Trayaam Journal — practical notes on web design, performance, SEO and AI automation, written for the people who actually run the business." active="blog" path="/blog">
 <style>
-  .posts { display: grid; gap: 1.2rem; margin-top: 3rem; }
-  .post { display: grid; grid-template-columns: 0.25fr 1fr auto; gap: 2rem; align-items: center; }
-  .post__cat { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
-  .post__read { font-family: var(--mono); font-size: 0.7rem; color: var(--fg-lo); white-space: nowrap; }
+  .cluster + .cluster { margin-top: 3.5rem; }
+  .cluster__head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.4rem; }
+  .cluster__head h2 { font-family: var(--serif); font-size: clamp(1.4rem,2.4vw,2rem); font-weight: 400; }
+  .cluster__count { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; color: var(--fg-lo); }
+  .posts { display: grid; gap: 1rem; }
+  .post { display: grid; grid-template-columns: 0.22fr 1fr auto; gap: 2rem; align-items: center; }
+  .post__cat { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+  .post__read { font-family: var(--mono); font-size: 0.68rem; color: var(--fg-lo); white-space: nowrap; }
   @media (max-width: 767px) { .post { grid-template-columns: 1fr; gap: 0.7rem; } }
 </style>
 <PageHero eyebrow="Journal">
   <h1 slot="title" class="t-h1 reveal">Notes from the <em class="italic">studio.</em></h1>
-  <p class="t-body-lg reveal reveal-d1">Practical thinking on design, performance and SEO — written for the people who actually run the business.</p>
+  <p class="t-body-lg reveal reveal-d1">Practical thinking on design, performance, SEO and AI automation — written for the people who actually run the business. Organised into three topic clusters.</p>
 </PageHero>
-<section class="section section--major section--line">
-  <div class="container">
-    <div class="posts">
-      {posts.map((p) => (
-        <a href={p.href} class="card post reveal">
-          <span class="post__cat">{p.cat}</span>
-          <div><h2 class="t-h4" style="margin-bottom:0.4rem;">{p.t}</h2><p class="t-body" style="font-size:0.92rem;">{p.d}</p></div>
-          <span class="post__read">{p.date} · {p.read}</span>
-        </a>
-      ))}
+{grouped.map((g) => (
+  <section class="section section--major section--line">
+    <div class="container cluster">
+      <div class="cluster__head">
+        <h2>{g.label}</h2>
+        <span class="cluster__count">{g.items.length} articles</span>
+      </div>
+      <div class="posts">
+        {g.items.map((p) => (
+          <a href={`/blog/${p.slug}`} class="card post reveal">
+            <span class="post__cat">{p.category}</span>
+            <div><h3 class="t-h4" style="margin-bottom:0.4rem;">{p.title}</h3><p class="t-body" style="font-size:0.92rem;">{p.description}</p></div>
+            <span class="post__read">{p.date} · {p.readtime}</span>
+          </a>
+        ))}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+))}
 </Layout>

@@ -25,7 +25,7 @@ const team = [
   .office__co { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
   .office__city { font-family: var(--serif); font-size: 1.8rem; font-weight: 400; }
   .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3rem; }
-  .member__photo { aspect-ratio: 1 / 1; width: 100%; border-radius: var(--r-lg); object-fit: cover; background: var(--bg-3); border: 1px solid var(--border); }
+  .member__photo { display: block; aspect-ratio: 1 / 1; width: 100%; height: auto; border-radius: var(--r-lg); object-fit: cover; object-position: center 20%; background: var(--bg-3); border: 1px solid var(--border); }
   .member__ph { display: grid; place-items: center; aspect-ratio: 1 / 1; width: 100%; border-radius: var(--r-lg); background: linear-gradient(160deg, var(--bg-2), var(--bg-3)); border: 1px solid var(--border); color: var(--fg-faint); font-family: var(--serif); font-size: 2.4rem; }
   .member__name { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; margin-top: 1rem; }
   .member__role { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-lo); margin-top: 0.4rem; }

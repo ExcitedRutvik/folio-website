@@ -1,13 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
   <rect width="48" height="48" rx="10" fill="#0A0A0B"/>
-  <g transform="translate(0,1)" fill="none" stroke="#C9A86A" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M24 41 C 19 27 19 17 24 8 C 29 17 29 27 24 41 Z" opacity="0.95"/>
-    <path d="M24 41 C 15 30 10 23 9.5 14 C 17 17 21 27 24 41 Z" opacity="0.7"/>
-    <path d="M24 41 C 33 30 38 23 38.5 14 C 31 17 27 27 24 41 Z" opacity="0.7"/>
-    <path d="M24 41 C 13 35 6 31 3 23 C 11 23 19 31 24 41 Z" opacity="0.45"/>
-    <path d="M24 41 C 35 35 42 31 45 23 C 37 23 29 31 24 41 Z" opacity="0.45"/>
+  <!-- lotus leaves fanning from the foot of the T -->
+  <g fill="#C9A86A">
+    <path d="M24 35 C 22.7 30.6 22.7 26.6 24 22.6 C 25.3 26.6 25.3 30.6 24 35 Z" opacity="0.45" transform="rotate(-72 24 35)"/>
+    <path d="M24 35 C 22.7 30.6 22.7 26.6 24 22.6 C 25.3 26.6 25.3 30.6 24 35 Z" opacity="0.45" transform="rotate(72 24 35)"/>
+    <path d="M24 35 C 22.7 30.2 22.7 25.8 24 21.8 C 25.3 25.8 25.3 30.2 24 35 Z" opacity="0.72" transform="rotate(-48 24 35)"/>
+    <path d="M24 35 C 22.7 30.2 22.7 25.8 24 21.8 C 25.3 25.8 25.3 30.2 24 35 Z" opacity="0.72" transform="rotate(48 24 35)"/>
+    <path d="M24 35 C 22.8 29.8 22.8 25 24 21 C 25.2 25 25.2 29.8 24 35 Z" opacity="0.95" transform="rotate(-24 24 35)"/>
+    <path d="M24 35 C 22.8 29.8 22.8 25 24 21 C 25.2 25 25.2 29.8 24 35 Z" opacity="0.95" transform="rotate(24 24 35)"/>
   </g>
-  <g stroke="#E3C68C" stroke-width="2.1" stroke-linecap="round">
-    <line x1="20" y1="39" x2="20" y2="26"/><line x1="24" y1="40" x2="24" y2="21"/><line x1="28" y1="39" x2="28" y2="26"/>
+  <!-- slab-serif T -->
+  <g fill="#E3C68C">
+    <rect x="9" y="10" width="30" height="4.6" rx="0.8"/>
+    <rect x="9" y="10" width="4.2" height="7.6" rx="0.8"/>
+    <rect x="34.8" y="10" width="4.2" height="7.6" rx="0.8"/>
+    <rect x="21.7" y="12.4" width="4.6" height="22.6" rx="0.9"/>
   </g>
 </svg>
