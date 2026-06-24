@@ -2,26 +2,122 @@
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
 import SectionHead from '../../components/SectionHead.astro';
-const jsonld = { "@context":"https://schema.org","@type":"Service","name":"Full Rebuild","provider":{"@type":"Organization","name":"Trayaam"},"offers":{"@type":"Offer","price":"2500","priceCurrency":"EUR"},"description":"A complete new website for Luxembourg SMEs in 7 days — bespoke design, SEO foundation, editable CMS and 30 days support." };
-const includes = ['Bespoke, mobile-first design in Figma','Complete SEO foundation — schema, sitemap, structure','Editable CMS so you can update content yourself','Lightning-fast modern stack (Astro / Next.js)','Two structured revision rounds','30 days of free post-launch support'];
+const jsonld = { "@context":"https://schema.org","@type":"Service","name":"Full Rebuild","provider":{"@type":"Organization","name":"Trayaam"},"areaServed":["United Kingdom","India"],"offers":{"@type":"Offer","price":"2500","priceCurrency":"GBP"},"description":"A complete new website for ambitious SMEs in 7 days — bespoke design, SEO foundation, editable CMS and 30 days support." };
+
+const features = [
+  ['Bespoke, mobile-first design in Figma', 'A distinctive, editorial design built around your brand — not a template. You approve every screen in Figma before a line of code is written, mobile and desktop together.'],
+  ['Complete SEO foundation', 'Semantic structure, clean URLs, meta and Open Graph tags, JSON-LD schema, XML sitemap and robots — everything search and answer engines need to understand and rank your site from day one.'],
+  ['Editable CMS', 'A structured, headless CMS so your team updates content, images and pages without a developer. Clear fields, no theme spaghetti, no plugins to maintain.'],
+  ['Lightning-fast modern stack', 'Built on Astro or Next.js and deployed to a global edge network. Most builds ship at 95–100 on Lighthouse — fast everywhere, secure by default.'],
+  ['Two structured revision rounds', 'Feedback is collected and applied in two focused passes rather than open-ended back-and-forth, so the project stays on schedule and on budget.'],
+  ['30 days of free post-launch support', 'A full month after launch to tweak, fix and answer questions — then everything is handed over to you, in full, with no lock-in.'],
+];
 const steps = [['Day 0','Free audit & scope'],['Day 1','Discovery call + Figma direction'],['Day 2–6','Design & build, draft in 3 days'],['Day 7','Go live, keys handed over']];
+const goodFit = [
+  'Your current site looks dated or no longer reflects the quality of your work',
+  'You need to be found on Google and cited by AI answer engines',
+  'You want to edit content yourself without paying a developer each time',
+  'You value a fixed price and a fast, predictable timeline',
+];
+const notFit = [
+  'You need a large custom web application or bespoke booking system',
+  'You want ongoing monthly marketing — see Growth Partner instead',
+  'Your site is fundamentally fine and only needs a light tidy-up — see Quick Refresh',
+];
 ---
-<Layout title="Full Website Rebuild from €2,500 — 7 Days · Trayaam" description="Full Rebuild from Trayaam: a complete new website in 7 days — bespoke design, SEO foundation, editable CMS and 30 days support, from €2,500. Our most chosen package." active="services" path="/services/full-rebuild" jsonld={jsonld}>
-<PageHero eyebrow="Service · from €2,500 · Most chosen">
+<Layout title="Full Website Rebuild from £2,500 — 7 Days · Trayaam" description="Full Rebuild from Trayaam: a complete new website in 7 days — bespoke design, SEO foundation, editable CMS and 30 days support, from £2,500. Our most chosen package." active="services" path="/services/full-rebuild" jsonld={jsonld}>
+<style>
+  .rebuild { display: grid; grid-template-columns: 1fr 0.42fr; gap: clamp(2rem,5vw,4rem); align-items: start; }
+  .aside { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 1rem; }
+  .aside__price { font-family: var(--serif); font-size: 2.6rem; font-weight: 300; color: var(--accent); line-height: 1; }
+  .aside__row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border-sub); font-size: 0.9rem; color: var(--fg-med); }
+  .aside__row b { color: var(--fg); font-weight: 500; }
+  .fit { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 3rem; }
+  .fit__list li { display: flex; gap: 0.7rem; align-items: flex-start; padding: 0.6rem 0; color: var(--fg-med); line-height: 1.6; font-size: 0.95rem; }
+  .fit__yes li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+  .fit__no li::before { content: '✗'; color: var(--fg-lo); font-weight: 700; }
+  .cross { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 3rem; }
+  @media (max-width: 900px) { .rebuild { grid-template-columns: 1fr; } .aside { position: static; } }
+  @media (max-width: 767px) { .fit, .cross { grid-template-columns: 1fr; } }
+</style>
+<PageHero eyebrow="Service · from £2,500 · Most chosen">
   <h1 slot="title" class="t-h1 reveal">Full <em class="italic">Rebuild.</em></h1>
   <p class="t-body-lg reveal reveal-d1">A complete new website — SEO foundation, mobile-first bespoke design, an editable CMS, and a month of free support. Audit to launch in seven days.</p>
   <div class="reveal reveal-d2" style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Book a free audit <span class="arr">→</span></a></div>
 </PageHero>
+
+<!-- FEATURES + STICKY SIDEBAR -->
 <section class="section section--major section--line">
-  <div class="container">
-    <SectionHead eyebrow="What's included"><h2 slot="title" class="t-h2">Everything, <em class="italic">rebuilt.</em></h2></SectionHead>
-    <div class="grid grid-2" style="margin-top:3rem;">{includes.map((i) => (<div class="card reveal"><p class="t-h4" style="font-weight:400;">{i}</p></div>))}</div>
+  <div class="container rebuild">
+    <div>
+      <SectionHead eyebrow="What's included"><h2 slot="title" class="t-h2">Everything, <em class="italic">rebuilt.</em></h2><p class="t-body">Not a list of buzzwords — here is exactly what a Full Rebuild delivers, and why each piece matters.</p></SectionHead>
+      <div class="grid grid-2" style="margin-top:3rem;">
+        {features.map(([t, d]) => (
+          <div class="card reveal">
+            <h3 class="t-h4" style="margin-bottom:0.8rem;">{t}</h3>
+            <p class="t-body" style="font-size:0.92rem;">{d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+    <aside class="aside reveal reveal-d1">
+      <div class="card">
+        <div class="eyebrow" style="margin-bottom:0.8rem;">Full Rebuild</div>
+        <div class="aside__price">£2,500</div>
+        <p class="t-small" style="margin:0.6rem 0 1.2rem;">One fixed price, agreed in writing. 50% on kick-off, 50% on launch.</p>
+        <div class="aside__row"><span>Timeline</span><b>7 days</b></div>
+        <div class="aside__row"><span>Design</span><b>Bespoke, mobile-first</b></div>
+        <div class="aside__row"><span>SEO foundation</span><b>Complete</b></div>
+        <div class="aside__row"><span>Editable CMS</span><b>Included</b></div>
+        <div class="aside__row"><span>Support</span><b>30 days</b></div>
+        <div class="aside__row" style="border:0;"><span>Ownership</span><b>100% yours</b></div>
+        <a href="/contact" class="btn btn--accent" style="margin-top:1.4rem;width:100%;justify-content:center;">Start with a free audit <span class="arr">→</span></a>
+      </div>
+    </aside>
   </div>
 </section>
+
+<!-- TIMELINE -->
 <section class="section section--major section--line section--surface">
   <div class="container">
     <SectionHead eyebrow="The week"><h2 slot="title" class="t-h2">Seven days, <em class="italic">start to live.</em></h2></SectionHead>
     <div class="grid grid-4" style="margin-top:3rem;">{steps.map(([d,t]) => (<div class="card reveal"><div class="eyebrow" style="margin-bottom:0.8rem;">{d}</div><p class="t-h4" style="font-weight:400;">{t}</p></div>))}</div>
+  </div>
+</section>
+
+<!-- IS THIS RIGHT FOR YOU -->
+<section class="section section--major section--line">
+  <div class="container">
+    <SectionHead eyebrow="Section 05"><h2 slot="title" class="t-h2">Is this <em class="italic">right for you?</em></h2><p class="t-body">A Full Rebuild is our most chosen package — but it isn't for everyone. Here's how to tell.</p></SectionHead>
+    <div class="fit">
+      <div class="card reveal">
+        <div class="eyebrow" style="margin-bottom:1.2rem;">A great fit if</div>
+        <ul class="fit__list fit__yes">{goodFit.map((i) => (<li>{i}</li>))}</ul>
+      </div>
+      <div class="card reveal reveal-d1">
+        <div class="eyebrow" style="margin-bottom:1.2rem;">Maybe not, if</div>
+        <ul class="fit__list fit__no">{notFit.map((i) => (<li>{i}</li>))}</ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXTUAL CROSS-LINKS -->
+<section class="section section--major section--line section--surface">
+  <div class="container">
+    <SectionHead eyebrow="Not quite right?"><h2 slot="title" class="t-h2">There's an <em class="italic">altitude</em> for everyone.</h2></SectionHead>
+    <div class="cross">
+      <a href="/services/growth" class="card reveal">
+        <div class="eyebrow" style="margin-bottom:0.9rem;">Go bigger</div>
+        <h3 class="t-h3">Growth Partner <span class="arr">→</span></h3>
+        <p class="t-body" style="margin-top:0.8rem;">If you need ongoing growth support — SEO campaigns, monthly reporting and continuous improvement — step up to Growth Partner.</p>
+      </a>
+      <a href="/services/quick-refresh" class="card reveal reveal-d1">
+        <div class="eyebrow" style="margin-bottom:0.9rem;">Go lighter</div>
+        <h3 class="t-h3">Quick Refresh <span class="arr">→</span></h3>
+        <p class="t-body" style="margin-top:0.8rem;">If your site is fundamentally fine and you just need a refresh — a faster, redesigned homepage in days — start with Quick Refresh.</p>
+      </a>
+    </div>
     <div style="margin-top:3rem;"><a href="/contact" class="btn btn--accent">Start with a free audit <span class="arr">→</span></a></div>
   </div>
 </section>

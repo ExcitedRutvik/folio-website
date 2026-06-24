@@ -6,9 +6,9 @@ import SectionHead from '../components/SectionHead.astro';
 const jsonld = {
   "@context": "https://schema.org", "@type": "OfferCatalog", "name": "Trayaam Web Design Services",
   "itemListElement": [
-    {"@type": "Offer", "name": "Quick Refresh", "price": "990", "priceCurrency": "EUR", "url": "https://trayaam.com/services/quick-refresh"},
-    {"@type": "Offer", "name": "Full Rebuild", "price": "2500", "priceCurrency": "EUR", "url": "https://trayaam.com/services/full-rebuild"},
-    {"@type": "Offer", "name": "Growth Partner", "price": "4500", "priceCurrency": "EUR", "url": "https://trayaam.com/services/growth"}
+    {"@type": "Offer", "name": "Quick Refresh", "price": "990", "priceCurrency": "GBP", "url": "https://trayaam.com/services/quick-refresh"},
+    {"@type": "Offer", "name": "Full Rebuild", "price": "2500", "priceCurrency": "GBP", "url": "https://trayaam.com/services/full-rebuild"},
+    {"@type": "Offer", "name": "Growth Partner", "price": "4500", "priceCurrency": "GBP", "url": "https://trayaam.com/services/growth"}
   ]
 };
 
@@ -23,12 +23,12 @@ const rows = [
   ['Competitor analysis', '—', '—', 'Quarterly'],
 ];
 const tiers = [
-  { name: 'Quick Refresh', price: '€990', href: '/services/quick-refresh' },
-  { name: 'Full Rebuild', price: '€2,500', href: '/services/full-rebuild', feat: true },
-  { name: 'Growth Partner', price: '€4,500', href: '/services/growth' },
+  { name: 'Quick Refresh', price: '£990', href: '/services/quick-refresh' },
+  { name: 'Full Rebuild', price: '£2,500', href: '/services/full-rebuild', feat: true },
+  { name: 'Growth Partner', price: '£4,500', href: '/services/growth' },
 ];
 ---
-<Layout title="Web Design Services & Pricing — Trayaam Luxembourg" description="Three ways to work with Trayaam: Quick Refresh (€990), Full Rebuild (€2,500) or Growth Partner (€4,500). Fixed pricing, 7-day delivery, free audit first." active="services" path="/services" jsonld={jsonld}>
+<Layout title="Web Design Services & Pricing — Trayaam" description="Three ways to work with Trayaam: Quick Refresh (£990), Full Rebuild (£2,500) or Growth Partner (£4,500). Fixed pricing, 7-day delivery, free audit first." active="services" path="/services" jsonld={jsonld}>
 <style>
   .ptable { width: 100%; border-collapse: collapse; margin-top: 3rem; }
   .ptable th, .ptable td { text-align: left; padding: 1.1rem 1.2rem; border-bottom: 1px solid var(--border); font-size: 0.92rem; vertical-align: top; }
@@ -43,7 +43,7 @@ const tiers = [
 </style>
 
 <PageHero eyebrow="Services">
-  <h1 slot="title" class="t-h1 reveal">Three ways to work<br>with <em class="italic">Trayaam.</em></h1>
+  <h1 slot="title" class="t-h1 reveal">Three ways to work<br>with <em class="italic">Trayaam</em></h1>
   <p class="t-body-lg reveal reveal-d1">Whether you need a quick refresh, a complete rebuild, or a long-term growth partner — every engagement starts with a free audit and a fixed price in writing.</p>
 </PageHero>
 

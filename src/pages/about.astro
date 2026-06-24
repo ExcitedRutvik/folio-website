@@ -7,12 +7,38 @@ const values = [
   ['Technology','A fast, secure, modern stack. Execution measured in milliseconds, owned by you.'],
   ['Empowerment','We hand over the keys and the clarity to grow — no lock-in, no dependence.'],
 ];
+const offices = [
+  ['London','United Kingdom','Strategy, design direction and client partnerships across the UK and Europe.'],
+  ['Ahmedabad','India','Engineering, performance and the production craft that ships your site in seven days.'],
+];
+// Team. Akash uses the saved asset; the rest are clean placeholders — drop a photo
+// into /public and swap `img` to reveal it.
+const team = [
+  { name: 'Akash', role: 'Engineering & Build', img: '/akash.png' },
+  { name: 'Founder', role: 'Founder & Creative Direction', img: '' },
+  { name: 'Feny', role: 'Design & Brand', img: '' },
+  { name: 'Rutvik Gupta', role: 'Technology & SEO', img: '' },
+];
 ---
-<Layout title="About Trayaam — Luxembourg Web Agency" description="Trayaam is a Luxembourg web agency built on three pillars — creativity, technology, empowerment. We rebuild websites in 7 days, honestly and at a fixed price." active="about" path="/about">
-<PageHero eyebrow="About">
+<Layout title="About Trayaam — A Studio in London & Ahmedabad" description="Trayaam is a web agency built on three pillars — creativity, technology, empowerment — with studios in London and Ahmedabad. We rebuild websites in 7 days, honestly and at a fixed price." active="about" path="/about">
+<style>
+  .offices { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 3rem; }
+  .office__co { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+  .office__city { font-family: var(--serif); font-size: 1.8rem; font-weight: 400; }
+  .team { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 3rem; }
+  .member__photo { aspect-ratio: 1 / 1; width: 100%; border-radius: var(--r-lg); object-fit: cover; background: var(--bg-3); border: 1px solid var(--border); }
+  .member__ph { display: grid; place-items: center; aspect-ratio: 1 / 1; width: 100%; border-radius: var(--r-lg); background: linear-gradient(160deg, var(--bg-2), var(--bg-3)); border: 1px solid var(--border); color: var(--fg-faint); font-family: var(--serif); font-size: 2.4rem; }
+  .member__name { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; margin-top: 1rem; }
+  .member__role { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-lo); margin-top: 0.4rem; }
+  @media (max-width: 900px) { .team { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 767px) { .offices { grid-template-columns: 1fr; } }
+</style>
+<PageHero eyebrow="About · London &amp; Ahmedabad">
   <h1 slot="title" class="t-h1 reveal">A studio built on<br><em class="italic">three pillars.</em></h1>
-  <p class="t-body-lg reveal reveal-d1">Trayaam means three. Creativity, technology and empowerment — the lotus at the heart of our mark, and the way we work. We rebuild websites quickly, honestly, and at a price agreed in writing before we start.</p>
+  <p class="t-body-lg reveal reveal-d1">Trayaam means three. Creativity, technology and empowerment — the lotus at the heart of our mark, and the way we work. From studios in London and Ahmedabad, we rebuild websites quickly, honestly, and at a price agreed in writing before we start.</p>
 </PageHero>
+
+<!-- PILLARS -->
 <section class="section section--major section--line">
   <div class="container">
     <SectionHead eyebrow="What we believe"><h2 slot="title" class="t-h2">Three forces,<br><em class="italic">one outcome.</em></h2></SectionHead>
@@ -21,22 +47,59 @@ const values = [
     </div>
   </div>
 </section>
+
+<!-- HOW WE WORK + STATS -->
 <section class="section section--major section--line section--surface">
   <div class="container">
     <div class="grid grid-2" style="gap:clamp(2rem,5vw,5rem);align-items:center;">
       <div class="reveal">
         <SectionHead eyebrow="How we work"><h2 slot="title" class="t-h3">Honest by <em class="italic">default.</em></h2></SectionHead>
-        <p class="t-body" style="margin-top:1.5rem;">We audit before we sell. We quote one fixed price. We ship in a week, hand over everything, and tell you plainly if we're not the right fit. No retainers you can't leave, no surprise invoices, no jargon.</p>
+        <p class="t-body" style="margin-top:1.5rem;">We audit before we sell. We quote one fixed price. We ship in a week, hand over everything, and tell you plainly if we're not the right fit. No retainers you can't leave, no surprise invoices, no jargon. Two studios across two time zones mean the work moves while you sleep — design and direction from London, engineering and production from Ahmedabad.</p>
       </div>
       <div class="grid grid-2 reveal reveal-d1">
         <div class="card"><div class="stat__num"><span data-count="32">0</span><span class="accent">+</span></div><div class="stat__label">Websites audited</div></div>
         <div class="card"><div class="stat__num"><span data-count="7">0</span><span class="accent">d</span></div><div class="stat__label">Average delivery</div></div>
-        <div class="card"><div class="stat__num">7</div><div class="stat__label">Cities served</div></div>
-        <div class="card"><div class="stat__num">€0</div><div class="stat__label">Cost to start</div></div>
+        <div class="card"><div class="stat__num">2</div><div class="stat__label">Studios, two time zones</div></div>
+        <div class="card"><div class="stat__num">£0</div><div class="stat__label">Cost to start</div></div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- DUAL HQ -->
+<section class="section section--major section--line">
+  <div class="container">
+    <SectionHead eyebrow="Our studios"><h2 slot="title" class="t-h2">London &amp; <em class="italic">Ahmedabad.</em></h2><p class="t-body">One studio, two homes — chosen so creative direction and engineering craft each sit where they're strongest, and your project never stops moving.</p></SectionHead>
+    <div class="offices">
+      {offices.map(([city, country, note]) => (
+        <div class="card reveal">
+          <div class="office__co">{country}</div>
+          <div class="office__city">{city}</div>
+          <p class="t-body" style="font-size:0.92rem;margin-top:0.9rem;">{note}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- TEAM GRID -->
+<section class="section section--major section--line section--surface">
+  <div class="container">
+    <SectionHead eyebrow="The team"><h2 slot="title" class="t-h2">The people<br><em class="italic">behind the work.</em></h2></SectionHead>
+    <div class="team">
+      {team.map((m) => (
+        <div class="reveal">
+          {m.img
+            ? <img class="member__photo" src={m.img} alt={`${m.name} — ${m.role}, Trayaam`} width="320" height="320" loading="lazy" />
+            : <div class="member__ph" aria-hidden="true">{m.name.charAt(0)}</div>}
+          <div class="member__name">{m.name}</div>
+          <div class="member__role">{m.role}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
 <section class="section section--major section--line">
   <div class="container container--narrow" style="text-align:center;">
     <SectionHead eyebrow="Let's talk" align="center"><h2 slot="title" class="t-h2">Start with a<br><em class="italic">free audit.</em></h2></SectionHead>

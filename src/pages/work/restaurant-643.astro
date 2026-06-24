@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHead from '../../components/SectionHead.astro';
+const jsonld = { "@context":"https://schema.org","@type":"CreativeWork","name":"Restaurant 643 — Website Rebuild Case Study","about":"Restaurant website with online reservations","creator":{"@type":"Organization","name":"Trayaam"} };
+const stats = [['+52%','Bookings'],['5d','Delivered'],['100%','Mobile-ready'],['0','Broken forms']];
+const sections = [
+  ['The Challenge', 'A full restaurant, an empty website.', 'Restaurant 643 in Ahmedabad was busy — but its seven-year-old website worked against it. It didn\'t load properly on phones, where most of its diners were searching, and the reservation form had been quietly broken for months. Guests gave up and called, or simply chose somewhere easier to book.'],
+  ['The Insight', 'Hospitality is won on a phone, after 9pm.', 'Most restaurant decisions happen on mobile, late, in the moment someone is hungry. If the menu is hard to read or the table can\'t be booked in two taps, the booking is lost to a competitor. The site didn\'t need more pages — it needed to make reserving a table effortless and to show up in local "restaurants near me" searches.'],
+  ['The Execution', 'Reservations, menu and local SEO, rebuilt mobile-first.', 'We rebuilt the site mobile-first with a live, editable menu, integrated online reservations, and click-to-call woven throughout. Local SEO — Google Business signals, location schema, fast load — put 643 in front of nearby diners. Staff update the menu and opening hours themselves from the CMS, no agency required.'],
+];
+const results = [['+52%','More online bookings in two months'],['5 days','Audit to live site'],['100%','Mobile-ready, reservations included'],['Local','Ranking for nearby dining searches']];
+---
+<Layout title="Restaurant 643 — Reservations Website Case Study · Trayaam" description="How Trayaam rebuilt Restaurant 643 in Ahmedabad — a mobile-first site with online reservations, a live menu and local SEO that lifted bookings by 52%." active="work" path="/work/restaurant-643" jsonld={jsonld}>
+<style>
+  .results { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-top: 3rem; }
+  .result__v { font-family: var(--serif); font-size: 2.2rem; color: var(--accent); line-height: 1; }
+  .result__l { color: var(--fg-med); margin-top: 0.6rem; font-size: 0.95rem; }
+  @media (max-width: 767px) { .results { grid-template-columns: 1fr; } }
+</style>
+<PageHero eyebrow="Case study · Hospitality · Ahmedabad">
+  <h1 slot="title" class="t-h1 reveal">Restaurant <em class="italic">643.</em></h1>
+  <p class="t-body-lg reveal reveal-d1">A popular restaurant losing bookings to a broken, desktop-only website. We rebuilt it mobile-first with online reservations and local SEO — and the tables filled.</p>
+</PageHero>
+<section class="section--compact section--line">
+  <div class="container grid grid-4">
+    {stats.map(([v,l]) => (<div class="reveal"><div class="stat__num"><span class="accent">{v}</span></div><div class="stat__label">{l}</div></div>))}
+  </div>
+</section>
+{sections.map(([eyebrow, title, body], i) => (
+  <section class={`section section--major section--line${i % 2 === 1 ? ' section--surface' : ''}`}>
+    <div class="container">
+      <div class="grid grid-2" style="gap:clamp(2rem,5vw,5rem);align-items:start;">
+        <div class="reveal"><SectionHead eyebrow={eyebrow}><h2 slot="title" class="t-h3">{title}</h2></SectionHead></div>
+        <p class="t-body reveal reveal-d1">{body}</p>
+      </div>
+    </div>
+  </section>
+))}
+<section class="section section--major section--line">
+  <div class="container">
+    <SectionHead eyebrow="The Outcomes"><h2 slot="title" class="t-h2">Results that <em class="italic">compound.</em></h2></SectionHead>
+    <div class="results">
+      {results.map(([v,l]) => (<div class="card reveal"><div class="result__v">{v}</div><div class="result__l">{l}</div></div>))}
+    </div>
+  </div>
+</section>
+<section class="section section--major section--line section--surface">
+  <div class="container container--narrow" style="text-align:center;">
+    <SectionHead eyebrow="Want results like these?" align="center"><h2 slot="title" class="t-h2">Let's rebuild <em class="italic">yours.</em></h2></SectionHead>
+    <div style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Get your free audit <span class="arr">→</span></a></div>
+  </div>
+</section>
+</Layout>

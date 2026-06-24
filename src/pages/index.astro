@@ -5,7 +5,7 @@ import SectionHead from '../components/SectionHead.astro';
 const faqs = [
   ['How is a 7-day website rebuild possible?', 'We audit first so there is no guessing phase, run design and development concurrently on a proven stack, and use two structured review rounds instead of open-ended feedback.'],
   ['What if I don\'t like the first draft?', 'Every package includes structured revisions and we share a Figma design before writing code, so changes are fast and cheap. We have never needed a third round.'],
-  ['Do you work with clients outside Luxembourg?', 'Yes — fully remote with clients in London, Amsterdam, New York, Paris, Singapore and Dubai. Audit and call happen over video, everything else is async.'],
+  ['Do you work with clients outside London and Ahmedabad?', 'Yes — with studios in London and Ahmedabad we work across the UK, India and beyond: clients in Amsterdam, New York, Paris, Singapore and Dubai. Audit and call happen over video, everything else is async.'],
   ['Will my website rank on Google?', 'No one can guarantee rankings, but we guarantee the best possible starting position: correct tags, schema, sitemap, fast load and mobile-first structure. Most clients see movement in 6–8 weeks.'],
   ['Do you charge upfront?', '50% on kick-off, 50% on launch — one fixed price in writing before we start. The free audit is genuinely free, with no card required.'],
 ];
@@ -17,20 +17,23 @@ const jsonld = {
   "@type": "LocalBusiness",
   "@id": "https://trayaam.com/#business",
   "name": "Trayaam",
-  "description": "Luxembourg web agency specialising in 7-day website rebuilds for ambitious SMEs. Creativity, technology, empowerment. Fixed pricing, free audit, no surprise invoices.",
+  "description": "Web agency with studios in London and Ahmedabad, specialising in 7-day website rebuilds for ambitious SMEs. Creativity, technology, empowerment. Fixed pricing, free audit, no surprise invoices.",
   "url": "https://trayaam.com",
   "email": "hello@trayaam.com",
-  "telephone": "+352278612 34",
-  "priceRange": "€€",
+  "telephone": "+919978984333",
+  "priceRange": "££",
   "slogan": "Creativity · Technology · Empowerment",
-  "address": { "@type": "PostalAddress", "addressLocality": "Luxembourg City", "addressCountry": "LU" },
-  "areaServed": ["Luxembourg City","London","Amsterdam","New York","Paris","Singapore","Dubai"].map((c) => ({ "@type": "City", name: c })),
+  "address": [
+    { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
+    { "@type": "PostalAddress", "addressLocality": "Ahmedabad", "addressRegion": "Gujarat", "addressCountry": "IN" }
+  ],
+  "areaServed": ["London","Ahmedabad","Amsterdam","New York","Paris","Singapore","Dubai"].map((c) => ({ "@type": "City", name: c })),
   "hasOfferCatalog": {
     "@type": "OfferCatalog", "name": "Web Design & SEO Services",
     "itemListElement": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Quick Refresh"}, "price": "990", "priceCurrency": "EUR"},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Full Rebuild"}, "price": "2500", "priceCurrency": "EUR"},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Growth Partner"}, "price": "4500", "priceCurrency": "EUR"}
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Quick Refresh"}, "price": "990", "priceCurrency": "GBP"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Full Rebuild"}, "price": "2500", "priceCurrency": "GBP"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Growth Partner"}, "price": "4500", "priceCurrency": "GBP"}
     ]
   }
   },
@@ -48,12 +51,12 @@ const pillars = [
   { k: 'Pillar 03', t: 'Empowerment', d: 'We hand you the keys: an editable site, clear reporting, and the confidence to grow on your terms.' },
 ];
 const work = [
-  { ind: 'Architecture · Luxembourg', t: 'Architect studio', d: 'Invisible on Google to page one for "architecte Luxembourg" in six weeks.', stats: [['+68%','Enquiries'],['6d','Delivered'],['P.1','Ranked']] },
-  { ind: 'Hospitality · Esch', t: 'Restaurant 643', d: 'No mobile, broken form → online reservations and local SEO.', stats: [['+52%','Bookings'],['5d','Delivered'],['100%','Mobile']] },
-  { ind: 'Accounting · Luxembourg', t: 'Fiduciary firm', d: 'No SSL, 18/100 → secure, clear service pages, SME-targeted SEO.', stats: [['+44%','Clients'],['7d','Delivered'],['SSL','Secured']] },
+  { href: '/work/deepak-products', ind: 'Manufacturing · India', t: 'Deepak Products', d: 'A 35-year sheet-metal manufacturer with no real web presence → a B2B credibility engine with a 650-product catalogue.', stats: [['650+','Products'],['10+','Countries'],['B2B','Lead engine']] },
+  { href: '/work/architect-studio', ind: 'Architecture · London', t: 'Architect studio', d: 'Invisible on Google to page one for "architects London" in six weeks.', stats: [['+68%','Enquiries'],['6d','Delivered'],['P.1','Ranked']] },
+  { href: '/work/restaurant-643', ind: 'Hospitality · Ahmedabad', t: 'Restaurant 643', d: 'No mobile, broken form → online reservations and local SEO.', stats: [['+52%','Bookings'],['5d','Delivered'],['100%','Mobile']] },
 ];
 ---
-<Layout title="Trayaam — Web Agency for Ambitious Brands" description="Trayaam is a Luxembourg web agency. Editorial websites rebuilt in 7 days for ambitious SMEs — creativity, technology, empowerment. Free audit, no obligation." active="home" path="/" jsonld={jsonld}>
+<Layout title="Trayaam — Web Agency for Ambitious Brands" description="Trayaam is a web agency with studios in London and Ahmedabad. Editorial websites rebuilt in 7 days for ambitious SMEs — creativity, technology, empowerment. Free audit, no obligation." active="home" path="/" jsonld={jsonld}>
 
 <style>
   /* Hero */
@@ -108,6 +111,23 @@ const work = [
   .pscore__v { font-family: var(--serif); font-size: 1.9rem; color: var(--accent); line-height: 1; }
   .pscore__l { font-size: 0.6rem; color: var(--fg-lo); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.35rem; }
   @media (max-width: 900px) { .hero__grid { grid-template-columns: 1fr; gap: 2rem; } .hero__art { order: 2; } .glass { transform: none; min-height: 320px; } }
+
+  /* Lotus + T-pillar bloom centrepiece */
+  .bloom { display: grid; place-items: center; margin: 3.5rem 0 0.5rem; }
+  .bloom svg { width: clamp(160px, 22vw, 240px); height: auto; color: var(--accent); overflow: visible; }
+  .bloom .petal { transform-origin: 120px 150px; transform: scaleY(0.2) rotate(0deg); opacity: 0; animation: petalBloom 1.1s var(--ease-out) forwards; }
+  .bloom .petal-2, .bloom .petal-2b { animation-delay: 0.12s; }
+  .bloom .petal-3, .bloom .petal-3b { animation-delay: 0.24s; }
+  .bloom .pillar-line { stroke-dasharray: 130; stroke-dashoffset: 130; animation: pillarRise 0.9s var(--ease-out) 0.35s forwards; }
+  .bloom .pillar-cap { opacity: 0; animation: capIn 0.5s var(--ease-out) 1.05s forwards; }
+  @keyframes petalBloom { to { transform: scaleY(1) rotate(0); opacity: 1; } }
+  @keyframes pillarRise { to { stroke-dashoffset: 0; } }
+  @keyframes capIn { to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) {
+    .bloom .petal { transform: none; opacity: 1; animation: none; }
+    .bloom .pillar-line { stroke-dashoffset: 0; animation: none; }
+    .bloom .pillar-cap { opacity: 1; animation: none; }
+  }
 
   /* Pillars bento */
   .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
@@ -180,7 +200,7 @@ const work = [
     <div class="hero__left">
       <span class="eyebrow">Creativity · Technology · Empowerment</span>
       <h1 class="t-h1 hero__title">
-        Websites for<br>ambitious brands<br>in <span class="city" id="city"><span class="city__spacer">Luxembourg</span><span class="city__active">Luxembourg</span></span>
+        Websites for<br>ambitious brands<br>in <span class="city" id="city"><span class="city__spacer">Ahmedabad.</span><span class="city__active">London.</span></span>
       </h1>
       <p class="t-body-lg hero__sub">Editorial design, fixed pricing, and a live site in seven days. We audit first, charge second, and tell you honestly if we're not the right fit.</p>
       <div class="hero__actions">
@@ -218,7 +238,7 @@ const work = [
     (function () {
       var el = document.getElementById('city'); if (!el) return;
       var active = el.querySelector('.city__active'), spacer = el.querySelector('.city__spacer');
-      var cities = ['Luxembourg','London','New York','Amsterdam','Singapore','Dubai','Paris'], i = 0;
+      var cities = ['London.','Ahmedabad.','New York.','Amsterdam.','Singapore.','Dubai.','Paris.'], i = 0;
       function tick() {
         active.textContent = cities[i]; spacer.textContent = cities[i];
         active.classList.remove('city__active'); void active.offsetWidth; active.classList.add('city__active');
@@ -232,13 +252,13 @@ const work = [
       var term = document.getElementById('term'), preview = document.getElementById('preview');
       if (!term) return;
       var lines = [
-        { t: '$ trayaam build --prod', c: 'cmd' },
-        { t: '  ✓ Compiling editorial design system', c: 'ok' },
-        { t: '  ✓ Optimising images · 32 files', c: 'ok' },
-        { t: '  ✓ Generating schema + sitemap', c: 'ok' },
-        { t: '  ✓ Lighthouse · 100 / 100 / 100', c: 'ok' },
-        { t: '  ✓ Deploying to edge network', c: 'ok' },
-        { t: '$ site live → trayaam.com', c: 'cmd' }
+        { t: '$ trayaam optimise --brand', c: 'cmd' },
+        { t: '  ✓ Running structural design pass', c: 'ok' },
+        { t: '  ✓ Optimising semantic SEO + schema', c: 'ok' },
+        { t: '  ✓ Compiling fluid UI components', c: 'ok' },
+        { t: '  ✓ Tuning Core Web Vitals · 100 / 100 / 100', c: 'ok' },
+        { t: '  ✓ Deploying to global edge', c: 'ok' },
+        { t: '→ Site Optimized · live at trayaam.com', c: 'cmd' }
       ];
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         term.innerHTML = lines.map(function (l) { return '<div class="' + l.c + '">' + l.t + '</div>'; }).join('');
@@ -280,7 +300,24 @@ const work = [
       <h2 slot="title" class="t-h2">Three forces,<br><em class="italic">one outcome.</em></h2>
       <p class="t-body">Trayaam is built on three pillars — the lotus at the heart of our mark. Each only matters because of the other two.</p>
     </SectionHead>
-    <div class="pillars" style="margin-top: 3.5rem;">
+    <div class="bloom" aria-hidden="true">
+      <svg viewBox="0 0 240 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- blooming lotus opening beneath the pillar -->
+        <g stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
+          <path class="petal petal-1" d="M120 150 C 110 118 110 96 120 74 C 130 96 130 118 120 150 Z" opacity="0.95"/>
+          <path class="petal petal-2" d="M120 150 C 96 132 82 116 80 92 C 102 100 114 122 120 150 Z" opacity="0.7"/>
+          <path class="petal petal-2b" d="M120 150 C 144 132 158 116 160 92 C 138 100 126 122 120 150 Z" opacity="0.7"/>
+          <path class="petal petal-3" d="M120 150 C 92 144 70 134 58 112 C 84 110 108 126 120 150 Z" opacity="0.42"/>
+          <path class="petal petal-3b" d="M120 150 C 148 144 170 134 182 112 C 156 110 132 126 120 150 Z" opacity="0.42"/>
+        </g>
+        <!-- structural "T" pillar rising above the bloom -->
+        <g stroke="currentColor" stroke-linecap="round">
+          <line class="pillar-line" x1="120" y1="150" x2="120" y2="28" stroke-width="3"/>
+          <line class="pillar-cap" x1="86" y1="28" x2="154" y2="28" stroke-width="3"/>
+        </g>
+      </svg>
+    </div>
+    <div class="pillars" style="margin-top: 2.5rem;">
       {pillars.map((p, i) => (
         <div class={`pillar reveal reveal-d${i+1}`}>
           <span class="pillar__k">{p.k}</span>
@@ -295,10 +332,10 @@ const work = [
 <!-- STATS -->
 <section class="section--compact section--line">
   <div class="container grid grid-4">
-    <div class="reveal"><div class="stat__num"><span data-count="32">0</span><span class="accent">+</span></div><div class="stat__label">Luxembourg websites audited</div></div>
+    <div class="reveal"><div class="stat__num"><span data-count="32">0</span><span class="accent">+</span></div><div class="stat__label">Websites audited &amp; rebuilt</div></div>
     <div class="reveal reveal-d1"><div class="stat__num"><span data-count="7">0</span><span class="accent">d</span></div><div class="stat__label">Average delivery, audit to launch</div></div>
     <div class="reveal reveal-d2"><div class="stat__num"><span class="accent">+</span><span data-count="40">0</span><span class="accent">%</span></div><div class="stat__label">Average increase in enquiries</div></div>
-    <div class="reveal reveal-d3"><div class="stat__num">€<span data-count="0">0</span></div><div class="stat__label">Cost of your website audit</div></div>
+    <div class="reveal reveal-d3"><div class="stat__num">£<span data-count="0">0</span></div><div class="stat__label">Cost of your website audit</div></div>
   </div>
 </section>
 
@@ -311,24 +348,24 @@ const work = [
     </SectionHead>
     <div class="svc" style="margin-top: 3.5rem;">
       <a href="/services/full-rebuild" class="card svc__card svc__card--feat reveal">
-        <div class="svc__top"><span class="eyebrow">Most chosen</span><span class="svc__price">from €2,500</span></div>
+        <div class="svc__top"><span class="eyebrow">Most chosen</span><span class="svc__price">from £2,500</span></div>
         <div><h3 class="t-h3">Full <em class="italic">Rebuild.</em></h3><p class="t-body" style="margin-top:1rem;">A complete new website — SEO foundation, mobile-first design, editable CMS and a month of free support.</p></div>
         <span class="svc__link">See package <span class="arr">→</span></span>
       </a>
       <a href="/services/quick-refresh" class="card svc__card reveal reveal-d1">
-        <div class="svc__top"><h3 class="t-h4">Quick <em class="italic">Refresh.</em></h3><span class="svc__price">from €990</span></div>
+        <div class="svc__top"><h3 class="t-h4">Quick <em class="italic">Refresh.</em></h3><span class="svc__price">from £990</span></div>
         <p class="t-body">Sites that work but feel tired. Redesigned homepage, faster load, SEO basics — shipped in 3–5 days.</p>
         <span class="svc__link">See package <span class="arr">→</span></span>
       </a>
       <a href="/services/growth" class="card svc__card reveal reveal-d2">
-        <div class="svc__top"><h3 class="t-h4">Growth <em class="italic">Partner.</em></h3><span class="svc__price">from €4,500</span></div>
+        <div class="svc__top"><h3 class="t-h4">Growth <em class="italic">Partner.</em></h3><span class="svc__price">from £4,500</span></div>
         <p class="t-body">Full rebuild plus ongoing SEO, monthly reporting and quarterly competitor analysis.</p>
         <span class="svc__link">See package <span class="arr">→</span></span>
       </a>
     </div>
     <div style="margin-top:1.2rem;"><a href="/contact" class="card svc__card reveal" style="flex-direction:row;align-items:center;justify-content:space-between;min-height:auto;">
       <div><h3 class="t-h4" style="display:inline;">Free <em class="italic">Audit.</em></h3> <span class="t-body" style="display:inline;">— a 12-metric scan of your site, delivered as a PDF in 24 hours.</span></div>
-      <span class="svc__link" style="white-space:nowrap;">Book · €0 <span class="arr">→</span></span>
+      <span class="svc__link" style="white-space:nowrap;">Book · £0 <span class="arr">→</span></span>
     </a></div>
   </div>
 </section>
@@ -338,11 +375,11 @@ const work = [
   <div class="container">
     <SectionHead eyebrow="03 · Selected work">
       <h2 slot="title" class="t-h2">Recent <em class="italic">rebuilds.</em></h2>
-      <p class="t-body">A snapshot of what we shipped for Luxembourg businesses this year. Full case studies on the <a href="/work" class="accent" style="text-decoration:underline;text-underline-offset:4px;">work page</a>.</p>
+      <p class="t-body">A snapshot of what we shipped for ambitious businesses this year. Full case studies on the <a href="/work" class="accent" style="text-decoration:underline;text-underline-offset:4px;">work page</a>.</p>
     </SectionHead>
     <div class="work" style="margin-top:3.5rem;">
       {work.map((w, i) => (
-        <a href="/work" class={`card reveal reveal-d${i+1}`}>
+        <a href={w.href} class={`card reveal reveal-d${i+1}`}>
           <div class="work__ind">{w.ind}</div>
           <h3 class="t-h4" style="margin:0.8rem 0 0.6rem;">{w.t}</h3>
           <p class="t-body" style="font-size:0.92rem;">{w.d}</p>
@@ -381,7 +418,7 @@ const work = [
       <p class="t-body">Most agencies hedge. We don't. Here's exactly what you can hold us to — every project.</p>
     </SectionHead>
     <div class="guar" style="margin-top:3.5rem;">
-      {[['€','Fixed price','One number, agreed in writing before we start. No scope creep, no surprise invoices.'],
+      {[['£','Fixed price','One number, agreed in writing before we start. No scope creep, no surprise invoices.'],
         ['7','7-day delivery','Audit to live site in a week, or we keep working at no extra cost until it\'s right.'],
         ['✓','You own everything','Code, content, CMS, domain, analytics — handed over in full. No lock-in.'],
         ['↺','Honest fit','If we\'re not right for you, the audit will say so. We\'d rather tell you than sell you.']
@@ -399,9 +436,9 @@ const work = [
       <h2 slot="title" class="t-h2">What clients say after<br><em class="italic">they go live.</em></h2>
     </SectionHead>
     <div class="tw" style="margin-top:3.5rem;">
-      {[['"Trayaam\'s free audit showed exactly what was wrong — then had our new site live in six days. More enquiries in the first month than the entire quarter before."','Managing Director','Architecture Studio · Luxembourg'],
-        ['"Our old site didn\'t work on phones — where most of our bookings come from. They rebuilt it with reservations in five days. Bookings up by half."','Owner','Restaurant · Esch-sur-Alzette'],
-        ['"No jargon, no pressure, one clear price. They told us upfront what they\'d fix and delivered exactly that."','Partner','Fiduciary Firm · Luxembourg']
+      {[['"Trayaam\'s free audit showed exactly what was wrong — then had our new site live in six days. More enquiries in the first month than the entire quarter before."','Managing Director','Architecture Studio · London'],
+        ['"Our old site didn\'t work on phones — where most of our bookings come from. They rebuilt it with reservations in five days. Bookings up by half."','Owner','Restaurant · Ahmedabad'],
+        ['"No jargon, no pressure, one clear price. They told us upfront what they\'d fix and delivered exactly that."','Director','Manufacturer · India']
       ].map(([q,n,m]) => (
         <div class="card reveal"><div class="tw__stars">★★★★★</div><p class="t-h4" style="font-weight:400;">{q}</p><div class="tw__meta"><b>{n}</b>{m}</div></div>
       ))}

@@ -2,11 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
 import SectionHead from '../../components/SectionHead.astro';
-const jsonld = { "@context":"https://schema.org","@type":"Service","name":"Growth Partner","provider":{"@type":"Organization","name":"Trayaam"},"offers":{"@type":"Offer","price":"4500","priceCurrency":"EUR"},"description":"Full website rebuild plus an ongoing SEO campaign, monthly reporting and quarterly competitor analysis for ambitious Luxembourg brands." };
+const jsonld = { "@context":"https://schema.org","@type":"Service","name":"Growth Partner","provider":{"@type":"Organization","name":"Trayaam"},"areaServed":["United Kingdom","India"],"offers":{"@type":"Offer","price":"4500","priceCurrency":"GBP"},"description":"Full website rebuild plus an ongoing SEO campaign, monthly reporting and quarterly competitor analysis for ambitious brands." };
 const includes = ['Everything in Full Rebuild','Ongoing monthly SEO campaign','Monthly performance & rankings report','Quarterly competitor analysis','Continuous content & conversion improvements','Priority support, retained'];
 ---
-<Layout title="Growth Partner — SEO + Website from €4,500 · Trayaam" description="Growth Partner from Trayaam: a full rebuild plus ongoing SEO, monthly reporting and quarterly competitor analysis, from €4,500. For brands playing the long game." active="services" path="/services/growth" jsonld={jsonld}>
-<PageHero eyebrow="Service · from €4,500">
+<Layout title="Growth Partner — SEO + Website from £4,500 · Trayaam" description="Growth Partner from Trayaam: a full rebuild plus ongoing SEO, monthly reporting and quarterly competitor analysis, from £4,500. For brands playing the long game." active="services" path="/services/growth" jsonld={jsonld}>
+<PageHero eyebrow="Service · from £4,500">
   <h1 slot="title" class="t-h1 reveal">Growth <em class="italic">Partner.</em></h1>
   <p class="t-body-lg reveal reveal-d1">A full rebuild plus an ongoing SEO campaign, monthly performance reporting and quarterly competitor analysis. For brands that treat their website as a sales engine.</p>
   <div class="reveal reveal-d2" style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Book a free audit <span class="arr">→</span></a></div>
@@ -18,9 +18,21 @@ const includes = ['Everything in Full Rebuild','Ongoing monthly SEO campaign','M
   </div>
 </section>
 <section class="section section--major section--line section--surface">
-  <div class="container container--narrow" style="text-align:center;">
-    <SectionHead eyebrow="Play the long game" align="center"><h2 slot="title" class="t-h2">Let's grow it <em class="italic">together.</em></h2></SectionHead>
-    <div style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Get your free audit <span class="arr">→</span></a></div>
+  <div class="container">
+    <SectionHead eyebrow="Not ready for ongoing?"><h2 slot="title" class="t-h2">Start with a<br><em class="italic">one-off build.</em></h2></SectionHead>
+    <div class="grid grid-2" style="margin-top:3rem;">
+      <a href="/services/full-rebuild" class="card reveal">
+        <div class="eyebrow" style="margin-bottom:0.9rem;">Just the rebuild</div>
+        <h3 class="t-h3">Full Rebuild <span class="arr">→</span></h3>
+        <p class="t-body" style="margin-top:0.8rem;">Want the complete new site without the ongoing campaign? Full Rebuild delivers everything, handed over in full.</p>
+      </a>
+      <a href="/services/quick-refresh" class="card reveal reveal-d1">
+        <div class="eyebrow" style="margin-bottom:0.9rem;">Just a refresh</div>
+        <h3 class="t-h3">Quick Refresh <span class="arr">→</span></h3>
+        <p class="t-body" style="margin-top:0.8rem;">Only need a faster, sharper homepage? Quick Refresh is the lightest way to work with us.</p>
+      </a>
+    </div>
+    <div style="margin-top:3rem;"><a href="/contact" class="btn btn--accent">Get your free audit <span class="arr">→</span></a></div>
   </div>
 </section>
 </Layout>

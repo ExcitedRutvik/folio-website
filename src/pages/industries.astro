@@ -2,24 +2,32 @@
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import SectionHead from '../components/SectionHead.astro';
-const inds = [
-  ['Architecture & studios','Portfolio-led sites with case-study templates editable in the CMS. Big imagery without the slow load.'],
-  ['Hospitality','Menus, online reservations and local SEO so you\'re found and booked from a phone.'],
-  ['Professional services','Fiduciaries, law, accounting — clear, trustworthy sites with secure hosting and structured service pages.'],
-  ['Manufacturing & B2B','Product catalogues and enquiry flows that turn global search traffic into qualified leads.'],
-  ['Retail & e-commerce','Fast storefronts with clean product pages and conversion-first checkout.'],
-  ['Tech & SaaS','Editorial product sites that explain complex value simply and rank for it.'],
-];
+import { industries } from '../data/industries.js';
 ---
-<Layout title="Industries We Build For — Trayaam Luxembourg" description="Trayaam builds websites for architecture, hospitality, professional services, manufacturing, retail and SaaS — tailored to how each industry wins clients." active="industries" path="/industries">
+<Layout title="Industries We Build For — Trayaam" description="Trayaam builds websites for architecture, hospitality, professional services, manufacturing, retail, SaaS, real estate, healthcare, legal and construction — tailored to how each industry wins clients." active="industries" path="/industries">
+<style>
+  .ind-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+  .ind-card { display: flex; flex-direction: column; }
+  .ind-card__kw { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem; }
+  .ind-card__kw span { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.04em; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-mid); border-radius: 100px; padding: 0.22rem 0.65rem; }
+  .ind-card__link { margin-top: 1.4rem; font-size: 0.86rem; color: var(--fg); display: inline-flex; gap: 0.5em; }
+  @media (max-width: 767px) { .ind-grid { grid-template-columns: 1fr; } }
+</style>
 <PageHero eyebrow="Industries">
   <h1 slot="title" class="t-h1 reveal">Built for how<br>your industry <em class="italic">wins.</em></h1>
-  <p class="t-body-lg reveal reveal-d1">We've rebuilt sites across very different sectors — and each one converts differently. Here's how we tailor the work.</p>
+  <p class="t-body-lg reveal reveal-d1">We've rebuilt sites across ten very different sectors — and each one converts differently. Choose your industry to see exactly how we tailor the work.</p>
 </PageHero>
 <section class="section section--major section--line">
   <div class="container">
-    <div class="grid grid-3">
-      {inds.map(([t,d]) => (<div class="card reveal"><h2 class="t-h3" style="margin-bottom:0.9rem;">{t}</h2><p class="t-body">{d}</p></div>))}
+    <div class="ind-grid">
+      {industries.map((ind) => (
+        <a href={`/industries/${ind.slug}`} class="card ind-card reveal">
+          <h2 class="t-h3" style="margin-bottom:0.8rem;">{ind.title}</h2>
+          <p class="t-body" style="font-size:0.92rem;">{ind.card}</p>
+          <div class="ind-card__kw">{ind.keywords.slice(0, 3).map((k) => (<span>{k}</span>))}</div>
+          <span class="ind-card__link">Explore {ind.title.split(' ')[0].toLowerCase()} websites <span class="arr">→</span></span>
+        </a>
+      ))}
     </div>
   </div>
 </section>

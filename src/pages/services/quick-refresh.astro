@@ -2,11 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
 import SectionHead from '../../components/SectionHead.astro';
-const jsonld = { "@context":"https://schema.org","@type":"Service","name":"Quick Refresh","provider":{"@type":"Organization","name":"Trayaam"},"offers":{"@type":"Offer","price":"990","priceCurrency":"EUR"},"description":"A fast website refresh for Luxembourg SMEs — redesigned homepage, faster load and SEO basics in 3–5 days." };
+const jsonld = { "@context":"https://schema.org","@type":"Service","name":"Quick Refresh","provider":{"@type":"Organization","name":"Trayaam"},"areaServed":["United Kingdom","India"],"offers":{"@type":"Offer","price":"990","priceCurrency":"GBP"},"description":"A fast website refresh for ambitious SMEs — redesigned homepage, faster load and SEO basics in 3–5 days." };
 const includes = ['Redesigned homepage + one key page','Performance & Core Web Vitals tune-up','SEO basics — titles, meta, schema, sitemap','Mobile-first responsive pass','One structured revision round','7 days of post-launch support'];
 ---
-<Layout title="Quick Refresh — Website Redesign from €990 · Trayaam" description="Quick Refresh from Trayaam: a redesigned homepage, faster load and SEO basics shipped in 3–5 days, from €990. For sites that work but feel tired." active="services" path="/services/quick-refresh" jsonld={jsonld}>
-<PageHero eyebrow="Service · from €990">
+<Layout title="Quick Refresh — Website Redesign from £990 · Trayaam" description="Quick Refresh from Trayaam: a redesigned homepage, faster load and SEO basics shipped in 3–5 days, from £990. For sites that work but feel tired." active="services" path="/services/quick-refresh" jsonld={jsonld}>
+<PageHero eyebrow="Service · from £990">
   <h1 slot="title" class="t-h1 reveal">Quick <em class="italic">Refresh.</em></h1>
   <p class="t-body-lg reveal reveal-d1">For sites that mostly work but feel tired. We redesign the homepage, speed it up, fix the SEO basics and ship in 3–5 days — no full rebuild required.</p>
   <div class="reveal reveal-d2" style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Book a free audit <span class="arr">→</span></a></div>
@@ -22,9 +22,21 @@ const includes = ['Redesigned homepage + one key page','Performance & Core Web V
   </div>
 </section>
 <section class="section section--major section--line section--surface">
-  <div class="container container--narrow" style="text-align:center;">
-    <SectionHead eyebrow="Ready?" align="center"><h2 slot="title" class="t-h2">See what a refresh<br>would <em class="italic">do for you.</em></h2></SectionHead>
-    <div style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Get your free audit <span class="arr">→</span></a></div>
+  <div class="container">
+    <SectionHead eyebrow="Need more?"><h2 slot="title" class="t-h2">When a refresh<br><em class="italic">isn't enough.</em></h2></SectionHead>
+    <div class="grid grid-2" style="margin-top:3rem;">
+      <a href="/services/full-rebuild" class="card reveal">
+        <div class="eyebrow" style="margin-bottom:0.9rem;">Go further</div>
+        <h3 class="t-h3">Full Rebuild <span class="arr">→</span></h3>
+        <p class="t-body" style="margin-top:0.8rem;">If your site needs more than a tidy-up — a complete bespoke rebuild with an editable CMS and full SEO foundation — choose Full Rebuild.</p>
+      </a>
+      <a href="/services/growth" class="card reveal reveal-d1">
+        <div class="eyebrow" style="margin-bottom:0.9rem;">Keep growing</div>
+        <h3 class="t-h3">Growth Partner <span class="arr">→</span></h3>
+        <p class="t-body" style="margin-top:0.8rem;">If you want a rebuild plus ongoing SEO and monthly reporting, Growth Partner keeps compounding results after launch.</p>
+      </a>
+    </div>
+    <div style="margin-top:3rem;"><a href="/contact" class="btn btn--accent">Get your free audit <span class="arr">→</span></a></div>
   </div>
 </section>
 </Layout>

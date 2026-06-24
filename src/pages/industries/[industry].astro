@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import { industries } from '../../data/industries.js';
+
+export function getStaticPaths() {
+  return industries.map((ind) => ({ params: { industry: ind.slug }, props: { ind } }));
+}
+const { ind } = Astro.props;
+const kw = ind.keywords.join(', ');
+const jsonld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Service", "name": `Website design for ${ind.title}`, "provider": { "@type": "Organization", "name": "Trayaam" }, "areaServed": ["United Kingdom","India"], "description": ind.intro },
+    { "@type": "FAQPage", "mainEntity": ind.faqs.map(([q, a]) => ({ "@type": "Question", "name": q, "acceptedAnswer": { "@type": "Answer", "text": a } })) }
+  ]
+};
+---
+<Layout title={`${ind.title} Website Design & SEO — Trayaam`} description={`${ind.intro} ${ind.keywords[0]}, ${ind.keywords[1]}.`} active="industries" path={`/industries/${ind.slug}`} jsonld={jsonld}>
+<style>
+  .kw-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.6rem; }
+  .kw-row span { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.04em; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-mid); border-radius: 100px; padding: 0.28rem 0.8rem; }
+  .qa { border-top: 1px solid var(--border); padding: 1.6rem 0; }
+  .qa:last-child { border-bottom: 1px solid var(--border); }
+  .qa h3 { font-family: var(--serif); font-weight: 400; font-size: 1.2rem; margin-bottom: 0.7rem; }
+</style>
+<PageHero eyebrow={`Industries · ${ind.title}`}>
+  <h1 slot="title" class="t-h1 reveal">{ind.title} websites,<br><em class="italic">built to win.</em></h1>
+  <p class="t-body-lg reveal reveal-d1">{ind.intro}</p>
+  <div class="kw-row reveal reveal-d2" aria-label="Focus keywords">{ind.keywords.map((k) => (<span>{k}</span>))}</div>
+</PageHero>
+<section class="section section--major section--line">
+  <div class="container">
+    <SectionHead eyebrow="How we help"><h2 slot="title" class="t-h2">What a {ind.title.split(' ')[0].toLowerCase()} site<br><em class="italic">actually needs.</em></h2></SectionHead>
+    <div class="grid grid-3" style="margin-top:3rem;">
+      {ind.helps.map(([t, d]) => (
+        <div class="card reveal">
+          <h3 class="t-h4" style="margin-bottom:0.8rem;">{t}</h3>
+          <p class="t-body" style="font-size:0.92rem;">{d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<section class="section section--major section--line section--surface">
+  <div class="container container--narrow">
+    <SectionHead eyebrow="Common questions"><h2 slot="title" class="t-h2">Asked &amp; <em class="italic">answered.</em></h2></SectionHead>
+    <div style="margin-top:2.5rem;">
+      {ind.faqs.map(([q, a]) => (
+        <div class="qa reveal"><h3>{q}</h3><p class="t-body">{a}</p></div>
+      ))}
+    </div>
+  </div>
+</section>
+<section class="section section--major section--line">
+  <div class="container container--narrow" style="text-align:center;">
+    <SectionHead eyebrow={`Ready to rebuild?`} align="center"><h2 slot="title" class="t-h2">Let's build your<br><em class="italic">{ind.title.split(' ')[0].toLowerCase()} site.</em></h2></SectionHead>
+    <div style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Get your free audit <span class="arr">→</span></a> <a href="/industries" class="btn btn--ghost">All industries <span class="arr">→</span></a></div>
+  </div>
+</section>
+</Layout>

@@ -5,7 +5,7 @@ import '../styles/global.css';
 
 const {
   title = 'Trayaam — Web Agency for Ambitious Brands',
-  description = 'Trayaam is a Luxembourg-based web agency. We rebuild websites in 7 days for ambitious SMEs — creativity, technology, empowerment. Free audit, no obligation.',
+  description = 'Trayaam is a web agency with studios in London and Ahmedabad. We rebuild websites in 7 days for ambitious SMEs — creativity, technology, empowerment. Free audit, no obligation.',
   active = '',
   path = '',
   ogImage = '/assets/og-image.svg',
@@ -41,7 +41,7 @@ const canonical = site + (path || Astro.url.pathname);
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={site + ogImage} />
-  <meta property="og:locale" content="en_LU" />
+  <meta property="og:locale" content="en_GB" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
@@ -49,8 +49,10 @@ const canonical = site + (path || Astro.url.pathname);
 
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content="Trayaam" />
-  <meta name="geo.region" content="LU" />
-  <meta name="geo.placename" content="Luxembourg City" />
+  <meta name="geo.region" content="GB-LND" />
+  <meta name="geo.placename" content="London" />
+  <meta name="geo.region" content="IN-GJ" />
+  <meta name="geo.placename" content="Ahmedabad" />
 
   {/* Global Organization + WebSite graph — knowledge-panel & generative-engine signals */}
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -65,9 +67,14 @@ const canonical = site + (path || Astro.url.pathname);
         "image": site + ogImage,
         "email": "hello@trayaam.com",
         "slogan": "Creativity · Technology · Empowerment",
-        "description": "Luxembourg web agency rebuilding websites for ambitious SMEs in 7 days — fixed pricing, free audit.",
-        "areaServed": ["Luxembourg","London","Amsterdam","New York","Paris","Singapore","Dubai"],
-        "contactPoint": { "@type": "ContactPoint", "email": "hello@trayaam.com", "contactType": "sales", "areaServed": "Worldwide", "availableLanguage": ["en","fr","de"] }
+        "description": "Web agency with studios in London and Ahmedabad, rebuilding websites for ambitious SMEs in 7 days — fixed pricing, free audit.",
+        "areaServed": ["London","Ahmedabad","United Kingdom","India","New York","Amsterdam","Paris","Singapore","Dubai"],
+        "address": [
+          { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
+          { "@type": "PostalAddress", "addressLocality": "Ahmedabad", "addressRegion": "Gujarat", "addressCountry": "IN" }
+        ],
+        "telephone": "+919978984333",
+        "contactPoint": { "@type": "ContactPoint", "email": "hello@trayaam.com", "telephone": "+919978984333", "contactType": "sales", "areaServed": "Worldwide", "availableLanguage": ["en","hi","gu"] }
       },
       { "@type": "WebSite", "@id": site + "/#website", "url": site, "name": "Trayaam", "publisher": { "@id": site + "/#org" } }
     ]
@@ -98,14 +105,15 @@ const canonical = site + (path || Astro.url.pathname);
   <Footer />
 
   <script is:inline>
-    /* Lux clock + footer mirror */
+    /* Dual-studio clock (London + Ahmedabad) + footer mirror */
     (function () {
+      function fmt(tz) { return new Date().toLocaleTimeString('en-GB', { timeZone: tz, hour: '2-digit', minute: '2-digit' }); }
       function tick() {
+        var ldn = fmt('Europe/London'), amd = fmt('Asia/Kolkata');
         var el = document.getElementById('clock');
-        var t = new Date().toLocaleTimeString('en-GB', { timeZone: 'Europe/Luxembourg', hour: '2-digit', minute: '2-digit' });
-        if (el) el.textContent = 'LUX · ' + t;
+        if (el) el.textContent = 'LDN ' + ldn + ' · AMD ' + amd;
         var f = document.getElementById('footer-clock');
-        if (f) f.textContent = 'LUX · ' + t;
+        if (f) f.textContent = 'LDN ' + ldn + ' · AMD ' + amd;
       }
       tick(); setInterval(tick, 30000);
     })();

@@ -1,44 +1,113 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
-const jsonld = { "@context":"https://schema.org","@type":"ContactPage","name":"Contact Trayaam","url":"https://trayaam.com/contact" };
+import SectionHead from '../components/SectionHead.astro';
+const jsonld = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Trayaam",
+  "url": "https://trayaam.com/contact",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Trayaam",
+    "email": "hello@trayaam.com",
+    "telephone": "+919978984333",
+    "address": [
+      { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
+      { "@type": "PostalAddress", "addressLocality": "Ahmedabad", "addressRegion": "Gujarat", "addressCountry": "IN" }
+    ]
+  }
+};
+const offices = [
+  { city: 'London', country: 'United Kingdom', tz: 'Europe/London', note: 'Our European studio — strategy, design direction and client partnerships across the UK and EU.', addr: ['Trayaam London', '86–90 Paul Street', 'London EC2A 4NE'] },
+  { city: 'Ahmedabad', country: 'India', tz: 'Asia/Kolkata', note: 'Our build studio — engineering, performance and the production work that ships your site in seven days.', addr: ['Trayaam Ahmedabad', 'Prahlad Nagar', 'Ahmedabad 380015, Gujarat'] },
+];
 ---
-<Layout title="Free Website Audit — Request Yours · Trayaam" description="Request a free 12-metric website audit from Trayaam — performance, SEO, mobile, security and design, delivered as a PDF within 24 hours. No call required." active="contact" path="/contact" jsonld={jsonld}>
+<Layout title="Contact Trayaam — Talk to Our London & Ahmedabad Studios" description="Contact Trayaam — request a free website audit, send an enquiry, or reach our London and Ahmedabad studios directly by phone, WhatsApp or email." active="contact" path="/contact" jsonld={jsonld}>
 <style>
   .contact { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem,5vw,5rem); align-items: start; }
   .form { display: flex; flex-direction: column; gap: 1.2rem; }
   .field label { display: block; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-lo); margin-bottom: 0.5rem; }
-  .field input, .field textarea { width: 100%; background: var(--bg-2); border: 1px solid var(--border-med); border-radius: var(--r); color: var(--fg); padding: 0.85rem 1rem; font: inherit; font-size: 0.95rem; transition: border-color 0.25s; }
-  .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+  .field input, .field textarea, .field select { width: 100%; background: var(--bg-2); border: 1px solid var(--border-med); border-radius: var(--r); color: var(--fg); padding: 0.85rem 1rem; font: inherit; font-size: 0.95rem; transition: border-color 0.2s; }
+  .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--accent); }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
   .contact__side { border-left: 1px solid var(--border); padding-left: clamp(1.5rem,3vw,3rem); }
   .contact__line { display: flex; gap: 0.7rem; align-items: baseline; padding: 0.7rem 0; border-bottom: 1px solid var(--border-sub); color: var(--fg-med); }
+  .contact__line:hover { color: var(--accent); }
   .sent { display: none; padding: 2rem; border: 1px solid var(--accent-mid); border-radius: var(--r-lg); background: var(--accent-dim); }
-  @media (max-width: 767px) { .contact { grid-template-columns: 1fr; } .contact__side { border-left: 0; padding-left: 0; border-top: 1px solid var(--border); padding-top: 2rem; } }
+  .offices { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 3.5rem; }
+  .office__city { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; }
+  .office__co { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.9rem; }
+  .office__addr { color: var(--fg-med); line-height: 1.7; margin-top: 1rem; font-size: 0.92rem; }
+  .office__time { font-family: var(--mono); font-size: 0.7rem; color: var(--fg-lo); margin-top: 1.2rem; }
+  @media (max-width: 767px) { .contact { grid-template-columns: 1fr; } .contact__side { border-left: 0; padding-left: 0; border-top: 1px solid var(--border); padding-top: 2rem; } .field-row, .offices { grid-template-columns: 1fr; } }
 </style>
-<PageHero eyebrow="Free audit · 24h turnaround">
-  <h1 slot="title" class="t-h1 reveal">Let's see what your<br>site is <em class="italic">missing.</em></h1>
-  <p class="t-body-lg reveal reveal-d1">Tell us your website and we'll send a free 12-metric audit within 24 hours — performance, SEO, mobile, security and design. No call required, no obligation.</p>
+<PageHero eyebrow="Contact · London &amp; Ahmedabad">
+  <h1 slot="title" class="t-h1 reveal">Let's start a<br><em class="italic">conversation.</em></h1>
+  <p class="t-body-lg reveal reveal-d1">Tell us about your project or request a free 12-metric audit — performance, SEO, mobile, security and design — delivered within 24 hours. Real humans reply within one working day.</p>
 </PageHero>
 <section class="section section--major section--line">
   <div class="container contact">
     <div class="reveal">
-      <form class="form" id="auditForm" onsubmit="event.preventDefault(); document.getElementById('auditForm').style.display='none'; document.getElementById('sent').style.display='block';">
-        <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required></div>
-        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
-        <div class="field"><label for="website">Website</label><input id="website" name="website" type="url" placeholder="https://yourcompany.lu" required></div>
-        <div class="field"><label for="msg">Anything we should know? (optional)</label><textarea id="msg" name="msg" rows="3"></textarea></div>
-        <button type="submit" class="btn btn--accent" style="align-self:flex-start;">Request my free audit <span class="arr">→</span></button>
+      <SectionHead eyebrow="Send an enquiry"><h2 slot="title" class="t-h3">Tell us what you're <em class="italic">building.</em></h2></SectionHead>
+      <form class="form" id="auditForm" style="margin-top:2rem;" onsubmit="event.preventDefault(); document.getElementById('auditForm').style.display='none'; document.getElementById('sent').style.display='block';">
+        <div class="field-row">
+          <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required></div>
+          <div class="field"><label for="company">Company</label><input id="company" name="company" type="text"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+          <div class="field"><label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel"></div>
+        </div>
+        <div class="field"><label for="website">Current website</label><input id="website" name="website" type="url" placeholder="https://yourcompany.com"></div>
+        <div class="field"><label for="interest">I'm interested in</label>
+          <select id="interest" name="interest">
+            <option>A free website audit</option>
+            <option>Quick Refresh (from £990)</option>
+            <option>Full Rebuild (from £2,500)</option>
+            <option>Growth Partner (from £4,500)</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field"><label for="msg">Anything we should know?</label><textarea id="msg" name="msg" rows="4"></textarea></div>
+        <button type="submit" class="btn btn--accent" style="align-self:flex-start;">Send enquiry <span class="arr">→</span></button>
       </form>
-      <div class="sent" id="sent"><p class="t-h4" style="font-weight:400;">Thank you — your audit is on its way.</p><p class="t-body" style="margin-top:0.8rem;">We'll email your personalised report within 24 hours. (Demo form — wire to your inbox/Resend before launch.)</p></div>
+      <div class="sent" id="sent"><p class="t-h4" style="font-weight:400;">Thank you — your message is on its way.</p><p class="t-body" style="margin-top:0.8rem;">We'll reply within one working day. (Demo form — wire to your inbox/Resend before launch.)</p></div>
     </div>
     <div class="contact__side reveal reveal-d1">
-      <div class="eyebrow" style="margin-bottom:1.2rem;">Or reach us directly</div>
+      <div class="eyebrow" style="margin-bottom:1.2rem;">Reach us directly</div>
       <a class="contact__line" href="mailto:hello@trayaam.com"><span class="accent">→</span> hello@trayaam.com</a>
-      <a class="contact__line" href="tel:+35227861234"><span class="accent">→</span> +352 27 86 12 34</a>
-      <a class="contact__line" href="https://wa.me/35227861234" target="_blank" rel="noopener noreferrer"><span class="accent">→</span> WhatsApp · same number</a>
-      <div class="contact__line"><span class="accent">→</span> Luxembourg-City</div>
-      <p class="t-small" style="margin-top:1.5rem;">Real human replies within one working day.</p>
+      <a class="contact__line" href="tel:+919978984333"><span class="accent">→</span> +91 99789 84333</a>
+      <a class="contact__line" href="https://wa.me/919978984333" target="_blank" rel="noopener noreferrer"><span class="accent">→</span> WhatsApp · same number</a>
+      <p class="t-small" style="margin-top:1.5rem;">Prefer to talk? Call or message the number above — it reaches both studios.</p>
     </div>
   </div>
 </section>
+<section class="section section--major section--line section--surface">
+  <div class="container">
+    <SectionHead eyebrow="Our studios"><h2 slot="title" class="t-h2">Two cities,<br><em class="italic">one studio.</em></h2><p class="t-body">London for strategy and design direction, Ahmedabad for engineering and production. The work moves between time zones so your build never sleeps.</p></SectionHead>
+    <div class="offices">
+      {offices.map((o) => (
+        <div class="card reveal">
+          <div class="office__co">{o.country}</div>
+          <div class="office__city">{o.city}</div>
+          <p class="t-body" style="font-size:0.92rem;margin-top:0.9rem;">{o.note}</p>
+          <address class="office__addr" style="font-style:normal;">{o.addr.map((line) => (<div>{line}</div>))}</address>
+          <div class="office__time" data-tz={o.tz}>Local time —:—</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<script is:inline>
+  (function () {
+    function tick() {
+      document.querySelectorAll('[data-tz]').forEach(function (el) {
+        var t = new Date().toLocaleTimeString('en-GB', { timeZone: el.dataset.tz, hour: '2-digit', minute: '2-digit' });
+        el.textContent = 'Local time ' + t;
+      });
+    }
+    tick(); setInterval(tick, 30000);
+  })();
+</script>
 </Layout>

@@ -4,9 +4,21 @@ import PageHero from '../../components/PageHero.astro';
 import SectionHead from '../../components/SectionHead.astro';
 const jsonld = { "@context":"https://schema.org","@type":"CreativeWork","name":"Deepak Products — Website Rebuild Case Study","about":"B2B industrial manufacturing website","creator":{"@type":"Organization","name":"Trayaam"} };
 const stats = [['35+','Years in business'],['650+','Products catalogued'],['700+','Clients served'],['10+','Countries shipped']];
+const sections = [
+  ['The Challenge', 'Deep expertise, invisible online.', 'Deepak Products has spent three and a half decades perfecting precision sheet-metal work — perforated and woven wire mesh, gratings, expanded metals. But their website didn\'t reflect any of it. It was slow, broke on mobile, and buried their 650+ products where no buyer could find them. Procurement managers searching globally for a supplier simply never saw them.'],
+  ['The Insight', 'Buyers qualify you before they call.', 'In B2B manufacturing, the website is the first audit. An engineer comparing suppliers wants to see range, tolerances and proof of scale in seconds — and if the site looks dated, they assume the factory is too. The opportunity wasn\'t a prettier homepage; it was a structured, searchable catalogue that turned decades of capability into something a buyer could trust at a glance.'],
+  ['The Execution', 'A B2B engine, built to convert.', 'We rebuilt the site mobile-first on a modern edge stack, modelled the full product range as structured CMS content, and gave every category and product a clean, indexable page. Capability pages explain processes and tolerances in plain language; a focused enquiry flow turns search traffic into qualified RFQs. Everything is owned and editable by the Deepak team — no developer required to add a new product line.'],
+];
+const results = [['650+','Products now individually indexable'],['10+','Export markets reached online'],['<1.5s','Largest Contentful Paint, mobile'],['B2B','Enquiry flow generating qualified leads']];
 ---
 <Layout title="Deepak Products — B2B Industrial Website Case Study · Trayaam" description="How Trayaam rebuilt Deepak Products — a 35-year sheet-metal manufacturer — into a fast B2B website with a full product catalogue and enquiry flow." active="work" path="/work/deepak-products" jsonld={jsonld}>
-<PageHero eyebrow="Case study · Manufacturing">
+<style>
+  .results { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-top: 3rem; }
+  .result__v { font-family: var(--serif); font-size: 2.2rem; color: var(--accent); line-height: 1; }
+  .result__l { color: var(--fg-med); margin-top: 0.6rem; font-size: 0.95rem; }
+  @media (max-width: 767px) { .results { grid-template-columns: 1fr; } }
+</style>
+<PageHero eyebrow="Case study · Manufacturing · India">
   <h1 slot="title" class="t-h1 reveal">Deepak <em class="italic">Products.</em></h1>
   <p class="t-body-lg reveal reveal-d1">A 35-year-old precision sheet-metal manufacturer with deep expertise but no real web presence. We rebuilt it into a B2B credibility engine — fast, structured, and built to generate enquiries from global industry.</p>
   <div class="reveal reveal-d2" style="margin-top:2rem;"><a href="https://lustrous-cuchufli-0fd203.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn">Visit the live site <span class="arr">↗</span></a></div>
@@ -16,17 +28,21 @@ const stats = [['35+','Years in business'],['650+','Products catalogued'],['700+
     {stats.map(([v,l]) => (<div class="reveal"><div class="stat__num"><span class="accent">{v}</span></div><div class="stat__label">{l}</div></div>))}
   </div>
 </section>
+{sections.map(([eyebrow, title, body], i) => (
+  <section class={`section section--major section--line${i % 2 === 1 ? ' section--surface' : ''}`}>
+    <div class="container">
+      <div class="grid grid-2" style="gap:clamp(2rem,5vw,5rem);align-items:start;">
+        <div class="reveal"><SectionHead eyebrow={eyebrow}><h2 slot="title" class="t-h3">{title}</h2></SectionHead></div>
+        <p class="t-body reveal reveal-d1">{body}</p>
+      </div>
+    </div>
+  </section>
+))}
 <section class="section section--major section--line">
   <div class="container">
-    <div class="grid grid-2" style="gap:clamp(2rem,5vw,5rem);align-items:start;">
-      <div class="reveal">
-        <SectionHead eyebrow="The challenge"><h2 slot="title" class="t-h3">Deep expertise,<br><em class="italic">invisible online.</em></h2></SectionHead>
-        <p class="t-body" style="margin-top:1.5rem;">Decades of precision engineering — perforated and woven wire mesh, gratings, expanded metals — but a site that didn't reflect the quality, didn't work on mobile, and couldn't surface their 650+ products to buyers searching globally.</p>
-      </div>
-      <div class="reveal reveal-d1">
-        <SectionHead eyebrow="What we did"><h2 slot="title" class="t-h3">A B2B engine,<br><em class="italic">built to convert.</em></h2></SectionHead>
-        <p class="t-body" style="margin-top:1.5rem;">A clean, fast, mobile-first rebuild with a structured product catalogue, clear capability pages, and an enquiry flow that turns search traffic into qualified leads — all on a modern stack they fully own.</p>
-      </div>
+    <SectionHead eyebrow="The Outcomes"><h2 slot="title" class="t-h2">Results that <em class="italic">compound.</em></h2></SectionHead>
+    <div class="results">
+      {results.map(([v,l]) => (<div class="card reveal"><div class="result__v">{v}</div><div class="result__l">{l}</div></div>))}
     </div>
   </div>
 </section>
