@@ -129,22 +129,40 @@ const work = [
   .kpi__l { font-size: 0.52rem; color: var(--fg-lo); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.3rem; }
   @media (max-width: 900px) { .hero__grid { grid-template-columns: 1fr; gap: 2rem; } .hero__art { order: 2; } .glass { transform: none; min-height: 360px; } }
 
-  /* Trayaam logomark crest — fluted column-T over a lotus bloom */
-  .crest { display: flex; flex-direction: column; align-items: center; margin-bottom: 2.6rem; }
-  .crest__mark { position: relative; display: grid; place-items: center; }
-  .crest__halo { position: absolute; width: 240px; height: 240px; border-radius: 50%; pointer-events: none;
-    background: radial-gradient(circle, rgba(var(--accent-rgb),0.14), transparent 62%); opacity: 0; animation: haloIn 1.2s var(--ease-out) 0.2s forwards; }
-  .crest__rule { width: 1px; height: 38px; margin-top: 1.4rem; background: linear-gradient(var(--accent-mid), transparent); }
-  .logomark { width: clamp(118px, 15vw, 162px); height: auto; overflow: visible; position: relative; filter: drop-shadow(0 10px 30px rgba(var(--accent-rgb),0.20)); }
-  /* synchronized fade + scale bloom of the whole emblem, then a gold shimmer sweep */
-  .logomark .lm-emblem { transform-box: view-box; transform-origin: 50% 100%; opacity: 0; transform: translateY(10px) scale(0.86);
-    animation: emblemIn 1.1s var(--ease-out) 0.15s forwards; }
-  .logomark .lm-shimmer { fill: #fff; mix-blend-mode: overlay; opacity: 0; animation: lmShimmer 1.2s ease-in-out 1.05s; }
+  /* "What Trayaam means" — two-column: animated emblem left, copy right */
+  .tm { display: grid; grid-template-columns: 0.82fr 1fr; gap: clamp(2rem, 6vw, 5.5rem); align-items: center; }
+  .tm-logo { position: relative; isolation: isolate; display: grid; place-items: center; padding: clamp(2.2rem, 4.5vw, 4rem);
+    border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden;
+    background: radial-gradient(125% 120% at 50% 26%, var(--bg-2), var(--bg-1) 72%);
+    transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease); }
+  .tm-logo:hover { border-color: var(--accent-mid); box-shadow: 0 0 80px -18px rgba(var(--accent-rgb),0.32); }
+  .crest__halo { position: absolute; width: min(72%, 320px); aspect-ratio: 1; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(circle, rgba(var(--accent-rgb),0.20), transparent 62%); opacity: 0;
+    animation: haloIn 1.2s var(--ease-out) 0.2s forwards, haloBreathe 6s ease-in-out 1.4s infinite; }
+  .logomark { width: clamp(120px, 13vw, 170px); height: auto; overflow: visible; position: relative; z-index: 1;
+    animation: lmGlow 5s ease-in-out infinite, lmFloat 6.5s ease-in-out infinite; }
+  /* entrance: synchronized fade + scale bloom; then continuous glow/float + periodic shimmer */
+  .logomark .lm-emblem { transform-box: view-box; transform-origin: 50% 100%; opacity: 0; transform: translateY(12px) scale(0.84);
+    animation: emblemIn 1.2s var(--ease-out) 0.15s forwards; }
+  .logomark .lm-shimmer { fill: #fff; mix-blend-mode: overlay; opacity: 0; animation: lmShimmer 7s ease-in-out 2s infinite; }
   @keyframes haloIn { to { opacity: 1; } }
+  @keyframes haloBreathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
   @keyframes emblemIn { to { opacity: 1; transform: none; } }
-  @keyframes lmShimmer { 0% { opacity: 0; transform: translateX(-120px) skewX(-12deg); } 30% { opacity: 0.4; } 70% { opacity: 0.4; } 100% { opacity: 0; transform: translateX(840px) skewX(-12deg); } }
+  @keyframes lmGlow { 0%, 100% { filter: drop-shadow(0 12px 26px rgba(var(--accent-rgb),0.16)); }
+    50% { filter: drop-shadow(0 12px 44px rgba(var(--accent-rgb),0.38)); } }
+  @keyframes lmFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes lmShimmer { 0% { opacity: 0; transform: translateX(-150px) skewX(-12deg); }
+    6% { opacity: 0.42; } 15% { opacity: 0.42; } 22% { opacity: 0; transform: translateX(900px) skewX(-12deg); }
+    100% { opacity: 0; transform: translateX(900px) skewX(-12deg); } }
+  @media (max-width: 900px) {
+    .tm { grid-template-columns: 1fr; gap: 2.6rem; }
+    .tm-copy { text-align: center; }
+    .tm-copy :global(.section-head) { margin-inline: auto; }
+    .tm-copy :global(.section-head .eyebrow) { justify-content: center; }
+    .tm-copy :global(.section-head p) { margin-inline: auto; }
+  }
   @media (prefers-reduced-motion: reduce) {
-    .crest__halo, .logomark .lm-emblem, .logomark .lm-shimmer { animation: none; opacity: 1; transform: none; }
+    .crest__halo, .logomark, .logomark .lm-emblem, .logomark .lm-shimmer { animation: none; opacity: 1; transform: none; filter: none; }
   }
 
   /* Pillars bento */
@@ -327,21 +345,22 @@ const work = [
   </div>
 </div>
 
-<!-- PILLARS -->
+<!-- WHAT TRAYAAM MEANS -->
 <section class="section section--major">
   <div class="container">
-    <div class="crest reveal">
-      <div class="crest__mark">
+    <div class="tm">
+      <div class="tm-logo reveal">
         <span class="crest__halo"></span>
         <svg class="logomark" viewBox="0 0 820 937" fill="url(#tm-gold)" aria-hidden="true"><defs><linearGradient id="tm-gold" x1="0" y1="0" x2="0" y2="937" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="var(--accent-2)"/><stop offset="1" stop-color="var(--accent)"/></linearGradient></defs><g class="lm-emblem"><use href="#trayaam-mark"/></g><rect class="lm-shimmer" x="0" y="40" width="90" height="900"/></svg>
       </div>
-      <span class="crest__rule"></span>
+      <div class="tm-copy reveal reveal-d1">
+        <SectionHead eyebrow="01 · What <span class='brand'>Trayaam</span> means">
+          <h2 slot="title" class="t-h2">Three forces,<br><em class="italic">one outcome.</em></h2>
+          <p class="t-body"><span class="brand">Trayaam</span> is built on three pillars — the column and lotus at the heart of our mark. Each only matters because of the other two.</p>
+        </SectionHead>
+      </div>
     </div>
-    <SectionHead eyebrow="01 · What <span class='brand'>Trayaam</span> means" align="center">
-      <h2 slot="title" class="t-h2">Three forces,<br><em class="italic">one outcome.</em></h2>
-      <p class="t-body"><span class="brand">Trayaam</span> is built on three pillars — the column and lotus at the heart of our mark. Each only matters because of the other two.</p>
-    </SectionHead>
-    <div class="pillars" style="margin-top: 3.5rem;">
+    <div class="pillars" style="margin-top: clamp(2.6rem, 5vw, 4rem);">
       {pillars.map((p, i) => (
         <div class={`pillar reveal reveal-d${i+1}`}>
           <span class="pillar__k">{p.k}</span>
