@@ -42,7 +42,7 @@ const team = [
   <div class="container">
     <SectionHead eyebrow="What we believe"><h2 slot="title" class="t-h2">Three forces,<br><em class="italic">one outcome.</em></h2></SectionHead>
     <div class="grid grid-3" style="margin-top:3rem;">
-      {values.map(([t,d], i) => (<div class={`card reveal reveal-d${i}`}><div class="eyebrow" style="margin-bottom:1rem;">Pillar 0{i+1}</div><h3 class="t-h3" style="margin-bottom:0.8rem;">{t}</h3><p class="t-body">{d}</p></div>))}
+      {values.map(([t,d], i) => (<div class={`card reveal reveal-d${i+1}`}><div class="eyebrow" style="margin-bottom:1rem;">Pillar 0{i+1}</div><h3 class="t-h3" style="margin-bottom:0.8rem;">{t}</h3><p class="t-body">{d}</p></div>))}
     </div>
   </div>
 </section>

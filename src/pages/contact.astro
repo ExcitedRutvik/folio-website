@@ -144,7 +144,8 @@ const offices = [
     var form = document.getElementById('auditForm'), sent = document.getElementById('sent'), btn = document.getElementById('submitBtn');
     if (form) form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (!form.reportValidity || form.reportValidity()) {
+      if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
+      {
         var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         btn.classList.add('is-loading'); btn.setAttribute('aria-busy', 'true');
         setTimeout(function () {

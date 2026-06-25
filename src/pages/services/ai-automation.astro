@@ -176,9 +176,15 @@ const jsonld = {
           ctx.fillStyle='rgba('+accent+',0.9)'; ctx.beginPath(); ctx.arc(x,y,2.4,0,7); ctx.fill();
         }
       }
-      requestAnimationFrame(frame);
+      if (running) requestAnimationFrame(frame);
     }
     function qb(a,b,c2,t){ var u=1-t; return u*u*a + 2*u*t*b + t*t*c2; }
+    // pause the rAF loop when the tab is hidden to save CPU/battery
+    var running = true;
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { running = false; }
+      else if (!running) { running = true; last = 0; requestAnimationFrame(frame); }
+    });
     requestAnimationFrame(frame);
   })();
 </script>
