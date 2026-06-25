@@ -300,7 +300,7 @@ export const posts = [
 <h2>Measure it</h2>
 <p>Actually ask the engines. Query ChatGPT, Perplexity and Google's AI overviews for your category and see whether you appear — then close the gaps. For the strategy behind this, read <a href="/blog/aeo-geo-explained">AEO and GEO explained</a>; for the content side, <a href="/blog/can-ai-write-content-that-ranks">can AI write content that ranks?</a></p>
 <h2>Get it built in</h2>
-<p>Every Trayaam build ships schema and an llms.txt as standard. <a href="/contact">Start with a free audit</a> to see how visible you are to AI today.</p>
+<p>Every <span class="brand">Trayaam</span> build ships schema and an llms.txt as standard. <a href="/contact">Start with a free audit</a> to see how visible you are to AI today.</p>
 `,
     related: ['aeo-geo-explained', 'how-to-show-up-on-google', 'ai-automation-for-small-business'],
   },

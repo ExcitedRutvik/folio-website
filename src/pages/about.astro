@@ -14,9 +14,9 @@ const offices = [
 // Team. Akash uses the hosted portrait; the others are clean placeholders —
 // drop a photo into /public and set `img` to reveal it.
 const team = [
-  { name: 'Akash Solanki', role: 'Founder', img: '/akash-solanki.png' },
-  { name: 'Feny Solanki', role: 'Creative Director', img: '' },
-  { name: 'Rutvik Gupta', role: 'Chief Technical Officer', img: '' },
+  { name: 'Akash Solanki', role: 'Founder', img: '/team-akash.png' },
+  { name: 'Feny Solanki', role: 'Creative Director', img: '/team-feny.png' },
+  { name: 'Rutvik Gupta', role: 'Chief Technical Officer', img: '/team-rutvik.png' },
 ];
 ---
 <Layout title="About Trayaam — A Studio in London & Ahmedabad" description="Trayaam is a web agency built on three pillars — creativity, technology, empowerment — with studios in London and Ahmedabad. We rebuild websites in 7 days, honestly and at a fixed price." active="about" path="/about">
@@ -25,7 +25,7 @@ const team = [
   .office__co { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
   .office__city { font-family: var(--serif); font-size: 1.8rem; font-weight: 400; }
   .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3rem; }
-  .member__photo { display: block; aspect-ratio: 1 / 1; width: 100%; height: auto; border-radius: var(--r-lg); object-fit: cover; object-position: center 20%; background: var(--bg-3); border: 1px solid var(--border); }
+  .member__photo { display: block; aspect-ratio: 1 / 1; width: 100%; height: auto; border-radius: var(--r-lg); object-fit: cover; object-position: center center; background: var(--bg-3); border: 1px solid var(--border); }
   .member__ph { display: grid; place-items: center; aspect-ratio: 1 / 1; width: 100%; border-radius: var(--r-lg); background: linear-gradient(160deg, var(--bg-2), var(--bg-3)); border: 1px solid var(--border); color: var(--fg-faint); font-family: var(--serif); font-size: 2.4rem; }
   .member__name { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; margin-top: 1rem; }
   .member__role { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-lo); margin-top: 0.4rem; }
@@ -34,7 +34,7 @@ const team = [
 </style>
 <PageHero eyebrow="About · London &amp; Ahmedabad">
   <h1 slot="title" class="t-h1 reveal">A studio built on<br><em class="italic">three pillars.</em></h1>
-  <p class="t-body-lg reveal reveal-d1">Trayaam means three. Creativity, technology and empowerment — the lotus at the heart of our mark, and the way we work. From studios in London and Ahmedabad, we rebuild websites quickly, honestly, and at a price agreed in writing before we start.</p>
+  <p class="t-body-lg reveal reveal-d1"><span class="brand">Trayaam</span> means three. Creativity, technology and empowerment — the lotus at the heart of our mark, and the way we work. From studios in London and Ahmedabad, we rebuild websites quickly, honestly, and at a price agreed in writing before we start.</p>
 </PageHero>
 
 <!-- PILLARS -->

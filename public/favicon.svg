@@ -1,19 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-  <rect width="48" height="48" rx="10" fill="#0A0A0B"/>
-  <!-- lotus leaves fanning from the foot of the T -->
-  <g fill="#C9A86A">
-    <path d="M24 35 C 22.7 30.6 22.7 26.6 24 22.6 C 25.3 26.6 25.3 30.6 24 35 Z" opacity="0.45" transform="rotate(-72 24 35)"/>
-    <path d="M24 35 C 22.7 30.6 22.7 26.6 24 22.6 C 25.3 26.6 25.3 30.6 24 35 Z" opacity="0.45" transform="rotate(72 24 35)"/>
-    <path d="M24 35 C 22.7 30.2 22.7 25.8 24 21.8 C 25.3 25.8 25.3 30.2 24 35 Z" opacity="0.72" transform="rotate(-48 24 35)"/>
-    <path d="M24 35 C 22.7 30.2 22.7 25.8 24 21.8 C 25.3 25.8 25.3 30.2 24 35 Z" opacity="0.72" transform="rotate(48 24 35)"/>
-    <path d="M24 35 C 22.8 29.8 22.8 25 24 21 C 25.2 25 25.2 29.8 24 35 Z" opacity="0.95" transform="rotate(-24 24 35)"/>
-    <path d="M24 35 C 22.8 29.8 22.8 25 24 21 C 25.2 25 25.2 29.8 24 35 Z" opacity="0.95" transform="rotate(24 24 35)"/>
-  </g>
-  <!-- slab-serif T -->
-  <g fill="#E3C68C">
-    <rect x="9" y="10" width="30" height="4.6" rx="0.8"/>
-    <rect x="9" y="10" width="4.2" height="7.6" rx="0.8"/>
-    <rect x="34.8" y="10" width="4.2" height="7.6" rx="0.8"/>
-    <rect x="21.7" y="12.4" width="4.6" height="22.6" rx="0.9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="40" fill="#0A0A0B"/>
+  <g transform="translate(0,-4)">
+    <!-- T capital -->
+    <g fill="#C9A86A">
+      <rect x="63" y="46" width="74" height="7" rx="2.5"/>
+      <rect x="69" y="55" width="62" height="9" rx="2.5"/>
+      <rect x="88" y="66" width="3.6" height="50" rx="1.6"/>
+      <rect x="94" y="66" width="3.6" height="50" rx="1.6"/>
+      <rect x="100.2" y="66" width="3.6" height="50" rx="1.6"/>
+      <rect x="106.4" y="66" width="3.6" height="50" rx="1.6"/>
+      <rect x="112.4" y="66" width="3.6" height="50" rx="1.6"/>
+    </g>
+    <!-- lotus bloom -->
+    <g fill="#C9A86A">
+      <g opacity="0.55">
+        <path d="M100 168 C 80 162 58 150 50 132 C 72 128 94 146 100 168 Z"/>
+        <path d="M100 168 C 120 162 142 150 150 132 C 128 128 106 146 100 168 Z"/>
+      </g>
+      <g opacity="0.78">
+        <path d="M100 168 C 84 158 68 142 66 120 C 86 126 96 148 100 168 Z"/>
+        <path d="M100 168 C 116 158 132 142 134 120 C 114 126 104 148 100 168 Z"/>
+      </g>
+      <g opacity="0.92">
+        <path d="M100 168 C 89 152 80 134 82 114 C 95 124 99 148 100 168 Z"/>
+        <path d="M100 168 C 111 152 120 134 118 114 C 105 124 101 148 100 168 Z"/>
+      </g>
+      <path d="M100 168 C 91 146 91 122 100 106 C 109 122 109 146 100 168 Z"/>
+    </g>
   </g>
 </svg>

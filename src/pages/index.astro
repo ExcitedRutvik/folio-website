@@ -129,23 +129,29 @@ const work = [
   .kpi__l { font-size: 0.52rem; color: var(--fg-lo); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.3rem; }
   @media (max-width: 900px) { .hero__grid { grid-template-columns: 1fr; gap: 2rem; } .hero__art { order: 2; } .glass { transform: none; min-height: 360px; } }
 
-  /* Trayaam logomark — slab-serif T + lotus leaves on a network base */
-  .logomark { display: grid; place-items: center; margin: 3.5rem 0 0.5rem; }
-  .logomark svg { width: clamp(150px, 20vw, 210px); height: auto; overflow: visible; }
-  .logomark .net { opacity: 0; transform-box: fill-box; transform-origin: center; transform: scale(0.82) rotate(-12deg); animation: netIn 1s var(--ease-out) 0.05s forwards; }
-  .logomark .net-line { stroke: var(--accent-mid); stroke-width: 1; fill: none; }
-  .logomark .net-node { fill: var(--accent); }
-  .logomark .leaf { transform-box: fill-box; transform-origin: 50% 100%; transform: scale(0.1); opacity: 0; animation: leafUp 0.7s var(--ease-out) forwards; }
-  .logomark .leaf--in { animation-delay: 0.34s; }
-  .logomark .leaf--out { animation-delay: 0.18s; }
-  .logomark .ttop { transform-box: fill-box; transform-origin: center; transform: scaleX(0); animation: capIn 0.5s var(--ease-out) 0.66s forwards; }
-  .logomark .tstem { transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); animation: stemUp 0.55s var(--ease-out) 0.46s forwards; }
-  @keyframes netIn { to { opacity: 1; transform: scale(1) rotate(0); } }
-  @keyframes leafUp { to { transform: scale(1); opacity: 1; } }
-  @keyframes stemUp { to { transform: scaleY(1); } }
-  @keyframes capIn { to { transform: scaleX(1); } }
+  /* Trayaam logomark crest — fluted column-T over a lotus bloom */
+  .crest { display: flex; flex-direction: column; align-items: center; margin-bottom: 2.6rem; }
+  .crest__mark { position: relative; display: grid; place-items: center; }
+  .crest__halo { position: absolute; width: 240px; height: 240px; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(circle, rgba(var(--accent-rgb),0.14), transparent 62%); opacity: 0; animation: haloIn 1.2s var(--ease-out) 0.2s forwards; }
+  .crest__rule { width: 1px; height: 38px; margin-top: 1.4rem; background: linear-gradient(var(--accent-mid), transparent); }
+  .logomark { width: clamp(116px, 15vw, 158px); height: auto; overflow: visible; position: relative; filter: drop-shadow(0 8px 28px rgba(var(--accent-rgb),0.18)); }
+  .logomark .lm-cap { transform-box: fill-box; transform-origin: 50% 0; transform: translateY(-10px) scaleY(0.6); opacity: 0; animation: lmCap 0.6s var(--ease-out) 0.95s forwards; }
+  .logomark .lm-flute { transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); animation: lmRise 0.55s var(--ease-out) forwards; }
+  .logomark .lm-flute:nth-child(1) { animation-delay: 0.62s; } .logomark .lm-flute:nth-child(2) { animation-delay: 0.70s; }
+  .logomark .lm-flute:nth-child(3) { animation-delay: 0.78s; } .logomark .lm-flute:nth-child(4) { animation-delay: 0.70s; }
+  .logomark .lm-flute:nth-child(5) { animation-delay: 0.62s; }
+  .logomark .lm-petals > * { transform-box: fill-box; transform-origin: 50% 100%; transform: scale(0.2); opacity: 0; animation: lmBloom 0.7s var(--ease-out) forwards; }
+  .logomark .lm-l3 { animation-delay: 0.1s; } .logomark .lm-l2 { animation-delay: 0.24s; }
+  .logomark .lm-l1 { animation-delay: 0.38s; } .logomark .lm-lc { animation-delay: 0.5s; }
+  .logomark .lm-shimmer { fill: #fff; mix-blend-mode: overlay; opacity: 0; animation: lmShimmer 1.1s ease-in-out 1.25s; }
+  @keyframes haloIn { to { opacity: 1; } }
+  @keyframes lmCap { to { transform: none; opacity: 1; } }
+  @keyframes lmRise { to { transform: scaleY(1); } }
+  @keyframes lmBloom { to { transform: scale(1); opacity: 1; } }
+  @keyframes lmShimmer { 0% { opacity: 0; transform: translateX(-80px) skewX(-12deg); } 30% { opacity: 0.45; } 70% { opacity: 0.45; } 100% { opacity: 0; transform: translateX(210px) skewX(-12deg); } }
   @media (prefers-reduced-motion: reduce) {
-    .logomark .net, .logomark .leaf, .logomark .ttop, .logomark .tstem { animation: none; opacity: 1; transform: none; }
+    .crest__halo, .logomark .lm-cap, .logomark .lm-flute, .logomark .lm-petals > *, .logomark .lm-shimmer { animation: none; opacity: 1; transform: none; }
   }
 
   /* Pillars bento */
@@ -331,46 +337,55 @@ const work = [
 <!-- PILLARS -->
 <section class="section section--major">
   <div class="container">
-    <SectionHead eyebrow="01 · What Trayaam means">
-      <h2 slot="title" class="t-h2">Three forces,<br><em class="italic">one outcome.</em></h2>
-      <p class="t-body">Trayaam is built on three pillars — the lotus at the heart of our mark. Each only matters because of the other two.</p>
-    </SectionHead>
-    <div class="logomark" aria-hidden="true">
-      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="tm-gold" x1="100" y1="55" x2="100" y2="140" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="var(--accent-2)"/>
-            <stop offset="1" stop-color="var(--accent)"/>
-          </linearGradient>
-        </defs>
-        <!-- the base: geometric network heptagon -->
-        <g class="net">
-          <polygon class="net-line" points="100,18 164.1,48.9 179.9,118.2 135.6,173.9 64.4,173.9 20.1,118.2 35.9,48.9"/>
-          <g class="net-node">
-            <circle cx="100" cy="18" r="2.2"/><circle cx="164.1" cy="48.9" r="2.2"/><circle cx="179.9" cy="118.2" r="2.2"/>
-            <circle cx="135.6" cy="173.9" r="2.2"/><circle cx="64.4" cy="173.9" r="2.2"/><circle cx="20.1" cy="118.2" r="2.2"/>
-            <circle cx="35.9" cy="48.9" r="2.2"/><circle cx="100" cy="100" r="2.8"/>
+    <div class="crest reveal">
+      <div class="crest__mark">
+        <span class="crest__halo"></span>
+        <svg class="logomark" viewBox="0 0 200 178" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="tm-gold" x1="100" y1="40" x2="100" y2="172" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="var(--accent-2)"/>
+              <stop offset="1" stop-color="var(--accent)"/>
+            </linearGradient>
+          </defs>
+          <!-- T capital -->
+          <g class="lm-cap" fill="url(#tm-gold)">
+            <rect x="63" y="46" width="74" height="7" rx="2.5"/>
+            <rect x="69" y="55" width="62" height="9" rx="2.5"/>
           </g>
-        </g>
-        <!-- lotus leaves fanning from the foot of the T (rotation on wrapper, scale-bloom on path) -->
-        <g fill="url(#tm-gold)">
-          <g transform="rotate(-72 100 138)"><path class="leaf leaf--out" d="M100 138 C 95 126 95 114 100 103 C 105 114 105 126 100 138 Z" opacity="0.45"/></g>
-          <g transform="rotate(72 100 138)"><path class="leaf leaf--out" d="M100 138 C 95 126 95 114 100 103 C 105 114 105 126 100 138 Z" opacity="0.45"/></g>
-          <g transform="rotate(-48 100 138)"><path class="leaf leaf--out" d="M100 138 C 95.5 125 95.5 112 100 99 C 104.5 112 104.5 125 100 138 Z" opacity="0.7"/></g>
-          <g transform="rotate(48 100 138)"><path class="leaf leaf--out" d="M100 138 C 95.5 125 95.5 112 100 99 C 104.5 112 104.5 125 100 138 Z" opacity="0.7"/></g>
-          <g transform="rotate(-24 100 138)"><path class="leaf leaf--in" d="M100 138 C 96 123 96 109 100 96 C 104 109 104 123 100 138 Z" opacity="0.95"/></g>
-          <g transform="rotate(24 100 138)"><path class="leaf leaf--in" d="M100 138 C 96 123 96 109 100 96 C 104 109 104 123 100 138 Z" opacity="0.95"/></g>
-        </g>
-        <!-- slab-serif T -->
-        <rect class="tstem" x="92" y="64" width="16" height="74" rx="2.5" fill="url(#tm-gold)"/>
-        <g class="ttop" fill="url(#tm-gold)">
-          <rect x="58" y="58" width="84" height="13" rx="2.5"/>
-          <rect x="58" y="58" width="12" height="22" rx="2.5"/>
-          <rect x="130" y="58" width="12" height="22" rx="2.5"/>
-        </g>
-      </svg>
+          <!-- fluted shaft -->
+          <g fill="url(#tm-gold)">
+            <rect class="lm-flute" x="88" y="66" width="3.6" height="50" rx="1.6"/>
+            <rect class="lm-flute" x="94" y="66" width="3.6" height="50" rx="1.6"/>
+            <rect class="lm-flute" x="100.2" y="66" width="3.6" height="50" rx="1.6"/>
+            <rect class="lm-flute" x="106.4" y="66" width="3.6" height="50" rx="1.6"/>
+            <rect class="lm-flute" x="112.4" y="66" width="3.6" height="50" rx="1.6"/>
+          </g>
+          <!-- layered lotus bloom -->
+          <g class="lm-petals" fill="url(#tm-gold)">
+            <g class="lm-l3" opacity="0.55">
+              <path d="M100 168 C 80 162 58 150 50 132 C 72 128 94 146 100 168 Z"/>
+              <path d="M100 168 C 120 162 142 150 150 132 C 128 128 106 146 100 168 Z"/>
+            </g>
+            <g class="lm-l2" opacity="0.78">
+              <path d="M100 168 C 84 158 68 142 66 120 C 86 126 96 148 100 168 Z"/>
+              <path d="M100 168 C 116 158 132 142 134 120 C 114 126 104 148 100 168 Z"/>
+            </g>
+            <g class="lm-l1" opacity="0.92">
+              <path d="M100 168 C 89 152 80 134 82 114 C 95 124 99 148 100 168 Z"/>
+              <path d="M100 168 C 111 152 120 134 118 114 C 105 124 101 148 100 168 Z"/>
+            </g>
+            <path class="lm-lc" d="M100 168 C 91 146 91 122 100 106 C 109 122 109 146 100 168 Z"/>
+          </g>
+          <rect class="lm-shimmer" x="0" y="40" width="20" height="140"/>
+        </svg>
+      </div>
+      <span class="crest__rule"></span>
     </div>
-    <div class="pillars" style="margin-top: 2.5rem;">
+    <SectionHead eyebrow="01 · What <span class='brand'>Trayaam</span> means" align="center">
+      <h2 slot="title" class="t-h2">Three forces,<br><em class="italic">one outcome.</em></h2>
+      <p class="t-body"><span class="brand">Trayaam</span> is built on three pillars — the column and lotus at the heart of our mark. Each only matters because of the other two.</p>
+    </SectionHead>
+    <div class="pillars" style="margin-top: 3.5rem;">
       {pillars.map((p, i) => (
         <div class={`pillar reveal reveal-d${i+1}`}>
           <span class="pillar__k">{p.k}</span>
@@ -420,9 +435,9 @@ const work = [
       <div><h3 class="t-h4" style="display:inline;">Free <em class="italic">Audit.</em></h3> <span class="t-body" style="display:inline;">— a 12-metric scan of your site, delivered as a PDF in 24 hours.</span></div>
       <span class="svc__link" style="white-space:nowrap;">Book · £0 <span class="arr">→</span></span>
     </a></div>
-    <div style="margin-top:1.2rem;"><a href="/contact" class="card svc__card reveal" style="flex-direction:row;align-items:center;justify-content:space-between;min-height:auto;background:linear-gradient(120deg, rgba(201,168,106,0.08), var(--bg-1) 60%);">
+    <div style="margin-top:1.2rem;"><a href="/services/ai-automation" class="card svc__card reveal" style="flex-direction:row;align-items:center;justify-content:space-between;min-height:auto;background:linear-gradient(120deg, rgba(201,168,106,0.08), var(--bg-1) 60%);">
       <div><span class="eyebrow" style="margin-bottom:0.6rem;">New</span><h3 class="t-h4" style="display:inline;">AI <em class="italic">Automation.</em></h3> <span class="t-body" style="display:inline;">— custom AI workflows wired into your business: content &amp; SEO pipelines, lead routing, support bots and back-office automation.</span></div>
-      <span class="svc__link" style="white-space:nowrap;">Let's talk <span class="arr">→</span></span>
+      <span class="svc__link" style="white-space:nowrap;">Explore <span class="arr">→</span></span>
     </a></div>
   </div>
 </section>
@@ -470,7 +485,7 @@ const work = [
 <!-- GUARANTEES -->
 <section class="section section--major section--line">
   <div class="container">
-    <SectionHead eyebrow="05 · Why Trayaam">
+    <SectionHead eyebrow="05 · Why <span class='brand'>Trayaam</span>">
       <h2 slot="title" class="t-h2">The promises we put<br><em class="italic">in writing.</em></h2>
       <p class="t-body">Most agencies hedge. We don't. Here's exactly what you can hold us to — every project.</p>
     </SectionHead>
@@ -493,11 +508,11 @@ const work = [
       <h2 slot="title" class="t-h2">What clients say after<br><em class="italic">they go live.</em></h2>
     </SectionHead>
     <div class="tw" style="margin-top:3.5rem;">
-      {[['"Trayaam\'s free audit showed exactly what was wrong — then had our new site live in six days. More enquiries in the first month than the entire quarter before."','Managing Director','Architecture Studio · London'],
+      {[['"<span class=\'brand\'>Trayaam</span>\'s free audit showed exactly what was wrong — then had our new site live in six days. More enquiries in the first month than the entire quarter before."','Managing Director','Architecture Studio · London'],
         ['"Our old site didn\'t work on phones — where most of our bookings come from. They rebuilt it with reservations in five days. Bookings up by half."','Owner','Restaurant · Ahmedabad'],
         ['"No jargon, no pressure, one clear price. They told us upfront what they\'d fix and delivered exactly that."','Director','Manufacturer · India']
       ].map(([q,n,m]) => (
-        <div class="card reveal"><div class="tw__stars">★★★★★</div><p class="t-h4" style="font-weight:400;">{q}</p><div class="tw__meta"><b>{n}</b>{m}</div></div>
+        <div class="card reveal"><div class="tw__stars">★★★★★</div><p class="t-h4" style="font-weight:400;" set:html={q}></p><div class="tw__meta"><b>{n}</b>{m}</div></div>
       ))}
     </div>
   </div>

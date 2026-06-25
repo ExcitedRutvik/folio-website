@@ -19,22 +19,48 @@ const jsonld = {
   }
 };
 const offices = [
-  { city: 'London', country: 'United Kingdom', tz: 'Europe/London', note: 'Our European studio — strategy, design direction and client partnerships across the UK and EU.', addr: ['Trayaam London', '86–90 Paul Street', 'London EC2A 4NE'] },
-  { city: 'Ahmedabad', country: 'India', tz: 'Asia/Kolkata', note: 'Our build studio — engineering, performance and the production work that ships your site in seven days.', addr: ['Trayaam Ahmedabad', 'Prahlad Nagar', 'Ahmedabad 380015, Gujarat'] },
+  { city: 'London', country: 'United Kingdom', tz: 'Europe/London', note: 'Our European studio — strategy, design direction and client partnerships across the UK and EU.', addr: ['<span class="brand">Trayaam</span> London', '86–90 Paul Street', 'London EC2A 4NE'] },
+  { city: 'Ahmedabad', country: 'India', tz: 'Asia/Kolkata', note: 'Our build studio — engineering, performance and the production work that ships your site in seven days.', addr: ['<span class="brand">Trayaam</span> Ahmedabad', 'Prahlad Nagar', 'Ahmedabad 380015, Gujarat'] },
 ];
 ---
 <Layout title="Contact Trayaam — Talk to Our London & Ahmedabad Studios" description="Contact Trayaam — request a free website audit, send an enquiry, or reach our London and Ahmedabad studios directly by phone, WhatsApp or email." active="contact" path="/contact" jsonld={jsonld}>
 <style>
   .contact { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem,5vw,5rem); align-items: start; }
-  .form { display: flex; flex-direction: column; gap: 1.2rem; }
-  .field label { display: block; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-lo); margin-bottom: 0.5rem; }
-  .field input, .field textarea, .field select { width: 100%; background: var(--bg-2); border: 1px solid var(--border-med); border-radius: var(--r); color: var(--fg); padding: 0.85rem 1rem; font: inherit; font-size: 0.95rem; transition: border-color 0.2s; }
-  .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--accent); }
-  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .form { display: flex; flex-direction: column; gap: 1.1rem; }
+  .field { position: relative; }
+  .field label { display: block; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-lo); margin-bottom: 0.5rem; transition: color 0.2s var(--ease); }
+  .field input, .field textarea, .field select { width: 100%; background: var(--bg-2); border: 1px solid var(--border-med); border-radius: var(--r); color: var(--fg); padding: 0.9rem 1rem; font: inherit; font-size: 0.95rem; transition: border-color 0.2s var(--ease), box-shadow 0.25s var(--ease), background 0.2s var(--ease); }
+  .field input::placeholder, .field textarea::placeholder { color: var(--fg-faint); }
+  .field input:hover, .field textarea:hover, .field select:hover { border-color: var(--fg-faint); }
+  .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--accent); background: var(--bg-1); box-shadow: 0 0 0 3px rgba(var(--accent-rgb),0.16); }
+  .field:focus-within label { color: var(--accent); }
+  .field textarea { resize: vertical; min-height: 96px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+  /* staggered field entrance */
+  .form .field, .form .field-row { opacity: 0; transform: translateY(10px); animation: fieldIn 0.5s var(--ease-out) forwards; }
+  .form > *:nth-child(1) { animation-delay: 0.04s; } .form > *:nth-child(2) { animation-delay: 0.10s; }
+  .form > *:nth-child(3) { animation-delay: 0.16s; } .form > *:nth-child(4) { animation-delay: 0.22s; }
+  .form > *:nth-child(5) { animation-delay: 0.28s; } .form > *:nth-child(6) { animation-delay: 0.34s; }
+  @keyframes fieldIn { to { opacity: 1; transform: none; } }
+  /* submit button states */
+  .btn--submit { position: relative; min-width: 190px; justify-content: center; }
+  .btn--submit .btn__spin { display: none; width: 15px; height: 15px; border: 2px solid rgba(10,10,11,0.28); border-top-color: var(--ink); border-radius: 50%; animation: spin 0.7s linear infinite; }
+  .btn--submit.is-loading .btn__label, .btn--submit.is-loading .arr { display: none; }
+  .btn--submit.is-loading .btn__spin { display: inline-block; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .sent__check { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--accent); display: grid; place-items: center; color: var(--accent); margin-bottom: 1.2rem; }
+  .sent__check svg { stroke-dasharray: 26; stroke-dashoffset: 26; animation: draw 0.5s var(--ease-out) 0.1s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes sentIn { from { opacity: 0; transform: translateY(12px) scale(0.99); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .form .field, .form .field-row { opacity: 1; transform: none; animation: none; }
+    .sent__check svg { stroke-dashoffset: 0; animation: none; }
+  }
   .contact__side { border-left: 1px solid var(--border); padding-left: clamp(1.5rem,3vw,3rem); }
   .contact__line { display: flex; gap: 0.7rem; align-items: baseline; padding: 0.7rem 0; border-bottom: 1px solid var(--border-sub); color: var(--fg-med); }
   .contact__line:hover { color: var(--accent); }
-  .sent { display: none; padding: 2rem; border: 1px solid var(--accent-mid); border-radius: var(--r-lg); background: var(--accent-dim); }
+  .sent { display: none; padding: 2.4rem; border: 1px solid var(--accent-mid); border-radius: var(--r-lg); background: var(--accent-dim); }
+  .sent.show { display: flex; flex-direction: column; animation: sentIn 0.5s var(--ease-out); }
   .offices { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 3.5rem; }
   .office__city { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; }
   .office__co { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.9rem; }
@@ -50,14 +76,14 @@ const offices = [
   <div class="container contact">
     <div class="reveal">
       <SectionHead eyebrow="Send an enquiry"><h2 slot="title" class="t-h3">Tell us what you're <em class="italic">building.</em></h2></SectionHead>
-      <form class="form" id="auditForm" style="margin-top:2rem;" onsubmit="event.preventDefault(); document.getElementById('auditForm').style.display='none'; document.getElementById('sent').style.display='block';">
+      <form class="form" id="auditForm" style="margin-top:2rem;">
         <div class="field-row">
-          <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required></div>
-          <div class="field"><label for="company">Company</label><input id="company" name="company" type="text"></div>
+          <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" placeholder="Jane Doe" required></div>
+          <div class="field"><label for="company">Company</label><input id="company" name="company" type="text" placeholder="Acme Ltd"></div>
         </div>
         <div class="field-row">
-          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
-          <div class="field"><label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel"></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="jane@acme.com" required></div>
+          <div class="field"><label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel" placeholder="+44 …"></div>
         </div>
         <div class="field"><label for="website">Current website</label><input id="website" name="website" type="url" placeholder="https://yourcompany.com"></div>
         <div class="field"><label for="interest">I'm interested in</label>
@@ -66,13 +92,18 @@ const offices = [
             <option>Quick Refresh (from £990)</option>
             <option>Full Rebuild (from £2,500)</option>
             <option>Growth Partner (from £4,500)</option>
+            <option>AI Automation</option>
             <option>Something else</option>
           </select>
         </div>
-        <div class="field"><label for="msg">Anything we should know?</label><textarea id="msg" name="msg" rows="4"></textarea></div>
-        <button type="submit" class="btn btn--accent" style="align-self:flex-start;">Send enquiry <span class="arr">→</span></button>
+        <div class="field"><label for="msg">Anything we should know?</label><textarea id="msg" name="msg" rows="4" placeholder="A line or two about your project…"></textarea></div>
+        <button type="submit" class="btn btn--accent btn--submit" id="submitBtn" style="align-self:flex-start;"><span class="btn__label">Send enquiry</span><span class="arr">→</span><span class="btn__spin" aria-hidden="true"></span></button>
       </form>
-      <div class="sent" id="sent"><p class="t-h4" style="font-weight:400;">Thank you — your message is on its way.</p><p class="t-body" style="margin-top:0.8rem;">We'll reply within one working day. (Demo form — wire to your inbox/Resend before launch.)</p></div>
+      <div class="sent" id="sent">
+        <span class="sent__check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
+        <p class="t-h4" style="font-weight:400;">Thank you — your message is on its way.</p>
+        <p class="t-body" style="margin-top:0.8rem;">We'll reply within one working day. (Demo form — wire to your inbox/Resend before launch.)</p>
+      </div>
     </div>
     <div class="contact__side reveal reveal-d1">
       <div class="eyebrow" style="margin-bottom:1.2rem;">Reach us directly</div>
@@ -92,7 +123,7 @@ const offices = [
           <div class="office__co">{o.country}</div>
           <div class="office__city">{o.city}</div>
           <p class="t-body" style="font-size:0.92rem;margin-top:0.9rem;">{o.note}</p>
-          <address class="office__addr" style="font-style:normal;">{o.addr.map((line) => (<div>{line}</div>))}</address>
+          <address class="office__addr" style="font-style:normal;">{o.addr.map((line) => (<div set:html={line}></div>))}</address>
           <div class="office__time" data-tz={o.tz}>Local time —:—</div>
         </div>
       ))}
@@ -108,6 +139,21 @@ const offices = [
       });
     }
     tick(); setInterval(tick, 30000);
+
+    /* Animated submit: button → spinner → success reveal */
+    var form = document.getElementById('auditForm'), sent = document.getElementById('sent'), btn = document.getElementById('submitBtn');
+    if (form) form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.reportValidity || form.reportValidity()) {
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        btn.classList.add('is-loading'); btn.setAttribute('aria-busy', 'true');
+        setTimeout(function () {
+          form.style.display = 'none';
+          sent.classList.add('show');
+          sent.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+        }, reduce ? 0 : 850);
+      }
+    });
   })();
 </script>
 </Layout>

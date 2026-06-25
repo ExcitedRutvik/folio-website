@@ -4,7 +4,7 @@ interface Props { eyebrow?: string; align?: 'left' | 'center'; class?: string; }
 const { eyebrow, align = 'left', class: cls = '' } = Astro.props;
 ---
 <div class={`section-head ${align === 'center' ? 'section-head--center' : ''} reveal ${cls}`}>
-  {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+  {eyebrow && <span class="eyebrow" set:html={eyebrow} />}
   <slot name="title" />
   <slot />
 </div>

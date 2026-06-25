@@ -6,22 +6,32 @@ interface Props { size?: number; withWordmark?: boolean; class?: string; }
 const { size = 34, withWordmark = false, class: cls = '' } = Astro.props;
 ---
 <span class={`logo ${cls}`} style={`--logo-size:${size}px`}>
-  <svg class="logo__mark" viewBox="0 0 48 48" width={size} height={size} fill="none" aria-hidden="true">
-    <!-- slab-serif T -->
-    <g class="logo__t" fill="currentColor">
-      <rect x="9" y="9" width="30" height="4.6" rx="0.8"/>
-      <rect x="9" y="9" width="4.2" height="7.6" rx="0.8"/>
-      <rect x="34.8" y="9" width="4.2" height="7.6" rx="0.8"/>
-      <rect x="21.7" y="11.4" width="4.6" height="21.8" rx="0.9"/>
+  <svg class="logo__mark" viewBox="0 0 200 206" width={size} height={size * 1.03} fill="none" aria-hidden="true">
+    <!-- fluted column forming a T -->
+    <g fill="currentColor">
+      <rect x="63" y="46" width="74" height="7" rx="2.5"/>
+      <rect x="69" y="55" width="62" height="9" rx="2.5"/>
+      <rect x="88" y="66" width="3.6" height="50" rx="1.6"/>
+      <rect x="94" y="66" width="3.6" height="50" rx="1.6"/>
+      <rect x="100.2" y="66" width="3.6" height="50" rx="1.6"/>
+      <rect x="106.4" y="66" width="3.6" height="50" rx="1.6"/>
+      <rect x="112.4" y="66" width="3.6" height="50" rx="1.6"/>
     </g>
-    <!-- lotus leaves fanning from the foot of the T -->
-    <g class="logo__lotus" fill="currentColor">
-      <path d="M24 33 C 22.7 28.6 22.7 24.6 24 20.6 C 25.3 24.6 25.3 28.6 24 33 Z" opacity="0.45" transform="rotate(-72 24 33)"/>
-      <path d="M24 33 C 22.7 28.6 22.7 24.6 24 20.6 C 25.3 24.6 25.3 28.6 24 33 Z" opacity="0.45" transform="rotate(72 24 33)"/>
-      <path d="M24 33 C 22.7 28.2 22.7 23.8 24 19.8 C 25.3 23.8 25.3 28.2 24 33 Z" opacity="0.7" transform="rotate(-48 24 33)"/>
-      <path d="M24 33 C 22.7 28.2 22.7 23.8 24 19.8 C 25.3 23.8 25.3 28.2 24 33 Z" opacity="0.7" transform="rotate(48 24 33)"/>
-      <path d="M24 33 C 22.8 27.8 22.8 23 24 19 C 25.2 23 25.2 27.8 24 33 Z" opacity="0.95" transform="rotate(-24 24 33)"/>
-      <path d="M24 33 C 22.8 27.8 22.8 23 24 19 C 25.2 23 25.2 27.8 24 33 Z" opacity="0.95" transform="rotate(24 24 33)"/>
+    <!-- layered lotus bloom -->
+    <g fill="currentColor">
+      <g opacity="0.55">
+        <path d="M100 168 C 80 162 58 150 50 132 C 72 128 94 146 100 168 Z"/>
+        <path d="M100 168 C 120 162 142 150 150 132 C 128 128 106 146 100 168 Z"/>
+      </g>
+      <g opacity="0.78">
+        <path d="M100 168 C 84 158 68 142 66 120 C 86 126 96 148 100 168 Z"/>
+        <path d="M100 168 C 116 158 132 142 134 120 C 114 126 104 148 100 168 Z"/>
+      </g>
+      <g opacity="0.92">
+        <path d="M100 168 C 89 152 80 134 82 114 C 95 124 99 148 100 168 Z"/>
+        <path d="M100 168 C 111 152 120 134 118 114 C 105 124 101 148 100 168 Z"/>
+      </g>
+      <path d="M100 168 C 91 146 91 122 100 106 C 109 122 109 146 100 168 Z"/>
     </g>
   </svg>
   {withWordmark && <span class="logo__word">Trayaam</span>}
@@ -30,5 +40,5 @@ const { size = 34, withWordmark = false, class: cls = '' } = Astro.props;
 <style>
   .logo { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent); }
   .logo__mark { width: var(--logo-size); height: var(--logo-size); flex-shrink: 0; }
-  .logo__word { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; letter-spacing: -0.03em; color: var(--fg); }
+  .logo__word { font-family: var(--brand); font-size: 1.6rem; font-weight: 600; letter-spacing: 0.04em; color: var(--fg); }
 </style>
