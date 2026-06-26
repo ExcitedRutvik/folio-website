@@ -39,7 +39,10 @@ const tiers = [
   .ptable td:first-child, .ptable th:first-child { color: var(--fg-lo); font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.04em; text-transform: uppercase; width: 24%; }
   .ptable .feat-col { background: linear-gradient(180deg, rgba(var(--accent-rgb),0.06), transparent); }
   .ptable .cta-row td { padding-top: 1.6rem; }
-  @media (max-width: 767px) { .ptable, .ptable thead, .ptable tbody, .ptable tr, .ptable th, .ptable td { display: block; } .ptable td:first-child { border: 0; padding-bottom: 0; } }
+  @media (max-width: 767px) { .ptable, .ptable thead, .ptable tbody, .ptable tr, .ptable th, .ptable td { display: block; }
+    /* stacked mode: let the label take the full row so "TIMELINE" / "SEO FOUNDATION" don't break mid-word */
+    .ptable td:first-child, .ptable th:first-child { width: auto; border: 0; padding-bottom: 0.2rem; white-space: nowrap; }
+    .ptable td { padding-block: 0.45rem 0.85rem; } }
 </style>
 
 <PageHero eyebrow="Services">
