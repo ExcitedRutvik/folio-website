@@ -40,6 +40,10 @@ const links = [
 </div>
 
 <style>
+  /* header emblem: a simple fade-in on load */
+  .nav__logo :global(.logo__mark) { animation: navFade 0.7s var(--ease-out, cubic-bezier(0.22,1,0.36,1)) both; }
+  @keyframes navFade { 0% { opacity: 0; transform: scale(0.94); } 100% { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .nav__logo :global(.logo__mark) { animation: none; } }
   .nav__theme { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border-med); display: grid; place-items: center; color: var(--fg-med); transition: color 0.25s, border-color 0.25s; }
   .nav__theme:hover { color: var(--accent); border-color: var(--accent-mid); }
   .nav__theme .ico-moon { display: none; }
