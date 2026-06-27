@@ -4,8 +4,8 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 const {
-  title = 'Trayaam — Web Agency for Ambitious Brands',
-  description = 'Trayaam is a web agency with studios in London and Ahmedabad. We rebuild websites in 7 days for ambitious SMEs — creativity, technology, empowerment. Free audit, no obligation.',
+  title = 'Trayaam — Editorial Websites for Ambitious Brands',
+  description = "A web studio in London & Ahmedabad. We rebuild ambitious brands' websites in seven days — considered design, fixed price, free audit. Creativity · Technology · Empowerment.",
   active = '',
   path = '',
   ogImage = '/assets/og-image.svg',
@@ -34,6 +34,9 @@ const canonical = site + (path || Astro.url.pathname);
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta name="theme-color" content="#0A0A0B" />
 
   <meta property="og:type" content="website" />
