@@ -12,7 +12,7 @@ const titleMap = Object.fromEntries(posts.map((p) => [p.slug, p.title]));
 const legacy = {
   'how-we-built-trayaam': 'How we built trayaam.com to score 100/100',
   '7-day-website-rebuild-what-we-learned': 'What 32 website rebuilds taught us about speed',
-  'core-web-vitals-luxembourg-smes': 'Core Web Vitals for Ambitious SMEs',
+  'core-web-vitals-smes': 'Core Web Vitals for Ambitious SMEs',
 };
 const related = (post.related || [])
   .map((s) => ({ slug: s, title: titleMap[s] || legacy[s] }))

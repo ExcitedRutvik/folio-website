@@ -6,6 +6,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://trayaam.com',
   output: 'static',
+  redirects: {
+    '/blog/core-web-vitals-luxembourg-smes': '/blog/core-web-vitals-smes',
+  },
   integrations: [
     tailwind({ applyBaseStyles: false }),
     sitemap(),

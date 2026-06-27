@@ -3,7 +3,7 @@
 // `cluster` groups posts into topic clusters for internal linking; `related`
 // lists sibling slugs surfaced as "Related reading".
 // Existing hand-written posts (kept as their own files) for cross-linking:
-//   how-we-built-trayaam · 7-day-website-rebuild-what-we-learned · core-web-vitals-luxembourg-smes
+//   how-we-built-trayaam · 7-day-website-rebuild-what-we-learned · core-web-vitals-smes
 
 export const clusters = {
   web: 'Web design',
@@ -88,7 +88,7 @@ export const posts = [
 <p>If that's you, a <a href="/services/quick-refresh">Quick Refresh</a> — a redesigned homepage and key page, a speed pass and SEO basics — is usually enough.</p>
 <h2>Signs you need a full rebuild</h2>
 <ul>
-  <li>It's not properly mobile-first, or fails <a href="/blog/core-web-vitals-luxembourg-smes">Core Web Vitals</a>.</li>
+  <li>It's not properly mobile-first, or fails <a href="/blog/core-web-vitals-smes">Core Web Vitals</a>.</li>
   <li>There's no real SEO foundation and you're invisible on Google.</li>
   <li>You can't edit it yourself, or it's built on something fragile.</li>
   <li>The information architecture itself is wrong.</li>
@@ -115,7 +115,7 @@ export const posts = [
 <p>If you need a simple brochure site live this week and SEO isn't critical, a builder is a sensible choice. They're affordable, you can edit them yourself, and modern templates look fine. For a side project or a very early-stage business, that's often enough.</p>
 <h2>Where builders cost you</h2>
 <ul>
-  <li><strong>Performance</strong> — builders ship a lot of code you don't control, which drags <a href="/blog/core-web-vitals-luxembourg-smes">Core Web Vitals</a> and can hurt rankings.</li>
+  <li><strong>Performance</strong> — builders ship a lot of code you don't control, which drags <a href="/blog/core-web-vitals-smes">Core Web Vitals</a> and can hurt rankings.</li>
   <li><strong>SEO ceiling</strong> — you're limited to the controls the platform exposes; advanced schema, structure and speed work is often off-limits.</li>
   <li><strong>Lock-in</strong> — your content and design live inside their ecosystem. Leaving means rebuilding.</li>
 </ul>
@@ -212,11 +212,11 @@ export const posts = [
 <h2>4. No caching</h2>
 <p>Without caching, every visit rebuilds the page from scratch. Edge caching serves a ready-made copy instantly.</p>
 <h2>How fast is fast enough?</h2>
-<p>Google's threshold is Largest Contentful Paint under 2.5 seconds. If that means nothing to you yet, start with our plain-English guide to <a href="/blog/core-web-vitals-luxembourg-smes">Core Web Vitals</a> — it explains exactly what Google measures and why.</p>
+<p>Google's threshold is Largest Contentful Paint under 2.5 seconds. If that means nothing to you yet, start with our plain-English guide to <a href="/blog/core-web-vitals-smes">Core Web Vitals</a> — it explains exactly what Google measures and why.</p>
 <h2>Where to start</h2>
 <p>A <a href="/contact">free audit</a> measures your real load time and tells you which of these is the bottleneck — often it's just one, fixable in a day.</p>
 `,
-    related: ['core-web-vitals-luxembourg-smes', 'how-we-built-trayaam', 'how-to-show-up-on-google'],
+    related: ['core-web-vitals-smes', 'how-we-built-trayaam', 'how-to-show-up-on-google'],
   },
   {
     slug: 'how-to-show-up-on-google',
@@ -319,7 +319,7 @@ export const posts = [
 <h2>Where it goes wrong</h2>
 <ul>
   <li><strong>Plugin bloat</strong> — every plugin adds code, and ten plugins later the site is slow.</li>
-  <li><strong>Heavy themes and page builders</strong> — visual builders ship enormous amounts of markup that drags <a href="/blog/core-web-vitals-luxembourg-smes">Core Web Vitals</a>.</li>
+  <li><strong>Heavy themes and page builders</strong> — visual builders ship enormous amounts of markup that drags <a href="/blog/core-web-vitals-smes">Core Web Vitals</a>.</li>
   <li><strong>Maintenance burden</strong> — updates, security patches and plugin conflicts are an ongoing tax.</li>
 </ul>
 <h2>The real issue: performance</h2>
@@ -329,7 +329,7 @@ export const posts = [
 <h2>The verdict</h2>
 <p>WordPress isn't a death sentence for SEO — but if it's slow, bloated and a chore to maintain, that's costing you. A <a href="/contact">free audit</a> will tell you whether yours is helping or hurting.</p>
 `,
-    related: ['website-builder-vs-custom', 'why-is-my-website-slow', 'core-web-vitals-luxembourg-smes'],
+    related: ['website-builder-vs-custom', 'why-is-my-website-slow', 'core-web-vitals-smes'],
   },
 
   // ───────────────────────── CLUSTER: AI AUTOMATION ─────────────────────────
