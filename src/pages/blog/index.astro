@@ -6,7 +6,7 @@ import { posts as dataPosts, clusters } from '../../data/blog.js';
 // Hand-written posts (own files) folded into the clusters for one unified index.
 const legacy = [
   { slug: 'how-we-built-trayaam', cluster: 'seo', category: 'Behind the build', title: 'How we built trayaam.com to score 100/100', description: 'The stack, decisions and trade-offs behind a site that loads instantly.', date: 'Jun 2026', readtime: '6 min read' },
-  { slug: '7-day-website-rebuild-what-we-learned', cluster: 'web', category: 'Process', title: 'What 32 website rebuilds taught us about speed', description: 'Why a 7-day timeline produces better sites than a 7-week one — and how we do it.', date: 'May 2026', readtime: '5 min read' },
+  { slug: '7-day-website-rebuild-what-we-learned', cluster: 'web', category: 'Process', title: 'What 32 website rebuilds taught us about speed', description: 'Why a 7-day timeline produces better sites than a 7-week one, and how we do it.', date: 'May 2026', readtime: '5 min read' },
   { slug: 'core-web-vitals-smes', cluster: 'seo', category: 'SEO', title: 'Core Web Vitals for Ambitious SMEs', description: 'What the metrics actually mean for your rankings, and how to pass them.', date: 'Apr 2026', readtime: '7 min read' },
 ];
 
@@ -14,7 +14,7 @@ const all = [...legacy, ...dataPosts];
 const order = ['web', 'seo', 'ai'];
 const grouped = order.map((key) => ({ key, label: clusters[key], items: all.filter((p) => p.cluster === key) }));
 ---
-<Layout title="Journal — Web Design, SEO & AI Insights · Trayaam" description="The Trayaam Journal — practical notes on web design, performance, SEO and AI automation, written for the people who actually run the business." active="blog" path="/blog">
+<Layout title="Journal · Web Design, SEO & AI Insights · Trayaam" description="The Trayaam Journal, practical notes on web design, performance, SEO and AI automation, written for the people who actually run the business." active="blog" path="/blog">
 <style>
   .cluster + .cluster { margin-top: 3.5rem; }
   .cluster__head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.4rem; }
@@ -28,7 +28,7 @@ const grouped = order.map((key) => ({ key, label: clusters[key], items: all.filt
 </style>
 <PageHero eyebrow="Journal">
   <h1 slot="title" class="t-h1 reveal">Notes from the <em class="italic">studio.</em></h1>
-  <p class="t-body-lg reveal reveal-d1">Practical thinking on design, performance, SEO and AI automation — written for the people who actually run the business. Organised into three topic clusters.</p>
+  <p class="t-body-lg reveal reveal-d1">Practical thinking on design, performance, SEO and AI automation, written for the people who actually run the business. Organised into three topic clusters.</p>
 </PageHero>
 {grouped.map((g) => (
   <section class="section section--major section--line">

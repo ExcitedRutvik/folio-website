@@ -1,27 +1,29 @@
 # Trayaam
 
-> Trayaam is a web agency with studios in London and Ahmedabad that rebuilds websites for ambitious SMEs in 7 days. Built on three pillars — Creativity, Technology, Empowerment. Fixed pricing, a free audit first, no surprise invoices.
+> Trayaam is a full service digital growth partner with studios in London and Ahmedabad. We help ambitious businesses get found online and win more customers, taking them from strategy and design through build, SEO, marketing and automation. Built on three pillars: Creativity, Technology, Empowerment. Fixed pricing, a free audit first, no surprise invoices.
 
 ## Summary
-- **What we do:** Editorial website design, redesigns and rebuilds, SEO, and ongoing growth for small and medium businesses.
-- **Where:** Studios in London (UK) and Ahmedabad (India); work remotely with clients in Amsterdam, New York, Paris, Singapore and Dubai.
-- **How fast:** Audit to live site in 7 days (3–5 days for a Quick Refresh).
+- **What we do:** Digital transformation and growth for ambitious businesses. Web design and development, SEO, content, UX and UI, social media, Google Business Profile, performance marketing, and AI, sales and business process automation.
+- **Positioning:** We sell an outcome, not a service menu. Clients come to us to get found and grow, and the individual services sit underneath that.
+- **Where:** Studios in London (UK) and Ahmedabad (India). We work with businesses right across the United Kingdom and India.
+- **How fast:** Audit to live site in 7 days (3 to 5 days for a Quick Refresh).
 - **How we price:** One fixed price agreed in writing before starting. 50% on kick-off, 50% on launch. The audit is free.
-- **Stack:** Astro, Next.js, Sanity/Payload CMS, Vercel/Netlify, Cloudflare, GA4. No WordPress or page builders.
-- **Contact:** hello@trayaam.com · +91 99789 84333
+- **Stack:** Astro, Next.js, Sanity or Payload CMS, Vercel or Netlify, Cloudflare, GA4. No WordPress or page builders.
+- **Contact:** akash@trayaam.com, +91 99789 84333
 
 ## Services
-- **Quick Refresh — from £990:** Redesigned homepage, faster load, SEO basics, in 3–5 days. https://trayaam.com/services/quick-refresh
-- **Full Rebuild — from £2,500 (most chosen):** Complete new website, bespoke design, SEO foundation, editable CMS, 30 days support, in 7 days. https://trayaam.com/services/full-rebuild
-- **Growth Partner — from £4,500:** Full rebuild plus ongoing SEO, monthly reporting and quarterly competitor analysis. https://trayaam.com/services/growth
-- **Free Audit — £0:** A 12-metric scan (performance, SEO, mobile, security, design) delivered as a PDF within 24 hours. https://trayaam.com/contact
+- **Quick Refresh, from £990:** Redesigned homepage, faster load, SEO basics, in 3 to 5 days. https://trayaam.com/services/quick-refresh
+- **Full Rebuild, from £2,500 (most chosen):** Complete new website, bespoke design, SEO foundation, editable CMS, 30 days support, in 7 days. https://trayaam.com/services/full-rebuild
+- **Growth Partner, from £4,500:** Full rebuild plus ongoing SEO, monthly reporting and quarterly competitor analysis. https://trayaam.com/services/growth
+- **AI, sales and business process automation:** Content and SEO pipelines, lead capture and routing, sales and email automation, support assistants and back-office workflows, wired into your existing tools. https://trayaam.com/services/ai-automation
+- **Free Audit, £0:** A 12-metric scan (performance, SEO, mobile, security, design) delivered as a PDF within 24 hours. https://trayaam.com/contact
 
 ## Key pages
 - Home: https://trayaam.com/
-- Services & pricing: https://trayaam.com/services
-- Work / case studies: https://trayaam.com/work
+- Services and pricing: https://trayaam.com/services
+- Work and case studies: https://trayaam.com/work
 - Technology: https://trayaam.com/tech
 - Industries: https://trayaam.com/industries
 - About: https://trayaam.com/about
 - Journal: https://trayaam.com/blog
-- Contact / free audit: https://trayaam.com/contact
+- Contact and free audit: https://trayaam.com/contact

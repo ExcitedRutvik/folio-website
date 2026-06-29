@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   TRAYAAM — DESIGN SYSTEM  (Phase 2 redesign)
+   TRAYAAM, DESIGN SYSTEM  (Phase 2 redesign)
    Grounded in web-type-scale + web-spacing-padding + modern-web-design.
    Editorial · dark · gold. One gutter, one type scale, one rhythm.
 ═══════════════════════════════════════════════════════════ */
@@ -32,7 +32,7 @@ ul, ol { list-style: none; }
   --accent-dim: rgba(201,168,106,0.12);
   --accent-mid: rgba(201,168,106,0.40);
 
-  /* Hairline borders — opacity ladder */
+  /* Hairline borders, opacity ladder */
   --border-sub: rgba(244,241,232,0.06);
   --border:     rgba(244,241,232,0.10);
   --border-med: rgba(244,241,232,0.16);
@@ -43,7 +43,7 @@ ul, ol { list-style: none; }
   --sans:  'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --mono:  'JetBrains Mono', 'Courier New', monospace;
 
-  /* Layout — single viewport gutter + container */
+  /* Layout, single viewport gutter + container */
   --gm:    clamp(20px, 5.5vw, 110px);
   --max:   1320px;
   --max-narrow: 940px;
@@ -56,11 +56,11 @@ ul, ol { list-style: none; }
 
   --r:    8px;
   --r-lg: 18px;
-  /* Snappy, high-end easing — sharper acceleration, crisp settle. */
+  /* Snappy, high-end easing, sharper acceleration, crisp settle. */
   --ease: cubic-bezier(0.33, 0, 0.16, 1);
   --ease-out: cubic-bezier(0.22, 1, 0.3, 1);
 
-  /* Navbar scrolled backdrop — themed so text stays readable on scroll. */
+  /* Navbar scrolled backdrop, themed so text stays readable on scroll. */
   --nav-scrolled-bg: rgba(10,10,11,0.72);
   --menu-bg: rgba(10,10,11,0.97);
 
@@ -125,6 +125,8 @@ body {
 .section--compact  { padding-block: var(--py-compact); }
 .section--line     { border-top: 1px solid var(--border); }
 .section--surface  { background: var(--bg-1); }
+/* Tighten the gap between a page hero and the first content section below it */
+.page-hero + .section { padding-top: clamp(1.5rem, 4vw, 3.25rem); }
 
 /* ── TYPE SCALE ── */
 .t-display { font-family: var(--serif); font-weight: 300; line-height: 0.94; letter-spacing: -0.035em;
@@ -142,7 +144,7 @@ body {
 .t-small { font-size: 0.82rem; line-height: 1.6; color: var(--fg-lo); }
 .t-mono { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; }
 
-/* Brand name — Cormorant Garamond, applied only to the agency name "Trayaam". */
+/* Brand name, Cormorant Garamond, applied only to the agency name "Trayaam". */
 .brand { font-family: var(--brand); font-weight: 500; letter-spacing: 0.01em; font-style: normal; }
 .italic, em.italic { font-style: italic; color: var(--accent); font-variation-settings: 'SOFT' 100, 'opsz' 144; }
 .accent { color: var(--accent); }
@@ -179,7 +181,7 @@ body {
 .card:hover { border-color: var(--accent-mid); background: var(--bg-2); }
 .hairline { height: 1px; background: var(--border); border: 0; }
 
-/* ── MARQUEE — sleek low-profile band, seamless infinite loop ── */
+/* ── MARQUEE, sleek low-profile band, seamless infinite loop ── */
 .marquee { overflow: hidden; white-space: nowrap; border-block: 1px solid var(--border); padding-block: 0.5rem; }
 .marquee__track { display: flex; width: max-content; animation: marquee 34s linear infinite; will-change: transform; }
 .marquee:hover .marquee__track { animation-play-state: paused; }
@@ -239,7 +241,7 @@ body {
 .stat__num .accent { color: var(--accent); }
 .stat__label { color: var(--fg-lo); font-size: 0.82rem; line-height: 1.5; margin-top: 0.8rem; }
 
-/* ── RESPONSIVE — single breakpoint ── */
+/* ── RESPONSIVE, single breakpoint ── */
 @media (max-width: 900px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }

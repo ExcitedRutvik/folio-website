@@ -4,38 +4,38 @@ import PageHero from '../../components/PageHero.astro';
 import SectionHead from '../../components/SectionHead.astro';
 
 const capabilities = [
-  ['Content & SEO pipelines', 'AI-assisted drafting, optimisation and publishing — research, briefs, first drafts and on-page SEO — always with a human in the loop, so your site stays fresh and ranks.'],
+  ['Content & SEO pipelines', 'AI-assisted drafting, optimisation and publishing, from research and briefs to first drafts and on-page SEO, always with a human in the loop, so your site stays fresh and ranks.'],
   ['Lead capture & routing', 'Enquiries qualified, enriched and routed to the right person automatically. Instant first responses, CRM records created, nothing left sitting in an inbox.'],
   ['Support & FAQ assistants', 'On-brand AI assistants trained on your own content to answer customers instantly, around the clock, and hand off to a human when it matters.'],
-  ['Back-office automation', 'Quotes, onboarding, invoicing, data extraction and reporting wired together across your tools — fewer manual steps, fewer errors, hours back every week.'],
+  ['Sales & back-office automation', 'Email and LinkedIn sequences, lead nurturing, quotes, onboarding, invoicing, data extraction and reporting, wired together across your tools so there are fewer manual steps, fewer errors and hours back every week.'],
 ];
 const steps = [
-  ['01', 'Map', 'We audit your week and find the repetitive, rules-based work that AI should be doing — scored by time saved and impact.'],
+  ['01', 'Map', 'We audit your week and find the repetitive, rules-based work that AI should be doing, scored by time saved and impact.'],
   ['02', 'Design', 'We design the automation around your real tools and data, with clear guardrails and a human-in-the-loop where judgement matters.'],
-  ['03', 'Build', 'We build and wire it in — LLM APIs, your CRM, your site, your stack — and test it against real cases until it is reliable.'],
-  ['04', 'Hand over', 'You own it. We document it, train your team, and stay available — the automation runs while you sleep.'],
+  ['03', 'Build', 'We build and wire it in across LLM APIs, your CRM, your site and your stack, and test it against real cases until it is reliable.'],
+  ['04', 'Hand over', 'You own it. We document it, train your team, and stay available while the automation runs in the background.'],
 ];
 const outcomes = [
-  ['24/7', 'Always-on — runs nights, weekends and in parallel'],
+  ['24/7', 'Always-on, running nights, weekends and in parallel'],
   ['Hours', 'Reclaimed every week from repetitive work'],
   ['Faster', 'Speed-to-lead measured in seconds, not days'],
-  ['Owned', 'Yours in full — no lock-in, no black box'],
+  ['Owned', 'Yours in full, with no lock-in and no black box'],
 ];
 const faqs = [
-  ['Is AI automation only for big companies?', 'No. A focused automation is often cheaper than the hours it replaces — frequently less than a part-time hire. Small businesses see the fastest payback because the repetitive work is so visible.'],
-  ['Will AI replace my team?', 'No — it removes the grind so your team does the work only humans should. We design every automation with a human in the loop where judgement, tone or relationships matter.'],
+  ['Is AI automation only for big companies?', 'No. A focused automation is often cheaper than the hours it replaces, frequently less than a part-time hire. Small businesses see the fastest payback because the repetitive work is so visible.'],
+  ['Will AI replace my team?', 'No. It removes the grind so your team does the work only humans should. We design every automation with a human in the loop where judgement, tone or relationships matter.'],
   ['Do you integrate with our existing tools?', 'Yes. We wire automations into your website, CRM, inbox and the tools you already use, rather than forcing you onto a new platform.'],
   ['What does it cost?', 'Most automations are a fixed-price build plus small running costs (the AI usage), then they work indefinitely. We scope each one honestly against the hours it saves.'],
 ];
 const jsonld = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Service", "name": "AI Automation Services", "provider": { "@type": "Organization", "name": "Trayaam" }, "areaServed": ["United Kingdom", "India"], "description": "Custom AI automation for businesses — content and SEO pipelines, lead capture and routing, support assistants and back-office automation, built into your existing tools." },
+    { "@type": "Service", "name": "AI, Sales & Business Process Automation", "provider": { "@type": "Organization", "name": "Trayaam" }, "areaServed": ["United Kingdom", "India"], "description": "Custom AI and business process automation for businesses: content and SEO pipelines, lead capture and routing, sales and email automation, support assistants and back-office workflows, built into your existing tools." },
     { "@type": "FAQPage", "mainEntity": faqs.map(([q, a]) => ({ "@type": "Question", "name": q, "acceptedAnswer": { "@type": "Answer", "text": a } })) }
   ]
 };
 ---
-<Layout title="Custom AI Automation Services — Trayaam" description="Trayaam builds custom AI automations for businesses: content & SEO pipelines, lead capture and routing, support assistants and back-office automation — wired into your existing tools." active="services" path="/services/ai-automation" jsonld={jsonld}>
+<Layout title="AI, Sales & Business Process Automation · Trayaam" description="Trayaam builds custom AI and business process automation: content and SEO pipelines, lead capture and routing, sales and email automation, support assistants and back-office workflows, wired into your existing tools." active="services" path="/services/ai-automation" jsonld={jsonld}>
 <style>
   .ai-hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem,5vw,4rem); align-items: center;
     padding-block: calc(72px + clamp(56px, 9vw, 120px)) clamp(48px, 7vw, 96px); }
@@ -63,7 +63,7 @@ const jsonld = {
     <div class="ai-hero__copy">
       <span class="eyebrow reveal">Services · AI Automation</span>
       <h1 class="t-h1 reveal" style="margin:1.5rem 0;">Put your business<br><em class="italic">on autopilot.</em></h1>
-      <p class="t-body-lg reveal reveal-d1">We design and build custom AI automations that take repetitive work off your plate — so your website becomes an engine that runs while you sleep, and your team does the work only humans should.</p>
+      <p class="t-body-lg reveal reveal-d1">We design and build custom AI and business process automations that take repetitive work off your plate, so your website becomes an engine that runs while you sleep, and your team does the work only humans should.</p>
       <div class="reveal reveal-d2" style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
         <a href="/contact" class="btn btn--accent">Scope an automation <span class="arr">→</span></a>
         <a href="/tech" class="btn btn--ghost">See our stack <span class="arr">→</span></a>
@@ -79,7 +79,7 @@ const jsonld = {
 <!-- WHAT WE AUTOMATE -->
 <section class="section section--major section--line">
   <div class="container">
-    <SectionHead eyebrow="What we automate"><h2 slot="title" class="t-h2">Four ways AI<br><em class="italic">earns its keep.</em></h2><p class="t-body">Every automation is built around your real tools and data — not a one-size template. These are the highest-impact places to start.</p></SectionHead>
+    <SectionHead eyebrow="What we automate"><h2 slot="title" class="t-h2">Four ways AI<br><em class="italic">earns its keep.</em></h2><p class="t-body">Every automation is built around your real tools and data, never a one-size template. These are the highest-impact places to start.</p></SectionHead>
     <div class="grid grid-2" style="margin-top:3rem;">
       {capabilities.map(([t, d]) => (
         <div class="card reveal"><h3 class="t-h4" style="margin-bottom:0.7rem;">{t}</h3><p class="t-body" style="font-size:0.92rem;">{d}</p></div>
@@ -123,7 +123,7 @@ const jsonld = {
 <!-- CTA -->
 <section class="section section--major section--line">
   <div class="container container--narrow" style="text-align:center;">
-    <SectionHead eyebrow="Let's talk" align="center"><h2 slot="title" class="t-h2">Tell us your<br><em class="italic">biggest time-sink.</em></h2><p class="t-body">Send us the one task that eats your week. We'll tell you honestly whether it's worth automating — and what it would take.</p></SectionHead>
+    <SectionHead eyebrow="Let's talk" align="center"><h2 slot="title" class="t-h2">Tell us your<br><em class="italic">biggest time-sink.</em></h2><p class="t-body">Send us the one task that eats your week. We'll tell you honestly whether it's worth automating, and what it would take.</p></SectionHead>
     <div style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Scope an automation <span class="arr">→</span></a></div>
   </div>
 </section>

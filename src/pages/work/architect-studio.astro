@@ -2,16 +2,16 @@
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
 import SectionHead from '../../components/SectionHead.astro';
-const jsonld = { "@context":"https://schema.org","@type":"CreativeWork","name":"Architect Studio — Website Rebuild Case Study","about":"Architecture practice portfolio website","creator":{"@type":"Organization","name":"Trayaam"} };
+const jsonld = { "@context":"https://schema.org","@type":"CreativeWork","name":"Architect Studio, Website Rebuild Case Study","about":"Architecture practice portfolio website","creator":{"@type":"Organization","name":"Trayaam"} };
 const stats = [['+68%','Enquiries'],['6d','Delivered'],['P.1','Google ranking'],['100','Lighthouse SEO']];
 const sections = [
-  ['The Challenge', 'Award-winning work, a forgettable site.', 'A respected London architecture studio with a portfolio of striking projects — and a five-year-old website that showed almost none of it. The old site was a wall of text, loaded slowly, and was effectively invisible in search. Prospective clients researching "architects London" never found them; those who did arrive left without seeing a single completed building.'],
-  ['The Insight', 'Architecture is sold with the eye, not the paragraph.', 'People choose an architect emotionally, then justify it rationally. The studio needed imagery to lead — large, fast-loading project photography with the narrative underneath — and it needed to be found at the exact moment someone searches for a local practice. The fix was a portfolio-forward structure that doubled as an SEO foundation.'],
-  ['The Execution', 'A portfolio that loads instantly and ranks.', 'We rebuilt the site around editable case-study templates: big imagery, optimised and lazy-loaded, with structured project metadata feeding rich search results. Clean local-SEO signals — schema, location pages, fast mobile performance — targeted "architects London" and surrounding boroughs. The studio can now publish a new project in minutes from the CMS.'],
+  ['The Challenge', 'Award-winning work, a forgettable site.', 'A respected London architecture studio with a portfolio of striking projects, and a five-year-old website that showed almost none of it. The old site was a wall of text, loaded slowly, and was effectively invisible in search. Prospective clients researching "architects London" never found them; those who did arrive left without seeing a single completed building.'],
+  ['The Insight', 'Architecture is sold with the eye, not the paragraph.', 'People choose an architect emotionally, then justify it rationally. The studio needed imagery to lead, large, fast-loading project photography with the narrative underneath, and it needed to be found at the exact moment someone searches for a local practice. The fix was a portfolio-forward structure that doubled as an SEO foundation.'],
+  ['The Execution', 'A portfolio that loads instantly and ranks.', 'We rebuilt the site around editable case-study templates: big imagery, optimised and lazy-loaded, with structured project metadata feeding rich search results. Clean local-SEO signals, schema, location pages, fast mobile performance, targeted "architects London" and surrounding boroughs. The studio can now publish a new project in minutes from the CMS.'],
 ];
 const results = [['+68%','Increase in enquiries within 8 weeks'],['Page 1','For "architects London" in six weeks'],['6 days','Audit to live site'],['100/100','Lighthouse SEO and best practices']];
 ---
-<Layout title="Architect Studio — Portfolio Website Case Study · Trayaam" description="How Trayaam rebuilt a London architecture studio into a portfolio-forward website that ranks page one for 'architects London' and lifted enquiries by 68%." active="work" path="/work/architect-studio" jsonld={jsonld}>
+<Layout title="Architect Studio · Portfolio Website Case Study · Trayaam" description="How Trayaam rebuilt a London architecture studio into a portfolio-forward website that ranks page one for 'architects London' and lifted enquiries by 68%." active="work" path="/work/architect-studio" jsonld={jsonld}>
 <style>
   .results { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-top: 3rem; }
   .result__v { font-family: var(--serif); font-size: 2.2rem; color: var(--accent); line-height: 1; }

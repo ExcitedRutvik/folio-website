@@ -13,7 +13,7 @@ const links = [
 ---
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a href="/" class="nav__logo" aria-label="Trayaam — home"><Logo size={30} withWordmark /></a>
+    <a href="/" class="nav__logo" aria-label="Trayaam, home"><Logo size={30} withWordmark /></a>
     <nav class="nav__links" aria-label="Primary">
       {links.map((l) => <a href={l.href} class={active === l.key ? 'active' : ''}>{l.label}</a>)}
     </nav>

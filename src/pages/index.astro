@@ -5,9 +5,9 @@ import SectionHead from '../components/SectionHead.astro';
 const faqs = [
   ['How is a 7-day website rebuild possible?', 'We audit first so there is no guessing phase, run design and development concurrently on a proven stack, and use two structured review rounds instead of open-ended feedback.'],
   ['What if I don\'t like the first draft?', 'Every package includes structured revisions and we share a Figma design before writing code, so changes are fast and cheap. We have never needed a third round.'],
-  ['Do you work with clients outside London and Ahmedabad?', 'Yes — with studios in London and Ahmedabad we work across the UK, India and beyond: clients in Amsterdam, New York, Paris, Singapore and Dubai. Audit and call happen over video, everything else is async.'],
-  ['Will my website rank on Google?', 'No one can guarantee rankings, but we guarantee the best possible starting position: correct tags, schema, sitemap, fast load and mobile-first structure. Most clients see movement in 6–8 weeks.'],
-  ['Do you charge upfront?', '50% on kick-off, 50% on launch — one fixed price in writing before we start. The free audit is genuinely free, with no card required.'],
+  ['Do you work with clients outside London and Ahmedabad?', 'Yes. With studios in London and Ahmedabad we work with businesses right across the UK and India. The audit and the call happen over video, and everything else runs async, so location is never a blocker.'],
+  ['Will I actually rank on Google?', 'No one can honestly guarantee rankings, but we guarantee the best possible starting position: the right structure, schema, sitemap, fast load and a real SEO foundation. Most clients see movement in 6 to 8 weeks.'],
+  ['Do you charge upfront?', '50% on kick-off and 50% on launch, one fixed price agreed in writing before we start. The free audit is genuinely free, with no card required.'],
 ];
 
 const jsonld = {
@@ -17,9 +17,9 @@ const jsonld = {
   "@type": "LocalBusiness",
   "@id": "https://trayaam.com/#business",
   "name": "Trayaam",
-  "description": "Web agency with studios in London and Ahmedabad, specialising in 7-day website rebuilds for ambitious SMEs. Creativity, technology, empowerment. Fixed pricing, free audit, no surprise invoices.",
+  "description": "Full service digital growth partner with studios in London and Ahmedabad, helping ambitious businesses get found and win customers through design, build, SEO, marketing and automation. Fixed pricing, free audit, no surprise invoices.",
   "url": "https://trayaam.com",
-  "email": "hello@trayaam.com",
+  "email": "akash@trayaam.com",
   "telephone": "+919978984333",
   "priceRange": "££",
   "slogan": "Creativity · Technology · Empowerment",
@@ -27,9 +27,9 @@ const jsonld = {
     { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
     { "@type": "PostalAddress", "addressLocality": "Ahmedabad", "addressRegion": "Gujarat", "addressCountry": "IN" }
   ],
-  "areaServed": ["London","Ahmedabad","Amsterdam","New York","Paris","Singapore","Dubai"].map((c) => ({ "@type": "City", name: c })),
+  "areaServed": ["London","Ahmedabad","United Kingdom","India"].map((c) => ({ "@type": "City", name: c })),
   "hasOfferCatalog": {
-    "@type": "OfferCatalog", "name": "Web Design & SEO Services",
+    "@type": "OfferCatalog", "name": "Digital Growth Services",
     "itemListElement": [
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Quick Refresh"}, "price": "990", "priceCurrency": "GBP"},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Full Rebuild"}, "price": "2500", "priceCurrency": "GBP"},
@@ -47,7 +47,7 @@ const jsonld = {
 
 const pillars = [
   { k: 'Pillar 01', t: 'Creativity', d: 'Editorial, distinctive design that makes your brand impossible to confuse with anyone else. Ideas first.' },
-  { k: 'Pillar 02', t: 'Technology', d: 'A fast, secure, modern stack — Astro, Next.js, edge hosting, and AI woven through the build and into custom automations. Execution measured in milliseconds.' },
+  { k: 'Pillar 02', t: 'Technology', d: 'A fast, secure, modern stack: Astro, Next.js, edge hosting, and AI woven through the build and into custom automations. Execution measured in milliseconds.' },
   { k: 'Pillar 03', t: 'Empowerment', d: 'We hand you the keys: an editable site, clear reporting, and the confidence to grow on your terms.' },
 ];
 const work = [
@@ -56,7 +56,7 @@ const work = [
   { href: '/work/restaurant-643', ind: 'Hospitality · Ahmedabad', t: 'Restaurant 643', d: 'No mobile, broken form → online reservations and local SEO.', stats: [['+52%','Bookings'],['5d','Delivered'],['100%','Mobile']] },
 ];
 ---
-<Layout title="Trayaam — Editorial Websites for Ambitious Brands" description="A web studio in London & Ahmedabad. We rebuild ambitious brands' websites in seven days — considered design, fixed price, free audit. Creativity · Technology · Empowerment." active="home" path="/" jsonld={jsonld}>
+<Layout title="Digital Transformation & Growth Partner · Trayaam" description="Trayaam is a full service digital growth partner in London and Ahmedabad. We help ambitious businesses get found online and win more customers through design, build, SEO and marketing." active="home" path="/" jsonld={jsonld}>
 
 <style>
   /* Hero */
@@ -65,7 +65,7 @@ const work = [
       radial-gradient(ellipse 60% 90% at 82% 48%, rgba(201,168,106,0.10) 0%, transparent 60%),
       radial-gradient(ellipse 90% 70% at 10% 100%, rgba(201,168,106,0.04) 0%, transparent 55%); pointer-events: none; }
   .hero__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 4vw; align-items: center; width: 100%; }
-  .hero__title { margin: 1.6rem 0 2rem; }
+  .hero__title { margin: 1.6rem 0 2rem; font-size: clamp(2rem, 4.4vw, 4.1rem); line-height: 1.0; }
   .hero__line { display: block; overflow: hidden; }
   .hero__line > span { display: block; transform: translateY(105%); animation: heroRise 1s var(--ease) forwards; }
   .hero__line:nth-child(2) > span { animation-delay: 0.09s; }
@@ -129,7 +129,7 @@ const work = [
   .kpi__l { font-size: 0.52rem; color: var(--fg-lo); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.3rem; }
   @media (max-width: 900px) { .hero__grid { grid-template-columns: 1fr; gap: 2rem; } .hero__art { order: 2; } .glass { transform: none; min-height: 360px; } }
 
-  /* "What Trayaam means" — two-column: animated emblem left, copy right.
+  /* "What Trayaam means", two-column: animated emblem left, copy right.
      Emblem sits cleanly on the dark bg (no frame), with a two-phase
      "lotus bloom → pillar rise" entrance triggered on scroll-into-view. */
   .tm { display: grid; grid-template-columns: 0.82fr 1fr; gap: clamp(2rem, 6vw, 5.5rem); align-items: center; }
@@ -137,7 +137,7 @@ const work = [
   .crest__halo { position: absolute; width: min(72%, 320px); aspect-ratio: 1; border-radius: 50%; pointer-events: none;
     background: radial-gradient(circle, rgba(var(--accent-rgb),0.20), transparent 62%); opacity: 0;
     animation: haloIn 1.2s var(--ease-out) 0.2s forwards, haloBreathe 6s ease-in-out 1.4s infinite; }
-  /* whole emblem, uncropped — simple fade-and-rise in, then a gentle perpetual float */
+  /* whole emblem, uncropped, simple fade-and-rise in, then a gentle perpetual float */
   .logomark { position: relative; width: clamp(120px, 13vw, 170px); aspect-ratio: 600 / 716; z-index: 1; opacity: 0; }
   .logomark img { width: 100%; height: 100%; display: block; object-fit: contain;
     filter: drop-shadow(0 14px 32px rgba(var(--accent-rgb),0.22)); }
@@ -228,9 +228,9 @@ const work = [
     <div class="hero__left">
       <span class="eyebrow">Creativity · Technology · Empowerment</span>
       <h1 class="t-h1 hero__title">
-        Websites for<br>ambitious brands<br>in <span class="city" id="city"><span class="city__spacer">Ahmedabad.</span><span class="city__active">London.</span></span>
+        Your partner in digital<br>transformation and <em class="italic">growth.</em>
       </h1>
-      <p class="t-body-lg hero__sub">Editorial design, fixed pricing, and a live site in seven days. We audit first, charge second, and tell you honestly if we're not the right fit.</p>
+      <p class="t-body-lg hero__sub">We are the partner ambitious businesses bring in to get found, win attention and turn visitors into customers. Strategy, design, build, SEO and marketing, all under one roof.</p>
       <div class="hero__actions">
         <a href="/contact" class="btn btn--accent">Get your free audit <span class="arr">→</span></a>
         <a href="/work" class="btn btn--ghost">See our work <span class="arr">→</span></a>
@@ -243,7 +243,7 @@ const work = [
     </div>
     <div class="hero__art reveal reveal-d1">
       <div class="glass">
-        <div class="term__bar"><span class="term__dot"></span><span class="term__dot"></span><span class="term__dot"></span><span class="term__title">trayaam — zsh</span></div>
+        <div class="term__bar"><span class="term__dot"></span><span class="term__dot"></span><span class="term__dot"></span><span class="term__title">trayaam · zsh</span></div>
         <div class="term__body" id="term"></div>
         <div class="preview" id="preview">
           <div class="preview__bar"><span class="term__dot"></span><span class="term__dot"></span><span class="term__dot"></span><span class="preview__url">https://trayaam.com</span><span class="preview__live">Live · edge</span></div>
@@ -277,19 +277,6 @@ const work = [
   </div>
 
   <script is:inline>
-    /* City rotator */
-    (function () {
-      var el = document.getElementById('city'); if (!el) return;
-      var active = el.querySelector('.city__active'), spacer = el.querySelector('.city__spacer');
-      var cities = ['London.','Ahmedabad.','New York.','Amsterdam.','Singapore.','Dubai.','Paris.'], i = 0;
-      function tick() {
-        active.textContent = cities[i]; spacer.textContent = cities[i];
-        active.classList.remove('city__active'); void active.offsetWidth; active.classList.add('city__active');
-        i = (i + 1) % cities.length;
-      }
-      tick(); setInterval(tick, 2200);
-    })();
-
     /* Terminal boot → preview reveal */
     (function () {
       var term = document.getElementById('term'), preview = document.getElementById('preview');
@@ -351,7 +338,7 @@ const work = [
       <div class="tm-copy reveal reveal-d1">
         <SectionHead eyebrow="01 · What <span class='brand'>Trayaam</span> means">
           <h2 slot="title" class="t-h2">Three forces,<br><em class="italic">one outcome.</em></h2>
-          <p class="t-body"><span class="brand">Trayaam</span> is built on three pillars — the column and lotus at the heart of our mark. Each only matters because of the other two.</p>
+          <p class="t-body"><span class="brand">Trayaam</span> is built on three pillars, the column and lotus at the heart of our mark. Each one only matters because of the other two.</p>
         </SectionHead>
       </div>
     </div>
@@ -381,18 +368,18 @@ const work = [
 <section class="section section--major section--line">
   <div class="container">
     <SectionHead eyebrow="02 · What we do">
-      <h2 slot="title" class="t-h2">Built for businesses that<br>refuse <em class="italic">to look outdated.</em></h2>
-      <p class="t-body">Three ways to work with us — a quick refresh, a full rebuild, or a long-term growth partner who treats your website like a sales engine.</p>
+      <h2 slot="title" class="t-h2">Everything you need to grow,<br>under <em class="italic">one roof.</em></h2>
+      <p class="t-body">From strategy and design to build, SEO and marketing, we take ambitious businesses through the whole journey. Start with a website, or go all the way to a full growth partnership.</p>
     </SectionHead>
     <div class="svc" style="margin-top: 3.5rem;">
       <a href="/services/full-rebuild" class="card svc__card svc__card--feat reveal">
         <div class="svc__top"><span class="eyebrow">Most chosen</span><span class="svc__price">from £2,500</span></div>
-        <div><h3 class="t-h3">Full <em class="italic">Rebuild.</em></h3><p class="t-body" style="margin-top:1rem;">A complete new website — SEO foundation, mobile-first design, editable CMS and a month of free support.</p></div>
+        <div><h3 class="t-h3">Full <em class="italic">Rebuild.</em></h3><p class="t-body" style="margin-top:1rem;">A complete new website with an SEO foundation, mobile-first design, editable CMS and a month of free support.</p></div>
         <span class="svc__link">See package <span class="arr">→</span></span>
       </a>
       <a href="/services/quick-refresh" class="card svc__card reveal reveal-d1">
         <div class="svc__top"><h3 class="t-h4">Quick <em class="italic">Refresh.</em></h3><span class="svc__price">from £990</span></div>
-        <p class="t-body">Sites that work but feel tired. Redesigned homepage, faster load, SEO basics — shipped in 3–5 days.</p>
+        <p class="t-body">Sites that work but feel tired. Redesigned homepage, faster load and SEO basics, shipped in 3 to 5 days.</p>
         <span class="svc__link">See package <span class="arr">→</span></span>
       </a>
       <a href="/services/growth" class="card svc__card reveal reveal-d2">
@@ -402,11 +389,11 @@ const work = [
       </a>
     </div>
     <div style="margin-top:1.2rem;"><a href="/contact" class="card svc__card reveal" style="flex-direction:row;align-items:center;justify-content:space-between;min-height:auto;">
-      <div><h3 class="t-h4" style="display:inline;">Free <em class="italic">Audit.</em></h3> <span class="t-body" style="display:inline;">— a 12-metric scan of your site, delivered as a PDF in 24 hours.</span></div>
+      <div><h3 class="t-h4" style="display:inline;">Free <em class="italic">Audit.</em></h3> <span class="t-body" style="display:inline;">A 12-metric scan of your site, delivered as a PDF within 24 hours.</span></div>
       <span class="svc__link" style="white-space:nowrap;">Book · £0 <span class="arr">→</span></span>
     </a></div>
     <div style="margin-top:1.2rem;"><a href="/services/ai-automation" class="card svc__card reveal" style="flex-direction:row;align-items:center;justify-content:space-between;min-height:auto;background:linear-gradient(120deg, rgba(201,168,106,0.08), var(--bg-1) 60%);">
-      <div><span class="eyebrow" style="margin-bottom:0.6rem;">New</span><h3 class="t-h4" style="display:inline;">AI <em class="italic">Automation.</em></h3> <span class="t-body" style="display:inline;">— custom AI workflows wired into your business: content &amp; SEO pipelines, lead routing, support bots and back-office automation.</span></div>
+      <div><span class="eyebrow" style="margin-bottom:0.6rem;">New</span><h3 class="t-h4" style="display:inline;">AI <em class="italic">Automation.</em></h3> <span class="t-body" style="display:inline;">Custom AI workflows wired into your business: content and SEO pipelines, lead routing, support bots and back-office automation.</span></div>
       <span class="svc__link" style="white-space:nowrap;">Explore <span class="arr">→</span></span>
     </a></div>
   </div>
@@ -441,9 +428,9 @@ const work = [
       <p class="t-body">No long discovery phases. No endless revisions. We move quickly because we've done this dozens of times.</p>
     </SectionHead>
     <div class="proc" style="margin-top:3rem;">
-      {[['Day 0','Free audit.','We scan your site across 12 metrics. A personalised PDF within 24 hours — no call required, no obligation.'],
+      {[['Day 0','Free audit.','We scan your site across 12 metrics. A personalised PDF within 24 hours, no call required and no obligation.'],
         ['Day 1','Discovery call.','20 minutes to walk the audit live, understand your goals and recommend the right package. You decide when to start.'],
-        ['Day 2–6','We build.','You see a draft within 3 days, approve, we refine. Two structured review rounds — no scope creep.'],
+        ['Day 2 to 6','We build.','You see a draft within 3 days, approve, we refine. Two structured review rounds, no scope creep.'],
         ['Day 7','You go live.','New site live, fast and ranked. We hand over the keys and stay available for 30 days.']
       ].map(([d,t,b]) => (
         <div class="proc__row reveal"><div class="proc__day">{d}</div><h3 class="t-h3">{t}</h3><p class="t-body">{b}</p></div>
@@ -457,12 +444,12 @@ const work = [
   <div class="container">
     <SectionHead eyebrow="05 · Why <span class='brand'>Trayaam</span>">
       <h2 slot="title" class="t-h2">The promises we put<br><em class="italic">in writing.</em></h2>
-      <p class="t-body">Most agencies hedge. We don't. Here's exactly what you can hold us to — every project.</p>
+      <p class="t-body">Most agencies hedge. We don't. Here's exactly what you can hold us to, on every project.</p>
     </SectionHead>
     <div class="guar" style="margin-top:3.5rem;">
       {[['£','Fixed price','One number, agreed in writing before we start. No scope creep, no surprise invoices.'],
         ['7','7-day delivery','Audit to live site in a week, or we keep working at no extra cost until it\'s right.'],
-        ['✓','You own everything','Code, content, CMS, domain, analytics — handed over in full. No lock-in.'],
+        ['✓','You own everything','Code, content, CMS, domain and analytics, all handed over in full. No lock-in.'],
         ['↺','Honest fit','If we\'re not right for you, the audit will say so. We\'d rather tell you than sell you.']
       ].map(([ic,t,d]) => (
         <div class="guar__c reveal"><span class="guar__ic">{ic}</span><h3 class="t-h4">{t}</h3><p class="t-body" style="font-size:0.9rem;">{d}</p></div>
@@ -478,8 +465,8 @@ const work = [
       <h2 slot="title" class="t-h2">What clients say after<br><em class="italic">they go live.</em></h2>
     </SectionHead>
     <div class="tw" style="margin-top:3.5rem;">
-      {[['"<span class=\'brand\'>Trayaam</span>\'s free audit showed exactly what was wrong — then had our new site live in six days. More enquiries in the first month than the entire quarter before."','Managing Director','Architecture Studio · London'],
-        ['"Our old site didn\'t work on phones — where most of our bookings come from. They rebuilt it with reservations in five days. Bookings up by half."','Owner','Restaurant · Ahmedabad'],
+      {[['"<span class=\'brand\'>Trayaam</span>\'s free audit showed exactly what was wrong, then had our new site live in six days. More enquiries in the first month than the entire quarter before."','Managing Director','Architecture Studio · London'],
+        ['"Our old site didn\'t work on phones, which is where most of our bookings come from. They rebuilt it with reservations in five days. Bookings up by half."','Owner','Restaurant · Ahmedabad'],
         ['"No jargon, no pressure, one clear price. They told us upfront what they\'d fix and delivered exactly that."','Director','Manufacturer · India']
       ].map(([q,n,m]) => (
         <div class="card reveal"><div class="tw__stars">★★★★★</div><p class="t-h4" style="font-weight:400;" set:html={q}></p><div class="tw__meta"><b>{n}</b>{m}</div></div>
@@ -494,7 +481,7 @@ const work = [
     <div class="faq__side">
       <SectionHead eyebrow="07 · Questions">
         <h2 slot="title" class="t-h2">Before you<br><em class="italic">start.</em></h2>
-        <p class="t-body">Honest answers. If yours isn't here, email <a href="mailto:hello@trayaam.com" class="accent">hello@trayaam.com</a> — real replies within a working day.</p>
+        <p class="t-body">Honest answers. If yours isn't here, email <a href="mailto:akash@trayaam.com" class="accent">akash@trayaam.com</a> and you will get a real reply within a working day.</p>
       </SectionHead>
       <a href="/contact" class="btn" style="margin-top:2rem;">Ask us directly <span class="arr">→</span></a>
     </div>

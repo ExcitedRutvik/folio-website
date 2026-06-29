@@ -2,16 +2,16 @@
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
 import SectionHead from '../../components/SectionHead.astro';
-const jsonld = { "@context":"https://schema.org","@type":"CreativeWork","name":"Deepak Products — Website Rebuild Case Study","about":"B2B industrial manufacturing website","creator":{"@type":"Organization","name":"Trayaam"} };
+const jsonld = { "@context":"https://schema.org","@type":"CreativeWork","name":"Deepak Products, Website Rebuild Case Study","about":"B2B industrial manufacturing website","creator":{"@type":"Organization","name":"Trayaam"} };
 const stats = [['35+','Years in business'],['650+','Products catalogued'],['700+','Clients served'],['10+','Countries shipped']];
 const sections = [
-  ['The Challenge', 'Deep expertise, invisible online.', 'Deepak Products has spent three and a half decades perfecting precision sheet-metal work — perforated and woven wire mesh, gratings, expanded metals. But their website didn\'t reflect any of it. It was slow, broke on mobile, and buried their 650+ products where no buyer could find them. Procurement managers searching globally for a supplier simply never saw them.'],
-  ['The Insight', 'Buyers qualify you before they call.', 'In B2B manufacturing, the website is the first audit. An engineer comparing suppliers wants to see range, tolerances and proof of scale in seconds — and if the site looks dated, they assume the factory is too. The opportunity wasn\'t a prettier homepage; it was a structured, searchable catalogue that turned decades of capability into something a buyer could trust at a glance.'],
-  ['The Execution', 'A B2B engine, built to convert.', 'We rebuilt the site mobile-first on a modern edge stack, modelled the full product range as structured CMS content, and gave every category and product a clean, indexable page. Capability pages explain processes and tolerances in plain language; a focused enquiry flow turns search traffic into qualified RFQs. Everything is owned and editable by the Deepak team — no developer required to add a new product line.'],
+  ['The Challenge', 'Deep expertise, invisible online.', 'Deepak Products has spent three and a half decades perfecting precision sheet-metal work, perforated and woven wire mesh, gratings, expanded metals. But their website didn\'t reflect any of it. It was slow, broke on mobile, and buried their 650+ products where no buyer could find them. Procurement managers searching globally for a supplier simply never saw them.'],
+  ['The Insight', 'Buyers qualify you before they call.', 'In B2B manufacturing, the website is the first audit. An engineer comparing suppliers wants to see range, tolerances and proof of scale in seconds, and if the site looks dated, they assume the factory is too. The opportunity wasn\'t a prettier homepage; it was a structured, searchable catalogue that turned decades of capability into something a buyer could trust at a glance.'],
+  ['The Execution', 'A B2B engine, built to convert.', 'We rebuilt the site mobile-first on a modern edge stack, modelled the full product range as structured CMS content, and gave every category and product a clean, indexable page. Capability pages explain processes and tolerances in plain language; a focused enquiry flow turns search traffic into qualified RFQs. Everything is owned and editable by the Deepak team, no developer required to add a new product line.'],
 ];
 const results = [['650+','Products now individually indexable'],['10+','Export markets reached online'],['<1.5s','Largest Contentful Paint, mobile'],['B2B','Enquiry flow generating qualified leads']];
 ---
-<Layout title="Deepak Products — B2B Industrial Website Case Study · Trayaam" description="How Trayaam rebuilt Deepak Products — a 35-year sheet-metal manufacturer — into a fast B2B website with a full product catalogue and enquiry flow." active="work" path="/work/deepak-products" jsonld={jsonld}>
+<Layout title="Deepak Products · B2B Industrial Website Case Study · Trayaam" description="How Trayaam rebuilt Deepak Products, a 35-year sheet-metal manufacturer, into a fast B2B website with a full product catalogue and enquiry flow." active="work" path="/work/deepak-products" jsonld={jsonld}>
 <style>
   .results { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-top: 3rem; }
   .result__v { font-family: var(--serif); font-size: 2.2rem; color: var(--accent); line-height: 1; }
@@ -20,7 +20,7 @@ const results = [['650+','Products now individually indexable'],['10+','Export m
 </style>
 <PageHero eyebrow="Case study · Manufacturing · India">
   <h1 slot="title" class="t-h1 reveal">Deepak <em class="italic">Products.</em></h1>
-  <p class="t-body-lg reveal reveal-d1">A 35-year-old precision sheet-metal manufacturer with deep expertise but no real web presence. We rebuilt it into a B2B credibility engine — fast, structured, and built to generate enquiries from global industry.</p>
+  <p class="t-body-lg reveal reveal-d1">A 35-year-old precision sheet-metal manufacturer with deep expertise but no real web presence. We rebuilt it into a B2B credibility engine, fast, structured, and built to generate enquiries from global industry.</p>
   <div class="reveal reveal-d2" style="margin-top:2rem;"><a href="https://lustrous-cuchufli-0fd203.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn">Visit the live site <span class="arr">↗</span></a></div>
 </PageHero>
 <section class="section--compact section--line">

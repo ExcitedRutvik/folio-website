@@ -2,16 +2,16 @@
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
 import SectionHead from '../../components/SectionHead.astro';
-const jsonld = { "@context":"https://schema.org","@type":"CreativeWork","name":"Fiduciary Firm — Website Rebuild Case Study","about":"Professional services website with secure hosting","creator":{"@type":"Organization","name":"Trayaam"} };
+const jsonld = { "@context":"https://schema.org","@type":"CreativeWork","name":"Fiduciary Firm, Website Rebuild Case Study","about":"Professional services website with secure hosting","creator":{"@type":"Organization","name":"Trayaam"} };
 const stats = [['+44%','New clients'],['7d','Delivered'],['SSL','Secured'],['18→96','PageSpeed score']];
 const sections = [
-  ['The Challenge', 'A trust business with no SSL.', 'A London fiduciary firm handling sensitive financial work was running a website with no SSL certificate, an 18/100 performance score, and service pages so vague that prospects couldn\'t tell what the firm actually did. For a business built entirely on trust, the site quietly undermined it — browsers literally flagged it as "not secure".'],
-  ['The Insight', 'In professional services, the site is a credibility test.', 'Clients hand a fiduciary their accounts and their confidence. Before they ever make contact, they check the website — and a slow, unsecured, jargon-heavy site reads as carelessness. The work wasn\'t cosmetic; it was about signalling competence and security at every step, and making each service legible to the SMEs the firm wanted to win.'],
-  ['The Execution', 'Secure hosting, clear services, targeted SEO.', 'We rebuilt on secure edge hosting with SSL by default, restructured the services into clear, outcome-led pages, and layered in SME-targeted local SEO. Trust signals — credentials, regulated status, structured contact details — were made prominent and machine-readable. The result loads in under a second and reads like the firm it represents.'],
+  ['The Challenge', 'A trust business with no SSL.', 'A London fiduciary firm handling sensitive financial work was running a website with no SSL certificate, an 18/100 performance score, and service pages so vague that prospects couldn\'t tell what the firm actually did. For a business built entirely on trust, the site quietly undermined it, browsers literally flagged it as "not secure".'],
+  ['The Insight', 'In professional services, the site is a credibility test.', 'Clients hand a fiduciary their accounts and their confidence. Before they ever make contact, they check the website, and a slow, unsecured, jargon-heavy site reads as carelessness. The work wasn\'t cosmetic; it was about signalling competence and security at every step, and making each service legible to the SMEs the firm wanted to win.'],
+  ['The Execution', 'Secure hosting, clear services, targeted SEO.', 'We rebuilt on secure edge hosting with SSL by default, restructured the services into clear, outcome-led pages, and layered in SME-targeted local SEO. Trust signals, credentials, regulated status, structured contact details, were made prominent and machine-readable. The result loads in under a second and reads like the firm it represents.'],
 ];
 const results = [['+44%','More qualified client enquiries'],['18 → 96','PageSpeed performance score'],['SSL','Secure by default, trust restored'],['7 days','Audit to live site']];
 ---
-<Layout title="Fiduciary Firm — Professional Services Website Case Study · Trayaam" description="How Trayaam rebuilt a London fiduciary firm's website — secure hosting, clear service pages and SME-targeted SEO that lifted new client enquiries by 44%." active="work" path="/work/fiduciary-firm" jsonld={jsonld}>
+<Layout title="Fiduciary Firm · Professional Services Website Case Study · Trayaam" description="How Trayaam rebuilt a London fiduciary firm's website, secure hosting, clear service pages and SME-targeted SEO that lifted new client enquiries by 44%." active="work" path="/work/fiduciary-firm" jsonld={jsonld}>
 <style>
   .results { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-top: 3rem; }
   .result__v { font-family: var(--serif); font-size: 2.2rem; color: var(--accent); line-height: 1; }
@@ -20,7 +20,7 @@ const results = [['+44%','More qualified client enquiries'],['18 → 96','PageSp
 </style>
 <PageHero eyebrow="Case study · Professional services · London">
   <h1 slot="title" class="t-h1 reveal">Fiduciary <em class="italic">firm.</em></h1>
-  <p class="t-body-lg reveal reveal-d1">A trust-led financial firm with an unsecured, dated website working against it. We rebuilt it secure, clear and fast — and the right clients started getting in touch.</p>
+  <p class="t-body-lg reveal reveal-d1">A trust-led financial firm with an unsecured, dated website working against it. We rebuilt it secure, clear and fast, and the right clients started getting in touch.</p>
 </PageHero>
 <section class="section--compact section--line">
   <div class="container grid grid-4">

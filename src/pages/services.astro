@@ -4,7 +4,7 @@ import PageHero from '../components/PageHero.astro';
 import SectionHead from '../components/SectionHead.astro';
 
 const jsonld = {
-  "@context": "https://schema.org", "@type": "OfferCatalog", "name": "Trayaam Web Design Services",
+  "@context": "https://schema.org", "@type": "OfferCatalog", "name": "Trayaam Digital Growth Services",
   "itemListElement": [
     {"@type": "Offer", "name": "Quick Refresh", "price": "990", "priceCurrency": "GBP", "url": "https://trayaam.com/services/quick-refresh"},
     {"@type": "Offer", "name": "Full Rebuild", "price": "2500", "priceCurrency": "GBP", "url": "https://trayaam.com/services/full-rebuild"},
@@ -13,14 +13,14 @@ const jsonld = {
 };
 
 const rows = [
-  ['Timeline', '3–5 days', '7 days', '7 days + ongoing'],
+  ['Timeline', '3 to 5 days', '7 days', '7 days + ongoing'],
   ['Pages', 'Homepage + key page', 'Full site', 'Full site'],
   ['Design', 'Refit existing', 'Bespoke, mobile-first', 'Bespoke, mobile-first'],
   ['SEO foundation', 'Basics', 'Complete', 'Complete + campaign'],
-  ['Editable CMS', '—', '✓', '✓'],
+  ['Editable CMS', 'No', '✓', '✓'],
   ['Post-launch support', '7 days', '30 days', 'Ongoing'],
-  ['Monthly reporting', '—', '—', '✓'],
-  ['Competitor analysis', '—', '—', 'Quarterly'],
+  ['Monthly reporting', 'No', 'No', '✓'],
+  ['Competitor analysis', 'No', 'No', 'Quarterly'],
 ];
 const tiers = [
   { name: 'Quick Refresh', price: '£990', href: '/services/quick-refresh' },
@@ -28,7 +28,7 @@ const tiers = [
   { name: 'Growth Partner', price: '£4,500', href: '/services/growth' },
 ];
 ---
-<Layout title="Web Design Services & Pricing — Trayaam" description="Three ways to work with Trayaam: Quick Refresh (£990), Full Rebuild (£2,500) or Growth Partner (£4,500). Fixed pricing, 7-day delivery, free audit first." active="services" path="/services" jsonld={jsonld}>
+<Layout title="Digital Growth Services & Pricing · Trayaam" description="Ways to work with Trayaam, from a Quick Refresh (£990) to a Full Rebuild (£2,500) or an ongoing Growth Partner (£4,500), plus SEO, marketing and AI automation. Fixed pricing, free audit first." active="services" path="/services" jsonld={jsonld}>
 <style>
   .ptable { width: 100%; border-collapse: collapse; margin-top: 3rem; }
   .ptable th, .ptable td { text-align: left; padding: 1.1rem 1.2rem; border-bottom: 1px solid var(--border); font-size: 0.92rem; vertical-align: top; }
@@ -46,8 +46,8 @@ const tiers = [
 </style>
 
 <PageHero eyebrow="Services">
-  <h1 slot="title" class="t-h1 reveal">Three ways to work<br>with <em class="italic brand">Trayaam</em></h1>
-  <p class="t-body-lg reveal reveal-d1">Whether you need a quick refresh, a complete rebuild, a long-term growth partner, or custom AI automation — every engagement starts with a free audit and a fixed price in writing.</p>
+  <h1 slot="title" class="t-h1 reveal">Ways to work<br>with <em class="italic brand">Trayaam.</em></h1>
+  <p class="t-body-lg reveal reveal-d1">Every engagement starts with a free audit and a fixed price in writing. Start with a refresh or a full build, step up to an ongoing growth partnership, or add SEO, marketing and custom AI automation. Whatever the scope, you own everything at the end.</p>
 </PageHero>
 
 <section class="section section--major section--line">
@@ -79,14 +79,14 @@ const tiers = [
   <div class="container">
     <SectionHead eyebrow="Beyond the website">
       <h2 slot="title" class="t-h2">Custom <em class="italic">AI Automation.</em></h2>
-      <p class="t-body">We don't just build the site — we build the systems behind it. Using modern AI and LLM tooling, we ship bespoke automations that take repetitive work off your plate and turn your website into an engine that runs while you sleep.</p>
+      <p class="t-body">We don't just build the site, we build the systems behind it. Using modern AI and LLM tooling, we ship bespoke automations that take repetitive work off your plate and turn your website into an engine that runs while you sleep.</p>
     </SectionHead>
     <div class="grid grid-2" style="margin-top:3rem;">
       {[
-        ['Content &amp; SEO pipelines','AI-assisted drafting, optimisation and publishing workflows that keep your site fresh and ranking — with a human in the loop.'],
+        ['Content &amp; SEO pipelines','AI-assisted drafting, optimisation and publishing workflows that keep your site fresh and ranking, always with a human in the loop.'],
         ['Lead capture &amp; routing','Enquiries qualified, enriched and routed to the right place automatically, so nothing slips and you reply faster.'],
         ['Support &amp; FAQ assistants','On-brand AI assistants trained on your content to answer customers instantly and deflect routine questions.'],
-        ['Back-office automation','Quotes, onboarding, reporting and data entry wired together across your tools — fewer manual steps, fewer errors.'],
+        ['Back-office automation','Quotes, onboarding, reporting and data entry wired together across your tools, so there are fewer manual steps and fewer errors.'],
       ].map(([t,d]) => (
         <div class="card reveal"><h3 class="t-h4" style="margin-bottom:0.7rem;" set:html={t}></h3><p class="t-body" style="font-size:0.92rem;" set:html={d}></p></div>
       ))}
@@ -99,7 +99,7 @@ const tiers = [
   <div class="container container--narrow" style="text-align:center;">
     <SectionHead eyebrow="Not sure which?" align="center">
       <h2 slot="title" class="t-h2">Start with a <em class="italic">free audit.</em></h2>
-      <p class="t-body">A 12-metric scan of your current site, delivered as a PDF within 24 hours. We'll recommend the right package — or tell you that you don't need us yet.</p>
+      <p class="t-body">A 12-metric scan of your current site, delivered as a PDF within 24 hours. We'll recommend the right package, or tell you that you don't need us yet.</p>
     </SectionHead>
     <div style="margin-top:2.5rem;"><a href="/contact" class="btn btn--accent">Book your free audit <span class="arr">→</span></a></div>
   </div>

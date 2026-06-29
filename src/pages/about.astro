@@ -5,21 +5,20 @@ import SectionHead from '../components/SectionHead.astro';
 const values = [
   ['Creativity','Distinctive, editorial design. We make brands impossible to confuse with anyone else.'],
   ['Technology','A fast, secure, modern stack. Execution measured in milliseconds, owned by you.'],
-  ['Empowerment','We hand over the keys and the clarity to grow — no lock-in, no dependence.'],
+  ['Empowerment','We hand over the keys and the clarity to grow, with no lock-in and no dependence.'],
 ];
 const offices = [
-  ['London','United Kingdom','Strategy, design direction and client partnerships across the UK and Europe.'],
+  ['London','United Kingdom','Strategy, design direction and client partnerships across the UK.'],
   ['Ahmedabad','India','Engineering, performance and the production craft that ships your site in seven days.'],
 ];
-// Team. Akash uses the hosted portrait; the others are clean placeholders —
-// drop a photo into /public and set `img` to reveal it.
+// Team. Akash uses the hosted portrait; the others are clean placeholders, // drop a photo into /public and set `img` to reveal it.
 const team = [
   { name: 'Akash Solanki', role: 'Founder', img: '/team-akash.jpg' },
   { name: 'Feny Solanki', role: 'Creative Director', img: '/team-feny.jpg' },
   { name: 'Rutvik Gupta', role: 'Chief Technical Officer', img: '/team-rutvik.jpg' },
 ];
 ---
-<Layout title="About Trayaam — A Studio in London & Ahmedabad" description="Trayaam is a web agency built on three pillars — creativity, technology, empowerment — with studios in London and Ahmedabad. We rebuild websites in 7 days, honestly and at a fixed price." active="about" path="/about">
+<Layout title="About Trayaam · Your Digital Growth Partner" description="Trayaam is a full service digital growth partner with studios in London and Ahmedabad. Built on three pillars, creativity, technology and empowerment, we help ambitious businesses grow online, honestly and at a fixed price." active="about" path="/about">
 <style>
   .offices { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 3rem; }
   .office__co { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
@@ -34,7 +33,7 @@ const team = [
 </style>
 <PageHero eyebrow="About · London &amp; Ahmedabad">
   <h1 slot="title" class="t-h1 reveal">A studio built on<br><em class="italic">three pillars.</em></h1>
-  <p class="t-body-lg reveal reveal-d1"><span class="brand">Trayaam</span> means three. Creativity, technology and empowerment — the lotus at the heart of our mark, and the way we work. From studios in London and Ahmedabad, we rebuild websites quickly, honestly, and at a price agreed in writing before we start.</p>
+  <p class="t-body-lg reveal reveal-d1"><span class="brand">Trayaam</span> means three. Creativity, technology and empowerment, the lotus at the heart of our mark, and the way we work. From studios in London and Ahmedabad, we help ambitious businesses get found, win customers and grow, quickly, honestly, and at a price agreed in writing before we start.</p>
 </PageHero>
 
 <!-- PILLARS -->
@@ -53,7 +52,7 @@ const team = [
     <div class="grid grid-2" style="gap:clamp(2rem,5vw,5rem);align-items:center;">
       <div class="reveal">
         <SectionHead eyebrow="How we work"><h2 slot="title" class="t-h3">Honest by <em class="italic">default.</em></h2></SectionHead>
-        <p class="t-body" style="margin-top:1.5rem;">We audit before we sell. We quote one fixed price. We ship in a week, hand over everything, and tell you plainly if we're not the right fit. No retainers you can't leave, no surprise invoices, no jargon. Two studios across two time zones mean the work moves while you sleep — design and direction from London, engineering and production from Ahmedabad.</p>
+        <p class="t-body" style="margin-top:1.5rem;">We audit before we sell. We quote one fixed price. We deliver, hand over everything, and tell you plainly if we're not the right fit. No retainers you can't leave, no surprise invoices, no jargon. Two studios across two time zones mean the work moves while you sleep, with design and direction from London and engineering and production from Ahmedabad.</p>
       </div>
       <div class="grid grid-2 reveal reveal-d1">
         <div class="card"><div class="stat__num"><span data-count="32">0</span><span class="accent">+</span></div><div class="stat__label">Websites audited</div></div>
@@ -68,7 +67,7 @@ const team = [
 <!-- DUAL HQ -->
 <section class="section section--major section--line">
   <div class="container">
-    <SectionHead eyebrow="Our studios"><h2 slot="title" class="t-h2">London &amp; <em class="italic">Ahmedabad.</em></h2><p class="t-body">One studio, two homes — chosen so creative direction and engineering craft each sit where they're strongest, and your project never stops moving.</p></SectionHead>
+    <SectionHead eyebrow="Our studios"><h2 slot="title" class="t-h2">London &amp; <em class="italic">Ahmedabad.</em></h2><p class="t-body">One studio, two homes, chosen so creative direction and engineering craft each sit where they're strongest, and your project never stops moving.</p></SectionHead>
     <div class="offices">
       {offices.map(([city, country, note]) => (
         <div class="card reveal">
@@ -89,7 +88,7 @@ const team = [
       {team.map((m) => (
         <div class="reveal">
           {m.img
-            ? <img class="member__photo" src={m.img} alt={`${m.name} — ${m.role}, Trayaam`} width="320" height="320" loading="lazy" />
+            ? <img class="member__photo" src={m.img} alt={`${m.name}, ${m.role}, Trayaam`} width="320" height="320" loading="lazy" />
             : <div class="member__ph" aria-hidden="true">{m.name.charAt(0)}</div>}
           <div class="member__name">{m.name}</div>
           <div class="member__role">{m.role}</div>

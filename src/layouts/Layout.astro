@@ -4,16 +4,20 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 const {
-  title = 'Trayaam — Editorial Websites for Ambitious Brands',
-  description = "A web studio in London & Ahmedabad. We rebuild ambitious brands' websites in seven days — considered design, fixed price, free audit. Creativity · Technology · Empowerment.",
+  title = 'Trayaam · Digital Transformation & Growth Partner',
+  description = "Trayaam is a full service digital growth partner in London and Ahmedabad. We help ambitious businesses get found online and win more customers through design, build, SEO and marketing.",
   active = '',
   path = '',
-  ogImage = '/assets/og-image.svg',
+  ogImage = '/assets/og-image.png',
   jsonld = null,
 } = Astro.props;
 
 const site = 'https://trayaam.com';
-const canonical = site + (path || Astro.url.pathname);
+// Canonical must match the URL the host actually serves (trailing slash, 200),
+// not the no-slash variant that 308-redirects to it.
+const rawPath = path || Astro.url.pathname;
+const canonicalPath = rawPath === '/' ? '/' : rawPath.replace(/\/+$/, '') + '/';
+const canonical = site + canonicalPath;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -41,10 +45,13 @@ const canonical = site + (path || Astro.url.pathname);
   <meta name="theme-color" content="#0A0A0B" />
 
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Trayaam" />
   <meta property="og:url" content={canonical} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={site + ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en_GB" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
@@ -58,7 +65,7 @@ const canonical = site + (path || Astro.url.pathname);
   <meta name="geo.region" content="IN-GJ" />
   <meta name="geo.placename" content="Ahmedabad" />
 
-  {/* Global Organization + WebSite graph — knowledge-panel & generative-engine signals */}
+  {/* Global Organization + WebSite graph, knowledge-panel & generative-engine signals */}
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
@@ -69,16 +76,16 @@ const canonical = site + (path || Astro.url.pathname);
         "url": site,
         "logo": site + "/favicon.svg",
         "image": site + ogImage,
-        "email": "hello@trayaam.com",
+        "email": "akash@trayaam.com",
         "slogan": "Creativity · Technology · Empowerment",
-        "description": "Web agency with studios in London and Ahmedabad, rebuilding websites for ambitious SMEs in 7 days — fixed pricing, free audit.",
-        "areaServed": ["London","Ahmedabad","United Kingdom","India","New York","Amsterdam","Paris","Singapore","Dubai"],
+        "description": "Full service digital growth partner with studios in London and Ahmedabad. We help ambitious businesses get found and win more customers through design, build, SEO, marketing and automation.",
+        "areaServed": ["London","Ahmedabad","United Kingdom","India"],
         "address": [
           { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
           { "@type": "PostalAddress", "addressLocality": "Ahmedabad", "addressRegion": "Gujarat", "addressCountry": "IN" }
         ],
         "telephone": "+919978984333",
-        "contactPoint": { "@type": "ContactPoint", "email": "hello@trayaam.com", "telephone": "+919978984333", "contactType": "sales", "areaServed": "Worldwide", "availableLanguage": ["en","hi","gu"] }
+        "contactPoint": { "@type": "ContactPoint", "email": "akash@trayaam.com", "telephone": "+919978984333", "contactType": "sales", "areaServed": "Worldwide", "availableLanguage": ["en","hi","gu"] }
       },
       { "@type": "WebSite", "@id": site + "/#website", "url": site, "name": "Trayaam", "publisher": { "@id": site + "/#org" } }
     ]

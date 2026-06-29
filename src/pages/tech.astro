@@ -4,15 +4,15 @@ import SectionHead from '../components/SectionHead.astro';
 
 const groups = [
   { n: '01', label: 'Design', items: ['Figma'], copy: 'Every build starts in Figma. You approve the design before we write a line of code.' },
-  { n: '02', label: 'Frontend', items: ['Astro', 'Next.js'], copy: 'The lightest tool that does the job — Astro for editorial, Next.js for product.' },
-  { n: '03', label: 'CMS', items: ['Sanity', 'Payload'], copy: 'Structured, editable content so you update the site yourself — no developer needed.' },
+  { n: '02', label: 'Frontend', items: ['Astro', 'Next.js'], copy: 'The lightest tool that does the job, Astro for editorial, Next.js for product.' },
+  { n: '03', label: 'CMS', items: ['Sanity', 'Payload'], copy: 'Structured, editable content so you update the site yourself, no developer needed.' },
   { n: '04', label: 'Hosting', items: ['Vercel', 'Netlify'], copy: 'Deployed to a global edge network. Fast everywhere, secure by default.' },
   { n: '05', label: 'CDN & Email', items: ['Cloudflare', 'Resend'], copy: 'Edge caching and reliable transactional email, wired in from day one.' },
-  { n: '06', label: 'Analytics & SEO', items: ['GA4', 'Search Console', 'Ahrefs'], copy: 'Measurement and search visibility built in — so growth is observable, not guessed.' },
-  { n: '07', label: 'AI & Automation', items: ['LLM APIs', 'Workers', 'n8n'], copy: 'We build with AI and ship custom automations — content and SEO pipelines, lead routing, support bots and back-office workflows wired straight into your stack.' },
+  { n: '06', label: 'Analytics & SEO', items: ['GA4', 'Search Console', 'Ahrefs'], copy: 'Measurement and search visibility built in, so growth is observable, not guessed.' },
+  { n: '07', label: 'AI & Automation', items: ['LLM APIs', 'Workers', 'n8n'], copy: 'We build with AI and ship custom automations, content and SEO pipelines, lead routing, support bots and back-office workflows wired straight into your stack.' },
 ];
 ---
-<Layout title="Perception Technology — The Trayaam Stack" description="Perception Technology: the living tech stack behind every Trayaam 7-day build — Astro, Next.js, Sanity, Vercel, Cloudflare, GA4. Fast by construction, owned by you." active="tech" path="/tech">
+<Layout title="Perception Technology · The Trayaam Stack" description="Perception Technology: the living tech stack behind every Trayaam 7-day build, Astro, Next.js, Sanity, Vercel, Cloudflare, GA4. Fast by construction, owned by you." active="tech" path="/tech">
 <style>
   .tech-hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem,5vw,4rem); align-items: center;
     padding-block: calc(72px + clamp(56px, 9vw, 120px)) clamp(48px, 7vw, 96px); }
@@ -39,8 +39,8 @@ const groups = [
     <div class="tech-hero__copy">
       <span class="eyebrow reveal">Perception Technology</span>
       <h1 class="t-h1 reveal" style="margin:1.5rem 0;">The stack that<br>your visitors <em class="italic">feel.</em></h1>
-      <p class="t-body-lg reveal reveal-d1">Perception Technology is how we think about the stack: every tool earns its place by changing what a visitor perceives — speed, clarity, trust. No WordPress, no page builders, no bloat. Just battle-tested modern tools that load fast, scale well, and hand you full control from day one.</p>
-      <p class="t-body reveal reveal-d2" style="margin-top:1.2rem;">And we build with <strong style="color:var(--fg);">AI woven through the stack</strong> — accelerating design and code, and powering the <a href="/services/ai-automation" class="accent" style="text-decoration:underline;text-underline-offset:3px;">custom AI automations</a> we deploy for clients: content and SEO pipelines, lead routing, and back-office workflows that run themselves.</p>
+      <p class="t-body-lg reveal reveal-d1">Perception Technology is how we think about the stack: every tool earns its place by changing what a visitor perceives, speed, clarity, trust. No WordPress, no page builders, no bloat. Just battle-tested modern tools that load fast, scale well, and hand you full control from day one.</p>
+      <p class="t-body reveal reveal-d2" style="margin-top:1.2rem;">And we build with <strong style="color:var(--fg);">AI woven through the stack</strong>, accelerating design and code, and powering the <a href="/services/ai-automation" class="accent" style="text-decoration:underline;text-underline-offset:3px;">custom AI automations</a> we deploy for clients: content and SEO pipelines, lead routing, and back-office workflows that run themselves.</p>
       <div class="reveal reveal-d3" style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Get your free audit <span class="arr">→</span></a></div>
     </div>
     <div class="netmap reveal reveal-d1" aria-hidden="true">
@@ -69,13 +69,13 @@ const groups = [
 </section>
 <section class="section section--major section--line section--surface">
   <div class="container container--narrow" style="text-align:center;">
-    <SectionHead eyebrow="Built right" align="center"><h2 slot="title" class="t-h2">Fast by <em class="italic">construction.</em></h2><p class="t-body">Performance isn't a plugin we add at the end — it's the consequence of the stack. Most builds ship at 95–100 on Lighthouse.</p></SectionHead>
+    <SectionHead eyebrow="Built right" align="center"><h2 slot="title" class="t-h2">Fast by <em class="italic">construction.</em></h2><p class="t-body">Performance isn't a plugin we add at the end, it's the consequence of the stack. Most builds ship at 95 to 100 on Lighthouse.</p></SectionHead>
     <div style="margin-top:2rem;"><a href="/contact" class="btn btn--accent">Get your free audit <span class="arr">→</span></a></div>
   </div>
 </section>
 
 <script is:inline>
-  /* Living Tech Stack — perceptual network map (lightweight canvas + spring physics) */
+  /* Living Tech Stack, perceptual network map (lightweight canvas + spring physics) */
   (function () {
     var canvas = document.getElementById('netmap');
     if (!canvas) return;
@@ -85,7 +85,7 @@ const groups = [
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     var labels = ['Figma','Astro','Next.js','Sanity','Vercel','Cloudflare','GA4','Ahrefs','AI','Automation','Edge'];
-    // edges by index — a loosely connected perceptual graph (AI + Automation woven in)
+    // edges by index, a loosely connected perceptual graph (AI + Automation woven in)
     var edges = [[0,1],[0,2],[1,4],[2,4],[1,3],[2,3],[4,5],[5,10],[4,10],[5,6],[6,7],[3,8],[8,1],[8,2],[8,9],[9,5],[9,3],[7,6],[8,7]];
     var adj = {};
     edges.forEach(function (e) { (adj[e[0]] = adj[e[0]] || []).push(e[1]); (adj[e[1]] = adj[e[1]] || []).push(e[0]); });
@@ -147,7 +147,7 @@ const groups = [
         var want = near(i) ? 1 : 0; n.glow += (want - n.glow) * 0.12;
       });
 
-      // edges — curved, opacity by activity, animated dash on active links
+      // edges, curved, opacity by activity, animated dash on active links
       edges.forEach(function (e) {
         var a = nodes[e[0]], b = nodes[e[1]]; if (!a || !b) return;
         var active = hover !== -1 && (e[0] === hover || e[1] === hover);
@@ -159,7 +159,7 @@ const groups = [
         ctx.stroke(); ctx.setLineDash([]);
       });
 
-      // nodes — soft halo, core dot, persistent label
+      // nodes, soft halo, core dot, persistent label
       nodes.forEach(function (n, i) {
         var g = n.glow, r = n.base + g * 2 + (n.l === 'AI' ? Math.sin(t * 3) * 0.6 : 0);
         // halo
