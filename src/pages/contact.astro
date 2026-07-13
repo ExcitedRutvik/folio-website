@@ -18,6 +18,7 @@ const jsonld = {
     ]
   }
 };
+const ENQUIRY_ENDPOINT = import.meta.env.PUBLIC_ENQUIRY_ENDPOINT || '';
 const offices = [
   { city: 'London', country: 'United Kingdom', tz: 'Europe/London', note: 'Our UK studio for strategy, design direction and client partnerships across the United Kingdom.', addr: ['<span class="brand">Trayaam</span> London', '86-90 Paul Street', 'London EC2A 4NE'] },
   { city: 'Ahmedabad', country: 'India', tz: 'Asia/Kolkata', note: 'Our build studio for engineering, performance and the production work that ships your site in seven days.', addr: ['<span class="brand">Trayaam</span> Ahmedabad', 'Prahlad Nagar', 'Ahmedabad 380015, Gujarat'] },
@@ -80,7 +81,8 @@ const offices = [
   <div class="container contact">
     <div class="reveal">
       <SectionHead eyebrow="Send an enquiry"><h2 slot="title" class="t-h3">Tell us what you're <em class="italic">building.</em></h2></SectionHead>
-      <form class="form" id="auditForm" style="margin-top:2rem;">
+      <form class="form" id="auditForm" style="margin-top:2rem;" data-endpoint={ENQUIRY_ENDPOINT}>
+        <div aria-hidden="true" style="position:absolute;left:-9999px;height:0;overflow:hidden;"><label>Do not fill this<input type="text" name="_hp" tabindex="-1" autocomplete="off"></label></div>
         <div class="field-row">
           <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" placeholder="Jane Doe" required></div>
           <div class="field"><label for="company">Company</label><input id="company" name="company" type="text" placeholder="Acme Ltd"></div>
@@ -103,10 +105,11 @@ const offices = [
         <div class="field"><label for="msg">Anything we should know?</label><textarea id="msg" name="msg" rows="4" placeholder="A line or two about your project…"></textarea></div>
         <button type="submit" class="btn btn--accent btn--submit" id="submitBtn" style="align-self:flex-start;"><span class="btn__label">Send enquiry</span><span class="arr">→</span><span class="btn__spin" aria-hidden="true"></span></button>
       </form>
+      <p class="t-small" id="formErr" role="alert" style="display:none;margin-top:1rem;color:#c0392b;">Something went wrong sending your message. Please email <a href="mailto:akash@trayaam.com">akash@trayaam.com</a> and we'll pick it up right away.</p>
       <div class="sent" id="sent">
         <span class="sent__check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
         <p class="t-h4" style="font-weight:400;">Thank you, your message is on its way.</p>
-        <p class="t-body" style="margin-top:0.8rem;">We'll reply within one working day. (Demo form, wire to your inbox or Resend before launch.)</p>
+        <p class="t-body" style="margin-top:0.8rem;">We'll reply within one working day. In the meantime, feel free to reach us directly by email or WhatsApp.</p>
       </div>
     </div>
     <div class="contact__side reveal reveal-d1">
@@ -152,20 +155,34 @@ const offices = [
     }
     tick(); setInterval(tick, 30000);
 
-    /* Animated submit: button → spinner → success reveal */
-    var form = document.getElementById('auditForm'), sent = document.getElementById('sent'), btn = document.getElementById('submitBtn');
+    /* Animated submit: button → spinner → success reveal, wired to enquiry endpoint */
+    var form = document.getElementById('auditForm'), sent = document.getElementById('sent'), btn = document.getElementById('submitBtn'), err = document.getElementById('formErr');
     if (form) form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
-      {
-        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        btn.classList.add('is-loading'); btn.setAttribute('aria-busy', 'true');
-        setTimeout(function () {
-          form.style.display = 'none';
-          sent.classList.add('show');
-          sent.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
-        }, reduce ? 0 : 850);
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var endpoint = form.dataset.endpoint;
+      var hp = form.querySelector('[name="_hp"]');
+      if (err) err.style.display = 'none';
+      var showSent = function () {
+        form.style.display = 'none';
+        sent.classList.add('show');
+        sent.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      };
+      btn.classList.add('is-loading'); btn.setAttribute('aria-busy', 'true');
+      /* no endpoint configured (local/demo) or honeypot tripped → fake-delay success */
+      if (!endpoint || (hp && hp.value)) {
+        setTimeout(showSent, reduce ? 0 : 850);
+        return;
       }
+      var body = new URLSearchParams(new FormData(form));
+      body.append('page', location.href);
+      fetch(endpoint, { method: 'POST', mode: 'no-cors', body: body })
+        .then(showSent)
+        .catch(function () {
+          btn.classList.remove('is-loading'); btn.removeAttribute('aria-busy');
+          if (err) err.style.display = 'block';
+        });
     });
   })();
 </script>
